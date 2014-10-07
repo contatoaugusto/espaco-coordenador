@@ -1,0 +1,73 @@
+﻿div#headermensagem {
+  height: 57px;
+  width: auto;
+}
+#foto-remetente {
+  float: left;
+  width: auto;
+}
+#remetente {
+  margin-left: 10px;
+  float: left;
+  width: 700px;
+}
+#remetente li {
+  line-height: 1.5;
+  top: 0;
+}
+.remetente-action {
+  padding-top: 5px;
+}
+#message-to {
+  padding-left: 2px;
+}
+#message-to-from-list {
+  position: relative;
+  top: 0;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+#message-to-from-list img {
+  float: left;
+  border: solid 1px #cccccc;
+}
+div#bodymensagem {
+  position: relative;
+  padding: 10px;
+  border: solid 1px #f1f1f1;
+  overflow: hidden;
+}
+#responder-mensagem {
+  padding: 8px;
+  padding-top: 16px;
+}
+#from-list {
+  position: relative;
+  top: 0;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+#from-list img {
+  float: left;
+  border: solid 1px #cccccc;
+}
+#from-list-modal-users {
+  overflow: auto;
+}
+#from-list-modal-content {
+  margin-top: 4px;
+  overflow: auto;
+  padding: 4px;
+  height: 300px;
+  border: solid 1px #f1f1f1;
+}
+.tip-mensagem-lida,
+.tip-mensagem-naolida {
+  font-size: 85%;
+}
+.tip-mensagem-lida {
+  color: green;
+}
+.tip-mensagem-naolida {
+  color: #af1d22;
+}

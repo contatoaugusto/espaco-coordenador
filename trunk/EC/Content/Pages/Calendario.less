@@ -1,0 +1,93 @@
+﻿.func1() {
+	    padding: 4px;
+        margin: 2px;
+        width: 550px;
+        float: left;
+        vertical-align: top;
+}
+
+#calendario-content {
+    position: relative;
+
+    .day {
+        font-size: 180%;
+    }
+
+
+    .dayofweek {
+        font-weight: bold;
+        color: #d6474c;
+    }
+
+    div.evento {
+        .func1();
+		background: #e8e3d5;
+        border: solid 1px #e1dac4;
+
+        .foto-usuario {
+            margin-right: 4px;
+            float: left;
+        }
+
+        .desc-evento {
+            float: left;
+            width: auto;
+        }
+    }
+
+    div.myevento {
+        .func1();
+        background: #fff;
+        border: solid 1px #e9e8e8;
+		position:relative;
+
+        .foto-usuario {
+            margin-right: 4px;
+            float: left;
+        }
+
+        div.evento .desc-evento {
+            float: left;
+            width: auto;
+        }
+
+        img {
+			position:absolute;
+			right:6px;
+			top:7px;
+        }
+    }
+
+    div.eventoferiado {
+        .func1();
+        background: #fed26a;
+        border: solid 1px #feb145;
+    }
+
+    .bgc-event-today {
+        background-color: #ffe88c;
+    }
+
+    .bgc-event-normal {
+        background-color: #efefef;
+    }
+
+    .ui-datepicker {
+        width: 22em;
+    }
+
+    .ui-datepicker-event {
+        border: 1px solid #AF1D22 !important;
+        background-color: #ffe88c !important;
+    }
+
+    .ui-state-active {
+        background-color: #ffe88c !important;
+    }
+
+    #pager {
+        right: 4px;
+        top: 0;
+        position: absolute;
+    }
+}
