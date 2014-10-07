@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EC", "EC\EC.csproj", "{1E6CB3B5-49E5-4FF4-83A1-4099BA917441}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{22CE9E83-93BF-44C6-AA0C-D3D05ED5859F}"
+	ProjectSection(SolutionItems) = preProject
+		site.css = site.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{D0EAE429-9FAF-4CB9-ABCE-F14B7E610A22}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{91B30401-CB81-4643-9C8B-D89F513B6408}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E6CB3B5-49E5-4FF4-83A1-4099BA917441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6CB3B5-49E5-4FF4-83A1-4099BA917441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6CB3B5-49E5-4FF4-83A1-4099BA917441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6CB3B5-49E5-4FF4-83A1-4099BA917441}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{91B30401-CB81-4643-9C8B-D89F513B6408} = {D0EAE429-9FAF-4CB9-ABCE-F14B7E610A22}
+		{1E6CB3B5-49E5-4FF4-83A1-4099BA917441} = {91B30401-CB81-4643-9C8B-D89F513B6408}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
