@@ -1,0 +1,16 @@
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\EC.UI.WebControls.dll.config
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\EC.UI.WebControls.dll
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\EC.UI.WebControls.pdb
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\EC.Common.dll
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\EPPlus.dll
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\Newtonsoft.Json.dll
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\UniCEUB.Core.dll
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\SGI.Safe.dll
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\EC.Common.pdb
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\EPPlus.xml
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\bin\Debug\Newtonsoft.Json.xml
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\obj\Debug\EC.UI.WebControls.csprojResolveAssemblyReference.cache
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\obj\Debug\EC.UI.WebControls.Resource.resources
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\obj\Debug\EC.UI.WebControls.csproj.GenerateResource.Cache
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\obj\Debug\EC.UI.WebControls.dll
+D:\Augusto\Desenvolvimento\Espaco Coordenador\Espaco Coordenador\EC.UI.WebControls\obj\Debug\EC.UI.WebControls.pdb
