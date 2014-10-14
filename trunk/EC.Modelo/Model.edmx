@@ -1,0 +1,2548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EC.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACAO">
+          <Key>
+            <PropertyRef Name="ID_ACAO" />
+          </Key>
+          <Property Name="ID_ACAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITULO" Type="varchar(max)" />
+          <Property Name="INICIO" Type="datetime" />
+          <Property Name="CONCLUSAO" Type="datetime" />
+          <Property Name="ID_STATUS" Type="int" />
+          <Property Name="ID_PRIORIDADE" Type="int" />
+          <Property Name="ID_PESSOA" Type="int" />
+        </EntityType>
+        <EntityType Name="ACAO_AMC">
+          <Key>
+            <PropertyRef Name="ID_ACAOAMC" />
+          </Key>
+          <Property Name="ID_ACAOAMC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ACAO" Type="int" Nullable="false" />
+          <Property Name="ID_AMC" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ACAO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_ACAO_EVENTO" />
+          </Key>
+          <Property Name="ID_ACAO_EVENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ACAO" Type="int" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ACAO_REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_ACAO_REUNIAO" />
+          </Key>
+          <Property Name="ID_ACAO_REUNIAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ACAO" Type="int" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ALUNO">
+          <Key>
+            <PropertyRef Name="ID_ALUNO" />
+          </Key>
+          <Property Name="ID_ALUNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RA" Type="int" />
+          <Property Name="ID_PESSOA" Type="int" />
+        </EntityType>
+        <EntityType Name="ALUNO_AMC">
+          <Key>
+            <PropertyRef Name="ID_ALUNOAMC" />
+          </Key>
+          <Property Name="ID_ALUNOAMC" Type="money" Nullable="false" />
+          <Property Name="ID_AMC" Type="int" Nullable="false" />
+          <Property Name="ID_ALUNOCURSO" Type="int" Nullable="false" />
+          <Property Name="NOTA" Type="varchar" MaxLength="5" />
+          <Property Name="CLASIFICACAO" Type="int" />
+        </EntityType>
+        <EntityType Name="ALUNO_CURSO">
+          <Key>
+            <PropertyRef Name="ID_ALUNOCURSO" />
+          </Key>
+          <Property Name="ID_ALUNOCURSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ALUNO" Type="int" Nullable="false" />
+          <Property Name="ID_TURMA" Type="int" />
+          <Property Name="DATA_MATRICULA" Type="date" />
+        </EntityType>
+        <EntityType Name="AMC">
+          <Key>
+            <PropertyRef Name="ID_AMC" />
+          </Key>
+          <Property Name="ID_AMC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SEMESTRE" Type="int" Nullable="false" />
+          <Property Name="ANO" Type="int" Nullable="false" />
+          <Property Name="DATA_APLICACAO" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ASSUNTO_TRATADO">
+          <Key>
+            <PropertyRef Name="ID_ASSTRAT" />
+          </Key>
+          <Property Name="ID_ASSTRAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="ITEM" Type="int" />
+          <Property Name="ID_TIPOASSTRATADO" Type="int" />
+        </EntityType>
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="ID_CARGO" />
+          </Key>
+          <Property Name="ID_CARGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="COMPROMISSO">
+          <Key>
+            <PropertyRef Name="ID_COMPROMISSO" />
+          </Key>
+          <Property Name="ID_COMPROMISSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" />
+          <Property Name="ID_PESSOA" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="ITEM" Type="int" />
+          <Property Name="DATA" Type="date" />
+        </EntityType>
+        <EntityType Name="CURSO">
+          <Key>
+            <PropertyRef Name="ID_CURSO" />
+          </Key>
+          <Property Name="ID_CURSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CURSO_COORDENADOR">
+          <Key>
+            <PropertyRef Name="ID_CURSO_COORDENADOR" />
+          </Key>
+          <Property Name="ID_CURSO_COORDENADOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_FUNCIONARIO" Type="int" Nullable="false" />
+          <Property Name="ID_CURSO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DISCIPLINA">
+          <Key>
+            <PropertyRef Name="ID_DISCIPLINA" />
+          </Key>
+          <Property Name="ID_DISCIPLINA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CURSO" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_EVENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TIPOEVENTO" Type="int" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="LOCAL" Type="varchar" MaxLength="50" />
+          <Property Name="INICIO" Type="datetime" />
+          <Property Name="CONCLUSAO" Type="datetime" />
+          <Property Name="ID_PESSOA" Type="int" />
+        </EntityType>
+        <EntityType Name="FUNCIONARIO">
+          <Key>
+            <PropertyRef Name="ID_FUNCIONARIO" />
+          </Key>
+          <Property Name="ID_FUNCIONARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MATRICULA" Type="int" />
+          <Property Name="ID_CARGO" Type="int" />
+          <Property Name="ID_PESSOA" Type="int" />
+        </EntityType>
+        <EntityType Name="LANCAMENTO">
+          <Key>
+            <PropertyRef Name="ID_LANCAMENTO" />
+          </Key>
+          <Property Name="ID_LANCAMENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TURMA" Type="int" />
+          <Property Name="ID_TIPOLANCAMENTO" Type="int" />
+          <Property Name="DATA_LANCAMENTO" Type="date" />
+          <Property Name="SEMESTRE" Type="int" />
+          <Property Name="JUSTIFICATIVA" Type="varchar(max)" />
+          <Property Name="PROVIDENCIA" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="PARTICIPANTE">
+          <Key>
+            <PropertyRef Name="ID_PARTICIPANTE" />
+          </Key>
+          <Property Name="ID_PARTICIPANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_FUNCIONARIO" Type="int" />
+          <Property Name="ID_ALUNO" Type="int" />
+          <Property Name="ID_REUNIAO" Type="int" />
+          <Property Name="PRESENCA" Type="bit" />
+        </EntityType>
+        <EntityType Name="PAUTA_REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_PAUTA" />
+          </Key>
+          <Property Name="ID_PAUTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="ITEM" Type="int" />
+        </EntityType>
+        <EntityType Name="PESSOA">
+          <Key>
+            <PropertyRef Name="ID_PESSOA" />
+          </Key>
+          <Property Name="ID_PESSOA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" />
+          <Property Name="TELEFONE" Type="varchar" MaxLength="15" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PRIORIDADE_ACAO">
+          <Key>
+            <PropertyRef Name="ID_PRIORIDADE" />
+          </Key>
+          <Property Name="ID_PRIORIDADE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="QUESTAO">
+          <Key>
+            <PropertyRef Name="ID_QUESTAO" />
+          </Key>
+          <Property Name="ID_QUESTAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DISCIPLINA" Type="int" />
+          <Property Name="ID_AMC" Type="int" />
+          <Property Name="ID_FUNCIONARIO" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="IMAGEM" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="REPRESENTANTE_TURMA">
+          <Key>
+            <PropertyRef Name="ID_REPRESENTANTE" />
+          </Key>
+          <Property Name="ID_REPRESENTANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TIPOREPRESENTANTE" Type="int" />
+          <Property Name="ID_ALUNOCURSO" Type="int" />
+          <Property Name="ID_TURMA" Type="int" />
+        </EntityType>
+        <EntityType Name="RESPOSTA">
+          <Key>
+            <PropertyRef Name="ID_RESPOSTA" />
+          </Key>
+          <Property Name="ID_RESPOSTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_QUESTAO" Type="int" />
+          <Property Name="TEXTO" Type="varchar(max)" />
+          <Property Name="RESPOSTA_CORRETA" Type="bit" />
+        </EntityType>
+        <EntityType Name="REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_REUNIAO" />
+          </Key>
+          <Property Name="ID_REUNIAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TIPOREUNIAO" Type="int" Nullable="false" />
+          <Property Name="TITULO" Type="varchar" MaxLength="50" />
+          <Property Name="SEMESTRE" Type="int" Nullable="false" />
+          <Property Name="LOCAL" Type="varchar" MaxLength="50" />
+          <Property Name="DATAHORA" Type="datetime" />
+        </EntityType>
+        <EntityType Name="STATUS_ACAO">
+          <Key>
+            <PropertyRef Name="ID_STATUS" />
+          </Key>
+          <Property Name="ID_STATUS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TIPO_ASSUNTO_TRATADO">
+          <Key>
+            <PropertyRef Name="ID_TIPOASSTRATADO" />
+          </Key>
+          <Property Name="ID_TIPOASSTRATADO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPOEVENTO" />
+          </Key>
+          <Property Name="ID_TIPOEVENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPO_LANCAMENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPOLANCAMENTO" />
+          </Key>
+          <Property Name="ID_TIPOLANCAMENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPO_REPRESENTANTE">
+          <Key>
+            <PropertyRef Name="ID_TIPOREPRESENTANTE" />
+          </Key>
+          <Property Name="ID_TIPOREPRESENTANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPO_REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_TIPOREUNIAO" />
+          </Key>
+          <Property Name="ID_TIPOREUNIAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPO_TURMA">
+          <Key>
+            <PropertyRef Name="ID_TIPOTURMA" />
+          </Key>
+          <Property Name="ID_TIPOTURMA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TURMA">
+          <Key>
+            <PropertyRef Name="ID_TURMA" />
+          </Key>
+          <Property Name="ID_TURMA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DISCIPLINA" Type="int" />
+          <Property Name="ID_FUNCIONARIO" Type="int" />
+          <Property Name="ID_TIPOTURMA" Type="int" />
+          <Property Name="SEMESTRE" Type="int" />
+          <Property Name="ANO" Type="int" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="SENHA" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FOTO" Type="binary" MaxLength="1000" />
+          <Property Name="ID_FUNCIONARIO" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="ACAO_STATUS">
+          <End Role="STATUS_ACAO" Type="Self.STATUS_ACAO" Multiplicity="0..1" />
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS_ACAO">
+              <PropertyRef Name="ID_STATUS" />
+            </Principal>
+            <Dependent Role="ACAO">
+              <PropertyRef Name="ID_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acao_amc">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
+          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="ACAO_AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acao_evento">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+          <End Role="ACAO_EVENTO" Type="Self.ACAO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="ACAO_EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACAO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="ACAO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACAO_REUNIAO_ACAO">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_REUNIAO" Type="Self.ACAO_REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_REUNIAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACAO_REUNIAO_REUNIAO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="1" />
+          <End Role="ACAO_REUNIAO" Type="Self.ACAO_REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="ACAO_REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ALUNO_AMC">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="ALUNO_AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_CURSO">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ALUNOCURSO_ALUNO">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="ID_ALUNO" />
+            </Principal>
+            <Dependent Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ALUNOCURSO_AMC">
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="1" />
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Principal>
+            <Dependent Role="ALUNO_AMC">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNOCURSO_REPRESENTANTE">
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_AMC_aCAO">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_AMC">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSTRATADOS">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="ASSUNTO_TRATADO" Type="Self.ASSUNTO_TRATADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ASSUNTRATADO_TIPOASSTRATADO">
+          <End Role="TIPO_ASSUNTO_TRATADO" Type="Self.TIPO_ASSUNTO_TRATADO" Multiplicity="0..1" />
+          <End Role="ASSUNTO_TRATADO" Type="Self.ASSUNTO_TRATADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_TIPOASSTRATADO" />
+            </Principal>
+            <Dependent Role="ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_TIPOASSTRATADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_COMPROMISSO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="COMPROMISSO" Type="Self.COMPROMISSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="COMPROMISSO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COORDENADOR_CURSO">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="1" />
+          <End Role="CURSO_COORDENADOR" Type="Self.CURSO_COORDENADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="ID_CURSO" />
+            </Principal>
+            <Dependent Role="CURSO_COORDENADOR">
+              <PropertyRef Name="ID_CURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COORDENADOR_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="CURSO_COORDENADOR" Type="Self.CURSO_COORDENADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="CURSO_COORDENADOR">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_DISCIPLINA_CURSO">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="ID_CURSO" />
+            </Principal>
+            <Dependent Role="DISCIPLINA">
+              <PropertyRef Name="ID_CURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_DISCIPLINA_QUESTAO">
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EVENTO_aCAO">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_EVENTO" Type="Self.ACAO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_EVENTO">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EVENTO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FUNCIONARIO_CARGO">
+          <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="ID_CARGO" />
+            </Principal>
+            <Dependent Role="FUNCIONARIO">
+              <PropertyRef Name="ID_CARGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FUNCIONARIO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="FUNCIONARIO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FUNCIONARIO_QUESTAO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_FUNCIONARIO_QUESTAO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_QUESTAO">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_TIPOEVENTO">
+          <End Role="TIPO_EVENTO" Type="Self.TIPO_EVENTO" Multiplicity="0..1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID_TIPOEVENTO" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_TIPOEVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_LANCAMENTO_TIPOLANCAM">
+          <End Role="TIPO_LANCAMENTO" Type="Self.TIPO_LANCAMENTO" Multiplicity="0..1" />
+          <End Role="LANCAMENTO" Type="Self.LANCAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_LANCAMENTO">
+              <PropertyRef Name="ID_TIPOLANCAMENTO" />
+            </Principal>
+            <Dependent Role="LANCAMENTO">
+              <PropertyRef Name="ID_TIPOLANCAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_LANCAMENTO_TURMA">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="LANCAMENTO" Type="Self.LANCAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="LANCAMENTO">
+              <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PARTICIPANTE_ALUNO">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="0..1" />
+          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="ID_ALUNO" />
+            </Principal>
+            <Dependent Role="PARTICIPANTE">
+              <PropertyRef Name="ID_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PARTICIPANTE_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="PARTICIPANTE">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PARTICIPANTE_REUNIAO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="PARTICIPANTE">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PESSOA_ALUNO">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="ALUNO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PRIORIDADE_ACAO_ACAO">
+          <End Role="PRIORIDADE_ACAO" Type="Self.PRIORIDADE_ACAO" Multiplicity="0..1" />
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRIORIDADE_ACAO">
+              <PropertyRef Name="ID_PRIORIDADE" />
+            </Principal>
+            <Dependent Role="ACAO">
+              <PropertyRef Name="ID_PRIORIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESPOSTA_QUESTAO">
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="0..1" />
+          <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUESTAO">
+              <PropertyRef Name="ID_QUESTAO" />
+            </Principal>
+            <Dependent Role="RESPOSTA">
+              <PropertyRef Name="ID_QUESTAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_REUNIAO_COMPROMISSO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="COMPROMISSO" Type="Self.COMPROMISSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="COMPROMISSO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_REUNIAO_PAUTA">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="PAUTA_REUNIAO" Type="Self.PAUTA_REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="PAUTA_REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPOREPRESENTANTE_REPRESENTANTE">
+          <End Role="TIPO_REPRESENTANTE" Type="Self.TIPO_REPRESENTANTE" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_REPRESENTANTE">
+              <PropertyRef Name="ID_TIPOREPRESENTANTE" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_TIPOREPRESENTANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPOREUNIAO">
+          <End Role="TIPO_REUNIAO" Type="Self.TIPO_REUNIAO" Multiplicity="1" />
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_REUNIAO">
+              <PropertyRef Name="ID_TIPOREUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO">
+              <PropertyRef Name="ID_TIPOREUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="TURMA">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_REPRESENTANTE">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_TIPO">
+          <End Role="TIPO_TURMA" Type="Self.TIPO_TURMA" Multiplicity="0..1" />
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TURMA">
+              <PropertyRef Name="ID_TIPOTURMA" />
+            </Principal>
+            <Dependent Role="TURMA">
+              <PropertyRef Name="ID_TIPOTURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_USUARIO_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ECModelStoreContainer">
+          <EntitySet Name="ACAO" EntityType="Self.ACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACAO_AMC" EntityType="Self.ACAO_AMC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACAO_EVENTO" EntityType="Self.ACAO_EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACAO_REUNIAO" EntityType="Self.ACAO_REUNIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ALUNO" EntityType="Self.ALUNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ALUNO_AMC" EntityType="Self.ALUNO_AMC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ALUNO_CURSO" EntityType="Self.ALUNO_CURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AMC" EntityType="Self.AMC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ASSUNTO_TRATADO" EntityType="Self.ASSUNTO_TRATADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPROMISSO" EntityType="Self.COMPROMISSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CURSO" EntityType="Self.CURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CURSO_COORDENADOR" EntityType="Self.CURSO_COORDENADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISCIPLINA" EntityType="Self.DISCIPLINA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FUNCIONARIO" EntityType="Self.FUNCIONARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LANCAMENTO" EntityType="Self.LANCAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARTICIPANTE" EntityType="Self.PARTICIPANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAUTA_REUNIAO" EntityType="Self.PAUTA_REUNIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PESSOA" EntityType="Self.PESSOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRIORIDADE_ACAO" EntityType="Self.PRIORIDADE_ACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUESTAO" EntityType="Self.QUESTAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPRESENTANTE_TURMA" EntityType="Self.REPRESENTANTE_TURMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESPOSTA" EntityType="Self.RESPOSTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REUNIAO" EntityType="Self.REUNIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS_ACAO" EntityType="Self.STATUS_ACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_ASSUNTO_TRATADO" EntityType="Self.TIPO_ASSUNTO_TRATADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_LANCAMENTO" EntityType="Self.TIPO_LANCAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_REPRESENTANTE" EntityType="Self.TIPO_REPRESENTANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_REUNIAO" EntityType="Self.TIPO_REUNIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_TURMA" EntityType="Self.TIPO_TURMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TURMA" EntityType="Self.TURMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="ACAO_STATUS" Association="Self.ACAO_STATUS">
+            <End Role="STATUS_ACAO" EntitySet="STATUS_ACAO" />
+            <End Role="ACAO" EntitySet="ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acao_amc" Association="Self.fk_acao_amc">
+            <End Role="AMC" EntitySet="AMC" />
+            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acao_evento" Association="Self.fk_acao_evento">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="ACAO_EVENTO" EntitySet="ACAO_EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACAO_PESSOA" Association="Self.fk_ACAO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="ACAO" EntitySet="ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACAO_REUNIAO_ACAO" Association="Self.fk_ACAO_REUNIAO_ACAO">
+            <End Role="ACAO" EntitySet="ACAO" />
+            <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACAO_REUNIAO_REUNIAO" Association="Self.fk_ACAO_REUNIAO_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ALUNO_AMC" Association="Self.fk_ALUNO_AMC">
+            <End Role="AMC" EntitySet="AMC" />
+            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_CURSO" Association="Self.FK_ALUNO_CURSO">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ALUNOCURSO_ALUNO" Association="Self.fk_ALUNOCURSO_ALUNO">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ALUNOCURSO_AMC" Association="Self.fk_ALUNOCURSO_AMC">
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNOCURSO_REPRESENTANTE" Association="Self.FK_ALUNOCURSO_REPRESENTANTE">
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_AMC_aCAO" Association="Self.fk_AMC_aCAO">
+            <End Role="ACAO" EntitySet="ACAO" />
+            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSTRATADOS" Association="Self.FK_ASSTRATADOS">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ASSUNTRATADO_TIPOASSTRATADO" Association="Self.fk_ASSUNTRATADO_TIPOASSTRATADO">
+            <End Role="TIPO_ASSUNTO_TRATADO" EntitySet="TIPO_ASSUNTO_TRATADO" />
+            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_COMPROMISSO_PESSOA" Association="Self.fk_COMPROMISSO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COORDENADOR_CURSO" Association="Self.FK_COORDENADOR_CURSO">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="CURSO_COORDENADOR" EntitySet="CURSO_COORDENADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COORDENADOR_FUNCIONARIO" Association="Self.FK_COORDENADOR_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="CURSO_COORDENADOR" EntitySet="CURSO_COORDENADOR" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_DISCIPLINA_CURSO" Association="Self.Fk_DISCIPLINA_CURSO">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_DISCIPLINA_QUESTAO" Association="Self.fk_DISCIPLINA_QUESTAO">
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EVENTO_aCAO" Association="Self.fk_EVENTO_aCAO">
+            <End Role="ACAO" EntitySet="ACAO" />
+            <End Role="ACAO_EVENTO" EntitySet="ACAO_EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EVENTO_PESSOA" Association="Self.fk_EVENTO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FUNCIONARIO_CARGO" Association="Self.fk_FUNCIONARIO_CARGO">
+            <End Role="CARGO" EntitySet="CARGO" />
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FUNCIONARIO_PESSOA" Association="Self.fk_FUNCIONARIO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FUNCIONARIO_QUESTAO" Association="Self.fk_FUNCIONARIO_QUESTAO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_FUNCIONARIO_QUESTAO" Association="Self.FK_ID_FUNCIONARIO_QUESTAO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_QUESTAO" Association="Self.FK_ID_QUESTAO">
+            <End Role="AMC" EntitySet="AMC" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_TIPOEVENTO" Association="Self.FK_ID_TIPOEVENTO">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_LANCAMENTO_TIPOLANCAM" Association="Self.Fk_LANCAMENTO_TIPOLANCAM">
+            <End Role="TIPO_LANCAMENTO" EntitySet="TIPO_LANCAMENTO" />
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_LANCAMENTO_TURMA" Association="Self.Fk_LANCAMENTO_TURMA">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PARTICIPANTE_ALUNO" Association="Self.fk_PARTICIPANTE_ALUNO">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PARTICIPANTE_FUNCIONARIO" Association="Self.fk_PARTICIPANTE_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PARTICIPANTE_REUNIAO" Association="Self.fk_PARTICIPANTE_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PESSOA_ALUNO" Association="Self.fk_PESSOA_ALUNO">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="ALUNO" EntitySet="ALUNO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PRIORIDADE_ACAO_ACAO" Association="Self.fk_PRIORIDADE_ACAO_ACAO">
+            <End Role="PRIORIDADE_ACAO" EntitySet="PRIORIDADE_ACAO" />
+            <End Role="ACAO" EntitySet="ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESPOSTA_QUESTAO" Association="Self.fk_RESPOSTA_QUESTAO">
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+            <End Role="RESPOSTA" EntitySet="RESPOSTA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_REUNIAO_COMPROMISSO" Association="Self.fk_REUNIAO_COMPROMISSO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_REUNIAO_PAUTA" Association="Self.fk_REUNIAO_PAUTA">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="PAUTA_REUNIAO" EntitySet="PAUTA_REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPOREPRESENTANTE_REPRESENTANTE" Association="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE">
+            <End Role="TIPO_REPRESENTANTE" EntitySet="TIPO_REPRESENTANTE" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPOREUNIAO" Association="Self.FK_TIPOREUNIAO">
+            <End Role="TIPO_REUNIAO" EntitySet="TIPO_REUNIAO" />
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA_FUNCIONARIO" Association="Self.FK_TURMA_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="TURMA" EntitySet="TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA_REPRESENTANTE" Association="Self.FK_TURMA_REPRESENTANTE">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA_TIPO" Association="Self.FK_TURMA_TIPO">
+            <End Role="TIPO_TURMA" EntitySet="TIPO_TURMA" />
+            <End Role="TURMA" EntitySet="TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_USUARIO_FUNCIONARIO" Association="Self.fk_USUARIO_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EC.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACAO">
+          <Key>
+            <PropertyRef Name="ID_ACAO" />
+          </Key>
+          <Property Name="ID_ACAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITULO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="INICIO" Type="DateTime" />
+          <Property Name="CONCLUSAO" Type="DateTime" />
+          <Property Name="ID_STATUS" Type="Int32" />
+          <Property Name="ID_PRIORIDADE" Type="Int32" />
+          <Property Name="ID_PESSOA" Type="Int32" />
+          <NavigationProperty Name="STATUS_ACAO" Relationship="Self.ACAO_STATUS" FromRole="ACAO" ToRole="STATUS_ACAO" />
+          <NavigationProperty Name="PESSOA" Relationship="Self.fk_ACAO_PESSOA" FromRole="ACAO" ToRole="PESSOA" />
+          <NavigationProperty Name="ACAO_REUNIAO" Relationship="Self.fk_ACAO_REUNIAO_ACAO" FromRole="ACAO" ToRole="ACAO_REUNIAO" />
+          <NavigationProperty Name="ACAO_AMC" Relationship="Self.fk_AMC_aCAO" FromRole="ACAO" ToRole="ACAO_AMC" />
+          <NavigationProperty Name="ACAO_EVENTO" Relationship="Self.fk_EVENTO_aCAO" FromRole="ACAO" ToRole="ACAO_EVENTO" />
+          <NavigationProperty Name="PRIORIDADE_ACAO" Relationship="Self.fk_PRIORIDADE_ACAO_ACAO" FromRole="ACAO" ToRole="PRIORIDADE_ACAO" />
+        </EntityType>
+        <EntityType Name="ACAO_AMC">
+          <Key>
+            <PropertyRef Name="ID_ACAOAMC" />
+          </Key>
+          <Property Name="ID_ACAOAMC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ACAO" Type="Int32" Nullable="false" />
+          <Property Name="ID_AMC" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ACAO" Relationship="Self.fk_AMC_aCAO" FromRole="ACAO_AMC" ToRole="ACAO" />
+          <NavigationProperty Name="AMC" Relationship="Self.fk_acao_amc" FromRole="ACAO_AMC" ToRole="AMC" />
+        </EntityType>
+        <EntityType Name="ACAO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_ACAO_EVENTO" />
+          </Key>
+          <Property Name="ID_ACAO_EVENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ACAO" Type="Int32" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ACAO" Relationship="Self.fk_EVENTO_aCAO" FromRole="ACAO_EVENTO" ToRole="ACAO" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.fk_acao_evento" FromRole="ACAO_EVENTO" ToRole="EVENTO" />
+        </EntityType>
+        <EntityType Name="ACAO_REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_ACAO_REUNIAO" />
+          </Key>
+          <Property Name="ID_ACAO_REUNIAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ACAO" Type="Int32" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ACAO" Relationship="Self.fk_ACAO_REUNIAO_ACAO" FromRole="ACAO_REUNIAO" ToRole="ACAO" />
+          <NavigationProperty Name="REUNIAO" Relationship="Self.fk_ACAO_REUNIAO_REUNIAO" FromRole="ACAO_REUNIAO" ToRole="REUNIAO" />
+        </EntityType>
+        <EntityType Name="ALUNO">
+          <Key>
+            <PropertyRef Name="ID_ALUNO" />
+          </Key>
+          <Property Name="ID_ALUNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RA" Type="Int32" />
+          <Property Name="ID_PESSOA" Type="Int32" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.fk_ALUNOCURSO_ALUNO" FromRole="ALUNO" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="PARTICIPANTE" Relationship="Self.fk_PARTICIPANTE_ALUNO" FromRole="ALUNO" ToRole="PARTICIPANTE" />
+          <NavigationProperty Name="PESSOA" Relationship="Self.fk_PESSOA_ALUNO" FromRole="ALUNO" ToRole="PESSOA" />
+        </EntityType>
+        <EntityType Name="ALUNO_AMC">
+          <Key>
+            <PropertyRef Name="ID_ALUNOAMC" />
+          </Key>
+          <Property Name="ID_ALUNOAMC" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ID_AMC" Type="Int32" Nullable="false" />
+          <Property Name="ID_ALUNOCURSO" Type="Int32" Nullable="false" />
+          <Property Name="NOTA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CLASIFICACAO" Type="Int32" />
+          <NavigationProperty Name="AMC" Relationship="Self.fk_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="AMC" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.fk_ALUNOCURSO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_CURSO" />
+        </EntityType>
+        <EntityType Name="ALUNO_CURSO">
+          <Key>
+            <PropertyRef Name="ID_ALUNOCURSO" />
+          </Key>
+          <Property Name="ID_ALUNOCURSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ALUNO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TURMA" Type="Int32" />
+          <Property Name="DATA_MATRICULA" Type="DateTime" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.fk_ALUNOCURSO_ALUNO" FromRole="ALUNO_CURSO" ToRole="ALUNO" />
+          <NavigationProperty Name="ALUNO_AMC" Relationship="Self.fk_ALUNOCURSO_AMC" FromRole="ALUNO_CURSO" ToRole="ALUNO_AMC" />
+          <NavigationProperty Name="TURMA" Relationship="Self.FK_ALUNO_CURSO" FromRole="ALUNO_CURSO" ToRole="TURMA" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_ALUNOCURSO_REPRESENTANTE" FromRole="ALUNO_CURSO" ToRole="REPRESENTANTE_TURMA" />
+        </EntityType>
+        <EntityType Name="AMC">
+          <Key>
+            <PropertyRef Name="ID_AMC" />
+          </Key>
+          <Property Name="ID_AMC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SEMESTRE" Type="Int32" Nullable="false" />
+          <Property Name="ANO" Type="Int32" Nullable="false" />
+          <Property Name="DATA_APLICACAO" Type="DateTime" />
+          <NavigationProperty Name="ACAO_AMC" Relationship="Self.fk_acao_amc" FromRole="AMC" ToRole="ACAO_AMC" />
+          <NavigationProperty Name="ALUNO_AMC" Relationship="Self.fk_ALUNO_AMC" FromRole="AMC" ToRole="ALUNO_AMC" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.FK_ID_QUESTAO" FromRole="AMC" ToRole="QUESTAO" />
+        </EntityType>
+        <EntityType Name="ASSUNTO_TRATADO">
+          <Key>
+            <PropertyRef Name="ID_ASSTRAT" />
+          </Key>
+          <Property Name="ID_ASSTRAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_REUNIAO" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="Int32" />
+          <Property Name="ID_TIPOASSTRATADO" Type="Int32" />
+          <NavigationProperty Name="REUNIAO" Relationship="Self.FK_ASSTRATADOS" FromRole="ASSUNTO_TRATADO" ToRole="REUNIAO" />
+          <NavigationProperty Name="TIPO_ASSUNTO_TRATADO" Relationship="Self.fk_ASSUNTRATADO_TIPOASSTRATADO" FromRole="ASSUNTO_TRATADO" ToRole="TIPO_ASSUNTO_TRATADO" />
+        </EntityType>
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="ID_CARGO" />
+          </Key>
+          <Property Name="ID_CARGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.fk_FUNCIONARIO_CARGO" FromRole="CARGO" ToRole="FUNCIONARIO" />
+        </EntityType>
+        <EntityType Name="COMPROMISSO">
+          <Key>
+            <PropertyRef Name="ID_COMPROMISSO" />
+          </Key>
+          <Property Name="ID_COMPROMISSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_REUNIAO" Type="Int32" />
+          <Property Name="ID_PESSOA" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="Int32" />
+          <Property Name="DATA" Type="DateTime" />
+          <NavigationProperty Name="PESSOA" Relationship="Self.fk_COMPROMISSO_PESSOA" FromRole="COMPROMISSO" ToRole="PESSOA" />
+          <NavigationProperty Name="REUNIAO" Relationship="Self.fk_REUNIAO_COMPROMISSO" FromRole="COMPROMISSO" ToRole="REUNIAO" />
+        </EntityType>
+        <EntityType Name="CURSO">
+          <Key>
+            <PropertyRef Name="ID_CURSO" />
+          </Key>
+          <Property Name="ID_CURSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CURSO_COORDENADOR" Relationship="Self.FK_COORDENADOR_CURSO" FromRole="CURSO" ToRole="CURSO_COORDENADOR" />
+          <NavigationProperty Name="DISCIPLINA" Relationship="Self.Fk_DISCIPLINA_CURSO" FromRole="CURSO" ToRole="DISCIPLINA" />
+        </EntityType>
+        <EntityType Name="CURSO_COORDENADOR">
+          <Key>
+            <PropertyRef Name="ID_CURSO_COORDENADOR" />
+          </Key>
+          <Property Name="ID_CURSO_COORDENADOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_FUNCIONARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_CURSO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CURSO" Relationship="Self.FK_COORDENADOR_CURSO" FromRole="CURSO_COORDENADOR" ToRole="CURSO" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.FK_COORDENADOR_FUNCIONARIO" FromRole="CURSO_COORDENADOR" ToRole="FUNCIONARIO" />
+        </EntityType>
+        <EntityType Name="DISCIPLINA">
+          <Key>
+            <PropertyRef Name="ID_DISCIPLINA" />
+          </Key>
+          <Property Name="ID_DISCIPLINA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CURSO" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CURSO" Relationship="Self.Fk_DISCIPLINA_CURSO" FromRole="DISCIPLINA" ToRole="CURSO" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.fk_DISCIPLINA_QUESTAO" FromRole="DISCIPLINA" ToRole="QUESTAO" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_EVENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TIPOEVENTO" Type="Int32" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LOCAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INICIO" Type="DateTime" />
+          <Property Name="CONCLUSAO" Type="DateTime" />
+          <Property Name="ID_PESSOA" Type="Int32" />
+          <NavigationProperty Name="ACAO_EVENTO" Relationship="Self.fk_acao_evento" FromRole="EVENTO" ToRole="ACAO_EVENTO" />
+          <NavigationProperty Name="PESSOA" Relationship="Self.fk_EVENTO_PESSOA" FromRole="EVENTO" ToRole="PESSOA" />
+          <NavigationProperty Name="TIPO_EVENTO" Relationship="Self.FK_ID_TIPOEVENTO" FromRole="EVENTO" ToRole="TIPO_EVENTO" />
+        </EntityType>
+        <EntityType Name="FUNCIONARIO">
+          <Key>
+            <PropertyRef Name="ID_FUNCIONARIO" />
+          </Key>
+          <Property Name="ID_FUNCIONARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MATRICULA" Type="Int32" />
+          <Property Name="ID_CARGO" Type="Int32" />
+          <Property Name="ID_PESSOA" Type="Int32" />
+          <NavigationProperty Name="CARGO" Relationship="Self.fk_FUNCIONARIO_CARGO" FromRole="FUNCIONARIO" ToRole="CARGO" />
+          <NavigationProperty Name="CURSO_COORDENADOR" Relationship="Self.FK_COORDENADOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="CURSO_COORDENADOR" />
+          <NavigationProperty Name="PESSOA" Relationship="Self.fk_FUNCIONARIO_PESSOA" FromRole="FUNCIONARIO" ToRole="PESSOA" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.fk_FUNCIONARIO_QUESTAO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
+          <NavigationProperty Name="QUESTAO1" Relationship="Self.FK_ID_FUNCIONARIO_QUESTAO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
+          <NavigationProperty Name="PARTICIPANTE" Relationship="Self.fk_PARTICIPANTE_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="PARTICIPANTE" />
+          <NavigationProperty Name="TURMA" Relationship="Self.FK_TURMA_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="TURMA" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.fk_USUARIO_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="LANCAMENTO">
+          <Key>
+            <PropertyRef Name="ID_LANCAMENTO" />
+          </Key>
+          <Property Name="ID_LANCAMENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TURMA" Type="Int32" />
+          <Property Name="ID_TIPOLANCAMENTO" Type="Int32" />
+          <Property Name="DATA_LANCAMENTO" Type="DateTime" />
+          <Property Name="SEMESTRE" Type="Int32" />
+          <Property Name="JUSTIFICATIVA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PROVIDENCIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TIPO_LANCAMENTO" Relationship="Self.Fk_LANCAMENTO_TIPOLANCAM" FromRole="LANCAMENTO" ToRole="TIPO_LANCAMENTO" />
+          <NavigationProperty Name="TURMA" Relationship="Self.Fk_LANCAMENTO_TURMA" FromRole="LANCAMENTO" ToRole="TURMA" />
+        </EntityType>
+        <EntityType Name="PARTICIPANTE">
+          <Key>
+            <PropertyRef Name="ID_PARTICIPANTE" />
+          </Key>
+          <Property Name="ID_PARTICIPANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_FUNCIONARIO" Type="Int32" />
+          <Property Name="ID_ALUNO" Type="Int32" />
+          <Property Name="ID_REUNIAO" Type="Int32" />
+          <Property Name="PRESENCA" Type="Boolean" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.fk_PARTICIPANTE_ALUNO" FromRole="PARTICIPANTE" ToRole="ALUNO" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.fk_PARTICIPANTE_FUNCIONARIO" FromRole="PARTICIPANTE" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="REUNIAO" Relationship="Self.fk_PARTICIPANTE_REUNIAO" FromRole="PARTICIPANTE" ToRole="REUNIAO" />
+        </EntityType>
+        <EntityType Name="PAUTA_REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_PAUTA" />
+          </Key>
+          <Property Name="ID_PAUTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_REUNIAO" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="Int32" />
+          <NavigationProperty Name="REUNIAO" Relationship="Self.fk_REUNIAO_PAUTA" FromRole="PAUTA_REUNIAO" ToRole="REUNIAO" />
+        </EntityType>
+        <EntityType Name="PESSOA">
+          <Key>
+            <PropertyRef Name="ID_PESSOA" />
+          </Key>
+          <Property Name="ID_PESSOA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACAO" Relationship="Self.fk_ACAO_PESSOA" FromRole="PESSOA" ToRole="ACAO" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.fk_PESSOA_ALUNO" FromRole="PESSOA" ToRole="ALUNO" />
+          <NavigationProperty Name="COMPROMISSO" Relationship="Self.fk_COMPROMISSO_PESSOA" FromRole="PESSOA" ToRole="COMPROMISSO" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.fk_EVENTO_PESSOA" FromRole="PESSOA" ToRole="EVENTO" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.fk_FUNCIONARIO_PESSOA" FromRole="PESSOA" ToRole="FUNCIONARIO" />
+        </EntityType>
+        <EntityType Name="PRIORIDADE_ACAO">
+          <Key>
+            <PropertyRef Name="ID_PRIORIDADE" />
+          </Key>
+          <Property Name="ID_PRIORIDADE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACAO" Relationship="Self.fk_PRIORIDADE_ACAO_ACAO" FromRole="PRIORIDADE_ACAO" ToRole="ACAO" />
+        </EntityType>
+        <EntityType Name="QUESTAO">
+          <Key>
+            <PropertyRef Name="ID_QUESTAO" />
+          </Key>
+          <Property Name="ID_QUESTAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DISCIPLINA" Type="Int32" />
+          <Property Name="ID_AMC" Type="Int32" />
+          <Property Name="ID_FUNCIONARIO" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGEM" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="AMC" Relationship="Self.FK_ID_QUESTAO" FromRole="QUESTAO" ToRole="AMC" />
+          <NavigationProperty Name="DISCIPLINA" Relationship="Self.fk_DISCIPLINA_QUESTAO" FromRole="QUESTAO" ToRole="DISCIPLINA" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.fk_FUNCIONARIO_QUESTAO" FromRole="QUESTAO" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="FUNCIONARIO1" Relationship="Self.FK_ID_FUNCIONARIO_QUESTAO" FromRole="QUESTAO" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="RESPOSTA" Relationship="Self.fk_RESPOSTA_QUESTAO" FromRole="QUESTAO" ToRole="RESPOSTA" />
+        </EntityType>
+        <EntityType Name="REPRESENTANTE_TURMA">
+          <Key>
+            <PropertyRef Name="ID_REPRESENTANTE" />
+          </Key>
+          <Property Name="ID_REPRESENTANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TIPOREPRESENTANTE" Type="Int32" />
+          <Property Name="ID_ALUNOCURSO" Type="Int32" />
+          <Property Name="ID_TURMA" Type="Int32" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_ALUNOCURSO_REPRESENTANTE" FromRole="REPRESENTANTE_TURMA" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="TIPO_REPRESENTANTE" Relationship="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE" FromRole="REPRESENTANTE_TURMA" ToRole="TIPO_REPRESENTANTE" />
+          <NavigationProperty Name="TURMA" Relationship="Self.FK_TURMA_REPRESENTANTE" FromRole="REPRESENTANTE_TURMA" ToRole="TURMA" />
+        </EntityType>
+        <EntityType Name="RESPOSTA">
+          <Key>
+            <PropertyRef Name="ID_RESPOSTA" />
+          </Key>
+          <Property Name="ID_RESPOSTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_QUESTAO" Type="Int32" />
+          <Property Name="TEXTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RESPOSTA_CORRETA" Type="Boolean" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.fk_RESPOSTA_QUESTAO" FromRole="RESPOSTA" ToRole="QUESTAO" />
+        </EntityType>
+        <EntityType Name="REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_REUNIAO" />
+          </Key>
+          <Property Name="ID_REUNIAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TIPOREUNIAO" Type="Int32" Nullable="false" />
+          <Property Name="TITULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SEMESTRE" Type="Int32" Nullable="false" />
+          <Property Name="LOCAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATAHORA" Type="DateTime" />
+          <NavigationProperty Name="ACAO_REUNIAO" Relationship="Self.fk_ACAO_REUNIAO_REUNIAO" FromRole="REUNIAO" ToRole="ACAO_REUNIAO" />
+          <NavigationProperty Name="ASSUNTO_TRATADO" Relationship="Self.FK_ASSTRATADOS" FromRole="REUNIAO" ToRole="ASSUNTO_TRATADO" />
+          <NavigationProperty Name="COMPROMISSO" Relationship="Self.fk_REUNIAO_COMPROMISSO" FromRole="REUNIAO" ToRole="COMPROMISSO" />
+          <NavigationProperty Name="PARTICIPANTE" Relationship="Self.fk_PARTICIPANTE_REUNIAO" FromRole="REUNIAO" ToRole="PARTICIPANTE" />
+          <NavigationProperty Name="PAUTA_REUNIAO" Relationship="Self.fk_REUNIAO_PAUTA" FromRole="REUNIAO" ToRole="PAUTA_REUNIAO" />
+          <NavigationProperty Name="TIPO_REUNIAO" Relationship="Self.FK_TIPOREUNIAO" FromRole="REUNIAO" ToRole="TIPO_REUNIAO" />
+        </EntityType>
+        <EntityType Name="STATUS_ACAO">
+          <Key>
+            <PropertyRef Name="ID_STATUS" />
+          </Key>
+          <Property Name="ID_STATUS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACAO" Relationship="Self.ACAO_STATUS" FromRole="STATUS_ACAO" ToRole="ACAO" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TIPO_ASSUNTO_TRATADO">
+          <Key>
+            <PropertyRef Name="ID_TIPOASSTRATADO" />
+          </Key>
+          <Property Name="ID_TIPOASSTRATADO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ASSUNTO_TRATADO" Relationship="Self.fk_ASSUNTRATADO_TIPOASSTRATADO" FromRole="TIPO_ASSUNTO_TRATADO" ToRole="ASSUNTO_TRATADO" />
+        </EntityType>
+        <EntityType Name="TIPO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPOEVENTO" />
+          </Key>
+          <Property Name="ID_TIPOEVENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.FK_ID_TIPOEVENTO" FromRole="TIPO_EVENTO" ToRole="EVENTO" />
+        </EntityType>
+        <EntityType Name="TIPO_LANCAMENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPOLANCAMENTO" />
+          </Key>
+          <Property Name="ID_TIPOLANCAMENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LANCAMENTO" Relationship="Self.Fk_LANCAMENTO_TIPOLANCAM" FromRole="TIPO_LANCAMENTO" ToRole="LANCAMENTO" />
+        </EntityType>
+        <EntityType Name="TIPO_REPRESENTANTE">
+          <Key>
+            <PropertyRef Name="ID_TIPOREPRESENTANTE" />
+          </Key>
+          <Property Name="ID_TIPOREPRESENTANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE" FromRole="TIPO_REPRESENTANTE" ToRole="REPRESENTANTE_TURMA" />
+        </EntityType>
+        <EntityType Name="TIPO_REUNIAO">
+          <Key>
+            <PropertyRef Name="ID_TIPOREUNIAO" />
+          </Key>
+          <Property Name="ID_TIPOREUNIAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="REUNIAO" Relationship="Self.FK_TIPOREUNIAO" FromRole="TIPO_REUNIAO" ToRole="REUNIAO" />
+        </EntityType>
+        <EntityType Name="TIPO_TURMA">
+          <Key>
+            <PropertyRef Name="ID_TIPOTURMA" />
+          </Key>
+          <Property Name="ID_TIPOTURMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TURMA" Relationship="Self.FK_TURMA_TIPO" FromRole="TIPO_TURMA" ToRole="TURMA" />
+        </EntityType>
+        <EntityType Name="TURMA">
+          <Key>
+            <PropertyRef Name="ID_TURMA" />
+          </Key>
+          <Property Name="ID_TURMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DISCIPLINA" Type="Int32" />
+          <Property Name="ID_FUNCIONARIO" Type="Int32" />
+          <Property Name="ID_TIPOTURMA" Type="Int32" />
+          <Property Name="SEMESTRE" Type="Int32" />
+          <Property Name="ANO" Type="Int32" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_ALUNO_CURSO" FromRole="TURMA" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.FK_TURMA_FUNCIONARIO" FromRole="TURMA" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="LANCAMENTO" Relationship="Self.Fk_LANCAMENTO_TURMA" FromRole="TURMA" ToRole="LANCAMENTO" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_TURMA_REPRESENTANTE" FromRole="TURMA" ToRole="REPRESENTANTE_TURMA" />
+          <NavigationProperty Name="TIPO_TURMA" Relationship="Self.FK_TURMA_TIPO" FromRole="TURMA" ToRole="TIPO_TURMA" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="SENHA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FOTO" Type="Binary" MaxLength="1000" FixedLength="true" />
+          <Property Name="ID_FUNCIONARIO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.fk_USUARIO_FUNCIONARIO" FromRole="USUARIO" ToRole="FUNCIONARIO" />
+        </EntityType>
+        <Association Name="ACAO_STATUS">
+          <End Role="STATUS_ACAO" Type="Self.STATUS_ACAO" Multiplicity="0..1" />
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS_ACAO">
+              <PropertyRef Name="ID_STATUS" />
+            </Principal>
+            <Dependent Role="ACAO">
+              <PropertyRef Name="ID_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACAO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="ACAO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACAO_REUNIAO_ACAO">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_REUNIAO" Type="Self.ACAO_REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_REUNIAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_AMC_aCAO">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_AMC">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EVENTO_aCAO">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_EVENTO" Type="Self.ACAO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_EVENTO">
+              <PropertyRef Name="ID_ACAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PRIORIDADE_ACAO_ACAO">
+          <End Role="PRIORIDADE_ACAO" Type="Self.PRIORIDADE_ACAO" Multiplicity="0..1" />
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRIORIDADE_ACAO">
+              <PropertyRef Name="ID_PRIORIDADE" />
+            </Principal>
+            <Dependent Role="ACAO">
+              <PropertyRef Name="ID_PRIORIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acao_amc">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
+          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="ACAO_AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acao_evento">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+          <End Role="ACAO_EVENTO" Type="Self.ACAO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="ACAO_EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ACAO_REUNIAO_REUNIAO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="1" />
+          <End Role="ACAO_REUNIAO" Type="Self.ACAO_REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="ACAO_REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ALUNOCURSO_ALUNO">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="ID_ALUNO" />
+            </Principal>
+            <Dependent Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PARTICIPANTE_ALUNO">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="0..1" />
+          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="ID_ALUNO" />
+            </Principal>
+            <Dependent Role="PARTICIPANTE">
+              <PropertyRef Name="ID_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PESSOA_ALUNO">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="ALUNO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ALUNO_AMC">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="ALUNO_AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ALUNOCURSO_AMC">
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="1" />
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Principal>
+            <Dependent Role="ALUNO_AMC">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_CURSO">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNOCURSO_REPRESENTANTE">
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_QUESTAO">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSTRATADOS">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="ASSUNTO_TRATADO" Type="Self.ASSUNTO_TRATADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ASSUNTRATADO_TIPOASSTRATADO">
+          <End Role="TIPO_ASSUNTO_TRATADO" Type="Self.TIPO_ASSUNTO_TRATADO" Multiplicity="0..1" />
+          <End Role="ASSUNTO_TRATADO" Type="Self.ASSUNTO_TRATADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_TIPOASSTRATADO" />
+            </Principal>
+            <Dependent Role="ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_TIPOASSTRATADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FUNCIONARIO_CARGO">
+          <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="ID_CARGO" />
+            </Principal>
+            <Dependent Role="FUNCIONARIO">
+              <PropertyRef Name="ID_CARGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_COMPROMISSO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="COMPROMISSO" Type="Self.COMPROMISSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="COMPROMISSO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_REUNIAO_COMPROMISSO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="COMPROMISSO" Type="Self.COMPROMISSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="COMPROMISSO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COORDENADOR_CURSO">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="1" />
+          <End Role="CURSO_COORDENADOR" Type="Self.CURSO_COORDENADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="ID_CURSO" />
+            </Principal>
+            <Dependent Role="CURSO_COORDENADOR">
+              <PropertyRef Name="ID_CURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_DISCIPLINA_CURSO">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="ID_CURSO" />
+            </Principal>
+            <Dependent Role="DISCIPLINA">
+              <PropertyRef Name="ID_CURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COORDENADOR_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="CURSO_COORDENADOR" Type="Self.CURSO_COORDENADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="CURSO_COORDENADOR">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_DISCIPLINA_QUESTAO">
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EVENTO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_TIPOEVENTO">
+          <End Role="TIPO_EVENTO" Type="Self.TIPO_EVENTO" Multiplicity="0..1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID_TIPOEVENTO" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_TIPOEVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FUNCIONARIO_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="FUNCIONARIO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FUNCIONARIO_QUESTAO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_FUNCIONARIO_QUESTAO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PARTICIPANTE_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="PARTICIPANTE">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="TURMA">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_USUARIO_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_LANCAMENTO_TIPOLANCAM">
+          <End Role="TIPO_LANCAMENTO" Type="Self.TIPO_LANCAMENTO" Multiplicity="0..1" />
+          <End Role="LANCAMENTO" Type="Self.LANCAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_LANCAMENTO">
+              <PropertyRef Name="ID_TIPOLANCAMENTO" />
+            </Principal>
+            <Dependent Role="LANCAMENTO">
+              <PropertyRef Name="ID_TIPOLANCAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_LANCAMENTO_TURMA">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="LANCAMENTO" Type="Self.LANCAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="LANCAMENTO">
+              <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PARTICIPANTE_REUNIAO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="PARTICIPANTE">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_REUNIAO_PAUTA">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="PAUTA_REUNIAO" Type="Self.PAUTA_REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="PAUTA_REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESPOSTA_QUESTAO">
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="0..1" />
+          <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUESTAO">
+              <PropertyRef Name="ID_QUESTAO" />
+            </Principal>
+            <Dependent Role="RESPOSTA">
+              <PropertyRef Name="ID_QUESTAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPOREPRESENTANTE_REPRESENTANTE">
+          <End Role="TIPO_REPRESENTANTE" Type="Self.TIPO_REPRESENTANTE" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_REPRESENTANTE">
+              <PropertyRef Name="ID_TIPOREPRESENTANTE" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_TIPOREPRESENTANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_REPRESENTANTE">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPOREUNIAO">
+          <End Role="TIPO_REUNIAO" Type="Self.TIPO_REUNIAO" Multiplicity="1" />
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_REUNIAO">
+              <PropertyRef Name="ID_TIPOREUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO">
+              <PropertyRef Name="ID_TIPOREUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_TIPO">
+          <End Role="TIPO_TURMA" Type="Self.TIPO_TURMA" Multiplicity="0..1" />
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TURMA">
+              <PropertyRef Name="ID_TIPOTURMA" />
+            </Principal>
+            <Dependent Role="TURMA">
+              <PropertyRef Name="ID_TIPOTURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ECEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACAO" EntityType="Self.ACAO" />
+          <EntitySet Name="ACAO_AMC" EntityType="Self.ACAO_AMC" />
+          <EntitySet Name="ACAO_EVENTO" EntityType="Self.ACAO_EVENTO" />
+          <EntitySet Name="ACAO_REUNIAO" EntityType="Self.ACAO_REUNIAO" />
+          <EntitySet Name="ALUNO" EntityType="Self.ALUNO" />
+          <EntitySet Name="ALUNO_AMC" EntityType="Self.ALUNO_AMC" />
+          <EntitySet Name="ALUNO_CURSO" EntityType="Self.ALUNO_CURSO" />
+          <EntitySet Name="AMC" EntityType="Self.AMC" />
+          <EntitySet Name="ASSUNTO_TRATADO" EntityType="Self.ASSUNTO_TRATADO" />
+          <EntitySet Name="CARGO" EntityType="Self.CARGO" />
+          <EntitySet Name="COMPROMISSO" EntityType="Self.COMPROMISSO" />
+          <EntitySet Name="CURSO" EntityType="Self.CURSO" />
+          <EntitySet Name="CURSO_COORDENADOR" EntityType="Self.CURSO_COORDENADOR" />
+          <EntitySet Name="DISCIPLINA" EntityType="Self.DISCIPLINA" />
+          <EntitySet Name="EVENTO" EntityType="Self.EVENTO" />
+          <EntitySet Name="FUNCIONARIO" EntityType="Self.FUNCIONARIO" />
+          <EntitySet Name="LANCAMENTO" EntityType="Self.LANCAMENTO" />
+          <EntitySet Name="PARTICIPANTE" EntityType="Self.PARTICIPANTE" />
+          <EntitySet Name="PAUTA_REUNIAO" EntityType="Self.PAUTA_REUNIAO" />
+          <EntitySet Name="PESSOA" EntityType="Self.PESSOA" />
+          <EntitySet Name="PRIORIDADE_ACAO" EntityType="Self.PRIORIDADE_ACAO" />
+          <EntitySet Name="QUESTAO" EntityType="Self.QUESTAO" />
+          <EntitySet Name="REPRESENTANTE_TURMA" EntityType="Self.REPRESENTANTE_TURMA" />
+          <EntitySet Name="RESPOSTA" EntityType="Self.RESPOSTA" />
+          <EntitySet Name="REUNIAO" EntityType="Self.REUNIAO" />
+          <EntitySet Name="STATUS_ACAO" EntityType="Self.STATUS_ACAO" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TIPO_ASSUNTO_TRATADO" EntityType="Self.TIPO_ASSUNTO_TRATADO" />
+          <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" />
+          <EntitySet Name="TIPO_LANCAMENTO" EntityType="Self.TIPO_LANCAMENTO" />
+          <EntitySet Name="TIPO_REPRESENTANTE" EntityType="Self.TIPO_REPRESENTANTE" />
+          <EntitySet Name="TIPO_REUNIAO" EntityType="Self.TIPO_REUNIAO" />
+          <EntitySet Name="TIPO_TURMA" EntityType="Self.TIPO_TURMA" />
+          <EntitySet Name="TURMA" EntityType="Self.TURMA" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="ACAO_STATUS" Association="Self.ACAO_STATUS">
+            <End Role="STATUS_ACAO" EntitySet="STATUS_ACAO" />
+            <End Role="ACAO" EntitySet="ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACAO_PESSOA" Association="Self.fk_ACAO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="ACAO" EntitySet="ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACAO_REUNIAO_ACAO" Association="Self.fk_ACAO_REUNIAO_ACAO">
+            <End Role="ACAO" EntitySet="ACAO" />
+            <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_AMC_aCAO" Association="Self.fk_AMC_aCAO">
+            <End Role="ACAO" EntitySet="ACAO" />
+            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EVENTO_aCAO" Association="Self.fk_EVENTO_aCAO">
+            <End Role="ACAO" EntitySet="ACAO" />
+            <End Role="ACAO_EVENTO" EntitySet="ACAO_EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PRIORIDADE_ACAO_ACAO" Association="Self.fk_PRIORIDADE_ACAO_ACAO">
+            <End Role="PRIORIDADE_ACAO" EntitySet="PRIORIDADE_ACAO" />
+            <End Role="ACAO" EntitySet="ACAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acao_amc" Association="Self.fk_acao_amc">
+            <End Role="AMC" EntitySet="AMC" />
+            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acao_evento" Association="Self.fk_acao_evento">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="ACAO_EVENTO" EntitySet="ACAO_EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ACAO_REUNIAO_REUNIAO" Association="Self.fk_ACAO_REUNIAO_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ALUNOCURSO_ALUNO" Association="Self.fk_ALUNOCURSO_ALUNO">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PARTICIPANTE_ALUNO" Association="Self.fk_PARTICIPANTE_ALUNO">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PESSOA_ALUNO" Association="Self.fk_PESSOA_ALUNO">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="ALUNO" EntitySet="ALUNO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ALUNO_AMC" Association="Self.fk_ALUNO_AMC">
+            <End Role="AMC" EntitySet="AMC" />
+            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ALUNOCURSO_AMC" Association="Self.fk_ALUNOCURSO_AMC">
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_CURSO" Association="Self.FK_ALUNO_CURSO">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNOCURSO_REPRESENTANTE" Association="Self.FK_ALUNOCURSO_REPRESENTANTE">
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_QUESTAO" Association="Self.FK_ID_QUESTAO">
+            <End Role="AMC" EntitySet="AMC" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSTRATADOS" Association="Self.FK_ASSTRATADOS">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ASSUNTRATADO_TIPOASSTRATADO" Association="Self.fk_ASSUNTRATADO_TIPOASSTRATADO">
+            <End Role="TIPO_ASSUNTO_TRATADO" EntitySet="TIPO_ASSUNTO_TRATADO" />
+            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FUNCIONARIO_CARGO" Association="Self.fk_FUNCIONARIO_CARGO">
+            <End Role="CARGO" EntitySet="CARGO" />
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_COMPROMISSO_PESSOA" Association="Self.fk_COMPROMISSO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_REUNIAO_COMPROMISSO" Association="Self.fk_REUNIAO_COMPROMISSO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COORDENADOR_CURSO" Association="Self.FK_COORDENADOR_CURSO">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="CURSO_COORDENADOR" EntitySet="CURSO_COORDENADOR" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_DISCIPLINA_CURSO" Association="Self.Fk_DISCIPLINA_CURSO">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COORDENADOR_FUNCIONARIO" Association="Self.FK_COORDENADOR_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="CURSO_COORDENADOR" EntitySet="CURSO_COORDENADOR" />
+          </AssociationSet>
+          <AssociationSet Name="fk_DISCIPLINA_QUESTAO" Association="Self.fk_DISCIPLINA_QUESTAO">
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EVENTO_PESSOA" Association="Self.fk_EVENTO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_TIPOEVENTO" Association="Self.FK_ID_TIPOEVENTO">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FUNCIONARIO_PESSOA" Association="Self.fk_FUNCIONARIO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FUNCIONARIO_QUESTAO" Association="Self.fk_FUNCIONARIO_QUESTAO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_FUNCIONARIO_QUESTAO" Association="Self.FK_ID_FUNCIONARIO_QUESTAO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PARTICIPANTE_FUNCIONARIO" Association="Self.fk_PARTICIPANTE_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA_FUNCIONARIO" Association="Self.FK_TURMA_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="TURMA" EntitySet="TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_USUARIO_FUNCIONARIO" Association="Self.fk_USUARIO_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_LANCAMENTO_TIPOLANCAM" Association="Self.Fk_LANCAMENTO_TIPOLANCAM">
+            <End Role="TIPO_LANCAMENTO" EntitySet="TIPO_LANCAMENTO" />
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_LANCAMENTO_TURMA" Association="Self.Fk_LANCAMENTO_TURMA">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PARTICIPANTE_REUNIAO" Association="Self.fk_PARTICIPANTE_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_REUNIAO_PAUTA" Association="Self.fk_REUNIAO_PAUTA">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="PAUTA_REUNIAO" EntitySet="PAUTA_REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESPOSTA_QUESTAO" Association="Self.fk_RESPOSTA_QUESTAO">
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+            <End Role="RESPOSTA" EntitySet="RESPOSTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPOREPRESENTANTE_REPRESENTANTE" Association="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE">
+            <End Role="TIPO_REPRESENTANTE" EntitySet="TIPO_REPRESENTANTE" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA_REPRESENTANTE" Association="Self.FK_TURMA_REPRESENTANTE">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPOREUNIAO" Association="Self.FK_TIPOREUNIAO">
+            <End Role="TIPO_REUNIAO" EntitySet="TIPO_REUNIAO" />
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA_TIPO" Association="Self.FK_TURMA_TIPO">
+            <End Role="TIPO_TURMA" EntitySet="TIPO_TURMA" />
+            <End Role="TURMA" EntitySet="TURMA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ECModelStoreContainer" CdmEntityContainer="ECEntities">
+          <EntitySetMapping Name="ACAO">
+            <EntityTypeMapping TypeName="EC.Model.ACAO">
+              <MappingFragment StoreEntitySet="ACAO">
+                <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="INICIO" ColumnName="INICIO" />
+                <ScalarProperty Name="CONCLUSAO" ColumnName="CONCLUSAO" />
+                <ScalarProperty Name="ID_STATUS" ColumnName="ID_STATUS" />
+                <ScalarProperty Name="ID_PRIORIDADE" ColumnName="ID_PRIORIDADE" />
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACAO_AMC">
+            <EntityTypeMapping TypeName="EC.Model.ACAO_AMC">
+              <MappingFragment StoreEntitySet="ACAO_AMC">
+                <ScalarProperty Name="ID_ACAOAMC" ColumnName="ID_ACAOAMC" />
+                <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
+                <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACAO_EVENTO">
+            <EntityTypeMapping TypeName="EC.Model.ACAO_EVENTO">
+              <MappingFragment StoreEntitySet="ACAO_EVENTO">
+                <ScalarProperty Name="ID_ACAO_EVENTO" ColumnName="ID_ACAO_EVENTO" />
+                <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACAO_REUNIAO">
+            <EntityTypeMapping TypeName="EC.Model.ACAO_REUNIAO">
+              <MappingFragment StoreEntitySet="ACAO_REUNIAO">
+                <ScalarProperty Name="ID_ACAO_REUNIAO" ColumnName="ID_ACAO_REUNIAO" />
+                <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALUNO">
+            <EntityTypeMapping TypeName="EC.Model.ALUNO">
+              <MappingFragment StoreEntitySet="ALUNO">
+                <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
+                <ScalarProperty Name="RA" ColumnName="RA" />
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALUNO_AMC">
+            <EntityTypeMapping TypeName="EC.Model.ALUNO_AMC">
+              <MappingFragment StoreEntitySet="ALUNO_AMC">
+                <ScalarProperty Name="ID_ALUNOAMC" ColumnName="ID_ALUNOAMC" />
+                <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
+                <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
+                <ScalarProperty Name="NOTA" ColumnName="NOTA" />
+                <ScalarProperty Name="CLASIFICACAO" ColumnName="CLASIFICACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALUNO_CURSO">
+            <EntityTypeMapping TypeName="EC.Model.ALUNO_CURSO">
+              <MappingFragment StoreEntitySet="ALUNO_CURSO">
+                <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
+                <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
+                <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
+                <ScalarProperty Name="DATA_MATRICULA" ColumnName="DATA_MATRICULA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AMC">
+            <EntityTypeMapping TypeName="EC.Model.AMC">
+              <MappingFragment StoreEntitySet="AMC">
+                <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
+                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+                <ScalarProperty Name="ANO" ColumnName="ANO" />
+                <ScalarProperty Name="DATA_APLICACAO" ColumnName="DATA_APLICACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSUNTO_TRATADO">
+            <EntityTypeMapping TypeName="EC.Model.ASSUNTO_TRATADO">
+              <MappingFragment StoreEntitySet="ASSUNTO_TRATADO">
+                <ScalarProperty Name="ID_ASSTRAT" ColumnName="ID_ASSTRAT" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="ID_TIPOASSTRATADO" ColumnName="ID_TIPOASSTRATADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARGO">
+            <EntityTypeMapping TypeName="EC.Model.CARGO">
+              <MappingFragment StoreEntitySet="CARGO">
+                <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPROMISSO">
+            <EntityTypeMapping TypeName="EC.Model.COMPROMISSO">
+              <MappingFragment StoreEntitySet="COMPROMISSO">
+                <ScalarProperty Name="ID_COMPROMISSO" ColumnName="ID_COMPROMISSO" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CURSO">
+            <EntityTypeMapping TypeName="EC.Model.CURSO">
+              <MappingFragment StoreEntitySet="CURSO">
+                <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CURSO_COORDENADOR">
+            <EntityTypeMapping TypeName="EC.Model.CURSO_COORDENADOR">
+              <MappingFragment StoreEntitySet="CURSO_COORDENADOR">
+                <ScalarProperty Name="ID_CURSO_COORDENADOR" ColumnName="ID_CURSO_COORDENADOR" />
+                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
+                <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISCIPLINA">
+            <EntityTypeMapping TypeName="EC.Model.DISCIPLINA">
+              <MappingFragment StoreEntitySet="DISCIPLINA">
+                <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
+                <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENTO">
+            <EntityTypeMapping TypeName="EC.Model.EVENTO">
+              <MappingFragment StoreEntitySet="EVENTO">
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="ID_TIPOEVENTO" ColumnName="ID_TIPOEVENTO" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
+                <ScalarProperty Name="INICIO" ColumnName="INICIO" />
+                <ScalarProperty Name="CONCLUSAO" ColumnName="CONCLUSAO" />
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUNCIONARIO">
+            <EntityTypeMapping TypeName="EC.Model.FUNCIONARIO">
+              <MappingFragment StoreEntitySet="FUNCIONARIO">
+                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
+                <ScalarProperty Name="MATRICULA" ColumnName="MATRICULA" />
+                <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LANCAMENTO">
+            <EntityTypeMapping TypeName="EC.Model.LANCAMENTO">
+              <MappingFragment StoreEntitySet="LANCAMENTO">
+                <ScalarProperty Name="ID_LANCAMENTO" ColumnName="ID_LANCAMENTO" />
+                <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
+                <ScalarProperty Name="ID_TIPOLANCAMENTO" ColumnName="ID_TIPOLANCAMENTO" />
+                <ScalarProperty Name="DATA_LANCAMENTO" ColumnName="DATA_LANCAMENTO" />
+                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+                <ScalarProperty Name="JUSTIFICATIVA" ColumnName="JUSTIFICATIVA" />
+                <ScalarProperty Name="PROVIDENCIA" ColumnName="PROVIDENCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARTICIPANTE">
+            <EntityTypeMapping TypeName="EC.Model.PARTICIPANTE">
+              <MappingFragment StoreEntitySet="PARTICIPANTE">
+                <ScalarProperty Name="ID_PARTICIPANTE" ColumnName="ID_PARTICIPANTE" />
+                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
+                <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="PRESENCA" ColumnName="PRESENCA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAUTA_REUNIAO">
+            <EntityTypeMapping TypeName="EC.Model.PAUTA_REUNIAO">
+              <MappingFragment StoreEntitySet="PAUTA_REUNIAO">
+                <ScalarProperty Name="ID_PAUTA" ColumnName="ID_PAUTA" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PESSOA">
+            <EntityTypeMapping TypeName="EC.Model.PESSOA">
+              <MappingFragment StoreEntitySet="PESSOA">
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRIORIDADE_ACAO">
+            <EntityTypeMapping TypeName="EC.Model.PRIORIDADE_ACAO">
+              <MappingFragment StoreEntitySet="PRIORIDADE_ACAO">
+                <ScalarProperty Name="ID_PRIORIDADE" ColumnName="ID_PRIORIDADE" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUESTAO">
+            <EntityTypeMapping TypeName="EC.Model.QUESTAO">
+              <MappingFragment StoreEntitySet="QUESTAO">
+                <ScalarProperty Name="ID_QUESTAO" ColumnName="ID_QUESTAO" />
+                <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
+                <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
+                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="IMAGEM" ColumnName="IMAGEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPRESENTANTE_TURMA">
+            <EntityTypeMapping TypeName="EC.Model.REPRESENTANTE_TURMA">
+              <MappingFragment StoreEntitySet="REPRESENTANTE_TURMA">
+                <ScalarProperty Name="ID_REPRESENTANTE" ColumnName="ID_REPRESENTANTE" />
+                <ScalarProperty Name="ID_TIPOREPRESENTANTE" ColumnName="ID_TIPOREPRESENTANTE" />
+                <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
+                <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESPOSTA">
+            <EntityTypeMapping TypeName="EC.Model.RESPOSTA">
+              <MappingFragment StoreEntitySet="RESPOSTA">
+                <ScalarProperty Name="ID_RESPOSTA" ColumnName="ID_RESPOSTA" />
+                <ScalarProperty Name="ID_QUESTAO" ColumnName="ID_QUESTAO" />
+                <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
+                <ScalarProperty Name="RESPOSTA_CORRETA" ColumnName="RESPOSTA_CORRETA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REUNIAO">
+            <EntityTypeMapping TypeName="EC.Model.REUNIAO">
+              <MappingFragment StoreEntitySet="REUNIAO">
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="ID_TIPOREUNIAO" ColumnName="ID_TIPOREUNIAO" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+                <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
+                <ScalarProperty Name="DATAHORA" ColumnName="DATAHORA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS_ACAO">
+            <EntityTypeMapping TypeName="EC.Model.STATUS_ACAO">
+              <MappingFragment StoreEntitySet="STATUS_ACAO">
+                <ScalarProperty Name="ID_STATUS" ColumnName="ID_STATUS" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="EC.Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_ASSUNTO_TRATADO">
+            <EntityTypeMapping TypeName="EC.Model.TIPO_ASSUNTO_TRATADO">
+              <MappingFragment StoreEntitySet="TIPO_ASSUNTO_TRATADO">
+                <ScalarProperty Name="ID_TIPOASSTRATADO" ColumnName="ID_TIPOASSTRATADO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_EVENTO">
+            <EntityTypeMapping TypeName="EC.Model.TIPO_EVENTO">
+              <MappingFragment StoreEntitySet="TIPO_EVENTO">
+                <ScalarProperty Name="ID_TIPOEVENTO" ColumnName="ID_TIPOEVENTO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_LANCAMENTO">
+            <EntityTypeMapping TypeName="EC.Model.TIPO_LANCAMENTO">
+              <MappingFragment StoreEntitySet="TIPO_LANCAMENTO">
+                <ScalarProperty Name="ID_TIPOLANCAMENTO" ColumnName="ID_TIPOLANCAMENTO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_REPRESENTANTE">
+            <EntityTypeMapping TypeName="EC.Model.TIPO_REPRESENTANTE">
+              <MappingFragment StoreEntitySet="TIPO_REPRESENTANTE">
+                <ScalarProperty Name="ID_TIPOREPRESENTANTE" ColumnName="ID_TIPOREPRESENTANTE" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_REUNIAO">
+            <EntityTypeMapping TypeName="EC.Model.TIPO_REUNIAO">
+              <MappingFragment StoreEntitySet="TIPO_REUNIAO">
+                <ScalarProperty Name="ID_TIPOREUNIAO" ColumnName="ID_TIPOREUNIAO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_TURMA">
+            <EntityTypeMapping TypeName="EC.Model.TIPO_TURMA">
+              <MappingFragment StoreEntitySet="TIPO_TURMA">
+                <ScalarProperty Name="ID_TIPOTURMA" ColumnName="ID_TIPOTURMA" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TURMA">
+            <EntityTypeMapping TypeName="EC.Model.TURMA">
+              <MappingFragment StoreEntitySet="TURMA">
+                <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
+                <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
+                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
+                <ScalarProperty Name="ID_TIPOTURMA" ColumnName="ID_TIPOTURMA" />
+                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+                <ScalarProperty Name="ANO" ColumnName="ANO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="EC.Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

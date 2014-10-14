@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="39eec3eb38934d54a100c6f6a9cb9165" Name="Diagram1">
+        <EntityTypeShape EntityType="EC.Model.ACAO" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.ACAO_AMC" Width="1.5" PointX="8.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.ACAO_EVENTO" Width="1.5" PointX="11.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.ACAO_REUNIAO" Width="1.5" PointX="11.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.ALUNO" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.ALUNO_AMC" Width="1.5" PointX="10.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.ALUNO_CURSO" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.AMC" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.ASSUNTO_TRATADO" Width="1.5" PointX="11.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.CARGO" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.COMPROMISSO" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.CURSO" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.CURSO_COORDENADOR" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.DISCIPLINA" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.EVENTO" Width="1.5" PointX="6" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.FUNCIONARIO" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.LANCAMENTO" Width="1.5" PointX="13.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.PARTICIPANTE" Width="1.5" PointX="8.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.PAUTA_REUNIAO" Width="1.5" PointX="11.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.PESSOA" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.PRIORIDADE_ACAO" Width="1.5" PointX="0.75" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.QUESTAO" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.REPRESENTANTE_TURMA" Width="1.5" PointX="10.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.RESPOSTA" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.REUNIAO" Width="1.5" PointX="9" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.STATUS_ACAO" Width="1.5" PointX="0.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.TIPO_ASSUNTO_TRATADO" Width="1.5" PointX="9" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.TIPO_EVENTO" Width="1.5" PointX="3.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.TIPO_LANCAMENTO" Width="1.5" PointX="11.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.TIPO_REPRESENTANTE" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.TIPO_REUNIAO" Width="1.5" PointX="6.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.TIPO_TURMA" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.TURMA" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EC.Model.USUARIO" Width="1.5" PointX="5.25" PointY="27.875" IsExpanded="true" />
+        <AssociationConnector Association="EC.Model.ACAO_STATUS" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_ACAO_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_ACAO_REUNIAO_ACAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_AMC_aCAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_EVENTO_aCAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_PRIORIDADE_ACAO_ACAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_acao_amc" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_acao_evento" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_ACAO_REUNIAO_REUNIAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_ALUNOCURSO_ALUNO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_PARTICIPANTE_ALUNO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_PESSOA_ALUNO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_ALUNO_AMC" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_ALUNOCURSO_AMC" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_ALUNO_CURSO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_ALUNOCURSO_REPRESENTANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_ID_QUESTAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_ASSTRATADOS" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_FUNCIONARIO_CARGO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_COMPROMISSO_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_REUNIAO_COMPROMISSO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_COORDENADOR_CURSO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.Fk_DISCIPLINA_CURSO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_COORDENADOR_FUNCIONARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_DISCIPLINA_QUESTAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_EVENTO_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_ID_TIPOEVENTO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_FUNCIONARIO_PESSOA" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_FUNCIONARIO_QUESTAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_ID_FUNCIONARIO_QUESTAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_PARTICIPANTE_FUNCIONARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_TURMA_FUNCIONARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_USUARIO_FUNCIONARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.Fk_LANCAMENTO_TIPOLANCAM" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.Fk_LANCAMENTO_TURMA" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_PARTICIPANTE_REUNIAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_REUNIAO_PAUTA" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.fk_RESPOSTA_QUESTAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_TIPOREPRESENTANTE_REPRESENTANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_TURMA_REPRESENTANTE" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_TIPOREUNIAO" ManuallyRouted="false" />
+        <AssociationConnector Association="EC.Model.FK_TURMA_TIPO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
