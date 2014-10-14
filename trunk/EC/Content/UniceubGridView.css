@@ -1,0 +1,41 @@
+﻿#busca {
+    width: 235px;
+    float: left;
+}
+
+    #busca #txtBusca_JsDataTable {
+        padding: 3px;
+        border: 1px solid #ccc;
+        border-right: none;
+        background: url(Images/btn-pesquisar.gif) right no-repeat;
+        float: left;
+        width: 200px;
+    }
+
+    #busca #btnBusca_JsDataTable {
+        float: left;
+        border: none;
+        padding: 12px 12px;
+        background: url(Images/btn-pesquisar.gif);
+    }
+
+#busca {
+    margin: 10px 0px;
+}
+
+#tabulation {
+    clear: both;
+}
+
+    #tabulation #tab {
+        float: left;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+            
+        #tabulation #tab.active {
+            background: #eee;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }

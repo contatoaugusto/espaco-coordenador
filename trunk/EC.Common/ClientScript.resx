@@ -1,0 +1,2356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="__doPostBack" xml:space="preserve">
+    <value>&lt;script language=javascript&gt;
+	function __doPostBack() 
+	{
+		try
+		{
+			var theform;
+			if (window.navigator.appName.toLowerCase().indexOf("netscape") &gt; -1) {
+				theform = document.forms["frm"];
+			}
+			else
+			{
+				theform = document.frm;
+			}
+			theform.submit();
+		}
+		catch(e)
+		{
+		}
+	}
+&lt;/script&gt;</value>
+  </data>
+  <data name="ShowValidators" xml:space="preserve">
+    <value>&lt;script defer language="javascript" type="text/javascript"&gt;
+	function ShowValidators() 
+	{
+		try 
+		{
+			var i;	
+			for (i = 0; i &lt; Page_Validators.length; i++) 
+			{
+				ValidatorValidate(Page_Validators[i]);
+			}
+			ValidatorUpdateIsValid(); 
+			Page_IsValid = true;
+		}
+		catch (e) 
+		{
+			return;
+		}
+	} 
+	
+	ShowValidators();
+
+&lt;/script&gt;</value>
+  </data>
+  <data name="OpenWindowScreenCenter" xml:space="preserve">
+    <value>
+        &lt;script language="javascript" type="text/javascript"&gt;
+        //&lt;![CDATA[
+function OpenWindowScreenCenter(url, height, width, name)
+{
+	try
+	{
+		var str="height="+height;//+",innerHeight="+height;
+			str+=",width="+width;//+",innerWidth="+width;
+		if (window.screen) {
+			var ah=screen.availHeight-30;
+			var aw=screen.availWidth-10;
+
+			var xc=(aw-width)/2;
+			var yc=(ah-height)/2;
+
+			str+=",left="+xc+",screenX="+xc;
+			str+=",top="+yc+",screenY="+yc;
+		}
+		str+=",scrollbars=yes, statusbar=yes";
+		str+=",resizable=yes";
+		
+		flash = window.open(url,name,str);
+		flash.focus();
+		return flash;
+	}
+	catch(e)
+	{
+    window.focus();
+    //alert('Ocorreu um erro de script durante a tentativa do sistema de abrir uma pop-up.');
+	}
+}
+//]]&gt;
+&lt;/script&gt;
+</value>
+  </data>
+  <data name="ShowError" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function ShowError(ErrDesc)
+{
+	try
+	{
+		window.parent.frames['Tree'].montaErro(ErrDesc,15);
+	} 
+	catch(e)
+	{
+		alert(ErrDesc);
+
+	}
+	return false;
+} 
+&lt;/script&gt;</value>
+  </data>
+  <data name="ContratoAceito" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function ContratoAceito(botao,checkbox)
+{
+	if(checkbox.checked == false)
+	{
+		document.forms['Form1'][botao].disabled = true;
+	}
+	else
+	{
+	    document.forms['Form1'][botao].disabled = false;
+	}
+} 
+&lt;/script&gt;</value>
+  </data>
+  <data name="ValidClient" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+	function ValidClient()
+	{
+		try
+		{
+			var iLength = window.parent.frames.length;
+			var	Menu = window.parent.frames['Menu'];
+			var Tree = window.parent.frames['Tree'];
+			var Main = window.parent.frames['Main'];
+			
+			if( iLength != 3 )
+			{
+				document.location.href = "/_common/accessdenied.htm";
+			}
+			
+			if( Menu == null || Tree == null || Main == null )
+			{
+				document.location.href = "/_common/accessdenied.htm";
+			}
+		}
+		catch(e)
+		{
+			alert('Ocorreu um erro de JScript na página durante a validação do cliente.');
+		}
+	}
+
+	ValidClient();
+&lt;/script&gt;</value>
+  </data>
+  <data name="IsNumeric" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function IsNumeric()
+{
+	try
+	{
+		if(event.keyCode &lt; 48 || event.keyCode &gt; 57)
+		{
+			event.keyCode = 0;
+				return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	catch(e)
+	{
+		return false;
+	}
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="MaskFormat" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function MaskFormat(Field, Mask, KeyPress)
+{
+	try
+	{
+		var i, nCount, sValue, fldLen, mskLen,bolMask, sCod, nTecla;
+		var nTecla = KeyPress.keyCode ? KeyPress.keyCode : KeyPress.which ? KeyPress.which : KeyPress.charCode;
+	    /*
+	    // trocado pela linha acima. André
+		if(document.all) { // Internet Explorer
+			nTecla = KeyPress.keyCode;
+		}	else if(document.layers) { // Nestcape
+			nTecla = KeyPress.which;
+		}
+		*/
+		
+		if(nTecla == 13)
+		{
+			return false;
+		}
+	    
+		//left arrow = 37
+		//right arrow = 39
+		//backspace = 8
+		//delete = 46
+		//shiftkey = 16
+		//tab= 9
+		if ((nTecla == 9) || (nTecla == 16) || (nTecla == 8) || (nTecla == 46) ||
+			(nTecla == 37) || (nTecla == 39)) return true;
+	    
+		sValue = Field.value;
+		// Limpa todos os caracteres de formata??o que
+		// j? estiverem no Field.
+		
+		sValue = sValue.toString().replace( "-", "" );
+		sValue = sValue.toString().replace( "-", "" );
+		sValue = sValue.toString().replace( ".", "" );
+		sValue = sValue.toString().replace( ".", "" );
+		sValue = sValue.toString().replace( ".", "" );
+		sValue = sValue.toString().replace( ".", "" );
+		sValue = sValue.toString().replace( ".", "" );
+		sValue = sValue.toString().replace( ".", "" );
+		sValue = sValue.toString().replace( ".", "" );
+		sValue = sValue.toString().replace( ",", "" );
+		sValue = sValue.toString().replace( "/", "" );
+		sValue = sValue.toString().replace( "/", "" );
+		sValue = sValue.toString().replace( "(", "" );
+		sValue = sValue.toString().replace( "(", "" );
+		sValue = sValue.toString().replace( ")", "" );
+		sValue = sValue.toString().replace( ")", "" );
+		sValue = sValue.toString().replace( " ", "" );
+		sValue = sValue.toString().replace( " ", "" );
+		fldLen = sValue.length;
+		mskLen = Mask.length;
+
+		i = 0;
+		nCount = 0;
+		sCod = "";
+		mskLen = fldLen;
+
+		while (i &lt;= mskLen) {
+			try {
+				bolMask = ((Mask.charAt(i) == "-") || (Mask.charAt(i) == ".") ||  (Mask.charAt(i) == "/"))|| (Mask.charAt(i) == ",")
+				bolMask = bolMask || ((Mask.charAt(i) == "(") || (Mask.charAt(i) == ")") || (Mask.charAt(i) == " ")) 
+
+				if (bolMask) {
+					sCod += Mask.charAt(i);
+					mskLen++; 
+					}
+				else {
+					if ((Mask.charAt(i)=="9" &amp;&amp; IsNumeric(sValue.charCodeAt(nCount))) || (Mask.charAt(i)=="!")) 
+						sCod += sValue.charAt(nCount);
+					else
+						mskLen--;
+					nCount++;
+				}
+				i++;
+			} catch ( e ) {
+				//alert(e);
+			}
+		}
+
+		Field.value = sCod;
+
+		if (nTecla != 8) { // backspace
+			if (Mask.charAt(i-1) == "9") { // apenas n?meros...
+				return ((nTecla &gt; 47) &amp;&amp; (nTecla &lt; 58)); 
+			} // n?meros de 0 a 9
+			else { 
+				return true;
+			} 
+		}
+		else {
+			return true;
+		}
+	}
+	catch(e)
+	{
+		return false;
+	}
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="ChangeParent" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function ChangeParent()
+{
+	//try
+	//{
+		window.opener.__doPostBack('','');
+		//window.opener.__doPostBack();
+		self.close();
+	//}
+	//catch(e)
+	//{
+		
+	//}
+}
+ChangeParent();
+&lt;/script&gt;</value>
+  </data>
+  <data name="CloseWindow" xml:space="preserve">
+    <value>&lt;script language="JavaScript"&gt;
+function CloseWindow() {
+	self.close();
+	//window.opener.focus();
+}
+CloseWindow();
+&lt;/script&gt;</value>
+  </data>
+  <data name="CalldoPostBackOpener" xml:space="preserve">
+    <value>&lt;script language="JavaScript"&gt;
+function CalldoPostBackOpener() {
+	window.opener.__doPostBack('@IDControl','');
+}
+CalldoPostBackOpener();
+&lt;/script&gt;</value>
+  </data>
+  <data name="CountControl" xml:space="preserve">
+    <value>&lt;script language="JavaScript"&gt;
+function CountControl(oObj, oObjCount)
+{	
+	//try
+	//{
+		var iMaxLength	= oObj.maxLength;
+		var iLength		= oObj.value.length;
+		
+		if (iLength &gt; iMaxLength) 
+		{
+			oObj.value = oObj.value.substring(0, iLength - (iLength - iMaxLength));
+			oObjCount.innerText = oObjCount.message + "" + String(iLength - (iLength - iMaxLength)) + "";
+			return false;
+		}
+	
+		oObjCount.innerText = oObjCount.message + "" + String(iMaxLength - iLength) + "";
+	//}
+	//catch(e)
+	//{
+						
+	//}
+	
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="ClosePopupSetFocusInButton" xml:space="preserve">
+    <value>&lt;script language="JavaScript"&gt;parent.OnSelect('','');&lt;/script&gt;</value>
+  </data>
+  <data name="ModelFileHTML" xml:space="preserve">
+    <value>&lt;html&gt;
+&lt;head&gt;
+			&lt;title&gt;UniCEUB - Formando Profissionais de Verdade&lt;/title&gt;
+			&lt;meta http-equiv="pragma" content="no-cache"&gt;
+				&lt;meta http-equiv="Expires" content="0"&gt;
+					&lt;script language="JavaScript" src="http://www.uniceub.br/js/fundotd.js"&gt;&lt;/script&gt;
+					&lt;script language="JavaScript" src="http://www.uniceub.br/js/ME_menuConstructor.js"&gt;&lt;/script&gt;
+					&lt;script language="JavaScript" src="http://www.uniceub.br/js/MM_funcoesGerais.js"&gt;&lt;/script&gt;
+					&lt;style type="text/css"&gt;
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: #000000}
+td {  font-family: Arial, Helvetica, sans-serif; color: #000000; font-size: 8pt}
+table {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: #000000}
+.linkbranco {  color: #CCCCCC; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt}
+.rodape {  font-size: 7.4pt; font-family: Arial, Helvetica, sans-serif; color: #CCCCCC; text-decoration: none}
+.linklocal {  color: #000000; text-decoration: underline; font-family: Arial, Helvetica, sans-serif; font-size: 8pt}
+.formulario {  font-family: Arial, Helvetica, sans-serif, Verdana, Tahoma; font-size: 11px; font-style: normal; color: #333333; background-color: #f3f3f3; border: #999999; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.linklocal2 { color: #000000; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt}
+a:hover {  color: #990000}
+.linklocal3 { color: #666666; text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-size: 8pt}
+.submenu {  color: #666666; text-decoration: none; font-size: 8pt}
+.legenda { font-size: 7.4pt; font-family: Arial, Helvetica, sans-serif; color: #000000; text-decoration: none}
+.linkcursos {  color: #666666}
+p {  text-align: justify}
+.link35 {  color: 5A5130; text-decoration: none}
+.linkvinho {  font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: 990000; text-decoration: none}
+.titulo {
+font-family: arial;
+font-size: 18px;
+color: #990000;
+background-color: #FFFFFF;
+}
+&lt;/style&gt;
+		&lt;/head&gt;
+&lt;script language="JavaScript"&gt;	
+	function send_page(valor){
+		var pagina = valor;
+		document.form1.QualPagina.value= pagina;
+		document.form1.submit();
+    }
+	
+	function GetDescriptionDate()
+	{
+		d = new Date();
+		var sMonth = d.getMonth();
+		
+		switch(sMonth)
+		{
+			case 1:
+				sMonth = "Janeiro";
+				break;
+			case 2:
+				sMonth = "Fevereiro";
+				break;
+			case 3:
+				sMonth = "Março";
+				break;
+			case 4:
+				sMonth = "Abril";
+				break;
+			case 5:
+				sMonth = "Maio";
+				break;
+			case 6:
+				sMonth = "Junho";
+				break;
+			case 7:
+				sMonth = "Julho";
+				break;
+			case 8:
+				sMonth = "Agosto";
+				break;
+			case 9:
+				sMonth = "Setembro";
+				break;
+			case 10:
+				sMonth = "Outubro";
+				break;
+			case 11:
+				sMonth = "Novembro";
+				break;
+			case 12:
+				sMonth = "Dezembro";
+				break;
+		}
+		
+		var sText = "Bras&amp;iacute;lia, " + d.getDate() + " de " + sMonth + " de " + d.getFullYear();
+		
+		document.write(sText);
+	}
+&lt;/script&gt;
+&lt;body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"
+			background="http://www.uniceub.br/img/fundo.gif" onLoad="MM_preloadImages('http://www.uniceub.br/img/ins_a.gif','http://www.uniceub.br/img/fale_a.gif','http://www.uniceub.br/img/campus_a.gif','http://www.uniceub.br/img/curs_a.gif','http://www.uniceub.br/img/vesti_a.gif','http://www.uniceub.br/img/prov_a.gif')"&gt;
+			&lt;table width="770" border="0" cellspacing="0" cellpadding="0"&gt;
+				&lt;tr&gt;
+					&lt;td height="2" colspan="2"&gt;
+						&lt;img src="img/1x1.gif" width="1" height="1"&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr&gt;
+					&lt;td height="8" width="6"&gt;&amp;nbsp;&lt;/td&gt;
+					&lt;td height="8" width="764"&gt;
+						&lt;table width="764" border="0" cellspacing="0" cellpadding="0"&gt;
+							&lt;tr&gt;
+								&lt;td colspan="3" height="3" background="http://www.uniceub.br/img/f_01.gif"&gt;
+									&lt;img src="http://www.uniceub.br/img/1x1.gif" width="1" height="1"&gt;
+								&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td width="2" background="http://www.uniceub.br/img/f_02.gif"&gt;&amp;nbsp;&lt;/td&gt;
+								&lt;td width="760" bgcolor="#FFFFFF"&gt;
+									&lt;table width="754" border="0" cellspacing="0" cellpadding="0" align="center"&gt;
+										&lt;tr bgcolor="#FFFFFF"&gt;
+											&lt;td height="1"&gt;
+												&lt;img src="http://www.uniceub.br/img/1x1.gif" width="1" height="1"&gt;
+											&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr bgcolor="#FFFFFF"&gt;
+											&lt;td&gt;
+												&lt;table width="754" border="0" cellspacing="0" cellpadding="0"&gt;
+													&lt;tr bgcolor="#000000"&gt;
+														&lt;td width="580"&gt;
+															&lt;font color="#FFFFFF"&gt;
+																&lt;b&gt;&amp;nbsp;&lt;script&gt;GetDescriptionDate();&lt;/script&gt;&lt;/b&gt;
+															&lt;/font&gt;
+														&lt;/td&gt;
+														&lt;td width="174"&gt;
+															&lt;div align="right"&gt;
+																&lt;a href="../"&gt;
+																	&lt;img src="http://www.uniceub.br/img/logo01.gif" width="174" height="30" border="0" alt="Voltar para a p&amp;aacute;gina Inicial"&gt;
+																&lt;/a&gt;
+															&lt;/div&gt;
+														&lt;/td&gt;
+													&lt;/tr&gt;
+												&lt;/table&gt;
+												&lt;table width="754" border="0" cellspacing="0" cellpadding="0"&gt;
+													&lt;tr bgcolor="#000000"&gt;
+														&lt;td width="100"&gt;
+															&lt;img src="http://www.uniceub.br/img/fig01.gif" width="100" height="51"&gt;
+														&lt;/td&gt;
+														&lt;td&gt;
+															&lt;img src="http://www.uniceub.br/img/formando.gif" width="373" height="51"&gt;
+														&lt;/td&gt;
+														&lt;td width="212"&gt;
+															&lt;div align="right"&gt;
+																&lt;a href="../"&gt;
+																	&lt;img src="http://www.uniceub.br/img/logo02.gif" width="212" height="51" border="0" alt="Voltar para a p&amp;aacute;gina Inicial"&gt;
+																&lt;/a&gt;
+															&lt;/div&gt;
+														&lt;/td&gt;
+													&lt;/tr&gt;
+												&lt;/table&gt;
+												&lt;table width="754" border="0" cellspacing="0" cellpadding="0"&gt;
+													&lt;tr&gt;
+														&lt;td height="2" background="http://www.uniceub.br/img/f_04.gif"&gt;
+															&lt;img src="http://www.uniceub.br/img/1x1.gif" width="1" height="1"&gt;
+														&lt;/td&gt;
+													&lt;/tr&gt;
+												&lt;/table&gt;
+												&lt;table width="754" border="0" cellspacing="0" cellpadding="0"&gt;
+													&lt;tr&gt;
+														&lt;td width="100"&gt;
+															&lt;img src="http://www.uniceub.br/img/fig03.gif" width="100" height="54"&gt;
+														&lt;/td&gt;
+														&lt;td width="654" background="http://www.uniceub.br/img/f_05.gif"&gt;
+															&lt;table width="653" border="0" cellspacing="0" cellpadding="0"&gt;
+																&lt;tr&gt;
+																	&lt;td width="90"&gt;
+																		&lt;div align="center"&gt;
+																			&lt;a href="http://www.uniceub.br/con_asp/in_01.asp" onMouseOut="MM_swapImgRestore()"
+																				onMouseOver="MM_swapImage('Image1','','http://www.uniceub.br/img/ins_a.gif',1)"&gt;
+																				&lt;img src="http://www.uniceub.br/img/inst.gif" border="0" name="Image1"&gt;
+																			&lt;/a&gt;
+																		&lt;/div&gt;
+																	&lt;/td&gt;
+																	&lt;td width="73"&gt;
+																		&lt;div align="center"&gt;
+																			&lt;a href="http://www.uniceub.br/con_asp/cr_00.asp" onMouseOut="MM_swapImgRestore()"
+																				onMouseOver="MM_swapImage('Image51','','http://www.uniceub.br/img/curs_a.gif',1)"&gt;
+																				&lt;img src="http://www.uniceub.br/img/curs.gif" border="0" name="Image51" width="48" height="54"&gt;
+																			&lt;/a&gt;
+																		&lt;/div&gt;
+																	&lt;/td&gt;
+																	&lt;td width="90"&gt;
+																		&lt;div align="center"&gt;
+																			&lt;a href="http://www.uniceub.br/con_asp/ap_00.asp" onMouseOut="MM_swapImgRestore()"
+																				onMouseOver="MM_swapImage('Image6','','http://www.uniceub.br/img/apoio_a.gif',1)"&gt;
+																				&lt;img src="http://www.uniceub.br/img/apoio.gif" border="0" name="Image6"&gt;
+																			&lt;/a&gt;
+																		&lt;/div&gt;
+																	&lt;/td&gt;
+																	&lt;td width="155"&gt;
+																		&lt;div align="center"&gt;
+																			&lt;a href="http://www.uniceub.br/con_asp/co_00.asp" onMouseOut="MM_swapImgRestore()"
+																				onMouseOver="MM_swapImage('Image3','','http://www.uniceub.br/img/campus_a.gif',1)"&gt;
+																				&lt;img src="http://www.uniceub.br/img/campus.gif" border="0" name="Image3"&gt;
+																			&lt;/a&gt;
+																		&lt;/div&gt;
+																	&lt;/td&gt;
+																	&lt;td width="106"&gt;
+																		&lt;div align="center"&gt;
+																			&lt;a href="http://www.uniceub.br/con_asp/fa_00.asp" onMouseOut="MM_swapImgRestore()"
+																				onMouseOver="MM_swapImage('Image2','','http://www.uniceub.br/img/fale_a.gif',1)"&gt;
+																				&lt;img src="http://www.uniceub.br/img/fale.gif" border="0" name="Image2"&gt;
+																			&lt;/a&gt;
+																		&lt;/div&gt;
+																	&lt;/td&gt;
+																	&lt;td width="139"&gt;
+																		&lt;div align="center"&gt;
+																			&lt;a href="http://www.uniceub.br/con_asp/pr_01.asp" onMouseOut="MM_swapImgRestore()"
+																				onMouseOver="MM_swapImage('Image4','','http://www.uniceub.br/img/prov_a.gif',1)"&gt;
+																				&lt;img src="http://www.uniceub.br/img/prov.gif" border="0" name="Image4"&gt;
+																			&lt;/a&gt;
+																		&lt;/div&gt;
+																	&lt;/td&gt;
+																&lt;/tr&gt;
+															&lt;/table&gt;
+														&lt;/td&gt;
+													&lt;/tr&gt;
+												&lt;/table&gt;
+												&lt;table width="754" border="0" cellspacing="0" cellpadding="0"&gt;
+													&lt;tr&gt;
+														&lt;td height="290" valign="top"&gt;
+															&lt;table width="100%" border="0" cellspacing="0" cellpadding="0"&gt;
+																&lt;tr&gt;
+																	&lt;td&gt;
+																		&lt;table width="100%" border="0" cellspacing="0" cellpadding="0" align="right"&gt;
+																			&lt;tr valign="bottom"&gt;
+																				&lt;td height="20"&gt;
+																					&lt;div align="right"&gt;
+																						&lt;table width="100%" border="0" cellspacing="0" cellpadding="0"&gt;
+																							&lt;tr&gt;
+																								&lt;td colspan="3" height="10"&gt;&lt;/td&gt;
+																							&lt;/tr&gt;
+																							&lt;tr&gt;
+																								&lt;td width="30"&gt;&amp;nbsp;&lt;/td&gt;
+																								&lt;td height="20"&gt;
+																									&lt;div align="right"&gt;&lt;/div&gt;
+																								&lt;/td&gt;
+																								&lt;td width="20"&gt;&amp;nbsp;&lt;/td&gt;
+																							&lt;/tr&gt;
+																						&lt;/table&gt;
+																					&lt;/div&gt;
+																				&lt;/td&gt;
+																			&lt;/tr&gt;
+																		&lt;/table&gt;
+																	&lt;/td&gt;
+																&lt;/tr&gt;
+																&lt;tr&gt;
+																	&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+																&lt;/tr&gt;
+																&lt;tr&gt;
+																	&lt;td width="92%" height="24"&gt;
+																		&lt;table width="100%" height="20" border="0" cellpadding="0" cellspacing="0" background="fim.gif"&gt;
+																			&lt;tr&gt;
+																				&lt;td width="4%"&gt;
+																					&lt;img src="http://www.uniceub.br/img/1x1.gif" width="1" height="1"&gt;
+																				&lt;/td&gt;
+																				&lt;td width="96%"&gt;
+																					&lt;span class="titulo"&gt;
+																						&lt;strong&gt;&amp;nbsp;@Title&amp;nbsp;&lt;/strong&gt;
+																					&lt;/span&gt;
+																				&lt;/td&gt;
+																			&lt;/tr&gt;
+																		&lt;/table&gt;
+																	&lt;/td&gt;
+																&lt;/tr&gt;
+																&lt;tr&gt;
+																	&lt;td&gt;
+																		&lt;table width="100%" border="0" cellspacing="0" cellpadding="0" align="right"&gt;
+																			&lt;tr&gt;
+																				&lt;td width="478"&gt;&lt;/td&gt;
+																				&lt;td valign="bottom" width="276"&gt;
+																			&lt;/tr&gt;
+																		&lt;/table&gt;
+																	&lt;/td&gt;
+																&lt;/tr&gt;
+																&lt;tr&gt;
+																	&lt;td&gt;
+																		&lt;table width="100%" border="0" cellspacing="0" cellpadding="0"&gt;
+																			&lt;tr&gt;
+																				&lt;td width="31" height="15"&gt;&amp;nbsp;&lt;/td&gt;
+																				&lt;td height="15" width="709"&gt;
+																					&lt;div align="right"&gt;
+																						&lt;a href="/" class="submenu" onMouseOver="abreMenu('menu6Obj');stayMenu('menu6Obj')"&gt;
+																							&lt;b&gt;
+																								&lt;font color="#990000" size="2"&gt;&amp;raquo;&lt;/font&gt;
+																								&lt;font color="#990000"&gt;&lt;/font&gt;
+																								&lt;font color="#990000"&gt;P&amp;aacute;gina
+                                          inicial &lt;/font&gt;
+																							&lt;/b&gt;
+																						&lt;/a&gt;
+																					&lt;/div&gt;
+																				&lt;/td&gt;
+																				&lt;td width="14" height="15"&gt;&amp;nbsp;&lt;/td&gt;
+																			&lt;/tr&gt;
+																			&lt;tr&gt;
+																				&lt;td width="31"&gt;&amp;nbsp;&lt;/td&gt;
+																				&lt;td width="709" align="left" valign="top"&gt;&amp;nbsp;&lt;/td&gt;
+																			&lt;/tr&gt;
+																			&lt;tr&gt;
+																				&lt;td width="31"&gt;&amp;nbsp;&lt;/td&gt;
+																				&lt;td width="709" align="left" valign="top"&gt;
+																					&lt;p&gt;
+                                    &lt;!--//BT//--&gt;@Text&lt;!--//ET//--&gt;
+                                  &lt;/p&gt;
+																				&lt;/td&gt;
+																			&lt;/tr&gt;
+																			&lt;tr&gt;
+																				&lt;td width="31"&gt;&amp;nbsp;&lt;/td&gt;
+																				&lt;td width="709"&gt;&amp;nbsp;&lt;/td&gt;
+																			&lt;/tr&gt;
+																		&lt;/table&gt;
+																	&lt;/td&gt;
+																&lt;/tr&gt;
+															&lt;/table&gt;
+														&lt;/td&gt;
+													&lt;/tr&gt;
+												&lt;/table&gt;
+											&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr bgcolor="#FFFFFF"&gt;
+											&lt;td height="1"&gt;
+												&lt;img src="http://www.uniceub.br/img/1x1.gif" width="1" height="1"&gt;
+											&lt;/td&gt;
+										&lt;/tr&gt;
+									&lt;/table&gt;
+								&lt;/td&gt;
+								&lt;td width="2" background="http://www.uniceub.br/img/f_02.gif"&gt;&amp;nbsp;&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td colspan="3" height="4" background="http://www.uniceub.br/img/f_03.gif"&gt;
+									&lt;img src="http://www.uniceub.br/img/1x1.gif" width="1" height="1"&gt;
+								&lt;/td&gt;
+							&lt;/tr&gt;
+						&lt;/table&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/table&gt;
+			&lt;table width="770" border="0" cellspacing="0" cellpadding="0"&gt;
+				&lt;tr&gt;
+					&lt;td width="531"&gt;
+						&lt;div align="right"&gt;&lt;a href="../" class="rodape"&gt;P&amp;aacute;gina 
+        Inicial&lt;/a&gt; &amp;nbsp;&lt;b&gt;
+								&lt;span class="rodape"&gt;.&lt;/span&gt;
+							&lt;/b&gt; &lt;a href="au_00.asp" class="rodape"&gt;Endere&amp;ccedil;os&lt;/a&gt;&lt;/div&gt;
+					&lt;/td&gt;
+					&lt;td class="rodape" width="239"&gt;
+						&lt;div align="right"&gt;&amp;copy; 2003 UniCEUB - Todos os direitos reservados&lt;/div&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/table&gt;
+			&lt;!-- Texto da Home --&gt; &lt;!-- Inicio Sub-Menus --&gt;
+			&lt;script language="JavaScript"&gt;
+                                                    
+        if(me.ie||!me.ns4) {                                                      
+                document.write('&lt;/div&gt;&lt;div id="comunidade" style="position:absolute; left:605px; top:167px; width:112px; height:77px; z-index:5; visibility: hidden"
+					onMouseOut="escondeMenu(\'menu1Obj\')" onMouseOver="abreMenu(\'menu1Obj\');stayMenu(\'menu1Obj\')"&gt;')
+        }
+        else if(me.ns4) {
+                document.write('&lt;/layer&gt;&lt;layer id="comunidade" left="605" top="167" width="112" height="77" z-index="5" visibility="hide"
+						onMouseOut="escondeMenu(\'menu1Obj\')" onMouseOver="abreMenu(\'menu1Obj\');stayMenu(\'menu1Obj\')"&gt;')
+        }
+&lt;/script&gt;
+			&lt;script language="JavaScript"&gt;
+                                                          
+        if(me.ie||!me.ns4) {                                                      
+                document.write('&lt;/div&gt;&lt;div id="palavra" style="position:absolute; left:310px; top:167px; width:112px; height:77px; z-index:5; visibility: hidden"
+					onMouseOut="escondeMenu(\'menu2Obj\')" onMouseOver="abreMenu(\'menu2Obj\');stayMenu(\'menu2Obj\')"&gt;')
+        }
+        else if(me.ns4) {
+                document.write('&lt;/layer&gt;&lt;layer id="palavra" left="310" top="167" width="112" height="77" z-index="5" visibility="hide"
+						onMouseOut="escondeMenu(\'menu2Obj\')" onMouseOver="abreMenu(\'menu2Obj\');stayMenu(\'menu2Obj\')"&gt;')
+        }
+&lt;/script&gt;
+			&lt;script language="JavaScript"&gt;
+                                                          
+        if(me.ie||!me.ns4) {                                                      
+                document.write('&lt;/div&gt;&lt;div id="instalacao" style="position:absolute; left:258px; top:108px; width:112px; height:77px; z-index:5; visibility: hidden"
+					onMouseOut="escondeMenu(\'menu3Obj\')" onMouseOver="abreMenu(\'menu3Obj\');stayMenu(\'menu3Obj\')"&gt;')
+        }
+        else if(me.ns4) {
+                document.write('&lt;/layer&gt;&lt;layer id="instalacao" left="255" top="90" width="112" height="77" z-index="5" visibility="hide"
+						onMouseOut="escondeMenu(\'menu3Obj\')" onMouseOver="abreMenu(\'menu3Obj\');stayMenu(\'menu3Obj\')"&gt;')
+        }
+&lt;/script&gt;
+			&lt;script language="JavaScript"&gt;
+                            
+        if(me.ie||!me.ns4) {                                                      
+                document.write('&lt;/div&gt;&lt;div id="setores" style="position:absolute; left:333px; top:108px; width:112px; height:77px; z-index:5; visibility: hidden"
+					onMouseOut="escondeMenu(\'menu4Obj\')" onMouseOver="abreMenu(\'menu4Obj\');stayMenu(\'menu4Obj\')"&gt;')
+        }
+        else if(me.ns4) {
+                document.write('&lt;/layer&gt;&lt;layer id="setores" left="328" top="90" width="112" height="77" z-index="5" visibility="hide"
+						onMouseOut="escondeMenu(\'menu4Obj\')" onMouseOver="abreMenu(\'menu4Obj\');stayMenu(\'menu4Obj\')"&gt;')
+        }
+&lt;/script&gt;
+			&lt;script language="JavaScript"&gt;
+                                                          
+        if(me.ie||!me.ns4) {                                                      
+                document.write('&lt;/div&gt;&lt;div id="noticias" style="position:absolute; left:385px; top:108px; width:112px; height:77px; z-index:5; visibility: hidden"
+					onMouseOut="escondeMenu(\'menu5Obj\')" onMouseOver="abreMenu(\'menu5Obj\');stayMenu(\'menu5Obj\')"&gt;')
+        }
+        else if(me.ns4) {
+                document.write('&lt;/layer&gt;&lt;layer id="noticias" left="378" top="90" width="112" height="77" z-index="5" visibility="hide"
+						onMouseOut="escondeMenu(\'menu5Obj\')" onMouseOver="abreMenu(\'menu5Obj\');stayMenu(\'menu5Obj\')"&gt;')
+        }
+&lt;/script&gt;
+			&lt;script language="JavaScript"&gt;
+                                                          
+        if(me.ie||!me.ns4) {                                                      
+                document.write('&lt;/div&gt;&lt;div id="ajuda" style="position:absolute; left:359px; top:108px; width:112px; height:77px; z-index:5; visibility: hidden"
+					onMouseOut="escondeMenu(\'menu6Obj\')" onMouseOver="abreMenu(\'menu6Obj\');stayMenu(\'menu6Obj\')"&gt;')
+        }
+        else if(me.ns4) {
+                document.write('&lt;/layer&gt;&lt;layer id="ajuda" left="359" top="108" width="112" height="77" z-index="5" visibility="hide"
+						onMouseOut="escondeMenu(\'menu6Obj\')" onMouseOver="abreMenu(\'menu6Obj\');stayMenu(\'menu6Obj\')"&gt;')
+        }
+&lt;/script&gt;
+			&lt;!-- Fim dos Sub-Menus --&gt; &lt;!-- Criando Objeto menu --&gt;
+			&lt;script language="JavaScript"&gt;
+                                                    
+        if(me.ie||!me.ns4) {                                                      
+                document.write('&lt;/div&gt;')
+        }
+        else if(me.ns4) {
+                document.write('&lt;/layer&gt;')
+        }
+        
+        menu1Obj=new ME_dynObj('comunidade',null)
+        menu2Obj=new ME_dynObj('palavra',null)
+        menu3Obj=new ME_dynObj('instalacao',null)
+        menu4Obj=new ME_dynObj('setores',null)
+        menu5Obj=new ME_dynObj('noticias',null)
+        menu6Obj=new ME_dynObj('ajuda',null)
+                        
+&lt;/script&gt;
+			&lt;!-- Fim - Criando Objeto menu --&gt;
+			&lt;div id="Layer1" style="position:absolute; left:11px; top:39px; 
+width:98px; height:94px; z-index:1"&gt;
+				&lt;img src="http://www.uniceub.br/img/internas35.gif"&gt;
+			&lt;/div&gt;
+		&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="FormataMoeda" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function FormataMoeda(pObject)
+{
+	if (pObject.value=="") return;
+	this.valorNaoFormatado=pObject.value
+	posPonto = this.valorNaoFormatado.indexOf(".");
+	posVirgula = this.valorNaoFormatado.indexOf(",");
+	if (posPonto &gt; posVirgula) {
+		re = /,/g;
+		this.valorNaoFormatado=this.valorNaoFormatado.replace(re,"");
+		this.virgulaFinal=this.valorNaoFormatado.indexOf(".");
+	}
+	else {
+		re = /\./g;
+		this.valorNaoFormatado=this.valorNaoFormatado.replace(re,"");
+		this.virgulaFinal=this.valorNaoFormatado.indexOf(",");
+		this.valorNaoFormatado = this.valorNaoFormatado.replace(",",".");
+	}
+	
+	//caso não seja um valor válido
+	if (isNaN(this.valorNaoFormatado)) {
+		alert (pObject.title + ': Valor não é numérico!');
+		pObject.focus();
+		pObject.select();
+		//pObject.value==""
+		return (false);
+	}
+		
+	if (this.virgulaFinal== -1){ // nao tem virgula na string de valor
+		this.valorFracionario="00";		
+		this.valorInteiro=this.valorNaoFormatado;
+	}
+	else{
+		//tem ponto : define a parte fracionaria
+		//toPrecision usado para contornar bug na soma do JS. Ex.: 100.46 + 2000.34 = 2100.79999999997 (retorno do JS)
+		this.valorNaoFormatado = parseFloat(this.valorNaoFormatado).toPrecision(this.virgulaFinal+2)
+		this.valorFracionario=this.valorNaoFormatado.substr(this.virgulaFinal+1,2);
+		//if (this.valorFracionario &lt; 10) this.valorFracionario = "0" + this.valorFracionario
+		this.valorInteiro=this.valorNaoFormatado.substring(0,this.virgulaFinal);
+	}
+	this.DesformataInteiro();
+	if ((this.valorInteiro &gt; 999999999999999)&amp;&amp;(pObject.id.indexOf("Total")==-1)){
+		alert(pObject.title + " Obs : Entre com um valor v�lido, menor que 1.000.000.000.000.000,00!");
+		pObject.focus();
+		pObject.select();
+		return (false);
+	}
+
+	this.FormataValorInteiro();
+	if (pObject.value != this.valorInteiro + "," + this.valorFracionario)
+		pObject.value=this.valorInteiro + "," + this.valorFracionario;
+	
+	return (true); 
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="DesformataInteiro" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function DesformataInteiro(){
+	var x=this.valorInteiro;
+	var xAux="";
+	var xInicial=0;
+	var xPos=x.indexOf(".");
+	while (xPos!=-1){
+		xAux=xAux + x.substring(0,xPos);
+		x=x.substring(xPos+1);
+		xPos=x.indexOf(".");
+	}
+	xAux=xAux + x;
+	this.valorInteiro=xAux;
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="FormataValorInteiro" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function FormataValorInteiro(){
+	var sInteiro = this.valorInteiro;
+	var iLength=sInteiro.length;
+	var sAux="";
+	var iPos=iLength;
+		
+	if (sInteiro.indexOf("-")==0) {
+		sNegativo="-";
+		iPos--;
+	}
+	else
+		sNegativo="";
+	sInteiro = sInteiro.replace("-","");
+	
+	while(iPos&gt;0) {
+		iPos-=3;
+		if (sAux!="")	{
+			sAux=sInteiro.substring(iPos,iPos+3)+"."+sAux;			
+		}
+		else {
+			sAux=sInteiro.substring(iPos,iPos+3);
+		}
+	}
+	this.valorInteiro = sNegativo + sAux;
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="NumFormat" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function NumFormat(Campo,Evento, AceitaNegativo){
+	if ((Evento.keyCode&gt;=96 &amp;&amp; Evento.keyCode&lt;=105) || (Evento.keyCode&gt;=48 &amp;&amp; Evento.keyCode&lt;=57)
+		|| Evento.keyCode==188 || Evento.keyCode==190
+		|| Evento.keyCode==8 || Evento.keyCode==46 || (Evento.keyCode==189 &amp;&amp; AceitaNegativo)){
+		campoTmp=Campo.value;
+		reg = /[^0-9]/g;
+		
+		if (campoTmp.indexOf("-")==0)
+			negativo = "-";		
+		else
+			negativo = "";
+			
+		campoTmp=campoTmp.replace(reg,"");
+		result = "";				
+		i=4;
+		len=campoTmp.length;
+		if (len&gt;1) {
+			parteDecimal = campoTmp.substr(len-1,2)
+			campoTmp = campoTmp.substr(0,len-1)
+			len=campoTmp.length;
+			while (i&lt;=campoTmp.length) {
+				result='.'+campoTmp.substr(len-3,3)+result;
+				i+=3;
+				len-=3;
+			}
+			result=campoTmp.substr(0,len)+result;
+			val = negativo + result + ',' + parteDecimal;
+			if(val.length &lt; Campo.maxLength)
+				Campo.value = val;
+		}
+		else
+			Campo.value = negativo + Campo.value.replace(reg,"");
+	}
+	else
+		if ((Evento.keyCode&lt;35 || Evento.keyCode&gt;40) &amp;&amp; Evento.keyCode!=9 &amp;&amp; Evento.keyCode!=16) {
+			if (AceitaNegativo)
+				reg = /[^0-9,-\.]/g;
+			else
+				reg = /[^0-9,\.]/g;
+				
+			Campo.value=Campo.value.replace(reg,"");
+		}
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="CalculaValorAditado" xml:space="preserve">
+    <value>&lt;script defer language="javascript"&gt;
+		function CalculaValorAditado() {
+			_base = new String(frm.txtValorBase.value);
+			_ferias = new String(frm.txtValorFerias.value);
+			vlBase = 0;
+			vlFerias = 0;
+			perc = 0;
+
+			if(frm.txtValorBase.value != "") {
+				_base = _base.replace(".","");
+				_base = _base.replace(",",".");
+				vlBase = parseFloat(_base);
+			}
+			
+			if(frm.txtValorFerias.value != "") {
+				_ferias = _ferias.replace(".","");
+				_ferias = _ferias.replace(",",".");
+				vlFerias = parseFloat(_ferias);
+			}
+			if(frm.txtPercentualConcedido.value != "") {
+				perc = parseInt(frm.txtPercentualConcedido.value);
+			}
+			
+			//-- Alterado a pedido do Clever.
+			//-- vlPercentual = perc * (vlBase / 100); 
+			vlPercentual = perc * ((vlBase + vlFerias)/100);
+			vlSemestralidade = 0;
+
+			vlAditado = vlPercentual;
+			vlPagar = vlSemestralidade + vlFerias - vlAditado;
+
+			frm.lblValorPagar.value = Math.round(vlPagar*100)/100;
+			frm.txtValorAditado.value = Math.round(vlAditado*100)/100;
+			
+			FormataMoeda(frm.lblValorPagar);
+			FormataMoeda(frm.txtValorAditado);
+		}
+		//CalculaValorAditado();
+		&lt;/script&gt;</value>
+  </data>
+  <data name="OpenModalDialogReturnCallEvent" xml:space="preserve">
+    <value>&lt;script language='javascript' defer&gt;
+				function openModalDialogReturnCallEvent()
+				{
+					try
+					{
+						var Config 	= 'dialogWidth:650px;dialogHeight:500px;resizable:yes;scroll:no;status:no;';
+						var url		= @url;
+						var path	= '../../poupup.aspx?url='+url;		
+						var ReturnValue = window.showModalDialog(path, document, Config);
+						var IDControl	= @IDControl;
+						
+
+						if(ReturnValue == 'true')
+						{
+							__doPostBack(IDControl,'');
+						}
+						else
+						{
+							return false;
+						}
+					}
+					catch(e) 
+					{ 
+						return false;
+					}
+				}
+
+				openModalDialogReturnCallEvent();
+			&lt;/script&gt;</value>
+  </data>
+  <data name="HideTable" xml:space="preserve">
+    <value>&lt;script language='javascript' defer&gt;
+				function HideTable(varIdTabela)
+				{
+					try
+					{
+						var ValorChkMudancaCurso;
+						var IdTabela;
+						
+						ValorChkMudancaCurso = document.frm.chkMudancaCurso.checked;
+						IdTabela = document.getElementById(varIdTabela);
+						
+						if(ValorChkMudancaCurso == true)
+						{
+								IdTabela.style.display = 'block'
+						}
+						else
+						{
+							IdTabela.style.display = 'none'
+						}
+					}
+					catch(e) 
+					{ 
+						return false;
+					}
+				}
+
+			&lt;/script&gt;</value>
+  </data>
+  <data name="SumArrayControl" xml:space="preserve">
+    <value>&lt;script language='javascript' defer&gt;
+				function FormatInteger(sInteiro)
+			{
+				var iLength=sInteiro.length;
+				var sAux="";
+				var iPos=iLength;
+					
+				if (sInteiro.indexOf("-")==0) {
+					sNegativo="-";
+					iPos--;
+				}
+				else
+					sNegativo="";
+				sInteiro = sInteiro.replace("-","");
+				
+				while(iPos&gt;0) {
+					iPos-=3;
+					if (sAux!="")	{
+						sAux=sInteiro.substring(iPos,iPos+3)+"."+sAux;			
+					}
+					else {
+						sAux=sInteiro.substring(iPos,iPos+3);
+					}
+				}
+				return sNegativo + sAux;
+			}
+			
+			function SumArrayControl(ArrayControl, ControlDisplay)
+			{
+				try
+				{
+					var iTotal = 0;
+					
+					for (i = 0; i &lt; ArrayControl.length; i++) 
+					{
+						var oObj = ArrayControl[i];
+						
+						var iValue = parseInt(oObj.value);
+						
+						if( isNaN(iValue) )
+						{
+							iValue = 0;
+						}												
+						iTotal += iValue; 
+					}
+					
+				}
+				catch(e)
+				{
+					alert(e);
+				}
+				
+				try
+				{
+					ControlDisplay.innerText = FormatInteger(String(iTotal));
+					return FormatInteger(String(iTotal));
+				}
+				catch(e)
+				{
+				}
+			}
+
+			&lt;/script&gt;</value>
+  </data>
+  <data name="CalcMedia" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+			function CalcMedia(Field1, Field2, Field3)
+			{
+				try
+				{
+					var Valor1, Valor2, Valor3;
+					
+					Valor1 = document.forms["frm"][Field1].value ;
+					Valor2 = document.forms["frm"][Field2].value;
+					Valor1 = Valor1.replace( ",", "." );
+					Valor2 = Valor2.replace( ",", "." );
+					
+					if(Valor1 == '') 
+					{
+						document.forms["frm"][Field1].value = '0,00';
+						Valor1 = 0;
+					}
+					if(Valor2 == '')
+					{
+						document.forms["frm"][Field2].value = '0,00';
+						Valor2 = 0;
+					}
+					
+					if(Valor1 != 0 || Valor2 != 0 )
+					{
+						Valor3 = (parseFloat(Valor1) + parseFloat(Valor2)) / 2;
+						document.forms["frm"][Field3].value = Valor3 ; // RETORNA A MEDIA PARA O TERCEIRO CAMPO
+					} 
+					else
+					{
+						document.forms["frm"][Field3].value = '0,00' ; // RETORNA A MEDIA PARA O TERCEIRO CAMPO
+					}
+				}
+				catch(e)
+				{
+					return false;
+				}
+			}
+			
+			&lt;/script&gt;</value>
+  </data>
+  <data name="HabDesCamposCheck" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+			function HabDesCamposCheck(Field1, Field2, Field3,FieldCheck)
+			{
+				try
+				{
+					if(document.forms["frm"][FieldCheck].checked)
+					{
+						if(Field1 != '')
+						{
+							document.forms["frm"][Field1].disabled = true ;
+							document.forms["frm"][Field1].valuetemp = document.forms["frm"][Field1].value ;
+							document.forms["frm"][Field1].value = '' ;
+						}
+						if(Field2 != '')
+						{
+							document.forms["frm"][Field2].disabled = true ;
+							document.forms["frm"][Field2].valuetemp = document.forms["frm"][Field2].value ;
+							document.forms["frm"][Field2].value = '' ;
+						}
+						if(Field3 != '')
+						{
+						 document.forms["frm"][Field3].disabled = true ;
+						 document.forms["frm"][Field3].valuetemp = document.forms["frm"][Field3].value ;
+						 document.forms["frm"][Field3].value = '' ;
+						}
+					}
+					else
+					{
+						if(Field1 != '')
+						{
+							document.forms["frm"][Field1].disabled = false ;
+							document.forms["frm"][Field1].value = document.forms["frm"][Field1].valuetemp.length != 0 ? document.forms["frm"][Field1].valuetemp : '9,99' ;
+							document.forms["frm"][Field1].focus();
+						}
+						if(Field2 != '')
+						{
+							document.forms["frm"][Field2].disabled = false ;
+							document.forms["frm"][Field2].value = document.forms["frm"][Field2].valuetemp ;
+						}
+						if(Field3 != '') 
+						{
+							document.forms["frm"][Field3].disabled = false ;
+							document.forms["frm"][Field3].value = document.forms["frm"][Field3].valuetemp ;
+						}
+					}
+				}
+				catch(e)
+				{
+					return false;
+				}
+			}
+			&lt;/script&gt;</value>
+  </data>
+  <data name="CopyValue" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+			function CopyValue(FieldOrigem, FieldDestino)
+			{
+				try
+				{
+					var Value1 = document.forms["frm"][FieldOrigem].value ;
+					
+					if(Value1.length &gt; 0)
+					{
+						document.forms["frm"][FieldDestino].value = Value1;
+					}
+					else
+					{
+						document.forms["frm"][FieldDestino].value = "";
+					}
+				}
+				catch(e)
+				{
+					return false;
+				}
+			}
+			&lt;/script&gt;</value>
+  </data>
+  <data name="FormataNota" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+function FormataNota(pObject)
+{
+	if (pObject.value=="") return;
+	this.valorNaoFormatado=pObject.value
+	posPonto = this.valorNaoFormatado.indexOf(".");
+	posVirgula = this.valorNaoFormatado.indexOf(",");
+	if (posPonto &gt; posVirgula) {
+		re = /,/g;
+		this.valorNaoFormatado=this.valorNaoFormatado.replace(re,"");
+		this.virgulaFinal=this.valorNaoFormatado.indexOf(".");
+	}
+	else {
+		re = /\./g;
+		this.valorNaoFormatado=this.valorNaoFormatado.replace(re,"");
+		this.virgulaFinal=this.valorNaoFormatado.indexOf(",");
+		this.valorNaoFormatado = this.valorNaoFormatado.replace(",",".");
+	}
+	
+	//caso não seja um valor válido
+	if (isNaN(this.valorNaoFormatado)) {
+		alert (pObject.title + ': Valor não é numérico!');
+		pObject.focus();
+		pObject.select();
+		//pObject.value==""
+		return (false);
+	}
+		
+	if (this.virgulaFinal== -1){ // nao tem virgula na string de valor
+		this.valorFracionario="0";		
+		this.valorInteiro=this.valorNaoFormatado;
+	}
+	else{
+		//tem ponto : define a parte fracionaria
+		//toPrecision usado para contornar bug na soma do JS. Ex.: 100.46 + 2000.34 = 2100.79999999997 (retorno do JS)
+		this.valorNaoFormatado = parseFloat(this.valorNaoFormatado).toPrecision(this.virgulaFinal+2)
+		this.valorFracionario=this.valorNaoFormatado.substr(this.virgulaFinal+1,2);
+		//if (this.valorFracionario &lt; 10) this.valorFracionario = "0" + this.valorFracionario
+		this.valorInteiro=this.valorNaoFormatado.substring(0,this.virgulaFinal);
+	}
+	this.DesformataInteiro();
+	if ((this.valorInteiro &gt; 999999999999999)&amp;&amp;(pObject.id.indexOf("Total")==-1)){
+		alert(pObject.title + " Obs : Entre com um valor v�lido, menor que 1.000.000.000.000.000,00!");
+		pObject.focus();
+		pObject.select();
+		return (false);
+	}
+
+	this.FormataValorInteiro();
+	if (pObject.value != this.valorInteiro + "," + this.valorFracionario)
+		pObject.value=this.valorInteiro + "," + this.valorFracionario;
+	
+	return (true); 
+}
+&lt;/script&gt;</value>
+  </data>
+  <data name="ValidMaxValue" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+	function ValidMaxValue(Field1, MaxValue)
+	{
+		try
+		{
+			var Value1 ;
+			
+			Value1 = Field1.value ;
+			Value1 = Value1.replace(',','.'); 
+			MaxValue = parseFloat(MaxValue.replace(',','.'));
+			
+			if(parseFloat(Value1) &gt; MaxValue )
+			{
+				alert('O valor deste campo não pode ser maior que ' + MaxValue + ' .');
+				Field1.value = '';
+				Field1.focus() ;
+			}
+		}
+		catch(e)
+		{
+			return false;
+		}
+	}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="ReturnMencaoByLegenda" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function ReturnMencaoByLegenda(oTextBox,typeMencao)
+		{
+		// se typeMencao = 1 // PAUTA
+		// se typeMencao = 2 // DIARIO
+		// se typeMencao = 3 // PAUTA ESTAGIO
+
+			var Mencao;
+			
+			if(event.keyCode &lt; 49 || event.keyCode &gt; 55 )
+			{
+				if((event.keyCode != 56 &amp; event.keyCode != 57) || typeMencao != 3)
+				{
+					event.keyCode = 0;
+						return false;
+				}
+			}
+
+			if(typeMencao == 3)
+			{
+				switch(event.keyCode)
+				{
+					case 49:
+						Mencao = "SS";
+						break;
+					case 50:
+						Mencao = "MS";
+						break;
+					case 51:
+						Mencao = "MM";
+						break;
+					case 52:
+						Mencao = "MI";
+						break;
+					case 53:
+						Mencao = "II";
+						break;
+					case 54:
+						Mencao = "SR";
+						break;
+					case 55:
+						Mencao = "RF";
+						break;
+					case 56:
+						Mencao = "AP";
+						break;
+					case 57:
+						Mencao = "RP";
+						break;
+					}
+
+				event.keyCode = 0;
+				oTextBox.value = Mencao;
+				return true;
+			}
+
+			else 
+			{
+				switch(event.keyCode)
+				{
+					case 49:
+						Mencao = "SS";
+						break;
+					case 50:
+						Mencao = "MS";
+						break;
+					case 51:
+						Mencao = "MM";
+						break;
+					case 52:
+						Mencao = "MI";
+						break;
+					case 53:
+						Mencao = "II";
+						break;
+					case 54:
+						Mencao = "SR";
+						break;
+					case 55:
+						Mencao = "RF";
+						break;
+					}
+
+				event.keyCode = 0;
+				oTextBox.value = Mencao;
+				return true;
+			}
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="FormatNotaRedacao" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function FormatNotaRedacao(oObj,boolTab,nuCampo,nmchkBox)
+		{
+			try
+			{
+				var vKey = window.event.keyCode;
+
+				// caso a nota digita se '9,99' deve fazer o mesmo processo 
+				// de clicar no checkbox 
+				if(oObj.value.replace( ",", "" ) == '999') 
+				{
+					document.forms['frm'][nmchkBox].checked = true;
+					HabDesCamposCheck(oObj.id,'','',nmchkBox);
+					document.forms['frm'][nuCampo].focus();
+					return;
+				}
+				// ****************************************************
+
+				if(vKey &gt;= 37 &amp;&amp; vKey &lt;= 40)
+					return true;
+				else if(vKey == 8)
+					return true;
+				else if(vKey == 13 &amp;&amp; boolTab == true)
+					document.forms['frm'][nuCampo].focus();
+				
+				if(oObj.value.length &gt; 1)
+				{
+					sValue = oObj.value.replace( ",", "" );
+					iLength = sValue.length;
+					var nuNota = sValue.substring(0 , iLength - 1);
+					var nuDigito = sValue.substring(iLength - 1, iLength);
+					oObj.value = nuNota + ',' + nuDigito;
+				}
+				else if(oObj.value.length == 1)
+				{
+					if(isNaN(oObj.value)) oObj.value = '';
+				}
+				if(boolTab == true)
+				{
+					if(oObj.value.length == 4)
+					{
+						document.forms['frm'][nuCampo].focus();
+					}
+				}
+			}
+			catch(e) 
+			{ 
+				return false;
+			}
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="ValidNotaMencao" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+	function ValidNotaMencao(Field)
+	{
+		try
+		{
+			if(Field.value.length == 0)
+				return;
+			var Value = Field.value.split(",");
+			var ValueLength = Value.length;
+			
+			if(ValueLength &lt;= 1)
+			{
+				alert("Campo preenchido de forma incorreta!");
+				Field.focus();
+				return;
+			}
+			
+			if(Value[1] != 0 &amp;&amp; Value[1] != 5 )
+			{
+				alert("Depois da vírgula é permitido somente '0' ou '5'!");
+				Field.focus();
+				return;
+			}
+		}
+		catch(e)
+		{
+			return false;
+		}
+	}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="ValidMencao" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function ValidMencao(oTextBox,typeMencao)
+		{
+		// se typeMencao = 1 // PAUTA
+		// se typeMencao = 2 // DIARIO
+		// se typeMencao = 3 // DIARIO - Reprovado por falta
+		// se typeMencao = 4 // PAUTA ESTAGIO
+
+			oTextBox.value  = oTextBox.value.replace( " ", "" ).toUpperCase()
+			
+			var Mencao = oTextBox.value;
+			
+			if(Mencao.length == 0)
+				return false;
+
+			if(typeMencao == 1)
+			{	
+				if(Mencao == "SS" | Mencao == "MS" | Mencao == "MM" | Mencao == "MI" | Mencao == "II" | Mencao == "SR")
+					return;
+				else if(Mencao == "RF")
+				{
+					alert("Não é permitido a menção 'RF' para pauta!");
+					oTextBox.focus();
+					return false;
+				}
+				else
+				{
+					alert("A menção informada é inválida!");
+					oTextBox.focus();
+					return false;
+				}
+			}
+			else if(typeMencao == 3)
+			{	
+				if(Mencao == "MI" | Mencao == "II" | Mencao == "SR" | Mencao == "RF")
+					return;
+				else if(Mencao == "SS" | Mencao == "MS" | Mencao == "MM" )
+				{
+					alert("Este aluno passou do limite de faltas permitidas, a menção deve ser 'RF' ou inferior a 'MM' .");
+					oTextBox.focus();
+					return false;
+				}
+				else
+				{
+					alert("A menção informada é inválida!");
+					oTextBox.focus();
+					return false;
+				}
+			}
+			else if(typeMencao == 4)
+			{	
+				if(Mencao == "MI" | Mencao == "II" | Mencao == "SR" | Mencao == "RF"  | Mencao == "RP"  | Mencao == "AP" | Mencao == "SS" | Mencao == "MS" | Mencao == "MM")
+					return;
+				else
+				{
+					alert("A menção informada é inválida!");
+					oTextBox.focus();
+					return false;
+				}
+			}
+			else
+			{	
+				if(Mencao == "SS" | Mencao == "MS" | Mencao == "MM" | Mencao == "MI" | Mencao == "II" | Mencao == "SR" | Mencao == "RF")
+					return;
+				else
+				{
+					alert("A menção informada é inválida!");
+					oTextBox.focus();
+					return false;
+				}
+			}			
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="ShowHide" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+	function ShowHide(idObject, oimg , path, validCheckBox,bVisible)
+	{
+		if(validCheckBox)
+		{
+			for(i = 0; i &lt; document.forms[0].elements.length; i++)
+			{
+				var obj = document.forms[0].elements[i];
+				if(obj.type == 'checkbox' &amp; obj.checked)
+				{
+					idObject.style.display = 'none';
+				}
+			}
+		}
+		
+		if(bVisible == true)
+		{
+			idObject.style.display = 'block';
+			return;
+		}
+		else if(bVisible == false)
+		{
+			idObject.style.display = 'none';
+			return;
+		}
+		
+		if (idObject.style.display == 'none')
+		{
+			idObject.style.display = 'block';
+			
+			if(oimg != null)
+			{
+				if(path == null)
+				{
+					oimg.src= '../../_imagens/-.gif' ;
+				}
+				else
+				{
+					oimg.src= path ;
+				}
+			}
+		}
+		else
+		{
+			idObject.style.display = 'none';
+			if(oimg != null)
+			{
+				if(path == null)
+				{
+					oimg.src= '../../_imagens/+.gif' ;
+				}
+				else
+				{
+					oimg.src= path ;
+				}
+			}
+		}
+	}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="copyValueSelect" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+	function copyValueSelect(objSelect, objReceptor, preIncrement, posIncrement)
+	{
+		var selectIndex =  objSelect.selectedIndex;
+		var text;
+		
+		if(selectIndex &lt; 0)
+			return;
+			
+		text = objSelect.options[selectIndex].text;
+		if(preIncrement != null &amp;&amp; preIncrement.length &gt; 0)
+			text = preIncrement + text;
+		if(posIncrement != null &amp;&amp; posIncrement.length &gt; 0)
+			text += posIncrement;
+
+		objReceptor.value += text; 
+	}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="NumMaxFaltas" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+	function NumMaxFaltas(oObj,num)
+	{
+		var txtValue = oObj.value;	
+		if(num &lt; txtValue)
+		{
+			alert("Se o valor deste campo for maior que (" + num.toString() +  "), o total de faltas será maior que a carga horária da disciplina.");
+			oObj.focus();
+		}
+	}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="PularCampoByIndex" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function PularCampoByIndex(oObj, nuNextIndex)
+		{
+			try
+			{
+				if(oObj.maxLength &lt;= oObj.value.length)
+					document.forms[0][nuNextIndex].focus();
+			}
+			catch(e) 
+			{ 
+				return false;
+			}
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="VerificReprovacaoFalta" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function VerificReprovacaoFalta(oObj,num,oObjReceptor,Tipo)
+		{
+			var txtValue = oObj.value;
+			var nuMaxFalta = num * 0.25;	
+			if(txtValue &gt; nuMaxFalta)
+			{
+				document.forms[0][oObjReceptor].value = 'RF';
+			}
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="VerificMencaoReprovacao" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function VerificMencaoReprovacao(txtMencao,nuCargaHoraria,txtFalta)
+		{
+			var nuFaltas   = document.forms[0][txtFalta].value;
+			var nuMaxFalta = nuCargaHoraria * 0.25;	
+			var coMencao   = txtMencao.value;
+			
+			if(coMencao.length == 0)
+				return;
+			
+			if(nuFaltas &gt; nuMaxFalta &amp;&amp; coMencao != 'RF'  &amp;&amp;  coMencao != 'II'  &amp;&amp; coMencao != 'MI'  &amp;&amp;  coMencao != 'SR')
+			{
+				alert('Este Aluno está reprovado por falta, sua menção deve ser \'RF\',\'SR\' ,\'MI\'  ou \'II\' .');
+				txtMencao.focus();
+			}
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="Alfanumeric" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function Alfanumeric()
+		{
+			if(event.keyCode &lt; 49 || event.keyCode &gt; 55 &amp;&amp; event.keyCode &lt; 97 || event.keyCode &gt; 122)
+			{
+				    event.keyCode = 0;
+					return false;
+			}
+			else
+				return true;
+		}
+
+	&lt;/script&gt;</value>
+  </data>
+  <data name="ShowHideTag" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function ShowHideTag(Tag, nmTag,Display)
+		{
+			var objs = document.getElementsByTagName(Tag);
+
+			for(var i=0;i&lt;objs.length;i++)
+			{
+				if(objs[i].name == nmTag)
+				{
+					objs[i].style.display = Display;
+				}
+			}
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="ToolTipCSS" xml:space="preserve">
+    <value>&lt;style type="text/css"&gt;#dhtmltooltip{position: absolute;width: 250px;border: 1px solid black;padding: 1px;background-color:#FFFFFF;visibility: hidden;z-index: 100;font-family: verdana;color: #000000;font-size:10px;}&lt;/style&gt;</value>
+  </data>
+  <data name="ToolTipJS" xml:space="preserve">
+    <value>&lt;div id="dhtmltooltip"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+	var offsetxpoint=-60 //Customize x offset of tooltip
+	var offsetypoint=20 //Customize y offset of tooltip
+	var ie=document.all
+	var ns6=document.getElementById &amp;&amp; !document.all
+	var enabletip=false
+	if (ie||ns6)
+	var tipobj=document.all? document.all["dhtmltooltip"] : document.getElementById? document.getElementById("dhtmltooltip") : ""
+
+	function ietruebody(){
+		return (document.compatMode &amp;&amp; document.compatMode!="BackCompat")? document.documentElement : document.body
+	}
+
+	function ddrivetip(thetext, thecolor, thewidth){
+		window.onresize = new Function('if (navigator.appVersion==\'Netscape\') history.go(0);');
+		if (ns6||ie){
+			if (typeof thewidth!="undefined") tipobj.style.width=thewidth+"px"
+			if (typeof thecolor!="undefined" &amp;&amp; thecolor!="") tipobj.style.backgroundColor=thecolor
+				tipobj.innerHTML=thetext
+				enabletip=true
+				return false
+			}	
+	}
+
+	function positiontip(e){
+		if (enabletip){
+			var curX=(ns6)?e.pageX : event.x+ietruebody().scrollLeft;
+			var curY=(ns6)?e.pageY : event.y+ietruebody().scrollTop;
+			//Find out how close the mouse is to the corner of the window
+			var rightedge=ie&amp;&amp;!window.opera? ietruebody().clientWidth-event.clientX-offsetxpoint : window.innerWidth-e.clientX-offsetxpoint-20
+			var bottomedge=ie&amp;&amp;!window.opera? ietruebody().clientHeight-event.clientY-offsetypoint : window.innerHeight-e.clientY-offsetypoint-20
+
+			var leftedge=(offsetxpoint&lt;0)? offsetxpoint*(-1) : -1000
+
+			//if the horizontal distance isn't enough to accomodate the width of the context menu
+			if (rightedge&lt;tipobj.offsetWidth)
+				//move the horizontal position of the menu to the left by it's width
+				tipobj.style.left=ie? ietruebody().scrollLeft+event.clientX-tipobj.offsetWidth+"px" : window.pageXOffset+e.clientX-tipobj.offsetWidth+"px"
+			else if (curX&lt;leftedge)
+				tipobj.style.left="5px"
+			else
+			//position the horizontal position of the menu where the mouse is positioned
+			tipobj.style.left=curX+offsetxpoint+"px"
+
+			//same concept with the vertical position
+			if (bottomedge&lt;tipobj.offsetHeight)
+				tipobj.style.top=ie? ietruebody().scrollTop+event.clientY-tipobj.offsetHeight-offsetypoint+"px" : window.pageYOffset+e.clientY-tipobj.offsetHeight-offsetypoint+"px"
+			else
+				tipobj.style.top=curY+offsetypoint+"px"
+				tipobj.style.visibility="visible"
+			}
+	}
+
+	function hideddrivetip(){
+		if (ns6||ie)
+		{
+			enabletip=false
+			tipobj.style.visibility="hidden"
+			tipobj.style.left="-1000px"
+			tipobj.style.backgroundColor=''
+			tipobj.style.width=''
+		}
+	}
+
+	document.onmousemove = positiontip
+&lt;/script&gt;</value>
+  </data>
+  <data name="Manutencao" xml:space="preserve">
+    <value>&lt;table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="EAE2D0"&gt;
+      &lt;tr&gt;
+        &lt;td height="10" colspan="3"&gt;&lt;img src="/_imagens/1x1.gif" width="1" height="1"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td width="10"&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td valign="top" bgcolor="CEC497" class="tabela_fundo_formulario"&gt;&lt;table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="CEC497"&gt;
+            &lt;tr&gt;
+              &lt;td width="8%"&gt;&lt;img src="/_imagens/exclamacao.gif" width="84" height="79"&gt;&lt;/td&gt;
+              &lt;td&gt;&lt;table width="100%" border="0" cellspacing="0" cellpadding="0"&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;&lt;font size="2"&gt;&lt;strong&gt;&lt;font color="#CC0000"&gt;MANUTEN&amp;Ccedil;&amp;Atilde;O
+                          PROGRAMADA&lt;/font&gt;&lt;/strong&gt;&lt;/font&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;&lt;p&gt;&lt;font color="#CC0000"&gt;O SGI estar&amp;aacute; temporariamente indispon&amp;iacute;vel
+                        entre &lt;b&gt;$dtInicial$&lt;/b&gt; e &lt;b&gt;$dtFinal$&lt;/b&gt;.&lt;br&gt;
+                  &lt;/font&gt;&lt;font color="#CC0000"&gt;Caso
+                        tenha alguma d&amp;uacute;vida
+                          ou sugest&amp;atilde;o encaminhe 
+                          para o e-mail &lt;a href="mailto:sgi@uniceub.br" class="linkAviso"&gt;sgi@uniceub.br&lt;/a&gt;.
+                          &lt;br&gt;
+                          Contamos com sua compreens&amp;atilde;o.&lt;/font&gt;&lt;/p&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/table&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+          &lt;/table&gt;
+        &lt;/td&gt;
+        &lt;td width="10"&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td height="10" colspan="3"&gt;&lt;img src="/_imagens/1x1.gif" width="1" height="1"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;</value>
+  </data>
+  <data name="DoToolTip" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		var dom = (document.getElementById) ? true : false;
+		var ns5 = ((navigator.userAgent.indexOf("Gecko")&gt;-1) &amp;&amp; dom) ? true: false;
+		var ie5 = ((navigator.userAgent.indexOf("MSIE")&gt;-1) &amp;&amp; dom) ? true : false;
+		var ns4 = (document.layers &amp;&amp; !dom) ? true : false;
+		var ie4 = (document.all &amp;&amp; !dom) ? true : false;
+		var nodyn = (!ns5 &amp;&amp; !ns4 &amp;&amp; !ie4 &amp;&amp; !ie5) ? true : false;
+
+		// resize fix for ns4
+		var origWidth, origHeight;
+		if (ns4) {
+			origWidth = window.innerWidth; origHeight = window.innerHeight;
+			window.onresize = function() { if (window.innerWidth != origWidth || window.innerHeight != origHeight) history.go(0); }
+		}
+
+		// avoid error of passing event object in older browsers
+		if (nodyn) { event = "nope" }
+
+		///////////////////////  CUSTOMIZE HERE   ////////////////////
+		// settings for tooltip 
+		// Do you want tip to move when mouse moves over link?
+		var tipFollowMouse= true;	
+		// Be sure to set tipWidth wide enough for widest image
+		var tipWidth= 160;
+		var offX= 20;	// how far from mouse to show tip
+		var offY= 12; 
+		var tipFontFamily= "Verdana, arial, helvetica, sans-serif";
+		var tipFontSize= "8pt";
+		// set default text color and background color for tooltip here
+		// individual tooltips can have their own (set in messages arrays)
+		// but don't have to
+		var tipFontColor= "#000000";
+		var tipBgColor= "#DDECFF"; 
+		var tipBorderColor= "#000080";
+		var tipBorderWidth= 3;
+		var tipBorderStyle= "ridge";
+		var tipPadding= 4;
+
+		var startStr = '&lt;table width="' + tipWidth + '"&gt;&lt;tr&gt;&lt;td align="center" width="100%"&gt;&lt;img src="';
+		var midStr = '" width=150 border="0"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td valign="top"&gt;';
+		var endStr = '&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;';
+
+		var tooltip, tipcss;
+		function initTip() {
+			if (nodyn) return;
+			tooltip = (ns4)? document.tipDiv.document: (ie4)? document.all['tipDiv']: (ie5||ns5)? document.getElementById('tipDiv'): null;
+			tipcss = (ns4)? document.tipDiv: tooltip.style;
+			if (tooltip&amp;&amp;tipFollowMouse) {
+				if (ns4) document.captureEvents(Event.MOUSEMOVE);
+				document.onmousemove = trackMouse;
+			}
+		}
+
+		window.onload = initTip;
+
+		var t1,t2;	// for setTimeouts
+		var tipOn = false;	// check if over tooltip link
+		function doTooltip(evt,num) {
+			if (!tooltip) return;
+			if (t1) clearTimeout(t1);	if (t2) clearTimeout(t2);
+			tipOn = true;
+			var tip = startStr + num + midStr + endStr;
+			tooltip.innerHTML = tip;
+
+			if (!tipFollowMouse) positionTip(evt);
+			else t1=setTimeout("tipcss.visibility='visible'",100);
+		}
+
+		var mouseX, mouseY;
+		function trackMouse(evt) {
+			mouseX = (ns4||ns5)? evt.pageX: window.event.clientX + document.body.scrollLeft;
+			mouseY = (ns4||ns5)? evt.pageY: window.event.clientY + document.body.scrollTop;
+			if (tipOn) positionTip(evt);
+		}
+
+		function positionTip(evt) {
+			if (!tipFollowMouse) {
+				mouseX = (ns4||ns5)? evt.pageX: window.event.clientX + document.body.scrollLeft;
+				mouseY = (ns4||ns5)? evt.pageY: window.event.clientY + document.body.scrollTop;
+			}
+			// tooltip width and height
+			var tpWd = (ns4)? tooltip.width: (ie4||ie5)? tooltip.clientWidth: tooltip.offsetWidth;
+			var tpHt = (ns4)? tooltip.height: (ie4||ie5)? tooltip.clientHeight: tooltip.offsetHeight;
+			// document area in view (subtract scrollbar width for ns)
+			var winWd = (ns4||ns5)? window.innerWidth-20+window.pageXOffset: document.body.clientWidth+document.body.scrollLeft;
+			var winHt = (ns4||ns5)? window.innerHeight-20+window.pageYOffset: document.body.clientHeight+document.body.scrollTop;
+			// check mouse position against tip and window dimensions
+			// and position the tooltip 
+			if ((mouseX+offX+tpWd)&gt;winWd) 
+				tipcss.left = (ns4)? mouseX-(tpWd+offX): mouseX-(tpWd+offX)+"px";
+			else tipcss.left = (ns4)? mouseX+offX: mouseX+offX+"px";
+			if ((mouseY+offY+tpHt)&gt;winHt) 
+				tipcss.top = (ns4)? winHt-(tpHt+offY): winHt-(tpHt+offY)+"px";
+			else tipcss.top = (ns4)? mouseY+offY: mouseY+offY+"px";
+			if (!tipFollowMouse) t1=setTimeout("tipcss.visibility='visible'",100);
+		}
+
+		function hideTip() {
+			if (!tooltip) return;
+			t2=setTimeout("tipcss.visibility='hidden'",100);
+			tipOn = false;
+		}
+
+	&lt;/script&gt;
+	&lt;div id="tipDiv" style="position:absolute; visibility:hidden; z-index:100"&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="IsPressedKey" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function IsPressedKey(key)
+		{
+			return (keyEvent(event)==key);
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="keyEvent" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function keyEvent(e)
+		{
+			var evtobj=window.event? event : e; //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
+			return keyPressed=evtobj.charCode? evtobj.charCode : evtobj.keyCode;
+		}
+		if(navigator.appName!="Microsoft Internet Explorer")
+    		document.onkeypress=keyEvent;
+	&lt;/script&gt;</value>
+  </data>
+  <data name="TabulacaoByIndex" xml:space="preserve">
+    <value>&lt;script defer type="text/javascript" language="JavaScript"&gt;
+		function TabulacaoByIndex(oObj, nuNextIndex)
+		{
+			try
+			{
+				if(document.onkeypress==null)keyEvent(event);
+				if((oObj.maxLength &lt;= oObj.value.length)||(keyPressed==13))
+					document.forms[0][nuNextIndex].focus();
+			}
+			catch(e) 
+			{ 
+				return false;
+			}
+		}
+	&lt;/script&gt;</value>
+  </data>
+  <data name="HtmlErrorPage" xml:space="preserve">
+    <value>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;
+    &lt;title&gt;Log in @Application&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+        body
+        {
+            font-family: Trebuchet, Tahoma, Arial;
+            font-size: 12px;
+        }
+        h1#mainTitle
+        {
+            color: #4465b3;
+            font-size: 17px;
+            font-weight: normal;
+        }
+        hr.divider
+        {
+            border-bottom: solid 1px #b6bcc6;
+            height: 1px;
+            margin-bottom: 15px;
+        }
+        h3
+        {
+            font-size: 13px;
+            font-weight: normal;
+            color: #575757;
+        }
+        ul li
+        {
+            font-weight: normal;
+            color: #575757;
+        }
+        td
+        {
+            font-weight: normal;
+            color: #575757;
+        }
+        .errorCodeAndDivider
+        {
+            font-weight: normal;
+            color: #575757;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table width="730" cellpadding="0" cellspacing="0" border="0"&gt;
+        &lt;!-- Error title --&gt;
+        &lt;tr&gt;
+            &lt;td id="infoIconAlign" width="60" align="left" valign="top" rowspan="2"&gt;
+                &lt;img src="http://www.sgi2005.uniceub.br/Images/error_48.png" id="infoError" alt="Ícone de erro"&gt;
+            &lt;/td&gt;
+            &lt;td id="mainTitleAlign" valign="middle" align="left"&gt;
+                &lt;h1 id="mainTitle"&gt;
+                    Log in @Application&lt;/h1&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;!-- This row is for HTTP status code, as well as the divider--&gt;
+            &lt;td id="http403Align" class="errorCodeAndDivider" align="right"&gt;
+                &amp;nbsp;@DateTime
+                &lt;hr class="divider" /&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Error In --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Error in:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@ErrorIn&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Error Message --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Error message:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@ErrorMessage&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Inner Exception Error Message --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Error message:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@InnerExceptionErrorMessage&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+       &lt;!-- Stack trace --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Stack trace:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@ErrorTrace&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Source --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Source:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@Source&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Http Form --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Http Form:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@HttpForm&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Http QueryString --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Http QueryString:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@HttpQueryString&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Sessions --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Sessions:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@Sessions&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Server Variables --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Server Variables:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@ServerVariables&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Cookies --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td valign="top" align="left"&gt;
+                &lt;h3&gt;
+                    Cookies:&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;@Cookies &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!-- Informations --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &amp;nbsp;
+            &lt;/td&gt;
+            &lt;td align="left" valign="top"&gt;
+                &lt;h3&gt;
+                    Informations:&lt;/h3&gt;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" style="width: 100%"&gt;
+                            &lt;tr&gt;
+                                &lt;td align="left" style="width: 15%; height: 14px"&gt;
+                                    Usuário:
+                                &lt;/td&gt;
+                                &lt;td style="height: 14px"&gt;
+                                    @User
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td align="left" style="width: 15%"&gt;
+                                    IP:
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    @IP
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td align="left" style="width: 15%"&gt;
+                                    IPFWD:
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    @IPFWD
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td align="left" style="width: 15%"&gt;
+                                    Machine Name:
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    @MachineName
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td align="left" style="width: 15%"&gt;
+                                    Local Path:
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    @LocalPath
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td align="left" style="width: 15%"&gt;
+                                    Url Referrer:
+                                &lt;/td&gt;
+                                &lt;td&gt;
+                                    @UrlReferrer
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+</root>

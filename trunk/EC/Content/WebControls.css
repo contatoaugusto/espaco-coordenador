@@ -1,0 +1,634 @@
+﻿.textbox,
+.textboxfocus,
+.textboxblur,
+.dropdownlist,
+.textbox-water {
+    border: solid 1px #dadada;
+    padding: 3px 4px;
+}
+
+.textboxfocus {
+    background-color: #fff6d0;
+}
+
+textarea {
+    font-family: Segoe UI, Verdana;
+    border: solid 1px #dadada;
+    padding: 3px 4px;
+}
+
+.textbox-water {
+    color: #cccccc;
+}
+
+.resizable-textarea {
+    font-size: smaller;
+}
+
+table.gridview { 
+    width: 100%;
+    line-height: normal;
+    position: relative;
+}
+
+    table.gridview a {
+        color: #494848;
+    }
+
+    table.gridview tr.gridviewrowheader {
+        background-image: url(images/gridview-header.gif);
+    }
+
+    table.gridview tr.gridviewrowheader,
+    table.gridview tr.gridviewpaging,
+    table.gridview tr.gridviewrowfooter,
+    td.gridviewcolumnfooter,
+    table.gridview tr.gridviewrowgroup {
+        vertical-align: middle;
+        font-size: 100%;
+        background-color: #efefef;
+    }
+
+    table.gridview tr th.gridviewcolumnheader {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    table.gridview tr.gridviewrowheader > th,
+    table.gridview tr th.gridviewcolumnheader,
+    table.gridview tr.gridviewpaging td,
+    table.gridview tr.gridviewrowfooter td,
+    table.gridview tr.gridviewgrouprow td,
+    td.gridviewcolumnfooter,
+    table.gridview tr.gridviewrowgroup td {
+        text-align: center;
+        height: 31px;
+        vertical-align: middle;
+        font-weight: normal;
+        border-left: solid 1px #d2d2d2;
+        border-right: solid 1px #d2d2d2;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    table.gridview tr.gridviewrowgroup {
+        border-top: solid 1px #d2d2d2;
+    }
+
+        table.gridview tr.gridviewrowgroup td {
+            color: #6a4848;
+            font-size: 100%;
+            font-weight: bold;
+            text-align: left;
+        }
+
+    table.gridview tr.gridviewgrouprow {
+        background: #d2d2d2;
+        border-top: solid 1px #d2d2d2;
+    }
+
+        table.gridview tr.gridviewgrouprow td {
+            text-align: left;
+            font-size: 100%;
+            color: #ffffff;
+            font-weight: bold;
+            padding-left: 8px;
+        }
+
+    table.gridview tr.gridviewrowheader > th,
+    table.gridview tr th.gridviewcolumnheader {
+        border-top: solid 1px #d2d2d2;
+    }
+
+    table.gridview tr.gridviewpaging td,
+    table.gridview tr.gridviewrowfooter td,
+    td.gridviewcolumnfooter,
+    td.gridviewcolumngroup {
+        border-bottom: solid 1px #d2d2d2;
+    }
+
+        table.gridview tr.gridviewpaging td table {
+            margin-left: 5px;
+            border-collapse: separate;
+            border-spacing: 1px;
+            padding: 1px;
+        }
+
+            table.gridview tr.gridviewpaging td table td {
+                border: 0;
+                height: 20px;
+                width: 21px;
+                background-image: url(images/pag-link-back.png);
+                background-repeat: no-repeat;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+                table.gridview tr.gridviewpaging td table td span {
+                    color: #af1d22;
+                }
+
+                table.gridview tr.gridviewpaging td table td a {
+                    color: #494848;
+                }
+
+    table.gridview .gridviewcolumnaction a {
+        /*color:#1255ac;*/
+    }
+
+    table.gridview.gridview-striped .fontsize16 {
+        font-size: 14px;
+    }
+
+    table.gridview tr.gridviewrow {
+        vertical-align: middle;
+        background-color: #ffffff;
+    }
+
+    table.gridview tr.gridviewrowalternating {
+        vertical-align: middle;
+        background-color: #fafafa;
+    }
+
+    table.gridview tr.gridviewmouseoverrow {
+        vertical-align: middle;
+        background-color: #fff6d0;
+    }
+
+    table.gridview tr td.gridviewcolumnrow,
+    table.gridview tr td.gridviewcolumnaction {
+        padding: 4px 3px;
+        border-bottom: solid 1px #e9e8e8;
+        border-right: solid 1px #e9e8e8;
+        border-left: solid 1px #e9e8e8;
+        vertical-align: middle;
+        min-height: 31px;
+    }
+
+    table.gridview td.gridviewcolumnempty {
+        padding: 10px;
+        background: #ffffff;
+        font-size: 120%;
+        border-bottom: solid 1px #e9e8e8;
+        border-right: solid 1px #e9e8e8;
+        border-left: solid 1px #e9e8e8;
+        vertical-align: middle;
+    }
+
+    table.gridview tr.gridviewrowfooter td {
+        padding: 4px 3px;
+        height: 22px;
+    }
+/*
+As cores da legenda foram desabilitados
+27/12/2007 por Stiven Fabiano da C�mara
+
+table .gridviewcolumnrowlevel1
+{
+	background-color:#ffca05;
+}
+
+table .gridviewcolumnrowlevel2
+{
+	background-color:#fedb57;
+}
+
+table .gridviewcolumnrowlevel3
+{
+	background-color:#fdefb8;
+}
+
+table .gridviewcolumnrowlevel4
+{
+	background-color:#fbd1d2;
+}
+
+table .gridviewcolumnrowlevel5
+{
+	background-color:#f7adae;
+}
+
+table .gridviewcolumnrowlevel6
+{
+	background-color:#f27c7f;
+}
+*/
+table .gridviewcolumnrowlevel1,
+.gridviewcolumnrowlevel2,
+.gridviewcolumnrowlevel3,
+.gridviewcolumnrowlevel4,
+.gridviewcolumnrowlevel5,
+.gridviewcolumnrowlevel6 {
+    font-weight: bold;
+    border: solid #f1f1f1 1px;
+}
+/* Fim do GridView */
+/* In�cio do Button */
+label.button {
+    cursor: pointer;
+    text-align: center;
+    line-height: normal !important;
+    text-decoration: none;
+    vertical-align: top;
+    display: inline-block;
+    white-space: nowrap;
+    background: #f1f2f2;
+    border: solid 1px #dadada;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #ccc;
+    width: auto;
+    height: auto;
+}
+
+    label.button button {
+        background: #f1f2f2;
+        background: url(images/button-back.png);
+        border: solid 1px #fff;
+        cursor: pointer;
+        color: #7f7f7f;
+        border-radius: 2px;
+        padding: 6px 8px;
+        font-size: 90%;
+        font-weight: bold;
+    }
+
+        label.button button:hover {
+            color: #494848;
+            background: url(images/button-back-on.png);
+        }
+
+    label.button.red {
+        border: solid 1px #df0f1b;
+        color: #fff;
+        background: url(images/button-back.png);
+        border-radius: 2px;
+    }
+
+    label.button button.red {
+        background: #af1d22;
+        background: url(images/button-red-back.png);
+        border: solid 1px #af1d22;
+        cursor: pointer;
+        color: #fff;
+        border-radius: 2px;
+        padding: 6px 8px;
+        font-size: 90%;
+        font-weight: bold;
+    }
+
+        label.button button.red:hover {
+            background: #851115;
+            background: url(images/button-red-back-on.png);
+            color: #f1f1f1;
+        }
+/* In�cio Per�odo Letivo */
+div.nav-pl {
+    width: 943px;
+    position: relative;
+    margin: 20px -20px 0 15px;
+    float: left;
+    height: auto;
+    border-left: solid 1px #e7e7e7;
+    border-top: solid 1px #e7e7e7;
+    border-right: solid 1px #e7e7e7;
+    background: #f8f8f8;
+    padding-left: 6px;
+    padding-top: 6px;
+    -webkit-border-top-left-radius: 8px;
+    -moz-border-top-left-radius: 8px;
+    border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-top-right-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #999999;
+}
+
+    div.nav-pl ul,
+    div.nav-pl ul li {
+        display: inline;
+    }
+
+        div.nav-pl ul li {
+            vertical-align: top;
+            height: 20px;
+            line-height: 20px;
+        }
+
+li.nav-pl-item a {
+    color: #999;
+}
+
+li.nav-pl-item-sel {
+    color: red;
+}
+
+li.nav-pl-item-sep img {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    border: 0;
+}
+
+li.nav-pl-item-sel a {
+    color: red;
+}
+/* Fim do Per�odo Letivo */
+/* In�cio do Alert */
+div.alert {
+    /*width:auto; 	font-size:120%; 	color:#000000; 	text-align:center; 	padding:20px 10px;*/
+    /*border:solid 1px #f1f1f1; 	background:#f1f1f1;*/
+    min-height: 50px;
+    border: solid 1px #ededed;
+    margin-top: 5px;
+    background: #fdf7dc;
+    font-size: 110%;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+
+    div.alert > div {
+        padding: 15px;
+        border: solid 2px #ffffff;
+        min-height: 20px;
+        color: #d6474c;
+    }
+
+.field-validation {
+    color: Red;
+    width: auto;
+    clear: both;
+    display: none;
+}
+
+.header-nav-container {
+    position: absolute;
+    right: 0px;
+    top: 0;
+}
+
+    .header-nav-container img {
+        display: inline-block;
+    }
+
+    .header-nav-container .header-nav-previous {
+        margin-right: 8px;
+    }
+/* Modal */
+#mask {
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    background-color: #fff;
+    display: none;
+    cursor: wait;
+    opacity: 0.6;
+    filter: alpha(opacity = 60);
+    zoom: 1;
+    overflow: hidden;
+    position: fixed;
+}
+
+#dialog {
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    width: 440px;
+    height: auto;
+    display: none;
+    z-index: 9999;
+    border: solid 4px #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px #ccc;
+    padding: 0;
+}
+
+.dialog-title {
+    position: relative;
+    border: 0;
+    background-color: #af1d22;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 8px;
+    color: #fff;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.dialog-content {
+    position: relative;
+    background: #fff;
+    color: #000;
+    width: 436;
+    padding: 16px;
+    min-height: 40px;
+    font-size: 110%;
+}
+
+.dialog-action {
+    background: #f1f1f1;
+    padding: 8px;
+    text-align: right;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+/*
+.dialog-action label
+{
+    margin-left: 4px;
+}*/
+/* Tabs */
+ul.tabs {
+    margin: 0px;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+
+    ul.tabs li {
+        list-style: none;
+        display: inline;
+    }
+
+        ul.tabs li a {
+            background-color: #f0f0f0;
+            padding: 6px 10px 6px 10px;
+            text-decoration: none;
+            text-transform: none;
+            border: 1px solid #eaeaea;
+            font-size: 120%;
+            font-weight: normal;
+            color: #d6474c;
+        }
+
+            ul.tabs li a:hover {
+                background-color: #dadada;
+                border-top-color: #dadada;
+                border-left-color: #dadada;
+                border-right-color: #dadada;
+                color: #000000;
+            }
+
+            ul.tabs li a.active {
+                background-color: #ffffff;
+                color: #d6474c;
+                border: 1px solid #eaeaea;
+                border-bottom: 1px solid #ffffff;
+            }
+
+.tab-content {
+    background-color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #eaeaea;
+}
+
+.watermark {
+    color: #a8a8a8;
+}
+
+span.alert-field-error,
+span.alert-field-warning,
+span.alert-field-information {
+    position: relative;
+    color: #dd0000;
+    padding-top: 2px;
+    display: block;
+}
+
+span.alert-field-information {
+    color: #294c74;
+    display: block;
+}
+
+table.form {
+    width: 100%;
+    line-height: 2;
+    position: relative;
+}
+
+table.gridlist {
+    width: 100%;
+    line-height: normal;
+    position: relative;
+    border-top: solid 1px #e9e8e8;
+}
+
+    table.gridlist tr td {
+        padding: 4px 3px;
+        border-bottom: solid 1px #e9e8e8;
+        border-right: solid 1px #e9e8e8;
+        border-left: solid 1px #e9e8e8;
+        vertical-align: middle;
+        min-height: 31px;
+    }
+
+.action-top {
+    margin-bottom: 8px;
+}
+
+.action-bottom {
+    margin-top: 8px;
+}
+
+.validate-field {
+    color: Red;
+    font-size: 90%;
+}
+/*********************/
+/** jRating CSS **/
+/*********************/
+/**Div containing the color of the stars */
+.jRatingAverage {
+    background-color: #545454;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+}
+
+.jRatingColor {
+    background-color: #f4c239;
+    /* bgcolor of the stars*/
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+}
+/** Div containing the stars **/
+.jStar {
+    position: relative;
+    left: 0;
+    z-index: 3;
+}
+/** P containing the rate informations **/
+p.jRatingInfos {
+    position: absolute;
+    z-index: 9999;
+    background: transparent url('images/bg_jRatingInfos.png') no-repeat;
+    color: #FFF;
+    display: none;
+    width: 91px;
+    height: 29px;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+    p.jRatingInfos span.maxRate {
+        color: #c9c9c9;
+        font-size: 14px;
+    }
+
+.textarea-count {
+    font-size: 80%;
+    color: #666;
+}
+
+#from-list,
+#from-list-modal {
+    position: relative;
+    top: 0;
+    display: inline-block;
+}
+
+    #from-list img,
+    #from-list-modal img {
+        float: left;
+        border: solid 1px #cccccc;
+    }
+
+.from-user {
+    float: left;
+    width: 96px;
+    padding: 8px 4px;
+    border: solid 1px #fff;
+    margin: 1px;
+    text-align: center;
+    font-size: 90%;
+    background: #f1f1f1;
+    min-height: 70px;
+    height: 90px;
+    position: relative;
+    cursor: pointer;
+}
+
+    .from-user input[type=checkbox] {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+    }
+
+    .from-user:hover {
+        border: solid 1px #bf8c8e;
+    }
+
+.from-user-selected {
+    border: solid 1px #af1d22;
+    background-color: #fff;
+    background: url(http://static.uniceub.br/content/images/modalturma-user-selected.png) no-repeat left bottom;
+}

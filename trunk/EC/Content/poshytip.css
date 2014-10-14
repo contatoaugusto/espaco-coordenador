@@ -1,0 +1,56 @@
+﻿.tip-info,
+.tip-info-user {
+  opacity: 1;
+  z-index: 9000;
+  text-align: left;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 8px 8px;
+  max-width: 400px;
+  color: #494848;
+  background-color: #fff;
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.tip-info-user {
+  text-align: center;
+}
+.tip-info .tip-arrow-top {
+  margin-top: -5px;
+  margin-left: -5px;
+  top: 0;
+  left: 50%;
+  width: 9px;
+  height: 5px;
+  background: url(images/tip-info_arrows.gif) no-repeat;
+}
+.tip-info .tip-arrow-right {
+  margin-top: -4px;
+  margin-left: 0;
+  top: 50%;
+  left: 100%;
+  width: 5px;
+  height: 9px;
+  background: url(images/tip-info_arrows.gif) no-repeat -9px 0;
+}
+.tip-info .tip-arrow-bottom {
+  margin-top: 0;
+  margin-left: -5px;
+  top: 100%;
+  left: 50%;
+  width: 9px;
+  height: 5px;
+  background: url(images/tip-info_arrows.gif) no-repeat -18px 0;
+}
+.tip-info .tip-arrow-left {
+  margin-top: -4px;
+  margin-left: -5px;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 9px;
+  background: url(images/tip-info_arrows.gif) no-repeat -27px 0;
+}

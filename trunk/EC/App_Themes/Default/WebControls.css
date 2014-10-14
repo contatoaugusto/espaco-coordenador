@@ -1,0 +1,991 @@
+﻿.textbox, .textboxfocus, .textboxblur, .dropdownlist, .textbox-water
+{
+	border:solid 1px #dadada;
+	padding:3px 4px;
+}
+
+.textboxfocus 
+{
+	background-color:#fff6d0;
+}
+
+textarea
+{
+	font-family:Segoe UI, Verdana;
+}
+
+.textbox-water 
+{
+	color:#cccccc; 
+}
+
+.resizable-textarea 
+{
+	font-size:smaller;
+}
+
+table.gridview {
+	width:100%;
+	line-height:normal;
+}
+
+table.gridview a {
+	color:#494848;
+}
+
+
+table.gridview tr.gridviewrowheader,
+table.gridview thead tr  {
+	background-image:url(Images/gridview-header.gif);
+}
+
+table.gridview tr.gridviewrowheader, table.gridview tr.gridviewpaging, table.gridview tr.gridviewrowfooter, td.gridviewcolumnfooter,
+ table.gridview > thead > tr {
+	vertical-align:middle;
+	font-size:110%; 
+	background-color:#efefef;
+}
+
+table.gridview tr th.gridviewcolumnheader,
+table.gridview > thead > tr > th 
+{
+	padding-left:5px;
+	padding-right:5px;
+}
+
+
+table.gridview tr.gridviewrowheader > th, table.gridview tr th.gridviewcolumnheader, table.gridview tr.gridviewpaging td, table.gridview tr.gridviewrowfooter td, table.gridview tr.gridviewgrouprow td, td.gridviewcolumnfooter
+,table.gridview > thead > tr > th  {
+	text-align:center;
+	height:31px;
+	vertical-align:middle;
+	font-weight:normal;
+	border-left:solid 1px #d2d2d2;
+	border-right:solid 1px #d2d2d2;
+	padding-left:3px;
+	padding-right:3px;
+}
+
+table.gridview tr.gridviewgrouprow 
+{
+	background:#d2d2d2;
+	border-top:solid 1px #d2d2d2;
+}
+
+table.gridview tr.gridviewgrouprow td 
+{
+	text-align:left;
+	font-size:110%;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+table.gridview tr.gridviewrowheader > th, table.gridview tr th.gridviewcolumnheader,
+table.gridview > thead > tr > th {
+	border-top:solid 1px #d2d2d2;
+}
+
+table.gridview tr.gridviewpaging td, table.gridview tr.gridviewrowfooter td, td.gridviewcolumnfooter,
+table.gridview > tfoot > tr > td {
+	border-bottom:solid 1px #d2d2d2;
+}
+
+table.gridview tr.gridviewpaging td table {
+	margin-left:5px;
+	border-collapse: separate;
+	border-spacing: 1px;
+	padding: 1px;
+}
+
+table.gridview tr.gridviewpaging td table td {
+	border:0;
+	height:20px;
+	width:21px;
+	background-image:url(Images/pag-link-back.png);
+	background-repeat:no-repeat;
+	text-align:center;
+	vertical-align:middle;
+}
+
+table.gridview tr.gridviewpaging td table td span {
+	color:#af1d22;
+	
+}
+
+table.gridview tr.gridviewpaging td table td a {
+	color:#494848;
+}
+
+table.gridview .gridviewcolumnaction a
+{
+	/*color:#1255ac;*/
+}
+
+table.gridview tr.gridviewrow,
+table.gridview > tbody > tr {
+	vertical-align:middle;
+	background-color:#ffffff;
+}
+
+table.gridview tr.gridviewrowalternating {
+	vertical-align:middle;
+	background-color:#fafafa;
+}
+
+table.gridview tr.gridviewmouseoverrow,
+table.gridview > tbody > tr:hover {
+	vertical-align:middle;
+	background-color:#fff6d0;
+}
+
+table.gridview tr td.gridviewcolumnrow, table.gridview tr td.gridviewcolumnaction,
+table.gridview > tbody > tr > td {
+	padding:4px 3px;
+	border-bottom:solid 1px #e9e8e8;
+	border-right:solid 1px #e9e8e8;
+	border-left:solid 1px #e9e8e8;
+	vertical-align:middle;
+	min-height:31px;
+}
+
+table.gridview tr.gridviewrowempty 
+{
+
+}
+table.gridview > tbody > tr:only-child > td[data-emptyrow],
+table.gridview td.gridviewcolumnempty 
+{
+	padding:10px;
+	background:#ffffff;
+	font-size:120%;
+	border-bottom:solid 1px #e9e8e8;
+	border-right:solid 1px #e9e8e8;
+	border-left:solid 1px #e9e8e8;
+	vertical-align:middle;
+}
+
+table.gridview tr.gridviewrowfooter td 
+{
+	padding:4px 3px;
+	height:22px;
+}
+
+
+
+/*
+As cores da legenda foram desabilitados
+27/12/2007 por Stiven Fabiano da Câmara
+
+
+table .gridviewcolumnrowlevel1
+{
+	background-color:#ffca05;
+}
+
+table .gridviewcolumnrowlevel2
+{
+	background-color:#fedb57;
+}
+
+table .gridviewcolumnrowlevel3
+{
+	background-color:#fdefb8;
+}
+
+table .gridviewcolumnrowlevel4
+{
+	background-color:#fbd1d2;
+}
+
+table .gridviewcolumnrowlevel5
+{
+	background-color:#f7adae;
+}
+
+table .gridviewcolumnrowlevel6
+{
+	background-color:#f27c7f;
+}
+*/
+table .gridviewcolumnrowlevel1, .gridviewcolumnrowlevel2, .gridviewcolumnrowlevel3, .gridviewcolumnrowlevel4, .gridviewcolumnrowlevel5, .gridviewcolumnrowlevel6
+{
+	font-weight:bold;
+	border:solid #f1f1f1 1px;
+}
+
+/* Fim do GridView */
+
+/* Início do Button */
+.toolbar {
+	margin-left:0;
+	position:relative;
+	padding-bottom:20px;
+	margin-bottom:15px;
+}
+/*
+.button-content
+{
+	float: left;
+	margin-right: 5px;
+	line-height:normal;
+	position:relative;
+}
+
+.button-middle
+{
+	background: url(images/button-middle.png) repeat-x scroll 0 0 transparent;
+	padding-left: 11px;
+	padding-right: 11px;
+	text-align: center;
+	white-space: nowrap;
+	color:#494848;
+	min-width:50px;
+}
+
+.button div
+{
+	cursor: pointer;
+	float: left;
+	height: 22px;
+	line-height: 22px;
+	text-decoration: none;
+}
+
+.button-right 
+{
+	background: url(images/button-right.png) no-repeat scroll 0 0 transparent;
+	width: 3px;
+}
+
+.button-left
+{
+	background: url(images/button-left.png) no-repeat scroll 0 0 transparent;
+	width: 3px;
+}
+*/
+/* Início Período Letivo */
+
+div.nav-pl {
+	width:943px;
+	position:relative;
+	margin-top:20px;
+	margin-bottom:-20px;
+	margin-left:15px;
+	margin-right:15px;
+	/*border:solid 1px #494848;*/
+	float:left;
+	height:22px;
+	border-left:solid 1px #e7e7e7;
+	border-top:solid 1px #e7e7e7;
+	border-right:solid 1px #e7e7e7;
+	background:#f8f8f8;
+	padding-left:6px;
+	padding-top:6px;
+	
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-top-left-radius: 8px;
+	border-top-left-radius: 8px;
+	
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-top-right-radius: 8px;
+	border-top-right-radius: 8px;
+	color:#999999;
+}
+
+div.nav-pl ul, div.nav-pl ul li {
+	display:inline;
+}
+
+div.nav-pl ul li 
+{
+	vertical-align:top;
+	height:16px;
+}
+
+li.nav-pl-item  {
+
+}
+
+li.nav-pl-item a  {
+	color:#999;
+}
+
+li.nav-pl-item-sel {
+	color:red;
+}
+
+li.nav-pl-item-sep img {
+	margin-left:5px;
+	margin-right:5px;
+	width:14px;
+	height:14px;
+	border:0;
+}
+
+li.nav-pl-item-sel a {
+	color:red;
+}
+
+/* Fim do Período Letivo */
+
+
+/* Início do Alert */
+div.alert 
+{
+	/*width:auto;
+	font-size:120%;
+	color:#000000;
+	text-align:center;
+	padding:20px 10px;*/
+	/*border:solid 1px #f1f1f1;
+	background:#f1f1f1;*/
+		
+	min-height:50px;
+	border:solid 1px #ededed;
+	margin-top:5px;
+	background:#fdf7dc;
+	font-size:110%;
+	text-align:center;
+	vertical-align:middle;
+}
+
+div.alert > div
+{
+	padding:15px;
+	border:solid 2px #ffffff;
+	min-height:20px;
+	color:#d6474c;
+}
+
+/* Início do Alert */
+div.validation 
+{
+	min-height:1px;
+	border:solid 1px #ededed;
+	margin-top:5px;
+	background:#fdf7dc;
+	font-size:100%;
+	text-align:left;
+	vertical-align:middle;
+	float: left;
+	width:auto;
+}
+
+div.validation > div
+{
+	padding:1px;
+	border:solid 2px #ffffff;
+	min-height:1px;
+	color:#d6474c;
+	float: left;
+	width:auto;
+}
+/* Fim do Alert */
+
+/* Início do MessageBox */
+
+.modalpopup
+{
+	width: 500px;
+	padding: 10px;
+	background-color: #fff;
+	border: solid 1px #a1a1a1;
+}
+.modalbackground
+{
+	background-color: #ffffff;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+	
+.modalbuttons
+{
+	position:relative;
+	padding-top: 8px;
+	text-align:right;
+	margin:auto 0;
+	width:auto;
+	border-top:solid 1px #ededed;
+}
+	
+.modalcontent 
+{
+	padding:15px;
+	min-height:50px;
+	border-top:solid 1px #ededed;
+	margin-top:5px;
+	background:#f9f8f8;
+	font-size:120%;
+}
+
+/* Fim do MessageBox */
+
+/* Início Calendário */
+
+.calendar
+{
+}
+	
+.calendar tr td 
+{
+		
+}
+.calendar-title
+{
+	padding:0px;
+	background-color:#fff;
+	background:#fff;
+	font-weight:bold;
+	font-size:12px;
+	color:#333;
+}
+.calendar-selectedday, .calendar-todayday, .calendar-day, .calendar-othermonthday, .calendar-feriado
+{    
+	padding-top:5px;
+	padding-bottom:5px;
+	width:25px; 
+	border:solid 1px #ededed;
+}
+
+.calendar-feriado 
+{
+	background:#FF4500;
+	
+}
+
+.calendar-day 
+{
+		
+}
+
+.calendar-dayheader 
+{   
+	border:solid 1px #ededed;
+	border-top:solid 1px #af1d22;
+	height:20px;
+	vertical-align:middle;
+	background-color:#f1f1f1;
+}
+.calendar-selectedday , .calendar-todayday 
+{
+	background:#ededed;
+}
+.calendar-othermonthday  
+{
+	color:#f1f1f1;
+}
+.calendar-othermonthday a
+{
+	color:#ededed;
+}
+.calendar-selectedday 
+{
+	background-color:#ffffcc;
+}
+
+.rfv
+{
+	color:Red;
+}
+
+/* Fim Calendário */
+
+/* Início - Status Matrícula */
+
+.nav-mat
+{
+	position:relative;
+	margin:auto;
+	margin-top:15px;
+	width:686px;
+	height:42px;
+	margin-bottom:-10px;
+}
+
+/* End - Status Matrícula */
+
+/* Begin - LinkInfo */
+
+.linkinfo 
+{
+	text-align:left;
+	width:100%;
+}
+
+
+.linkinfo-input-action-input > input
+{
+	vertical-align:top;
+	margin:0px;
+	border-top:solid 1px #dadada;
+	border-left:solid 1px #dadada;
+	border-bottom:solid 1px #dadada;
+	border-right:none;
+	padding:2px 4px;
+	height:16px;
+	width:524px;
+	float:left;
+}
+
+.linkinfo-input-action-button
+{
+	float:left;
+}
+
+
+.linkinfo-content 
+{
+	min-height:50px;
+	background:#ffffff;
+	text-align:left;
+	padding:8px;
+}
+
+.linkinfo-content-title 
+{
+	font-size:120%;
+	font-weight:bold;
+}
+
+.linkinfo-content-subtitle 
+{
+}
+
+.linkinfo-content-summary 
+{
+	
+}
+
+.linkinfo-content-separator 
+{
+	width:100%;
+	border-top:solid 1px #dadada;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.linkinfo-content-action
+{
+
+}
+
+.linkinfo-content-action > div
+{
+	text-align:right;
+}
+
+.linkinfo-water 
+{
+	color:#cccccc;  
+}
+
+/* End - LinkInfo */
+
+/* Begin - Composer */
+
+.itemcomposer
+{
+	width:618px;
+	border-bottom:solid 1px #dadada;
+	padding:4px;
+	padding-right:0px;
+	padding-bottom:22px;
+	margin-bottom:8px;
+	position:relative;
+	vertical-align:top;
+}
+
+.itemcomposer-content-comentario-container
+{
+	position:relative;
+	padding-left:57px;
+	clear:both;
+	top:10px;
+}
+
+.itemcomposer-content-comentario-list
+{
+}
+
+.itemcomposer-content-comentario-action
+{
+	position: relative;
+	padding: 8px;
+	background-color: #f1f1f1;
+	margin-top: 2px;
+	width:551px;   
+}
+.itemcomposer-content-comentario-action textarea
+{
+	border: solid 1px #cccccc;
+	overflow: hidden;
+	resize: none;
+	width: 99%;
+	padding: 2px;
+	font-size: 12px;
+}
+	
+.itemcomposer-content-comentario-action > div
+{
+	margin-top: 2px;
+	text-align: right;
+	width: 100%;
+}
+.setcomentario
+{
+	position: absolute;
+	top: -6px;
+	left: 65px;
+}
+
+.itemcomposer-comentario
+{
+	width:563px;
+	padding:4px;
+	padding-right:0px;
+	padding-bottom:12px;
+	margin-bottom:8px;
+	position:relative;
+	vertical-align:top;
+	margin-bottom:2px;
+	background:#f1f1f1
+}
+
+.itemcomposer-image, .itemcomposer-comentario-image 
+{
+	position:relative;
+	width:55px;
+	height:58px;
+	float:left;
+	margin-right:4px;
+}
+
+.itemcomposer-comentario-image 
+{
+	width:32px;
+	height:34px;
+}
+
+.itemcomposer-content, .itemcomposer-comentario-content
+{
+	position:relative;
+	width:482px;
+	float:left;
+}
+
+.itemcomposer-comentario
+{
+	border-left:solid 2px #d2d2d2;
+}
+
+.itemcomposer-content-user
+{
+	color:#d6474c;
+}
+
+.itemcomposer-content-title
+{
+
+}
+
+.itemcomposer-content-title a
+{
+	color:#1255ac;
+	font-size:110%;
+}
+
+.itemcomposer-content-title span.link
+{
+	font-size:110%;
+	font-weight:bold;    
+}
+
+.itemcomposer-content-title span.arquivo
+{
+ 
+}
+
+.itemcomposer-content-title span.arquivo a
+{
+
+}
+
+.itemcomposer-content-title span.mural
+{
+
+}
+
+.itemcomposer-content.subtitle 
+{
+	
+}
+
+.itemcomposer-content-summary, .itemcomposer-comentario-content-summary
+{
+	padding-top:8px;
+	padding-bottom:8px;
+}
+
+.itemcomposer-content-elapsetime, .itemcomposer-comentario-content-elapsetime
+{
+	font-style:normal;
+	font-size:9px;
+	color:#d6474c;
+}
+
+.itemcomposer-comentario-content-enjoy 
+{
+	font-size:90%;
+}
+
+img.itemcomposer-button-delete, img.itemcomposer-comentario-button-delete
+{
+	position:absolute;
+	right:4px;
+	margin-top:4px;
+	cursor:pointer;
+	display:none;
+}
+
+div#moreitems 
+{
+	width:610px;
+	padding:8px;
+	background:#efefef;
+	border:solid 1px #d2d2d2;
+	cursor:pointer;
+	text-align:center;
+	display:none;
+}
+/* End - Composer */
+/* Modal */
+#page
+{
+	position:relative;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+	bottom: 0;
+	right: 0;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#mask
+{
+	left: 0;
+	top: 0;
+	z-index: 9000;
+	background-color: #fff;
+	display: none;
+	cursor: wait;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+	zoom: 1;
+	overflow: hidden;
+	position: fixed;
+}
+
+#dialog
+{
+	position: absolute;
+	background-color: #fff;
+	left: 0;
+	top: 0;
+	width: 440px;
+	height: auto;
+	display: none;
+	z-index: 9999;
+	padding: 20px;
+	border: solid 4px #ccc;
+	border-radius: 8px;
+	box-shadow: 0px 0px 0px #ccc;
+	padding: 0;
+	margin-bottom: 40px;
+}
+
+.dialog-title
+{
+	position: relative;
+	border: 0;
+	background-color: #af1d22;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	padding: 8px;
+	color: #fff;
+	font-size: 140%;
+	font-weight: bold;
+}
+
+.dialog-content
+{
+	position: relative;
+	background: #fff;
+	color: #000;
+	font-size: 100%;
+	width: 436;
+	padding: 16px;
+	min-height: 40px;
+	font-size: 110%;
+}
+.dialog-action
+{
+	background: #f1f1f1;
+	padding: 8px;
+	text-align: right;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.dialog-action label
+{
+	margin-left: 4px;
+}
+
+.dialog-action label.button {
+	margin-right: 0;
+}
+
+/* End Modal */
+
+/* Begin Button */
+/*
+label.button
+{
+	cursor: pointer;
+	text-align: center;
+	line-height: normal !important;
+	text-decoration: none;
+	vertical-align: top;
+	display: inline-block;
+	white-space: nowrap;
+	background: #f1f2f2;
+	border: solid 1px #dadada;
+	border-radius: 2px;
+	box-shadow: 0px 0px 0px #ccc;
+	width: auto;
+	height: auto;
+	margin-right: 5px;
+}*/
+
+.botao
+{
+	background: #fff;
+	border: solid 1px #ccc;
+	cursor: pointer;
+	color: #717272;
+	border-radius: 2px;
+	padding: 6px 8px;
+	font-size: 90%;
+	font-weight: bold;
+	min-width:50px;
+}
+
+.botao:hover
+{
+	background: #f1f1f1;
+	color: #494848;
+}
+
+label.button button
+{
+	background: #fff;
+	border: solid 1px #ccc;
+	cursor: pointer;
+	color: #717272;
+	border-radius: 2px;
+	padding: 6px 8px;
+	font-size: 90%;
+	font-weight: bold;
+	min-width:50px;
+}
+
+label.button button.red
+{
+	border: solid 1px #851115;
+	background: #af1d22;
+	color:#fff;
+}
+
+label.button button:hover
+{
+	background: #f1f1f1;
+	color: #494848;
+}
+
+label.button button.red:hover
+{
+	background: #851115;
+	color:#f1f1f1;
+}
+/* End Button */
+
+table.gridlist
+{
+	width: 100%;
+	line-height: normal;
+	position: relative;
+	border-top: solid 1px #e9e8e8;
+}
+
+table.gridlist tr td
+{
+	padding: 4px 3px;
+	border-bottom: solid 1px #e9e8e8;
+	border-right: solid 1px #e9e8e8;
+	border-left: solid 1px #e9e8e8;
+	vertical-align: middle;
+	min-height: 31px;
+}
+
+#from-list, #from-list-modal
+{
+	position:relative;
+	top:0;
+	display:inline-block;    
+}
+#from-list img, #from-list-modal img
+{
+	float:left;
+	border:solid 1px #cccccc;
+}
+.from-user
+{
+	float:left;
+	width:96px;
+	padding:8px 4px;
+	border: solid 1px #fff;    
+	margin:1px;
+	text-align:center;
+	font-size:90%;
+	background:#f1f1f1;
+	min-height:70px;
+	height:70px;
+	position:relative;
+	cursor:pointer;
+}
+.from-user input[type=checkbox] 
+{
+	position:absolute;
+	top:4px;
+	left:4px;
+}
+
+.from-user:hover {
+	border: solid 1px #bf8c8e; 
+}
+
+.from-user-selected
+{
+	border: solid 1px #af1d22;  
+	background-color:#fff;
+	background:url(http://static.uniceub.br/content/images/modalturma-user-selected.png) no-repeat left bottom; 
+}
+
+.form-modalpopup .form-bottombuttons {
+    padding: 10px 5px;
+    margin-top: 10px;
+	background-color: #eaeaea;
+    display: block !important;
+}

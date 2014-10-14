@@ -1,0 +1,153 @@
+﻿/*
+html, body {
+    width:100%;
+    height:100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+div.mb
+{
+	position: absolute;
+	text-align: center;
+	background: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -225px; Referente ao tamanho da largura da DIV / 2
+	margin-top: -75px; Referente ao tamanho da altura da DIV / 2 
+	z-index:1677725;
+	font-size:11px;
+}*/
+.mb-main
+{
+	border: solid 1px #656565;
+	width: 450px;
+	font-family: Tahoma;
+	font-size:11px;
+	cursor:default;
+}
+.mb-header
+{
+	height: 18px;
+}
+.mb-header-icon
+{
+	text-align: center;
+	padding-left:4px;
+	padding-right:5px;
+}
+.mb-header-caption
+{
+	width: 100%;
+	padding-left: 4px;
+	padding-top: 4px;
+	text-align:left;
+	color:#656565;
+	font-weight:bold;
+	font-family:Verdana, Arial, Sans-Serif;
+	font-size:10px;
+}
+.mb-content
+{
+	border: solid 1px #cccccc;
+	margin: auto;
+	background-color: White;
+}
+.mb-content-icon
+{
+	text-align: center;
+	vertical-align: top;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	height:50px;
+}
+.mb-content-text
+{
+	width: 100%;
+	vertical-align: top;
+	text-align: justify;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: Tahoma;
+	font-size:11px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.mb-content-buttons
+{
+	padding: 8px 5px 5px 5px;
+	text-align: right;
+	/*background-color: #efefef;*/
+}
+.mb-content-button
+{
+	background-color: #dddddd;
+	border: solid 1px #b5b5b5;
+	width:120px;
+	height:20px;
+	font-size:11px;
+    color:#656565;
+	font-weight:bold;
+	font-family:Verdana, Arial, Sans-Serif;
+	font-size:10px;
+	text-transform:uppercase;
+}
+.mb-content-button-over
+{
+	background-color: #dddddd;
+	border: solid 1px #000;
+	width:120px;
+	height:20px;
+    color:#efefef;
+	font-weight:bold;
+	font-family:Verdana, Arial, Sans-Serif;
+	font-size:10px;
+	text-transform:uppercase;
+}
+.mb-content-button-down
+{
+	color: #df0000;
+	background-color: #fff;
+	border: solid 1px #b5b5b5;
+	width:120px;
+	height:20px;
+    color:#656565;
+	font-weight:bold;
+	font-family:Verdana, Arial, Sans-Serif;
+	font-size:10px;
+	text-transform:uppercase;
+}
+.mb-type-error
+{
+    /*background-color: White;*/
+    border-color: Red;
+    color: Red;
+}
+/*
+.mb-type-error-button-over
+{
+    border-color: #FF8888;
+    color: #FF8888;   
+}
+
+.mb-type-error-button-down
+{
+    border-color: Red;
+    color: Red;    
+}*/
+
+.mb-type-warning
+{
+    /*background-color: White;*/
+    border-color: #DCB001;
+    color: #DCB001;
+}
+
+.mb-type-information
+{
+    /*background-color: White;*/
+    border-color: Green;
+    color: Green;
+}
