@@ -1,0 +1,6 @@
+﻿<asp:ImageButton runat="server" SkinID="PagFirst" ImageUrl="Images/btn.pag.first.gif" ToolTip="Primeira página" />
+<asp:ImageButton runat="server" SkinID="PagPrevious" ImageUrl="Images/btn.pag.previous.gif" ToolTip="Página anterior" />
+<asp:ImageButton runat="server" SkinID="PagNext" ImageUrl="Images/btn.pag.next.gif" ToolTip="Próxima página" />
+<asp:ImageButton runat="server" SkinID="PagLast" ImageUrl="Images/btn.pag.last.gif" ToolTip="Última página" />
+
+<asp:Image runat="server" SkinID="Email" ImageUrl="Images/icon.email.gif"  />

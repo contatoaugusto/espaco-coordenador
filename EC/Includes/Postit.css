@@ -1,0 +1,442 @@
+﻿#postit-list {
+  z-index: 90;
+  width: 99%;
+  margin: auto;
+  position: relative;
+}
+.postit-item,
+.postit-item-share {
+  z-index: 100;
+  position: relative;
+  width: 307px;
+  border: solid 1px #ccc;
+  margin: 2px;
+  min-height: 433px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 14px;
+}
+.postit-item .postit-shadow,
+.postit-item-share .postit-shadow {
+  position: absolute;
+  bottom: -16px;
+}
+.postit-item .loader {
+  position: absolute;
+  margin-top: 140px;
+  margin-left: 135px;
+  z-index: 200;
+}
+.postit-item-virtual {
+  border: dashed 1px #ccc;
+  cursor: pointer;
+  background-image: url(http://static.uniceub.br/content/images/postit-item-plus.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.postit-item-virtual-hover {
+  cursor: pointer;
+  border: dashed 1px #000;
+  background-image: url(http://static.uniceub.br/content/images/postit-item-plus.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.postit-item-title,
+.postit-item-title-share {
+  overflow: hidden;
+  height: 24px;
+  width: 299px;
+  background: #f1f1f1;
+  margin: 0;
+  border-bottom: solid 1px #ececec;
+  font-weight: bold;
+  color: #af1d22;
+  font-size: 110%;
+  padding-left: 4px;
+  padding-top: 4px;
+  padding-right: 4px;
+}
+.postit-item-title-share {
+  padding-left: 52px;
+  width: 251px !important;
+  height: 55px;
+}
+.postit-item-title-share span.expires {
+  font-size: 80%;
+  font-weight: normal;
+}
+.postit-item-title-share span {
+  color: #000;
+}
+.postit-item-list,
+.postit-item-list-share {
+  z-index: 120;
+  position: relative;
+  background: #fff;
+  width: 100%;
+  height: 380px;
+  display: block;
+  overflow: auto;
+}
+.postit-item-list-share {
+  height: 349px;
+}
+.postit-item-action {
+  position: relative;
+  width: 300px;
+  padding: 4px 2px;
+  bottom: 0;
+  background: #fff;
+  border-top: solid 1px #ececec;
+  text-align: right;
+  z-index: 140;
+}
+.postit-item-action img {
+  margin-left: 2px;
+}
+.postit-item-action > a {
+  position: absolute;
+  left: 6px;
+}
+.postit-itemlist {
+  z-index: 130;
+  position: relative;
+  border-bottom: dashed 1px #ccc;
+  padding: 1px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin: 1px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.postit-itemlist:hover {
+  background: #f9f9f9;
+}
+.postit-itemlist img.postit-itemlist-photo {
+  position: absolute;
+}
+.ea-url-video {
+  text-align: center;
+}
+.delete-item,
+.delete-item:hover,
+.delete-item-on {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  /*background-color: #fff;*/
+
+  background-image: url(http://static.uniceub.br/content/images/ico-close.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  /*border-top:solid 1px #ccc;
+    border-bottom:solid 1px #ccc;
+    border-right:solid 1px #ccc;*/
+
+  z-index: 200;
+}
+.delete-item-on {
+  background-image: url(http://static.uniceub.br/content/images/ico-close-on.gif);
+}
+.postit-itemlist-name {
+  position: relative;
+  left: 34px;
+  width: 238px;
+  font-weight: bold;
+}
+.postit-itemlist-content-share {
+  min-height: 36px;
+}
+.postit-itemlist-content-share .postit-itemlist-desc {
+  position: relative;
+  left: 34px;
+  width: 238px;
+  overflow: hidden;
+}
+.postit-itemlist-content {
+  position: relative;
+  padding: 2px;
+  min-height: auto;
+}
+.postit-itemlist-content .postit-itemlist-desc iframe {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.postit-itemlist-content .postit-itemlist-desc {
+  position: relative;
+  left: 0px;
+  width: 282px;
+}
+.postit-itemlist-content .postit-itemlist-desc .file {
+  position: relative;
+  margin-top: 0px;
+  clear: both;
+  padding-left: 22px;
+  padding-top: 2px;
+  min-height: 24px;
+}
+.postit-itemlist-content .postit-itemlist-desc .file img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.postit-itemlist-date {
+  position: relative;
+  left: 34px;
+  width: 238px;
+  font-style: italic;
+  font-size: 70%;
+  color: Red;
+}
+.postit-modal-content {
+  overflow: hidden;
+  position: relative;
+}
+.postit-modal-content img {
+  margin-top: 16px;
+}
+.postit-modal-content input[type=text] {
+  width: 454px;
+}
+.postit-modal-content-user {
+  position: absolute;
+  top: 0;
+}
+.postit-modal-content-name {
+  position: relative;
+  margin-left: 60px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.postit-modal-content-desc {
+  position: relative;
+  margin-bottom: 8px;
+}
+.postit-modal-content-desc div {
+  max-height: 460px;
+  overflow: auto;
+}
+.postit-modal-content-desc .file {
+  position: relative;
+  height: 22px;
+  left: 14px;
+  width: 200px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 90%;
+}
+.postit-modal-content-desc .file img {
+  position: absolute;
+  top: -1px;
+  margin-top: 0;
+}
+.postit-modal-content-desc .file a {
+  position: absolute;
+  margin-top: 0;
+  left: 22px;
+  top: 2px;
+}
+.postit-modal-content-date {
+  color: Red;
+  font-size: 80%;
+  font-style: italic;
+  display: inline;
+  position: relative;
+}
+.postit-modal-content-date a {
+  font-style: normal;
+}
+.postit-modal-content-date label.bullet {
+  color: #666;
+}
+.postit-modal-content-tip {
+  font-size: 80%;
+  font-weight: normal;
+  color: #666;
+}
+.postit-itemlist-content-date {
+  color: Red;
+  font-size: 90%;
+  font-style: italic;
+}
+.textarea {
+  border: solid 1px #ccc;
+  width: 100%;
+}
+.postit-modal-content-action {
+  text-align: right;
+  margin-bottom: 2px;
+}
+.postit-modal-content-text textarea {
+  width: 558px;
+  border: solid 1px #ccc;
+}
+.validate-field {
+  color: Red;
+  font-size: 90%;
+}
+.postit-share-user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 130;
+}
+.total-characters {
+  font-size: 70%;
+  color: #ccc;
+}
+.postit-color div {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.postit-color1 {
+  background: #f1f1f1 !important;
+}
+.postit-color2 {
+  background: #ff6a00 !important;
+  color: #fff !important;
+}
+.postit-color3 {
+  background: red !important;
+  color: #fff !important;
+}
+.postit-color4 {
+  background: green !important;
+  color: #fff !important;
+}
+.postit-color5 {
+  background: blue !important;
+  color: #fff !important;
+}
+.postiitem-tags {
+  font-size: 80%;
+  color: #ccc;
+}
+#postit-filters div * {
+  text-align: center;
+}
+#postit-filters button[data-scroll] {
+  position: absolute;
+  top: 6px;
+  display: none;
+  border: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30px;
+  background-color: transparent;
+  width: 15px;
+  cursor: pointer;
+}
+#postit-filters button[data-scroll].next {
+  right: -5px;
+  background-image: url(http://static.uniceub.br/content/images/header-nav-next.png);
+}
+#postit-filters button[data-scroll].next:hover {
+  background-image: url(http://static.uniceub.br/content/images/header-nav-next-on.png);
+}
+#postit-filters button[data-scroll].previous {
+  left: -5px;
+  background-image: url(http://static.uniceub.br/content/images/header-nav-previous.png);
+}
+#postit-filters button[data-scroll].previous:hover {
+  background-image: url(http://static.uniceub.br/content/images/header-nav-previous-on.png);
+}
+.postit-filters-options {
+  float: right;
+}
+.postit-color-filters {
+  width: 90%;
+  margin: auto;
+}
+.postit-color-filters .postit-color {
+  display: block;
+}
+.postit-color-filters .postit-color div {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.delete-icon:hover {
+  background-image: url(http://static.uniceub.br/content/images/ico-close-on.gif);
+}
+.delete-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(http://static.uniceub.br/content/images/ico-close.gif);
+}
+a.filter,
+a.filter-empty {
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #666;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #ececec;
+  text-decoration: none;
+  float: left;
+  margin-left: 5px;
+}
+.postit-filters-options-submenu {
+  display: none;
+}
+.postit-filters-options-submenu ul {
+  width: 100%;
+}
+.postit-filters-options-submenu li {
+  padding: 1px 5px;
+}
+.postit-filters-options-submenu button {
+  background: transparent;
+  border: none;
+  color: #7f7f7f;
+  font-size: 95%;
+}
+.postit-filters-options-submenu button:hover {
+  cursor: pointer;
+}
+.postit-filters-options:hover .postit-filters-options-submenu {
+  position: absolute;
+  z-index: 99;
+  right: 0px;
+  top: 29px;
+  display: block;
+  height: auto;
+  max-width: 52px;
+  overflow: hidden;
+  border-right: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  border-top: 1px solid #dedede;
+  border-left: 1px solid #dedede;
+  padding: 15px;
+  background: #ffffff;
+  color: #930;
+  text-align: left;
+  opacity: 0.95;
+}
+.postit-tag-filters > * {
+  margin-bottom: 5px;
+}
+button.postit-filter {
+  border: 0px;
+  width: 84px;
+  height: 30px;
+  background: white;
+  background-image: url(http://static.uniceub.br/content/images/button-filter.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+button.postit-filter:hover {
+  background-image: url(http://static.uniceub.br/content/images/button-filter-on.png);
+}
+.postit-filters-buttons {
+  height: 27px;
+  width: 90%;
+  overflow: hidden;
+  margin: auto;
+  display: none;
+}

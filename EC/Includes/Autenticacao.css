@@ -1,0 +1,218 @@
+﻿html
+{
+    font-family: Arial , verdana;
+    font-size: 11px;
+}
+.caixa
+{
+    margin:auto;
+    border-bottom: #d5d5d5 1px solid;
+    border-left: #d5d5d5 1px solid;
+    position: relative;
+    padding: 20px;
+    width: 400px;
+    padding-right: 12px;
+    background: url(../images/caixa-bg.png) repeat-x left bottom;
+    height: auto;
+    color: #6a6665;
+    border-top: #d5d5d5 1px solid;
+    border-right: #d5d5d5 1px solid;
+    text-align: left;
+    margin-top: 50px;
+}
+.caixa .lt
+{
+    position: absolute;
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    width: 9px;
+    padding-right: 0px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 9px;
+    font-size: 1px;
+    padding-top: 0px;
+}
+.caixa .rt
+{
+    position: absolute;
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    width: 9px;
+    padding-right: 0px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 9px;
+    font-size: 1px;
+    padding-top: 0px;
+}
+.caixa .lb
+{
+    position: absolute;
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    width: 9px;
+    padding-right: 0px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 9px;
+    font-size: 1px;
+    padding-top: 0px;
+}
+.caixa .rb
+{
+    position: absolute;
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    width: 9px;
+    padding-right: 0px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 9px;
+    font-size: 1px;
+    padding-top: 0px;
+}
+.caixa .lt
+{
+    background: url(../images/caixa-lt.png) no-repeat left top;
+    top: -1px;
+    left: -1px;
+}
+.caixa .rt
+{
+    background: url(../images/caixa-rt.png) no-repeat right top;
+    top: -1px;
+    right: -1px;
+    _right: -2px;
+}
+.caixa .lb
+{
+    bottom: -1px;
+    background: url(../images/caixa-lb.png) no-repeat left bottom;
+    left: -1px;
+}
+.caixa .rb
+{
+    bottom: -1px;
+    background: url(../images/caixa-rb.png) no-repeat right bottom;
+    right: -1px;
+    _right: -2px;
+}
+
+.caixa .sgi
+{
+    text-align:right;
+}
+
+.caixa .sp
+{
+    border-top: solid 1px #eeeeee;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 2px;
+}
+
+.caixa .text 
+{
+    padding-top:20px;
+    padding-bottom:20px;
+    font-size:110%;    
+}
+.caixa .cb
+{
+    clear:both;    
+}
+.caixa a 
+{  
+    text-decoration:none;
+    color:#1255ac;   
+}
+
+.caixa cp 
+{
+    cursor:pointer;
+}
+.caixa ul
+{
+    margin-top:0;
+    margin-bottom:0;
+    padding-top:0;
+    padding-bottom:0;
+    line-height:2;   
+    font-size:90%;
+}
+.caixa ul li
+{
+    list-style-type:square;
+}
+#content
+{
+    text-align: center;
+    top: 100px;
+    width: auto;
+    margin: auto;
+}
+textarea, input[type=text]
+{
+    width:100%;
+    border:solid 1px #bfc1c3;
+    font-family:Arial, Verdana;
+}
+.enviar
+{
+        background: url(../images/caixa-enviar.png);
+        width:78px;
+        height:22px;
+}
+
+label 
+{
+   font-size:11px; 
+   color:#888989;
+}
+
+div#msg 
+{
+    color:Red;
+    margin-top:10px;
+}
+
+.btn
+{
+    cursor:pointer;    
+}
+
+.title
+{
+    font-size:18px;
+    font-weight:bold;
+}
+
+#alert
+{
+    padding-top:10px;
+    padding-bottom:10px;
+    color:#dd0000;
+}
+.watermarkClass 
+{
+    color:#a8a8a8;
+}
+
+#info
+{
+    padding:8px;
+    width:376px;
+    color:#666;  
+    background:#f6f6f6; 
+    font-size:12px; 
+}

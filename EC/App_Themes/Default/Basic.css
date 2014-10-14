@@ -1,0 +1,273 @@
+﻿.w790 {
+    width:790px;
+}
+.w50 {
+    width:50px;
+}
+.w75 {
+    width:75px;
+}
+.w100 {
+    width:100px;
+}
+.w120 {
+    width:120px;
+}
+.w150 {
+    width:150px;
+}
+.w200 {
+    width:200px;
+    
+}
+
+.w225 {
+    width:225px;
+}
+
+.w250 {
+    width:250px;
+}
+
+.w300 {
+    width:300px;
+}
+
+.w350 {
+    width: 350px;
+}
+
+.w400 {
+    width: 400px;
+}
+
+.w450 {
+    width: 450px;
+}
+
+.w500 {
+    width: 500px;
+}
+
+.w550 {
+    width: 550px;
+}
+
+.w600 {
+    width:600px;
+}
+.wa {
+    width:auto;
+}
+.w0p {
+    width:0%;
+}
+.w5p {
+    width:5%;
+}
+.w10p {
+    width:10%;
+}
+.w15p {
+    width:15%;
+}
+.w20p {
+    width:20%;
+}
+.w25p {
+    width:50%;
+}
+.w30p {
+    width:30%;
+}
+.w35p {
+    width:35%;
+}
+.w40p {
+    width:40%;
+}
+.w45p {
+    width:45%;
+}
+.w50p {
+    width:50%;
+}
+.w60p {
+    width:60%;
+}
+.w70p {
+    width:70%;
+}
+.w80p {
+    width:80%;
+}
+.w90p {
+    width:90%;
+}
+
+.h200 {
+    height:200px;
+}
+
+.h100 {
+    height:100px;
+}
+
+.h150 {
+    height:150px;
+}
+
+.p0 {
+    padding:0;
+}
+
+.p5 {
+    padding:5px;
+}
+
+
+.p10 {
+    padding:10px;
+}
+
+.pl20
+{
+    padding-left:20px;
+}
+
+.pl40
+{
+    padding-left:40px;
+}
+
+.pl15
+{
+    padding-left:15px;
+}
+
+.pl10
+{
+    padding-left:10px;
+}
+
+.tal {
+    text-align:left;
+}
+
+.dil {
+    display:inline;
+}
+.dn {
+    display:none;
+}
+
+.pr {
+    position:relative;
+}
+
+.fl {
+    float:left;
+}
+
+.fr {
+    float:right;
+}
+
+.ml10 {
+    margin-left:10px;
+}
+
+.mr10 {
+    margin-right:10px;
+}
+
+.mr20 {
+    margin-right:20px;
+}
+
+.mt0 {
+    margin-top:0px;
+}
+
+.mt10 {
+    margin-top:10px;
+}
+
+.mt20 {
+    margin-top:20px;
+}
+
+
+
+.cb {
+    clear:both;
+}
+
+.cr {
+    clear:right;
+}
+
+.cl 
+{
+    clear:left;
+}
+
+.cp {
+    cursor:pointer;
+}
+
+.fwb 
+{
+    font-weight:bold;
+}
+
+.taj 
+{
+    text-align:justify;
+}
+
+.tar 
+{
+    text-align:right;
+}
+
+.tac 
+{
+    text-align:center;
+}
+
+.fcb 
+{
+    color:#000000;
+}
+
+.fcr 
+{
+    color:#dd0000;
+}
+
+.fcw 
+{
+    color:#ffffff;
+}
+
+.bcw 
+{
+    background-color:#ffffff;
+}
+
+
+.bcr 
+{
+    background-color:#dd0000;
+}
+
+.vam 
+{
+    vertical-align:middle;    
+}
+
+.bn 
+{
+    border:0;
+}

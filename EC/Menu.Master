@@ -1,0 +1,158 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Menu.master.cs" Inherits="UI.Web.EC.Menu" %>
+<%@ Import Namespace="UniCEUB.Core" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+    <link href="Includes/smoothness/jquery-ui.custom.css" rel="stylesheet" />
+    <link href="Content/Page.css" rel="stylesheet" />
+
+    <title>Espaço Coordenador</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <script type="text/javascript">
+        window.staticUrl = '<%= EC.Common.AppSettings.StaticUrl %>';
+    </script>
+    <div id="page">
+        <form id="formMain" runat="server">
+        <asp:ScriptManager ID="sm" runat="server" />
+        <sgi:AjaxUpdating runat="server"></sgi:AjaxUpdating>
+        <div id="content" class="noprint">
+     
+                <%--************************* Header--%>
+                <div id="header">
+                    <div id="logo" onclick="redirect('');" class="cp"></div>
+
+                    <div id="fotocoordenador">
+                        <asp:ImageButton ID="imgAluno" runat="server" CausesValidation="false" Width="53" Height="64" />
+                    </div>
+                    
+                    <div id="dadoscoordenador">
+                        <ul>
+                            <li id="matricula">Matrícula: <asp:Label ID="lblMatricula" runat="server"></asp:Label>  </li>
+                            <li><a id="nome" href="#"><asp:Label ID="lblNomeCoordenador" runat="server"></asp:Label></a></li>
+                            <%--<li style="width: 400px; overflow-x: hidden; text-wrap: normal;">Ciências da computação</li>--%>
+                        </ul>
+                    </div>
+
+                    <div id="detalhe">
+                        <div id="menurapido">
+                            <ul>
+                                <asp:Literal runat="server" ID="lblCurso" Visible="false" />
+
+                                <%--<li class="mega">Cursos <img src=" <%=UI.Web.EC.Utils.GetUrlImageTheme("set-meusdados.png") %> " alt=""/>
+                                    <div>
+                                        <ul>
+                                            <li><a href=" <%=UI.Web.EC.Utils.GetUsuarioPerfil(null) %>" > Nome qualquer</a></li>
+                                        
+                                        </ul>
+                                    </div>
+                                </li>--%>
+
+                                <li class="mega"><a href="#" class="out">Meus Dados<img src="/App_Themes/Default/Images/set-meusdados.png" alt="" /></a>
+                                    <div style="width:auto">
+                                        <ul>
+                                            <li><a href="#"><span>Alterar Dados Pessoais</span></a></li>
+                                            <li><a href="#"><span>Alterar Senha da Biblioteca</span></a></li>
+                                            <li><a href="#"><span>Alterar Senha do Espaço Aluno</span></a></li>
+                                            <%--<li id="liicDescadastramentoAlerta" runat="server" visible="false"><a href="#">Descadastramento de Alerta</a></li>--%>
+                                            <li><a href="#"><span>Avatar</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>|</li>
+                                <li><a href="../Loging.aspx">Sair</a></li>
+                                <%--<li><a href="logout.ashx">Sair</a></li>--%>
+                            </ul>
+                        </div>
+                        <%--<div id="pesquisa">
+                            <asp:TextBox ID="txtdePesquisa" runat="server" MaxLength="100" />
+                            <asp:ImageButton ID="btnPesquisar" runat="server" AlternateText="Pesquisar no site do UniCEUB" ImageUrl=""/>
+                        </div>--%>
+                    </div>
+                    <input type="hidden" id="hmpu" runat="server" />
+                </div>
+                <%--************************* Header FIM--%>
+                
+                <%-- ************************ Menu--%>
+                <div id="menu">
+                    <div id="left"></div>
+                    <div id="items">    
+                        <ul>    
+                            
+                            <li class='mega'><a href='#'><span>Informações</span></a>
+                                <div style="width:auto">
+                                    <ul>
+                                        <li><a href='http://www.uniceub.br/biblioteca/servicos.aspx'><span>Biblioteca</span></a></li>
+                                        <li><a href='http://www.universia.com.br/'><span>Universia</span></a></li>
+                                        <li><a href='http://www.publicacoesacademicas.uniceub.br/'><span>Publicações Acadêmicas</span></a></li>
+                                        <li class='last'><a href='http://www.uniceub.br/comunidade/exposicoes.aspx'><span>Museu Internacional</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                             <li class='mega'><a href='#'><span>AMC</span></a>
+                                <div style="width:auto">
+                                    <ul>
+                                        <li><a href='Amc.aspx'><span>Abrir AMC</span></a></li>
+                                        <li><a href='Questao.aspx'><span>Criar Questão</span></a></li>
+                                        <li class='last'><a href='Paginas/ConsultarQuestao.aspx'><span>Banco de Questão</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class='mega'><a href='#'><span>Reunião</span></a>
+                                <div style="width:auto">
+                                    <ul>
+                                        <li><a href='AgendaReuniao.aspx'><span>Agendar Reuniao</span></a></li>
+                                        <li class='last'><a href='ConsultarReuniao.aspx'><span>Consultar Reunião</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class='mega'><a href='#'><span>Eventos</span></a>
+                                <div style="width:auto">
+                                    <ul>
+                                        <li><a href='Evento.aspx'><span>Programar Eventos</span></a></li>
+                                        <li class='last'><a href='ConsultarEvento.apsx'><span>Consultar Eventos</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class='mega'><a href='#'><span>Lancamentos</span></a>
+                                <div style="width:auto">
+                                    <ul>
+                                        <li><a href='Lancamento.aspx'><span>Lançar Obrigações</span></a></li>
+                                        <li class='last'><a href='ConsultarLancamento.aspx'><span>Consultar Lançamentos</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class='mega'><a href='#'><span>Ações</span></a>
+                                <div style="width:auto">
+                                    <ul>
+                                        <li><a href='Acao.aspx'><span>Incluir Ação</span></a></li>
+                                        <li class='last'><a href='ConsultarAcao.aspx'><span>Consultar Ações</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                       
+                    </div>
+                    <div id="right"></div>
+                </div>
+                <%-- ************************ Menu Fim --%>
+                <br />
+                <br />
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            
+            <div class="cb"></div>
+            <div id="footer" class="noprint">
+                Espaço Coordenador – UniCEUB © 2014<br />
+            </div>
+           
+        </form>
+    </div>
+    <%--<div data-bg style="display: none;position: absolute; z-index: 98; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(255,255,255,.7)"></div>--%>
+</body>
+</html>

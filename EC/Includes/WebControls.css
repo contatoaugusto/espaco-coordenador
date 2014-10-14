@@ -1,0 +1,228 @@
+﻿.listbox {
+	background-color: #F4F4F4;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	clip: rect( );
+	border: 1px inset;
+}
+.textbox 
+{
+	border:solid #d3d3d3 1px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+	padding: 2px 5px 2px 5px;
+}
+.textboxblur 
+{
+    background-color:#fff;
+	border:solid #d3d3d3 1px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+	padding: 2px 5px 2px 5px;
+}
+.textboxfocus 
+{
+	background-color: #fdf3cb;
+	border:solid #d3d3d3 1px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+	padding: 2px 5px 2px 5px;
+}
+
+.buttonfocus {
+
+	border: 1px solid #BBBBBB;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	background-color: #e5e4e4;
+	padding: 2px 5px 2px 5px;
+	font-size:7pt;
+    cursor:pointer;
+    cursor:hand;
+}
+
+.button
+{
+	border: 1px solid #d3d3d3;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #4f4e4e;
+	background-color: #f9f9f9;
+	padding: 2px 5px 2px 5px;
+	font-size:7pt;
+	cursor:pointer;
+    margin-left: 0px;
+}
+
+.buttonred {
+	border: 1px solid #d60000;
+    background-color: #fdf7f7;
+        font-family:verdana, arial, helvetica, sans-serif;
+        font-weight:bold;
+        color:#d60000;
+        padding: 2px 5px 2px 5px;
+	    font-size:7pt;
+    height: 22px;
+}
+.dropdownlist, .dropdownlistfocus, .dropdownlistblur
+{
+	border:solid #d3d3d3 1px;
+	font-family: arial, helvetica, sans-serif;
+	padding: 2px 5px 2px 5px;
+	margin-top:2px;
+}
+
+.dropdownlistfocus
+{
+	background-color: #fef9e6;
+}
+
+.dropdownlistblur
+{
+	background-color:#fff;
+}
+	
+textarea 
+{
+    font-family: arial, helvetica, sans-serif;
+}
+
+/* BEGIN - Progress Bar */
+
+.ProgressBar {
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 50px;
+	background-color: #DFDFDF;
+}
+
+/* END - Progress Bar*/
+
+/* BEGIN - UpdateProgress */
+
+#updateprogress
+{
+    background-color:#fff;
+    border:solid 1px #666;
+    height:25px;
+    bottom:0%;
+    left:0px;
+    position:fixed;
+    width:99.8%;
+    padding-top:5px;
+    display:block;
+}
+
+/* END */
+
+.modalBackground {
+	background-color:#ffffff;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+.alertrequiredfields
+{
+	padding:10px;
+	border:solid #fdd981 1px;
+	background-color:#ffefb2;
+	width:97.8%;
+	margin-top:10px;
+	margin-bottom:10px;
+	display:none;
+}
+
+.alertBox
+{
+	padding:10px;
+	border:solid #fdd981 1px;
+	background-color:#ffefb2;
+	width:97.8%;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#tooltip {
+    border:solid 1px #bfbfbf;
+    background-color:#f7f6f6;
+    padding:13px;
+    color:#000;	
+    font-weight:bold;
+}
+
+/* Begin Modal */
+#mask
+{
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    background-color: #fff;
+    display: none;
+    cursor: wait;
+    opacity: 0.6;
+    filter: alpha(opacity = 60);
+    zoom: 1;
+    overflow: hidden;
+    position: fixed;
+}
+
+#dialog
+{
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    width: 440px;
+    height: auto;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+    border: solid 4px #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px #ccc;
+    padding: 0;
+}
+
+.dialog-title
+{
+    position: relative;
+    border: 0;
+    background-color: #af1d22;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 8px;
+    color: #fff;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.dialog-content
+{
+    position: relative;
+    background: #fff;
+    color: #000;
+    font-size: 100%;
+    width: 436;
+    padding: 16px;
+    min-height: 40px;
+    font-size: 110%;
+}
+.dialog-action
+{
+    background: #f1f1f1;
+    padding: 8px;
+    text-align: right;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.dialog-action label
+{
+    margin-left: 4px;
+}
+
+/* End Modal */

@@ -1,0 +1,336 @@
+﻿body {
+	padding: 0px;
+    text-align: justify; 
+	    background-color:#e5e5e5;
+	    margin: 0px; 
+	    width: 320px; 
+	    font-family: Helvetica; 
+    background-image: url('Images/back.png');
+	    background-repeat: no-repeat;
+	    -webkit-text-size-adjust: none; 
+	    -webkit-touch-callout: none;
+}
+body * {
+	-webkit-tap-highlight-color: rgba(200, 0, 0, 0.0);
+}
+#quadro {
+	padding-bottom: 0px; 
+	margin: 0px 0px 0px 10px; 
+	padding-left: 0px; 
+	padding-right: 0px; 
+	/*padding-top: 0px;*/
+}
+#header {
+	background-image: url('Images/header_middle.png'); 
+	border-bottom: rgb(45,54,66) 1px solid; 
+	position: relative; 
+	height: 40px
+}
+h1 {
+	padding-bottom: 10px; 
+	margin: 0px; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	font-family: helvetica, sans-serif; 
+	color: rgb(76,86,108); 
+	font-size: 17px; 
+	font-weight: bold; 
+	padding-top: 10px
+}
+h2 {
+	padding-bottom: 10px; 
+	margin: -10px 0px 0px; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	font-family: helvetica, sans-serif; 
+	color: rgb(76,86,108); 
+	font-size: 12px; 
+	font-weight: normal
+}
+h3 {
+	padding-bottom: 10px; 
+	margin: 0px; 
+	padding-left: 115px; 
+	padding-right: 10px; 
+	font-family: helvetica, sans-serif; 
+	color: #ffffff; 
+	font-size: 18px; 
+	font-weight: bold; 
+	padding-top: 10px
+}
+ul {
+	border-bottom: rgb(217,217,217) 1px solid; 
+	border-left: rgb(217,217,217) 1px solid; 
+	padding-bottom: 0px; 
+	background-color: rgb(255,255,255); 
+	margin-top: 0px; 
+	padding-left: 0px; 
+	width: 300px; 
+	padding-right: 0px; 
+	font-family: helvetica, sans-serif; 
+	margin-bottom: 17px; 
+	color: rgb(0,0,0); 
+	font-size: 15px; 
+	border-top: rgb(217,217,217) 1px solid; 
+	font-weight: bold; 
+	margin-right: 10px; 
+	border-right: rgb(217,217,217) 1px solid; 
+	padding-top: 0px; 
+	-webkit-border-radius: 8px
+}
+li {
+	padding-bottom: 14px; 
+	list-style-type: none; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	border-top: rgb(217,217,217) 1px solid; 
+	padding-top: 10px
+}
+li:first-child {
+	border-top: 0px
+}
+a {
+	padding-bottom: 12px; 
+	margin: -8px -8px -12px; 
+	padding-left: 8px; 
+	padding-right: 8px; 
+	display: block; 
+	color: rgb(0,0,0); 
+	text-decoration: none; 
+	padding-top: 8px
+}
+.secondary {
+	text-align: justify; 
+	color: rgb(50,79,133); 
+	font-weight: normal
+}
+
+.title {
+	z-index: 0; 
+	position: absolute; 
+	text-align: center; 
+	margin-top: 3px; 
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	height: 31px; 
+	color: white; 
+	font-size: 16pt; 
+	overflow: hidden; 
+	font-weight: bold; 
+	-webkit-transform: translate(0px, 0px); 
+	text-shadow: rgba(0, 0, 0, .6) 0px -1px 0px
+}
+#pages_container > div {
+	position: absolute; 
+	-webkit-transform: translate(0px, 0px)
+}
+li.group:active {
+	background-image: url(chevron_touched.png), url(Images/item_background_touched.png); 
+	color: white
+}
+.showarrow {
+	background-image: url(Images/chevron.png); 
+	padding-right: 16px; 
+	background-repeat: no-repeat; 
+	background-position: right 50%;
+	margin-right: 10px
+}
+.secondarywarrow {
+	display: block; 
+	float: right; 
+	color: #324f85; 
+	font-weight: normal
+}
+
+.button 
+{
+	z-index: 1; 
+	position: absolute; 
+	min-width: 40px; 
+	text-align: center; 
+	border-right-width: 4px; 
+	text-overflow: ellipsis;
+	 padding-right: 4px; 
+	 max-width: 60px; 
+	 white-space: nowrap; 
+	 border-top-width: 0px; 
+	 border-bottom-width: 0px; 
+	 height: 23px; 
+	 color: white; 
+	 font-size: 12px; 
+	 overflow: hidden; 
+	 border-left-width: 13px; 
+	 font-weight: bold; 
+	 -webkit-transform: translate(0px, 0px); 
+	 
+	border-bottom: gray 1px solid; 
+	text-align: center; 
+	border-left: gray 1px solid; 
+	padding-bottom: 0px; 
+	line-height: 29px; 
+	margin-top: 4px; 
+	padding-left: 5px; 
+	padding-right: 5px; 
+	display: block; 
+	font-family: helvetica, sans-serif; 
+	float: right; height: 29px; 
+	color: #ffffff; 
+	font-size: 12px; 
+	border-top: gray 1px solid; 
+	font-weight: bold; 
+	margin-right: 10px; 
+	border-right: gray 1px solid; 
+	padding-top: 0px; 
+	-webkit-border-radius: 5px; 
+	text-shadow: #000 1px 1px 1px;
+	margin-left:10px;
+}
+.blackleft {
+	border-right-width: 5px; 
+	margin: 7px auto; 
+	border-top-width: 0px; 
+	border-bottom-width: 0px; 
+	color: #fff; 
+	border-left-width: 12px; 
+	text-shadow: #000 0px 1px 1px; 
+	-webkit-border-image: url(Images/back_button.png) 0 5 0 12
+}
+ 
+.textbox
+{
+    -webkit-appearance:none;
+    left : 5px;
+    top : 3px;
+    border-left-width:0px;
+    border-left-color : #ffffff;
+    font-size : 18px;
+    border-right-color : #ffffff;
+    color : #000000;
+    height:30px;
+    border-bottom-width : 0px;
+    border-top-width : 0px;
+    background : none transparent scroll repeat 0% 0%;
+    width : 100%;
+    margin : 0px;
+    border-top-color : #ffffff;
+    border-right-width : 0px;
+    line-height : 30px;
+    border-bottom-color : #ffffff;
+}
+
+.button-submit
+{
+    background-color:#ffffff; 
+    color:#000000; 
+    font-size:18px;
+    font-weight:bold; 
+    width:100%; 
+    text-align:center;
+    -webkit-border-radius: 5px;  
+    border: rgb(217,217,217) 1px solid; 
+    width: 300px;
+    padding-top:10px;
+    padding-bottom:10px;
+    cursor:hand;
+}
+
+.alert
+{
+    font-size:15px;
+    font-weight:bold; 
+    text-align:center;
+    padding:10px;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.pt100
+{
+    padding-top:100px;  
+}
+
+.pt120
+{
+    padding-top:120px;  
+}
+
+.pt150
+{
+    padding-top:150px;  
+}
+
+.mb50
+{
+    margin-bottom:50px;  
+}
+
+.mb70
+{
+    margin-bottom:70px;  
+}
+
+.mb30
+{
+    margin-bottom:30px;  
+}
+
+.mt50
+{
+    margin-top:50px;  
+}
+
+.mt30
+{
+    margin-top:30px;  
+}
+
+div#user
+{
+    position:absolute;
+    top:70px;
+    left:10px;
+}
+
+div#user-name
+{
+    position:absolute;
+    top:105px;
+    left:70px;
+    font-weight:bold;
+}
+
+div#user-course
+{
+    position:absolute;
+    top:123px;
+    left:70px;
+    font-size:14px;
+}
+
+.bred
+{
+    background-color:#bca3a3;
+    color:#ffffff;    
+}
+
+.subtitle
+{
+    color:#c72929;
+}
+
+.detail-pagination
+{
+    padding-bottom: 10px; 
+	margin: -10px 0px 0px; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	font-family: helvetica, sans-serif; 
+	color: #000000; 
+	font-size: 12px; 
+	font-weight: normal  
+}
+
+.cb
+{
+    color:#000000;
+}

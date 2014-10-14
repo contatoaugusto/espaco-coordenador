@@ -1,0 +1,179 @@
+﻿.background() {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAHCAYAAACcLcTKAAAAMklEQVR42mP4TwRgIBJQwwyGQWkZrR0+GDxPUO9gC2Gi3UNpqFArpIdFUh3UGZqY0gwAQe422HjkstgAAAAASUVORK5CYII=);
+        background-repeat: no-repeat;
+}
+.border666() {
+	border: 1px solid #666;
+}
+
+.background999() {
+	background: #999;
+}
+
+.background666() {
+	background: #666;
+}
+
+
+/* ---------- basic theme: these are the most necessary styles --------------------------------- */
+
+.scrollbar-pane {
+    margin-right: 20px;
+}
+
+.scrollbar-handle-container {
+    background: #EEE;
+    width: 20px;
+}
+
+.scrollbar-handle {
+    width: 20px;
+    .background999()
+}
+
+.scrollbar-handle:hover {
+    .background666();
+}
+
+.scrollbar-handle.move {
+    background: #111;
+}
+
+.scrollbar-handle-up {
+    width: 20px;
+    height: 20px;
+    background: #DDD;
+}
+
+.scrollbar-handle-up:hover {
+    .background666();
+}
+
+.scrollbar-handle-down {
+    width: 20px;
+    height: 20px;
+    background: #DDD;
+}
+
+.scrollbar-handle-down:hover {
+    .background666();
+}
+
+
+
+/* ---------- simple theme --------------------------------------------------------------------- */
+
+.simple {
+
+    .scrollbar-pane {
+        margin-right: 16px;
+    }
+
+    .scrollbar-handle-container {
+        background: #EEE;
+        width: 15px;
+
+        .hover, .move {
+            background: #E6E6E6;
+        }
+    }
+
+    .scrollbar-handle {
+        width: 13px;
+        border: 1px solid #CCC;
+        background-color: #CCC;
+        background-position: -16px 50%;
+        .background();
+
+        .move {
+            .border666();
+            .background999();
+        }
+
+        &:hover {
+            .border666();
+        }
+    }
+
+    .scrollbar-handle-up {
+        width: 13px;
+        height: 13px;
+        border: 1px solid #CCC;
+        background-color: #CCC;
+        background-position: -34px 2px;
+        margin-bottom: 1px;
+
+        .hover {
+            .border666();
+        }
+
+		.move {
+            .background999();
+        }
+
+        &:hover {
+			.border666();
+        }
+
+        .background();
+    }
+
+    .scrollbar-handle-down {
+        width: 13px;
+        height: 13px;
+        border: 1px solid #CCC;
+        background-color: #CCC;
+        background-position: 2px 4px;
+        margin-top: 1px;
+        .background();
+
+		.hover {
+            .border666();
+        }
+
+		.move {
+            .background999();
+        }
+
+        &:hover {
+			.border666();
+        }
+    }
+}
+
+ul.fff {
+    padding: 0;
+
+    .scrollbar-pane {
+        margin-right: 12px;
+    }
+
+    .scrollbar-handle-container {
+        background: #EEE;
+        width: 12px;
+    }
+
+    .scrollbar-handle {
+        width: 12px;
+        background-color: #CCC;
+
+        .move {
+            background-color: #666;
+        }
+
+        &:hover {
+            .background999();
+        }
+    }
+
+    .scrollbar-handle-up {
+        width: 12px;
+        height: 18px;
+    }
+
+    .scrollbar-handle-down {
+        width: 12px;
+        height: 18px;
+    }
+}
+

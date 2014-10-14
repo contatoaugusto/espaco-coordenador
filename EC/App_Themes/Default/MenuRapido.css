@@ -1,0 +1,88 @@
+﻿div.webpart .header:hover
+{
+    /*cursor:move;*/
+}
+
+/* Menu */
+
+div#header div#detalhe div#menurapido ul, div#header div#detalhe div#menurapido > ul > li {
+	display:inline;
+	position:relative;
+}
+
+div#header div#detalhe div#menurapido > ul {
+	list-style:none;
+}
+
+div#header div#detalhe div#menurapido > ul > li {
+	line-height:25px;
+	padding:2px 4px;
+}
+
+div#header div#detalhe div#menurapido > ul > li > a {
+	padding:0;
+	margin:0;
+	display:inline-block;
+	color:#545454;  
+	position:relative;
+}
+
+div#header div#detalhe div#menurapido > ul > li > a.out 
+{
+	color:#545454;
+	
+}
+
+
+div#header div#detalhe div#menurapido > ul > li > a.hover {
+
+}
+
+div#header div#detalhe div#menurapido > ul > li > div {
+	display:none;
+	z-index:16777270;
+}
+
+div#header div#detalhe div#menurapido > ul > li.mega:hover 
+{
+	background:#f1f1f1;
+}
+
+div#header div#detalhe div#menurapido > ul > li.mega > div {
+	border-left: 1px solid #dedede;
+	border-right: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+	border-top: 1px solid #dedede;
+	position: absolute;
+	top:19px;
+	top: /*\**/19px\9;/*IE*/
+	left: -131px;
+	padding:15px;
+	background: #ffffff;
+	color: #930;
+	text-align:left;
+	opacity:0.95;
+	height:auto;
+	width:190px;
+}
+
+div#header div#detalhe div#menurapido > ul > li.mega > div > ul {
+	margin:0;
+	list-style:none;
+	padding:10px;
+	position:relative;
+	float:left;
+}
+
+div#header div#detalhe div#menurapido > ul > li.mega > div > ul > li {
+	position:relative;
+	line-height:1.5;
+}
+
+div#header div#detalhe div#menurapido > ul > li.mega > div > ul > li a {
+	color:#737272;
+}
+
+div#header div#detalhe div#menurapido ul li.hovering div {
+    display:block;
+}

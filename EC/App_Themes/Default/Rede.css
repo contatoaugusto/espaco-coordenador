@@ -1,0 +1,186 @@
+﻿ul#tabscu, ul#tabsmgf
+{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+ul#tabscu li, ul#tabsmgf li
+{
+    list-style: none;
+    display: inline;
+}
+ul#tabscu li a, ul#tabsmgf li a
+{
+    background-color: #f0f0f0;
+    color: #ffebb5;
+    padding: 6px 10px 6px 10px;
+    text-decoration: none;
+    text-transform: normal;
+    border: 1px solid #eaeaea;
+    color: #d6474c;
+    font-size: 120%;
+    font-weight: normal;
+    color: #d6474c;
+}
+ul#tabscu li a:hover, ul#tabsmgf li a:hover
+{
+    background-color: #dadada;
+    border-top-color: #dadada;
+    border-left-color: #dadada;
+    border-right-color: #dadada;
+    color: #000000;
+}
+ul#tabscu li a.active, ul#tabsmgf li a.active
+{
+    background-color: #ffffff;
+    color: #d6474c;
+    border: 1px solid #eaeaea;
+    border-bottom: 1px solid #ffffff;
+}
+.content, .contentmgf
+{
+    background-color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #eaeaea;
+}
+#contentmural, #contentlink, #contentmensagem, #contentmensagens, #contentgrade, #contentfrequencia
+{
+    display: none;
+}
+#muralaction, #linkaction, #mensagemaction, #criargrupoaction, #meusgrupoaction, .linkinfo-content-action
+{
+    position: relative;
+    padding: 8px;
+    background-color: #f1f1f1;
+    margin-bottom: 2px;
+}
+    
+#muralaction textarea, #mensagemaction textarea, #criargrupoaction textarea, .linkinfo-content-action textarea
+{
+    border: solid 1px #cccccc;
+    overflow: hidden;
+    resize: none;
+    width: 99%;
+    padding: 2px;
+    font-size: 12px;
+}
+    
+.linkinfo-content-action textarea
+{
+    margin-bottom:4px;
+}
+    
+#muralaction > div, #mensagemaction > div, #criargrupoaction > div, .linkinfo-content-action > div
+{
+    margin-top: 2px;
+    text-align: right;
+    width: 100%;
+}
+#setmural
+{
+    position: absolute;
+    top: -6px;
+    left: 25px;
+}
+#setlink
+{
+    position: absolute;
+    top: -6px;
+    left: 80px;
+}
+#setmensagem
+{
+    position: absolute;
+    top: -6px;
+    left: 155px;
+}
+    
+#setcriargrupo
+{
+    position: absolute;
+    top: -6px;
+    left: 165px;
+}
+    
+#setmeusgrupo
+{
+    position: absolute;
+    top: -6px;
+    left: 55px;
+}
+    
+#mensagemaction textarea, #criargrupoaction textarea 
+{
+    margin-bottom:10px;
+}
+
+.itemcomposer-content-comentario-container
+{
+    height:auto; 
+    vertical-align:top; 
+    position:relative;
+}
+
+.itemcomposer-content-comentario-action
+{
+    height:auto;
+    margin:0;
+    padding:0;
+}
+    
+.itemcomposer-content-comentario-action label, .linkinfo-content-action label
+{
+    font-size:9px;
+    color:#666;
+}
+       
+.linkinfo-content-action label
+{
+    position:relative;     
+}
+
+/* aluno-search */
+
+#aluno-search {
+
+    position:relative;
+    width:626px;
+    border:0;
+    border: 1px solid #ccc;
+    border-radius:4px;
+    clear:both;
+    height:31px;
+}
+
+#aluno-search #input {
+    position:absolute;
+    top:0;    
+    left:1px;   
+    padding-bottom:1px;   
+}
+
+#aluno-search #input > input
+{
+    position:relative;
+    width:489px;
+    border:0;
+    padding: 6px 6px;
+    color: #444;
+    /*font-size:130%;
+    font-weight:bold;*/
+    outline-width:0px;
+    outline-style:none;
+    outline-color:invert;
+    width:480px;
+    *top:-1px;/* Bug IE7 */
+}
+
+#aluno-search #button   {
+    position:absolute;
+    top:0px;
+    left:600px; clear:both;
+    width:auto;
+}
+
