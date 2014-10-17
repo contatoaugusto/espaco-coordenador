@@ -4,9 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <script src="~/content/scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
-    <link href="~/content/Page.css" rel="stylesheet" />
     <link href="Content/EspacoCoordenador.css" rel="stylesheet" />
-    
+    <link href="Content/Page.css" rel="stylesheet" />
     <title>Espaço Coordenador</title>
 
 
@@ -17,7 +16,7 @@
             border-left: #d5d5d5 1px solid;
             position: relative;
             padding: 20px;
-            width: 250px;
+            width: 350px;
             padding-right: 12px;
             display: inline;
             background: url(/Content/Images/caixa-bg.png) repeat-x left bottom;
@@ -141,6 +140,24 @@
             padding:3px;
 
         }
+        .cabecalho
+        {
+            /*border-bottom: #d5d5d5 1px solid;
+            border-left: #d5d5d5 1px solid;*/
+            position: relative;
+            padding: 20px;
+            width: 350px;
+            /*padding-right: 12px;*/
+            /*display: inline;*/
+            /*background: url(/Content/Images/caixa-bg.png) repeat-x left bottom;*/
+            float: left;
+            height: auto;
+            /*color: #6a6665;*/
+            /*border-top: #d5d5d5 1px solid;*/
+            /*border-right: #d5d5d5 1px solid;*/
+            text-align: center;
+            margin-top: 50px;
+        }
     </style>
 
 </head>
@@ -158,28 +175,31 @@
 
     <form id="form1" method="post" runat="server">
         <div style="top: 100px; width: 300px; margin: auto;">
+            <div class="cabecalho">Espaço Coordenador</div>
             <div id="login-container" class="caixa">
-                <h2>Login
-                </h2>
-                <br />
-                <br />
-                <div>
-                    Matrícula:<br />
-                    <sgi:TextBox ID="txtMatricula" runat="server" RequiredField="true" Width="180px" ErrorMessage="<br />A matrícula é obrigatória" CssClass="textbox-beta" CssBlur="textbox-beta" CssFocus="textbox-beta" />
-                    <br />
-                    Senha:<br />
-                    <sgi:TextBox ID="txtcoAcesso" runat="server" TextMode="Password" Width="180px" RequiredField="true"
-                        ErrorMessage="<br />A senha é obrigatória" CssClass="textbox-beta" CssBlur="textbox-beta" CssFocus="textbox-beta" Text="tete" />
+                <center>
+                <div >
+                    
+                        <div>
+                            Matrícula:
+                            <sgi:TextBox ID="txtMatricula" runat="server" RequiredField="true" Width="180px" ErrorMessage="<br />A matrícula é obrigatória" CssClass="textbox-beta" CssBlur="textbox-beta" CssFocus="textbox-beta" />
+                        </div>
+                        <div>
+                            Senha:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <sgi:TextBox ID="txtcoAcesso" runat="server" TextMode="Password" Width="180px" RequiredField="true"
+                                ErrorMessage="<br />A senha é obrigatória" CssClass="textbox-beta" CssBlur="textbox-beta" CssFocus="textbox-beta" Text="tete" />
+                        </div>
                 </div>
-                
-                
-            </div>
-            
-            <span class="lt"></span><span class="rt"></span><span class="lb"></span><span class="rb"></span>
+                </center>
+                </div>
+           <%--<div>
+                    <span class="lt"></span><span class="rt"></span><span class="lb"></span><span class="rb"></span>
 
-                    <sgi:Button ID="btnLogin" runat="server" Text="Ok" Style="margin-left: 80px;" CausesValidation="true" class="w50" CssClass="buttonEC" OnClick="btnLogin_Click" />
-            <center><div id="footer">Espaço Coordenador – UniCEUB © 2014</div></center>
+                        <sgi:Button ID="btnLogin" runat="server" Text="Ok" Style="margin-left: 80px;" CausesValidation="true" class="w50" CssClass="buttonEC" OnClick="btnLogin_Click" />
+            </div>--%>
+        
         </div>
+        <div id="footer">Espaço Coordenador – UniCEUB © 2014</div>
         <sgi:MessageBox ID="messageBox" runat="server" />
         <sgi:AlertBox ID="alert" runat="server" AutoClose="true" Visible="false" Timeout="25" />
     </form>
