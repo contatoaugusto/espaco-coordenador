@@ -1180,7 +1180,6 @@
     <Content Include="Includes\WebControls.css" />
     <Content Include="Paginas\Acao.aspx" />
     <Content Include="Paginas\AgendaReuniao.aspx" />
-    <Content Include="Paginas\Amc.aspx" />
     <Content Include="Paginas\AtaReuniao.aspx" />
     <Content Include="Paginas\ConsultarAta.aspx" />
     <Content Include="Paginas\ConsultarEvento.aspx" />
@@ -1192,6 +1191,7 @@
     <Content Include="Paginas\Lancamento.aspx" />
     <Content Include="Paginas\Questao.aspx" />
     <Content Include="Paginas\InicioTeste.aspx" />
+    <Content Include="Paginas\Amc.aspx" />
     <Content Include="Scripts\api.js" />
     <Content Include="Scripts\core.js" />
     <Content Include="Scripts\core.min.js" />
@@ -1274,13 +1274,6 @@
     <Compile Include="Paginas\Acao.aspx.designer.cs">
       <DependentUpon>Acao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Paginas\Amc.aspx.cs">
-      <DependentUpon>Amc.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Paginas\Amc.aspx.designer.cs">
-      <DependentUpon>Amc.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Paginas\AtaReuniao.aspx.cs">
       <DependentUpon>AtaReuniao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1357,6 +1350,13 @@
     </Compile>
     <Compile Include="Paginas\InicioTeste.aspx.designer.cs">
       <DependentUpon>InicioTeste.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Amc.aspx.cs">
+      <DependentUpon>Amc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Amc.aspx.designer.cs">
+      <DependentUpon>Amc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Paginas\AgendaReuniao.aspx.cs">

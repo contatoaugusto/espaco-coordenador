@@ -5,7 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EC.Common;
 using EC.Negocio;
+using EC.Modelo;
 using EC.Modelo;
 
 namespace UI.Web.EC.Paginas
@@ -19,32 +21,42 @@ namespace UI.Web.EC.Paginas
                     return;
 
                 CarregarDisciplina();
-                CarregarFuncionario();
                 CarregarAmc();
             
             }
         }
         private void CarregarAmc()
         {
-            ddlAmc.DataSource = NQuestão.ConsultarAmc();
-            ddlAmc.DataTextField = "ANO";
-            ddlAmc.DataValueField = "ID_AMC";
-            ddlAmc.DataBind();
+
+            foreach (var item in NQuestão.ConsultarAmc())
+            {
+                ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
+            }
+            //ddlAmc.DataSource = NQuestão.ConsultarAmc();
+            //ddlAmc.DataTextField = "ANO";
+            //ddlAmc.DataValueField = "ID_AMC";
+            //ddlAmc.DataBind();
         }
 
         private void CarregarDisciplina()
         {
-            ddlDisciplina.DataSource = NQuestão.ConsultarDisciplina();
+            ddlDisciplina.DataSource = NDisciplina.ConsultarByCurso(Session["ID_CURSO"].ToInt32()); //NQuestão.ConsultarDisciplina();
             ddlDisciplina.DataTextField = "DESCRICAO";
             ddlDisciplina.DataValueField = "ID_DISCIPLINA";
             ddlDisciplina.DataBind();
+
+            CarregarFuncionario(ddlDisciplina.SelectedValue.ToInt32());
         }
 
                
-        private void CarregarFuncionario()
+        private void CarregarFuncionario(int idDisciplina)
         {
-            var lista = NQuestão.ConsultarFuncionario();
+            var lista = NDisciplina.ConsultarProfessorByDisciplina(idDisciplina); //NQuestão.ConsultarFuncionario();
 
+            ddlFuncionario.Items.Clear();
+
+            ddlFuncionario.Items.Add(new ListItem("Selecione", "0"));
+            
             foreach (FUNCIONARIO func in lista)
             {
                 ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
@@ -101,6 +113,11 @@ namespace UI.Web.EC.Paginas
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
             Response.Redirect("BancoQuestao.aspx", true);
+        }
+
+        protected void ddlDisciplina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarFuncionario(Library.ToInteger(ddlDisciplina.SelectedValue));
         }
 
         }

@@ -192,11 +192,11 @@
                 </div>
                 </center>
                 </div>
-           <%--<div>
+           <div>
                     <span class="lt"></span><span class="rt"></span><span class="lb"></span><span class="rb"></span>
 
                         <sgi:Button ID="btnLogin" runat="server" Text="Ok" Style="margin-left: 80px;" CausesValidation="true" class="w50" CssClass="buttonEC" OnClick="btnLogin_Click" />
-            </div>--%>
+            </div>
         
         </div>
         <div id="footer">Espaço Coordenador – UniCEUB © 2014</div>

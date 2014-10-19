@@ -156,6 +156,12 @@
       <DependentUpon>ClientScript.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EC.Modelo\EC.Modelo.csproj">
+      <Project>{a6bb4eb1-240b-4b6e-9245-e90d5a7be15a}</Project>
+      <Name>EC.Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

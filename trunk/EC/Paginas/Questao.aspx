@@ -54,7 +54,7 @@
                 Disciplina:
             </div>
             <div class="column w250">
-                <sgi:DropDownList ID="ddlDisciplina" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlDisciplina" runat="server" OnSelectedIndexChanged="ddlDisciplina_SelectedIndexChanged" AutoPostBack="true"></sgi:DropDownList>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
         <div class="row">
             <%--<div class="column w250">--%>
                 Pergunta:<br/>
-                <sgi:TextArea ID="TxtDescricao" runat="server" Width="100%" Rows="5" MaxLength="100"></sgi:TextArea> 
+                <sgi:TextArea ID="TxtDescricao" runat="server" Width="80%" Rows="5" MaxLength="100"></sgi:TextArea> 
             <%--</div>--%>
         </div>
 

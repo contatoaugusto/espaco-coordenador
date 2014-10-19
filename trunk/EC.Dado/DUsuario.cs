@@ -41,7 +41,8 @@ namespace EC.Dado
                     q.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == q.ID_FUNCIONARIO);
                     q.FUNCIONARIO.PESSOA = db.PESSOA.First(rs => rs.ID_PESSOA == q.FUNCIONARIO.ID_PESSOA);
                     q.FUNCIONARIO.CARGO = db.CARGO.First(rs => rs.ID_CARGO == q.FUNCIONARIO.ID_CARGO);
-                    
+                    //q.FUNCIONARIO.CURSO_COORDENADOR = <System.Data.Objects.DataClasses.EntityCollection>db.CURSO_COORDENADOR.Where(rs => rs.ID_FUNCIONARIO == q.ID_FUNCIONARIO);
+
                     //List<USUARIO> list = new List<USUARIO>();
 
                     //foreach (var tipo in q)

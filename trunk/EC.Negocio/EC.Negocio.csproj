@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NAcao.cs" />
+    <Compile Include="NAmc.cs" />
+    <Compile Include="NCurso.cs" />
     <Compile Include="NCursoCoordenador.cs" />
+    <Compile Include="NDisciplina.cs" />
     <Compile Include="NEvento.cs" />
     <Compile Include="NLancamento.cs" />
     <Compile Include="NQuestão.cs" />

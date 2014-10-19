@@ -62,6 +62,13 @@ namespace UI.Web.EC
                 Response.Cookies.Add(cookie);
 
                 Session["USUARIO"] = u;
+
+                // Curso
+                var curso = NCursoCoordenador.ConsultarCursoByCoordenador(u.FUNCIONARIO.ID_FUNCIONARIO).First();
+                Session["ID_CURSO"] = curso.ID_CURSO;
+                Session["NM_CURSO"] = curso.DESCRICAO;
+
+                //Session objSession = new Session();
                 //Session.id = u.idPessoa;
                 //EC.Common.Session.idPerfil = u.idPerfil;
                 //EC.Common.Session.coAcesso = u.coAcesso;
