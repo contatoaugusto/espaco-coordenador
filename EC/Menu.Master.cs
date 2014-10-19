@@ -36,7 +36,7 @@ namespace UI.Web.EC
 
             lblMatricula.Text = usuario.FUNCIONARIO.MATRICULA.ToString();
             lblNomeCoordenador.Text = usuario.FUNCIONARIO.PESSOA.NOME;
-
+            
             
             // Cursos do coordenador
             List<CURSO> listCurso = NCursoCoordenador.ConsultarCursoByCoordenador(usuario.FUNCIONARIO.ID_FUNCIONARIO);
@@ -49,8 +49,12 @@ namespace UI.Web.EC
                 oStr.Append("<div style=\"width:auto\"><ul>");
                 foreach (CURSO item in listCurso)
                 {
-                    //oStr.Append("<li><a href=\"" + _usuarioProcess.GetUrlLogin(item.Key.ToInt32()) + "\">" + item.Value + "</a></li>");
                     oStr.Append("<li'><a href='#'><span>" + item.DESCRICAO + "</span></a></li>");
+                    //if (lblCursoFirst.Text == string.Empty)
+                    //{
+                    //    lblCursoFirst.Text = item.DESCRICAO;
+                    //    hddidCurso.Value = item.ID_CURSO.ToString();
+                    //}
                 }
                 oStr.Append("</ul></div></li>");
                 lblCurso.Text = oStr.ToString();
@@ -65,6 +69,10 @@ namespace UI.Web.EC
 
         }
 
+        private void selecionaCurso() { 
+        
+        
+        }
 
         protected override void OnPreRender(EventArgs e)
         {

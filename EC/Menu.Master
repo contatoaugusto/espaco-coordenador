@@ -35,6 +35,8 @@
                         <ul>
                             <li id="matricula">Matrícula: <asp:Label ID="lblMatricula" runat="server"></asp:Label>  </li>
                             <li><a id="nome" href="#"><asp:Label ID="lblNomeCoordenador" runat="server"></asp:Label></a></li>
+                            <li><a id="curso" href="#"><%= Session["NM_CURSO"]%></a></li>
+                            
                             <%--<li style="width: 400px; overflow-x: hidden; text-wrap: normal;">Ciências da computação</li>--%>
                         </ul>
                     </div>
@@ -53,7 +55,7 @@
                                     </div>
                                 </li>--%>
 
-                                <li class="mega"><a href="#" class="out">Meus Dados<img src="/App_Themes/Default/Images/set-meusdados.png" alt="" /></a>
+                                <li class="mega"><a class="tour_1" href="#" class="out">Meus Dados<img src="/App_Themes/Default/Images/set-meusdados.png" alt="" /></a>
                                     <div style="width:auto">
                                         <ul>
                                             <li><a href="#"><span>Alterar Dados Pessoais</span></a></li>
@@ -75,6 +77,7 @@
                         </div>--%>
                     </div>
                     <input type="hidden" id="hmpu" runat="server" />
+                    <%--<input type="hidden" id="hddidCurso" runat="server" />--%>
                 </div>
                 <%--************************* Header FIM--%>
                 
@@ -97,9 +100,9 @@
                              <li class='mega'><a href='#'><span>AMC</span></a>
                                 <div style="width:auto">
                                     <ul>
-                                        <li><a href='Amc.aspx'><span>Abrir AMC</span></a></li>
-                                        <li><a href='Questao.aspx'><span>Criar Questão</span></a></li>
-                                        <li class='last'><a href='Paginas/ConsultarQuestao.aspx'><span>Banco de Questão</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Amc.aspx")%>'><span>Abrir AMC</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Questao.aspx")%>'><span>Criar Questão</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarQuestao.aspx")%>'><span>Banco de Questão</span></a></li>
                                     </ul>
                                 </div>
                             </li>

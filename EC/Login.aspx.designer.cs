@@ -40,6 +40,15 @@ namespace UI.Web.EC {
         protected global::EC.UI.WebControls.TextBox txtcoAcesso;
         
         /// <summary>
+        /// btnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.Button btnLogin;
+        
+        /// <summary>
         /// messageBox control.
         /// </summary>
         /// <remarks>

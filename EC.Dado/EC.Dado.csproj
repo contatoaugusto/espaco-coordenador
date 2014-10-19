@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAcao.cs" />
+    <Compile Include="DAmc.cs" />
     <Compile Include="DCoordenador.cs" />
     <Compile Include="DCurso.cs" />
     <Compile Include="DEvento.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="DQuestao.cs" />
     <Compile Include="DReuniao.cs" />
     <Compile Include="DUsuario.cs" />
+    <Compile Include="DDisciplina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TIPO_REUNIAO.cs" />
   </ItemGroup>

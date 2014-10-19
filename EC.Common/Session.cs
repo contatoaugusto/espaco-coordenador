@@ -1,6 +1,7 @@
 using System;
 using System.Web;
 using System.Web.SessionState;
+//using EC.Modelo;
 
 namespace EC.Common
 {
@@ -181,39 +182,52 @@ namespace EC.Common
                 HttpContext.Current.Session["ID_PESSOA"] = value;
             }
         }
-        public static long idAluno
+
+        //public static USUARIO usuario
+        //{
+        //    get
+        //    {
+        //        return GetSessionData<USUARIO>("USUARIO");
+        //    }
+        //    set
+        //    {
+        //        HttpContext.Current.Session["USUARIO"] = value;
+        //    }
+        //}
+
+        public static int idCurso
         {
             get
             {
-                return GetSessionData<long>("ID_ALUNO");
+                try
+                {
+                    return GetSessionData<int>("ID_CURSO");
+                }
+                catch
+                {
+                    return 0;
+                }
             }
-            set
-            {
-                HttpContext.Current.Session["ID_ALUNO"] = value;
-            }
+            set { HttpContext.Current.Session["ID_CURSO"] = value; }
         }
-        public static int nuRA
+
+        public static string nmCurso
         {
             get
             {
-                return GetSessionData<int>("NURA");
+                try
+                {
+                    return GetSessionData<string>("NMCURSO");
+                }
+                catch
+                {
+                    return "";
+                }
             }
-            set
-            {
-                HttpContext.Current.Session["NURA"] = value;
-            }
+            set { HttpContext.Current.Session["NMCURSO"] = value; }
         }
-        public static long idAlunoMatricula
-        {
-            get
-            {
-                return GetSessionData<long>(Const.IDALUNOMATRICULA);
-            }
-            set
-            {
-                HttpContext.Current.Session[Const.IDALUNOMATRICULA] = value;
-            }
-        }
+
+
         public static string IPUsuario
         {
             get 

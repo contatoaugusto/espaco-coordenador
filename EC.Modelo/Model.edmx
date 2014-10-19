@@ -128,6 +128,14 @@
           <Property Name="ID_CURSO" Type="int" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="DISCIPLINA_PROFESSOR">
+          <Key>
+            <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
+          </Key>
+          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DISCIPLINA" Type="int" Nullable="false" />
+          <Property Name="ID_FUNCIONARIO" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="EVENTO">
           <Key>
             <PropertyRef Name="ID_EVENTO" />
@@ -533,6 +541,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA">
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="1" />
+          <End Role="DISCIPLINA_PROFESSOR" Type="Self.DISCIPLINA_PROFESSOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Principal>
+            <Dependent Role="DISCIPLINA_PROFESSOR">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="DISCIPLINA_PROFESSOR" Type="Self.DISCIPLINA_PROFESSOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="DISCIPLINA_PROFESSOR">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_DISCIPLINA_QUESTAO">
           <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
@@ -848,6 +880,7 @@
           <EntitySet Name="CURSO" EntityType="Self.CURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CURSO_COORDENADOR" EntityType="Self.CURSO_COORDENADOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DISCIPLINA" EntityType="Self.DISCIPLINA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISCIPLINA_PROFESSOR" EntityType="Self.DISCIPLINA_PROFESSOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FUNCIONARIO" EntityType="Self.FUNCIONARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LANCAMENTO" EntityType="Self.LANCAMENTO" Schema="dbo" store:Type="Tables" />
@@ -940,6 +973,14 @@
           <AssociationSet Name="Fk_DISCIPLINA_CURSO" Association="Self.Fk_DISCIPLINA_CURSO">
             <End Role="CURSO" EntitySet="CURSO" />
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA" Association="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA">
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+            <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" Association="Self.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
           <AssociationSet Name="fk_DISCIPLINA_QUESTAO" Association="Self.fk_DISCIPLINA_QUESTAO">
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
@@ -1203,7 +1244,18 @@
           <Property Name="ID_CURSO" Type="Int32" />
           <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CURSO" Relationship="Self.Fk_DISCIPLINA_CURSO" FromRole="DISCIPLINA" ToRole="CURSO" />
+          <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="QUESTAO" Relationship="Self.fk_DISCIPLINA_QUESTAO" FromRole="DISCIPLINA" ToRole="QUESTAO" />
+        </EntityType>
+        <EntityType Name="DISCIPLINA_PROFESSOR">
+          <Key>
+            <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
+          </Key>
+          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DISCIPLINA" Type="Int32" Nullable="false" />
+          <Property Name="ID_FUNCIONARIO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DISCIPLINA" Relationship="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA_PROFESSOR" ToRole="DISCIPLINA" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" FromRole="DISCIPLINA_PROFESSOR" ToRole="FUNCIONARIO" />
         </EntityType>
         <EntityType Name="EVENTO">
           <Key>
@@ -1231,6 +1283,7 @@
           <Property Name="ID_PESSOA" Type="Int32" />
           <NavigationProperty Name="CARGO" Relationship="Self.fk_FUNCIONARIO_CARGO" FromRole="FUNCIONARIO" ToRole="CARGO" />
           <NavigationProperty Name="CURSO_COORDENADOR" Relationship="Self.FK_COORDENADOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="CURSO_COORDENADOR" />
+          <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="Self.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="PESSOA" Relationship="Self.fk_FUNCIONARIO_PESSOA" FromRole="FUNCIONARIO" ToRole="PESSOA" />
           <NavigationProperty Name="QUESTAO" Relationship="Self.fk_FUNCIONARIO_QUESTAO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
           <NavigationProperty Name="QUESTAO1" Relationship="Self.FK_ID_FUNCIONARIO_QUESTAO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
@@ -1745,6 +1798,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA">
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="1" />
+          <End Role="DISCIPLINA_PROFESSOR" Type="Self.DISCIPLINA_PROFESSOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Principal>
+            <Dependent Role="DISCIPLINA_PROFESSOR">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_DISCIPLINA_QUESTAO">
           <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
@@ -1754,6 +1819,18 @@
             </Principal>
             <Dependent Role="QUESTAO">
               <PropertyRef Name="ID_DISCIPLINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="DISCIPLINA_PROFESSOR" Type="Self.DISCIPLINA_PROFESSOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="DISCIPLINA_PROFESSOR">
+              <PropertyRef Name="ID_FUNCIONARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1976,6 +2053,7 @@
           <EntitySet Name="CURSO" EntityType="Self.CURSO" />
           <EntitySet Name="CURSO_COORDENADOR" EntityType="Self.CURSO_COORDENADOR" />
           <EntitySet Name="DISCIPLINA" EntityType="Self.DISCIPLINA" />
+          <EntitySet Name="DISCIPLINA_PROFESSOR" EntityType="Self.DISCIPLINA_PROFESSOR" />
           <EntitySet Name="EVENTO" EntityType="Self.EVENTO" />
           <EntitySet Name="FUNCIONARIO" EntityType="Self.FUNCIONARIO" />
           <EntitySet Name="LANCAMENTO" EntityType="Self.LANCAMENTO" />
@@ -2097,9 +2175,17 @@
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="CURSO_COORDENADOR" EntitySet="CURSO_COORDENADOR" />
           </AssociationSet>
+          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA" Association="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA">
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+            <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
+          </AssociationSet>
           <AssociationSet Name="fk_DISCIPLINA_QUESTAO" Association="Self.fk_DISCIPLINA_QUESTAO">
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" Association="Self.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
           <AssociationSet Name="fk_EVENTO_PESSOA" Association="Self.fk_EVENTO_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
@@ -2310,6 +2396,15 @@
                 <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
                 <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISCIPLINA_PROFESSOR">
+            <EntityTypeMapping TypeName="EC.Model.DISCIPLINA_PROFESSOR">
+              <MappingFragment StoreEntitySet="DISCIPLINA_PROFESSOR">
+                <ScalarProperty Name="ID_DISCIPLINA_PROFESSOR" ColumnName="ID_DISCIPLINA_PROFESSOR" />
+                <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
+                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

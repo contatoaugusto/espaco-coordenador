@@ -608,7 +608,7 @@ div#content div#menu div#items > ul > li > a.last {
   border-right: solid 1px #dedede;
 }
 div#content div#menu div#items > ul > li > div,
-div#content div#header div#detalhe div#menurapido > ul > li > div {
+div#content div#header div#detalhe div#menurapido > ul > li.mega > div {
   display: none;
   z-index: 16777270;
 }
