@@ -29,6 +29,13 @@ namespace EC.Dado
             }
         }
 
+        public USUARIO ConsultarById(int id)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                return db.USUARIO.First(rs => rs.ID_USUARIO == id);
+            }
+        }
 
         public USUARIO ConsultarUsuarioByLoging(int matricula, bool icAtivo)
         {
@@ -78,6 +85,18 @@ namespace EC.Dado
                 var id = q.ID_USUARIO;
 
                 db.SaveChanges();
+                db.Dispose();
+            }
+        }
+
+        public void Atualiza(USUARIO q)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                //Salva a questão
+                db.USUARIO.Attach(q);
+                db.SaveChanges();
+
                 db.Dispose();
             }
         }  

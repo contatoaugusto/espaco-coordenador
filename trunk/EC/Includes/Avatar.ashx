@@ -6,9 +6,10 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Web.SessionState;
-using SGI.Common;
+using EC.Common;
 using System.Collections.Specialized;
-using UI.Web.EA;
+using UI.Web.EC;
+using EC.Negocio;
 
 public class Avatar : IHttpHandler, IRequiresSessionState
 {
@@ -21,7 +22,7 @@ public class Avatar : IHttpHandler, IRequiresSessionState
 
         System.Drawing.Image img = null;
 
-        int idUsuario = SGI.Common.Library.ToInteger(context.Request.Url.Query.Replace("?", ""));
+        int idUsuario = Library.ToInteger(context.Request.Url.Query.Replace("?", ""));
 
         context.Response.Cache.SetExpires(DateTime.Now.AddDays(DAYS_TO_CACHE));
         context.Response.Cache.SetCacheability(HttpCacheability.Public);
@@ -48,7 +49,7 @@ public class Avatar : IHttpHandler, IRequiresSessionState
 
     private Image GetImage(int idUsuario, HttpContext context)
     {
-        string pathImages = string.Format(@"{0}\images\", AppSettings.PathRoot);
+        string pathImages = string.Format(@"{0}\images\", EC.Common.AppSettings.PathRoot);
         
         System.Drawing.Image img = null;
 
@@ -56,10 +57,10 @@ public class Avatar : IHttpHandler, IRequiresSessionState
         
         if (idUsuario > 0)
         {
-            imageCache = string.Format(@"{0}{1}.tmp", Utils.PathImagesCache, idUsuario);
+            imageCache = string.Format(@"{0}{1}.tmp", UI.Web.EC.Utils.PathImagesCache, idUsuario);
 
-            if (!Directory.Exists(Utils.PathImagesCache))
-                Directory.CreateDirectory(Utils.PathImagesCache);
+            if (!Directory.Exists(UI.Web.EC.Utils.PathImagesCache))
+                Directory.CreateDirectory(UI.Web.EC.Utils.PathImagesCache);
 
             if (File.Exists(imageCache))
             {
@@ -76,8 +77,8 @@ public class Avatar : IHttpHandler, IRequiresSessionState
             }
 
             if (!File.Exists(imageCache))
-            {               
-                byte[] imageBytes = new SGI.DataContext.Controller.Coorporativo.FotoUsuario().GetAvatar(idUsuario);
+            {
+                byte[] imageBytes = NUsuario.ConsultarById(idUsuario).FOTO; //new SGI.DataContext.Controller.Coorporativo.FotoUsuario().GetAvatar(idUsuario);
                 
                 if (imageBytes.Length > 0)
                 {

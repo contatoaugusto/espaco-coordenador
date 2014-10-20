@@ -38,6 +38,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxToolkit\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="crystaldecisions.shared">
+      <HintPath>..\packages\CrystalDecisions\crystaldecisions.shared.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=3.1.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EPPlus.3.1.3.3\lib\net35\EPPlus.dll</HintPath>
@@ -46,6 +56,7 @@
     <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="SGI.Safe, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -81,6 +92,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Coordenador\Avatar.ascx" />
+    <Content Include="Coordenador\Avatar.aspx" />
+    <Content Include="Coordenador\DadosPessoais.ascx" />
+    <Content Include="Coordenador\DadosPessoais.aspx" />
+    <Content Include="Coordenador\Default.aspx" />
+    <Content Include="Coordenador\SenhaEspacoAluno.aspx" />
     <Content Include="App_Themes\Default\Basic.css" />
     <Content Include="App_Themes\Default\Images\a-minus.png" />
     <Content Include="App_Themes\Default\Images\a-plus.png" />
@@ -1237,15 +1254,74 @@
     <Content Include="Scripts\script.min.js" />
     <Content Include="Scripts\timeline.js" />
     <Content Include="Scripts\timeline.min.js" />
+    <Content Include="Temp\UploadImage\AF1.jpg" />
+    <Content Include="Temp\UploadImage\AF10.jpg" />
+    <Content Include="Temp\UploadImage\AF2.jpg" />
+    <Content Include="Temp\UploadImage\AF3.JPG" />
+    <Content Include="Temp\UploadImage\AF4.jpg" />
+    <Content Include="Temp\UploadImage\AF5.jpg" />
+    <Content Include="Temp\UploadImage\AF6.jpg" />
+    <Content Include="Temp\UploadImage\AF7.jpg" />
+    <Content Include="Temp\UploadImage\AF743cc895-09be-4974-8409-1a1a53d29cb42.jpg" />
+    <Content Include="Temp\UploadImage\AF8.jpg" />
+    <Content Include="Temp\UploadImage\AF9.jpg" />
+    <Content Include="Temp\UploadImage\AFc4401f1f-ac14-45cd-916c-048f5c103c1e5.jpg" />
+    <Content Include="Temp\Upload\16095\0aa3b976-ddd5-4f81-9f65-f3d4f5831279.txt" />
+    <Content Include="Temp\Upload\16095\153e0d3b-3993-48ee-ba04-3d38b94d2f1c.txt" />
+    <Content Include="Temp\Upload\16095\1818a237-8636-4056-a9e6-930281694bde.txt" />
+    <Content Include="Temp\Upload\16095\1afc09a8-33dc-4e66-a3d3-b2303b5bbc53.txt" />
+    <Content Include="Temp\Upload\16095\30f7143a-4eb7-4741-8b86-78cae07d1a88.txt" />
+    <Content Include="Temp\Upload\16095\532133a8-abda-41cb-9c72-afcabfad0295.txt" />
+    <Content Include="Temp\Upload\16095\54af7520-ffbd-410d-b699-6a6ba18df2b4.txt" />
+    <Content Include="Temp\Upload\16095\6dad042e-e62d-4223-a723-a734cdb807ec.txt" />
+    <Content Include="Temp\Upload\16095\a4e6d2ae-d061-426b-82cd-48d1fd952930.txt" />
+    <Content Include="Temp\Upload\16095\be325f76-9765-4592-be7c-f5194d45e9fb.txt" />
+    <Content Include="Temp\Upload\16095\f2230463-2f8c-44fd-8c06-0c52d02f08e8.txt" />
     <Content Include="TextBox.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\Utils.cs" />
-    <Content Include="App_Code\ButtomPrintAction.cs" />
-    <Content Include="App_Code\Configuration.cs" />
+    <Compile Include="Code\Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code\Utils.cs" />
+    <Compile Include="Code\ButtomPrintAction.cs" />
+    <Compile Include="Code\Configuration.cs" />
+    <Compile Include="Coordenador\Avatar.ascx.cs">
+      <DependentUpon>Avatar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coordenador\Avatar.ascx.designer.cs">
+      <DependentUpon>Avatar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Coordenador\Avatar.aspx.cs">
+      <DependentUpon>Avatar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coordenador\Avatar.aspx.designer.cs">
+      <DependentUpon>Avatar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Coordenador\DadosPessoais.ascx.cs">
+      <DependentUpon>DadosPessoais.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coordenador\DadosPessoais.aspx.cs">
+      <DependentUpon>DadosPessoais.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coordenador\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coordenador\SenhaEspacoAluno.aspx.cs">
+      <DependentUpon>SenhaEspacoAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coordenador\UserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1376,7 +1452,6 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\Avatar.ashx" />
     <Content Include="Content\Aviso.less" />
     <Content Include="Content\Basic.less" />
     <Content Include="Content\BlocoNotas.less" />
@@ -1437,6 +1512,10 @@
     <Content Include="App_Themes\Mobile_Feminino\WebControls.skin" />
     <Content Include="App.Config" />
     <Content Include="Menu.Master" />
+    <Content Include="Coordenador\Avatar.ashx" />
+    <Content Include="Coordenador\CEP.ashx" />
+    <Content Include="Coordenador\Imagem.ashx" />
+    <Content Include="Content\Avatar.ashx" />
     <None Include="ReportDataSource\Declaracao.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Declaracao.Designer.cs</LastGenOutput>
@@ -1462,6 +1541,7 @@
     <Content Include="Scripts\preloadCssImages.jQuery_v5.min.js.map" />
     <Content Include="Scripts\script.min.js.map" />
     <Content Include="Scripts\timeline.min.js.map" />
+    <Content Include="Temp\Upload\16095\b96b22a5-03f6-45da-bdbc-6e3149953d3e.pptx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1495,9 +1575,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Themes\Theme1\" />
     <Folder Include="EC.UI.WebControls\HtmlEditorResources\" />
-    <Folder Include="Templates\" />
+    <Folder Include="Templates\Default\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

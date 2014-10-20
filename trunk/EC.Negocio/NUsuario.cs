@@ -16,6 +16,11 @@ namespace EC.Negocio
             return (new DUsuario()).ConsultarUsuario();
         }
 
+        public static USUARIO ConsultarById(int id)
+        {
+            return (new DUsuario()).ConsultarById(id);
+        }
+
         public static USUARIO ConsultarUsuarioByLoging(int matricula, bool icAtivo)
         {
             return (new DUsuario()).ConsultarUsuarioByLoging(matricula, icAtivo);
@@ -23,8 +28,20 @@ namespace EC.Negocio
 
         public static void Salvar(USUARIO u)
         {
-            DUsuario dusuari = new DUsuario();
-            dusuari.Salvar(u);
+            if (u != null)
+            {
+                DUsuario dusuari = new DUsuario();
+                dusuari.Salvar(u);
+            }
+        }
+
+        public static void Atualiza(USUARIO u)
+        {
+            if (u != null)
+            {
+                DUsuario dusuari = new DUsuario();
+                dusuari.Atualiza(u);
+            }
         }
     }
 }

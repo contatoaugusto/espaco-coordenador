@@ -6,13 +6,15 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Web.SessionState;
+using EC.Negocio;
+using EC.Modelo;
 
 public class FotoUsuario : IHttpHandler, IRequiresSessionState
 {
 
     public void ProcessRequest(HttpContext context)
     {
-        int idUsuario = SGI.Common.Library.ToInteger(context.Request.Url.Query.Replace("?", ""));
+        int idUsuario = EC.Common.Library.ToInteger(context.Request.Url.Query.Replace("?", ""));
 
         System.Drawing.Image img = null;
 
@@ -23,14 +25,16 @@ public class FotoUsuario : IHttpHandler, IRequiresSessionState
 
 
 
-            var o = new SGI.DataContext.Controller.Coorporativo.FotoPessoa().BindByUsuario(idUsuario);
+            //var o = new SGI.DataContext.Controller.Coorporativo.FotoPessoa().BindByUsuario(idUsuario);
+
+            var o = NUsuario.ConsultarById(idUsuario);
             if (o != null)
             {
-                if (o.imFotoPessoa != null)
+                if (o.FOTO != null)
                 {
                     try
                     {
-                        MemoryStream ms = new MemoryStream(o.imFotoPessoa);
+                        MemoryStream ms = new MemoryStream(o.FOTO);
                         img = System.Drawing.Image.FromStream(ms);
                     }
                     catch
@@ -41,7 +45,7 @@ public class FotoUsuario : IHttpHandler, IRequiresSessionState
         }
         
         if (img == null)
-            img = Image.FromFile(string.Format("{0}images\\avatar.gif", SGI.Common.AppSettings.PathRoot));
+            img = Image.FromFile(string.Format("{0}images\\avatar.gif", EC.Common.AppSettings.PathRoot));
 
         img = img.GetThumbnailImage(54, 65, null, new IntPtr());
         img.Save(context.Response.OutputStream, ImageFormat.Jpeg);
