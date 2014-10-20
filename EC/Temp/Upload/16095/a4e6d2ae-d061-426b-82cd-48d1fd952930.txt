@@ -1,0 +1,68 @@
+<%Dim ConString
+ConString="Provider=SQLNCLI; Data Source=MASERATI\ADM; User ID=usrBibthesaurus; Password=wer!&6452374@sadghj$$218939iooli_98347@@9812"
+
+FUNCTION DCRP(VSTR)
+      NUMCONTADOR=1
+      DO WHILE NUMCONTADOR<=LEN(VSTR)
+      STRCHAR=MID(VSTR,NUMCONTADOR,1)
+      numChar=ASC(STRCHAR)
+      STRFINAL=STRFINAL+CHR((NUMCHAR+LEN(VSTR)-(LEN(VSTR)-(NUMCONTADOR-1)))+100)
+      NUMCONTADOR=NUMCONTADOR+1
+      LOOP 
+'      VSTR= STRFINAL	
+      DCRP = STRFINAL
+End Function
+%>
+
+<script language="JavaScript">
+function Gravar(frm) { 
+	
+	//**************Campo Titulo
+	if(frm.TxtNO_TITULO.value == "") {
+	    alert("O campo Título é de preenchimento obrigatório!");
+	    frm.TxtNO_TITULO.focus();
+	    return false;
+	  }
+
+        if(frm.TxtNR_ANO.value == "") {
+	    alert("O campo Ano é de preenchimento obrigatório!");
+	    frm.TxtNR_ANO.focus();
+	    return false;
+	  }
+        if(frm.TxtQT_SOLICITADA.value == "") {
+	    alert("O campo Quantidade é de preenchimento obrigatório!");
+	    frm.TxtQT_SOLICITADA.focus();
+	    return false;
+	  }
+
+
+  
+  if(isNaN(frm.TxtNR_ANO.value)) {
+    alert("O Ano tem que ser numérico!");
+    frm.TxtNR_ANO.value = "";
+    frm.TxtNR_ANO.focus();
+    return false;
+  }
+  if(isNaN(frm.TxtQT_SOLICITADA.value)) {
+    alert("A quantidade solicitada tem que ser numérico!");
+    frm.TxtQT_SOLICITADA.value = "";
+    frm.TxtQT_SOLICITADA.focus();
+    return false;
+  }
+  if(isNaN(frm.TxtVL_ESTIMADO.value)) {
+    alert("O Valor Estimado tem que ser numérico!");
+    frm.TxtVL_ESTIMADO.value = "";
+    frm.TxtVL_ESTIMADO.focus();
+    return false;
+  }
+  if(isNaN(frm.TxtNR_PERIODICO.value)) {
+    alert("O Número do Periódico tem que ser numérico!");
+    frm.TxtNR_PERIODICO.value = "";
+    frm.TxtNR_PERIODICO.focus();
+    return false;
+  }
+		frm.action = frm.action + "?op=INCLUIR"
+		frm.submit();
+		return true;
+}
+</script>

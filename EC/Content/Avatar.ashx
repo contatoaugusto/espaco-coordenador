@@ -1,197 +1,211 @@
-﻿<%@ WebHandler Language="C#" Class="UI.Web.EP.Handlers.Avatar" %>
+﻿<%@ WebHandler Language="C#" Class="Avatar" %>
 
 using System;
 using System.Web;
 using System.IO;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Web.SessionState;
-using SGI.Core;
+using CrystalDecisions.Shared;
+using EC.Common;
 using System.Collections.Specialized;
-using SGI.Web;
+using UI.Web.EC;
+using EC.Modelo;
+using EC.Negocio;
 
-namespace UI.Web.EP.Handlers
+using ImageFormat = System.Drawing.Imaging.ImageFormat;
+
+public class Avatar : IHttpHandler, IRequiresSessionState
 {
-    public class Avatar : CacheBase, IHttpHandler, IRequiresSessionState
+
+    private const int DAYS_TO_CACHE = 2;
+
+    public void ProcessRequest(HttpContext context)
     {
-        private SGI.UI.Process.Sistema.IUsuarioProcess _usuarioProcess;
-        private const int DAYS_TO_CACHE = 2;
-        private string _imageCache = "";
-        private string _imageName = "";
-        private FileInfo _fileInfo;
+        context.Response.Clear();
+        context.Response.ContentType = "image/jpg";
 
-        public Avatar()
+        System.Drawing.Image img = null;
+
+        int idUsuario = Library.ToInteger(context.Request.Url.Query.Replace("?", ""));
+
+        if (idUsuario.Equals(0) || Utils.CoordenadorNaoLogado())
+            context.Response.Redirect(Utils.PortalUrl);
+
+        context.Response.Cache.SetExpires(DateTime.Now.AddDays(DAYS_TO_CACHE));
+        context.Response.Cache.SetCacheability(HttpCacheability.Public);
+        context.Response.Cache.SetValidUntilExpires(false);
+
+        img = GetImage(idUsuario, context);
+
+        //context.Response.Flush();
+
+        img.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+        img.Dispose();
+
+
+        context.Response.End();
+    }
+
+    public bool IsReusable
+    {
+        get
         {
-            _usuarioProcess = new SGI.UI.Process.Sistema.UsuarioProcess();
+            return true;
         }
+    }
 
-        public void ProcessRequest(HttpContext context)
+    private Image GetImage(int idUsuario, HttpContext context)
+    {
+        string pathImages = string.Format(@"{0}\images\", AppSettings.PathRoot);
+
+        System.Drawing.Image img = null;
+
+        string imageCache = "";
+
+        if (idUsuario > 0)
         {
-            context.Response.Clear();
-            context.Response.ContentType = "image/jpg";
+            imageCache = string.Format(@"{0}{1}.tmp", "C:\\temp\\uploadimage\\" /*Utils.PathImagesCache*/, idUsuario);
 
-            Image img = null;
+            if (!Directory.Exists(Utils.PathImagesCache))
+                Directory.CreateDirectory(Utils.PathImagesCache);
 
-            int idUsuario = context.Request.Url.Query.Replace("?", "").ToInt32();
-
-            img = GetImage(idUsuario, context);
-
-            bool isAvatarDefault = false;
-
-            if (img == null)
+            if (File.Exists(imageCache))
             {
-                _imageName = "avatar.gif";
-                _imageCache = Path.Combine(AppSettings.PathImages, _imageName);
+                var fileInfo = new FileInfo(imageCache);
 
-                img = Image.FromFile(_imageCache);
-                img = img.GetThumbnailImage(54, 65, null, new IntPtr());
-                isAvatarDefault = true;
-            }
-
-            context.Response.AddHeader("content-disposition", string.Format("inline; filename={0}", _imageName));
-            
-            if(!isAvatarDefault)
-                SetCaching(context);
-
-            img.Save(context.Response.OutputStream, ImageFormat.Jpeg);
-            img.Dispose();
-        }
-
-        public bool IsReusable
-        {
-            get
-            {
-                return true;
-            }
-        }
-        
-        private void SetCaching(HttpContext context)
-        {
-            DateTime updated = DateTime.Parse("01/10/2009");
-
-            var modifyDate = new DateTime();
-
-            if (!DateTime.TryParse(context.Request.Headers["If-Modified-Since"], out modifyDate))
-            {
-                modifyDate = _fileInfo != null ? _fileInfo.CreationTime : DateTime.Now;
-            }
-
-            string eTag = context.Request.Headers["If-None-Match"];
-
-            if (string.IsNullOrEmpty(eTag))
-            {
-                eTag = GetFileETag(_imageCache, updated);
-            }
-
-            context.Response.Cache.SetExpires(DateTime.Now.AddDays(DAYS_TO_CACHE));
-
-            if (!IsFileModified(_imageCache, modifyDate, eTag))
-            {
-                context.Response.StatusCode = 304;
-                context.Response.StatusDescription = "Not Modified";
-                context.Response.AddHeader("Content-Length", "0");
-                context.Response.Cache.SetLastModified(modifyDate);
-                context.Response.Cache.SetETag(eTag);
-                context.Response.End();
-                return;
-            }
-
-            context.Response.Cache.SetAllowResponseInBrowserHistory(true);
-            context.Response.Cache.SetLastModified(modifyDate);
-            context.Response.Cache.SetETag(eTag);
-        }
-
-        private Image GetImage(int idUsuario, HttpContext context)
-        {
-            Image img = null;
-
-            string pathImagesCache = Path.Combine(AppSettings.PathImages, "Cache\\");
-            
-            if (idUsuario > 0)
-            {
-                _imageName = string.Format("{0}.jpg", idUsuario);
-                _imageCache = string.Format(@"{0}{1}", pathImagesCache, _imageName).Replace("\\\\", @"\").Replace("\\", @"\");
-
-                if (!Directory.Exists(pathImagesCache))
-                    Directory.CreateDirectory(pathImagesCache);
-
-                if (File.Exists(_imageCache))
+                if (fileInfo.CreationTime.AddDays(DAYS_TO_CACHE) < DateTime.Now)
                 {
-                    _fileInfo = new FileInfo(_imageCache);
                     try
                     {
-                        if (_fileInfo.CreationTime.AddDays(DAYS_TO_CACHE) < DateTime.Now)
-                        {
-                            File.Delete(_imageCache);
+                        File.Delete(imageCache);
+                    }
+                    catch { }
+                }
+            }
 
-                        }
-                        else
+            if (!File.Exists(imageCache))
+            {
+                var obj = NUsuario.ConsultarById(idUsuario);
+
+                byte[] imageBytes = obj.FOTO;  ///new SGI.DataContext.Controller.Coorporativo.FotoUsuario().GetAvatar(idUsuario);
+
+                if (imageBytes.Length > 0)
+                {
+                    try
+                    {
+                        using (MemoryStream stream = new MemoryStream(imageBytes))
                         {
-                            img = Image.FromFile(_imageCache);
+                            stream.Position = 0;
+                            img = System.Drawing.Image.FromStream(stream, false, true);
                             img = img.GetThumbnailImage(54, 65, null, new IntPtr());
                         }
                     }
-                    catch (Exception e)
+                    catch
                     {
-                        Logger.Error(e);
+                    }
+
+                    if (img != null)
+                    {
+                        byte[] bytes = new ImageConverter().ConvertTo(img, typeof(byte[])) as byte[];
+
+                        if (!BytesToFile(imageCache, bytes))
+                            img = null;
                     }
                 }
-                else
+            }
+            else
+            {
+                FileStream fs = null;
+
+                try
                 {
-                    byte[] imageBytes = _usuarioProcess.GetAvatar(idUsuario);
-
-                    if (imageBytes != null && imageBytes.Length > 0)
-                    {
-                        try
-                        {
-                            using (var stream = new MemoryStream(imageBytes))
-                            {
-                                stream.Position = 0;
-                                img = Image.FromStream(stream, false, true);
-                                img = img.GetThumbnailImage(54, 65, null, new IntPtr());
-                            }
-                        }
-                        catch(Exception e)
-                        {
-                            Logger.Error(e);
-                        }
-
-                        if (img != null)
-                        {
-                            if (!BytesToFile(_imageCache, imageBytes))
-                                img = null;
-                        }
-                    }
+                    fs = new FileStream(imageCache, FileMode.Open, FileAccess.Read);
+                    img = Image.FromStream(fs);
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    fs.Close();
+                    fs.Dispose();
                 }
             }
-
-            return img;
         }
 
-        public void SaveFile(Byte[] fileBytes, string fileName)
+        if (img == null)
         {
-            var fileStream = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-            fileStream.Write(fileBytes, 0, fileBytes.Length);
-            fileStream.Close();
+            imageCache = string.Format("{0}avatar.gif", pathImages);
+
+            img = Image.FromFile(imageCache);
+            img = img.GetThumbnailImage(54, 65, null, new IntPtr());
         }
 
-        public bool BytesToFile(string fileName, byte[] bytes)
-        {
-            try
-            {
-                var fileStream = new FileStream(fileName, System.IO.FileMode.Append);
-                fileStream.Write(bytes, 0, bytes.Length);
-                fileStream.Close();
-                return true;
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-            }
+        //string fileName = imageCache.Substring(imageCache.LastIndexOf('\\') + 1);
+        context.Response.AddHeader("content-disposition", string.Format("inline; filename=avatar.ashx?{0}", idUsuario));
 
-            return false;
-        }
-       
+        return img;
     }
 
+    public bool BytesToFile(string fileName, byte[] bytes)
+    {
+        try
+        {
+            //System.IO.FileStream _FileStream = new System.IO.FileStream(fileName, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+            System.IO.FileStream fileStream = new System.IO.FileStream(fileName, System.IO.FileMode.Append);
+            fileStream.Write(bytes, 0, bytes.Length);
+            fileStream.Close();
+            return true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Exception caught in process: {0}", e.ToString());
+        }
+
+        return false;
+    }
 }
+
+
+//public class Avatar : ImageHandler, IRequiresSessionState
+//{
+//    public Avatar()
+//    {
+//        this.ImageTransforms.Add(new ImageResizeTransform { Width = 54, Mode = ImageResizeMode.Fit });
+
+//        this.EnableServerCache = true;
+//        this.EnableClientCache = true;
+//    }
+
+//    public override ImageInfo GenerateImage(NameValueCollection parameters)
+//    {
+//        int idUsuario = SGI.Common.Library.ToInteger(HttpContext.Current.Request.Url.Query.Replace("?", ""));
+
+//        Image img = null;
+
+//        if (idUsuario > 0)
+//        {
+//            byte[] imgByteArray = new SGI.DataContext.Controller.Coorporativo.FotoUsuario().GetAvatar(idUsuario);
+//            if (imgByteArray.Length > 0)
+//            {
+//                try
+//                {
+//                    MemoryStream ms = new MemoryStream(imgByteArray);
+//                    img = System.Drawing.Image.FromStream(ms);
+//                }
+//                catch
+//                {
+//                }
+//            }
+//        }
+
+
+//        if (img == null)
+//            img = Image.FromFile(string.Format("{0}images\\avatar.gif", SGI.Common.AppSettings.PathRoot));
+
+//        img = img.GetThumbnailImage(54, 65, null, new IntPtr());
+//        //img.Dispose();
+
+//        return new ImageInfo(img);
+//    }
+//}

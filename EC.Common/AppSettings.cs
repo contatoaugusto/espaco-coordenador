@@ -1,5 +1,4 @@
 using System.Configuration;
-using EC.Common;
 
 namespace EC.Common
 {

@@ -1,7 +1,6 @@
 using System;
 using System.Data;
 using System.Reflection;
-using EC.Common;
 
 namespace EC.Common
 {

@@ -6,8 +6,8 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Web.SessionState;
-using SGI.Common;
-using UI.Web.EA;
+using EC.Common;
+using UI.Web.EC;
 
 public class FotoPessoa : IHttpHandler, IRequiresSessionState
 {
@@ -20,12 +20,12 @@ public class FotoPessoa : IHttpHandler, IRequiresSessionState
 
         if (!string.IsNullOrEmpty(context.Request.Url.Query))
         {
-            idPessoa = SGI.Common.Library.ToInteger(context.Request.Url.Query.Replace("?", ""));
+            idPessoa = EC.Common.Library.ToInteger(context.Request.Url.Query.Replace("?", ""));
             checkSession = false;
         }
-
+        
         if (checkSession)
-            idPessoa = SessionAluno.idPessoa.ToInt32();
+            idPessoa = ((EC.Modelo.USUARIO)context.Session["USUARIO"]).ID_USUARIO;// SessionAluno.idPessoa.ToInt32();
 
         System.Drawing.Image img = null;
 
@@ -34,14 +34,14 @@ public class FotoPessoa : IHttpHandler, IRequiresSessionState
             context.Response.ClearContent();
             context.Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
-            var o = new SGI.DataContext.Controller.Coorporativo.FotoPessoa().Bind(idPessoa);
+            var o = EC.Negocio.NUsuario.ConsultarById(idPessoa);// new SGI.DataContext.Controller.Coorporativo.FotoPessoa().Bind(idPessoa);
             if (o != null)
             {
-                if (o.imFotoPessoa != null)
+                if (o.FOTO != null)
                 {
                     try
                     {
-                        MemoryStream ms = new MemoryStream(o.imFotoPessoa);
+                        MemoryStream ms = new MemoryStream(o.FOTO);
                         img = System.Drawing.Image.FromStream(ms);
                     }
                     catch
@@ -53,7 +53,7 @@ public class FotoPessoa : IHttpHandler, IRequiresSessionState
         }
         
         if (img == null)
-            img = Image.FromFile(string.Format("{0}images\\avatar.gif", SGI.Common.AppSettings.PathRoot));
+            img = Image.FromFile(string.Format("{0}images\\avatar.gif", EC.Common.AppSettings.PathRoot));
         
         img = img.GetThumbnailImage(54, 65, null, new IntPtr());
         img.Save(context.Response.OutputStream, ImageFormat.Jpeg);

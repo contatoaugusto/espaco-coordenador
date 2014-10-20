@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Xml;
-using EC.Common;
 using UniCEUB.Core.Log;
 
 namespace EC.Common
