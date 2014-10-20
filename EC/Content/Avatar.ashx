@@ -56,7 +56,9 @@ public class Avatar : IHttpHandler, IRequiresSessionState
 
     private Image GetImage(int idUsuario, HttpContext context)
     {
-        string pathImages = string.Format(@"{0}\images\", AppSettings.PathRoot);
+        string pastaImagemTemp = "C:\\temp\\uploadimage\\";
+
+        string pathImages = string.Format(@"{0}\imagens\", pastaImagemTemp /*AppSettings.PathRoot*/);
 
         System.Drawing.Image img = null;
 
@@ -64,10 +66,12 @@ public class Avatar : IHttpHandler, IRequiresSessionState
 
         if (idUsuario > 0)
         {
-            imageCache = string.Format(@"{0}{1}.tmp", "C:\\temp\\uploadimage\\" /*Utils.PathImagesCache*/, idUsuario);
+            
 
-            if (!Directory.Exists(Utils.PathImagesCache))
-                Directory.CreateDirectory(Utils.PathImagesCache);
+            imageCache = string.Format(@"{0}{1}.tmp", pastaImagemTemp /*Utils.PathImagesCache*/, idUsuario);
+
+            if (!Directory.Exists(pastaImagemTemp /*Utils.PathImagesCache*/))
+                Directory.CreateDirectory(pastaImagemTemp /*Utils.PathImagesCache*/);
 
             if (File.Exists(imageCache))
             {
@@ -89,7 +93,7 @@ public class Avatar : IHttpHandler, IRequiresSessionState
 
                 byte[] imageBytes = obj.FOTO;  ///new SGI.DataContext.Controller.Coorporativo.FotoUsuario().GetAvatar(idUsuario);
 
-                if (imageBytes.Length > 0)
+                if (imageBytes != null && imageBytes.Length > 0)
                 {
                     try
                     {
