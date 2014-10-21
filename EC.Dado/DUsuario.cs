@@ -93,11 +93,17 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                //Salva a questão
-                db.USUARIO.Attach(q);
-                db.SaveChanges();
 
-                db.Dispose();
+                var original = db.USUARIO.First(rs => rs.ID_USUARIO == q.ID_USUARIO);
+
+                original.ATIVO = q.ATIVO;
+                original.SENHA = q.SENHA;
+                original.FOTO = q.FOTO;
+                original.ID_FUNCIONARIO = q.ID_FUNCIONARIO;
+                
+                //Salva a questão
+                
+                db.SaveChanges();
             }
         }  
 

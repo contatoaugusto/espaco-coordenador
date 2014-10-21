@@ -63,7 +63,7 @@ namespace UI.Web.EC
             //btnPesquisar.ImageUrl = Utils.GetUrlImageTheme("btn-pesquisar.gif");
             //btnPesquisar.OnClientClick = "searchInBing('" + ResolveClientUrl("~/pesquisa.aspx") + "', '" + txtdePesquisa.ClientID + "');return false;";
 
-            imgAluno.ImageUrl = string.Format("~/content/avatar.ashx?{0}", usuario.ID_USUARIO);
+            imgAluno.ImageUrl = string.Format("content/avatar.ashx?{0}", usuario.ID_USUARIO);
             imgAluno.OnClientClick = string.Format("redirect('{0}');return false;", ResolveClientUrl("~/Coordenador/avatar.aspx"));
 
 

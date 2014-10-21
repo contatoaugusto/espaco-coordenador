@@ -7,7 +7,9 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
     <link href="Includes/smoothness/jquery-ui.custom.css" rel="stylesheet" />
-    <link href="Content/Page.css" rel="stylesheet" />
+    
+    <%--<link href="Content/Page.css" rel="stylesheet" />--%>
+    <link href="App_Themes/Default/Page.css" rel="stylesheet" />
 
     <title>Espaço Coordenador</title>
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
@@ -31,7 +33,7 @@
                         <asp:ImageButton ID="imgAluno" runat="server" CausesValidation="false" Width="53" Height="64" />
                     </div>
                     
-                    <div id="dadoscoordenador">
+                    <div id="coordenador">
                         <ul>
                             <li id="matricula">Matrícula: <asp:Label ID="lblMatricula" runat="server"></asp:Label>  </li>
                             <li><a id="nome" href="#"><asp:Label ID="lblNomeCoordenador" runat="server"></asp:Label></a></li>
@@ -46,29 +48,18 @@
                             <ul>
                                 <asp:Literal runat="server" ID="lblCurso" Visible="false" />
 
-                                <%--<li class="mega">Cursos <img src=" <%=UI.Web.EC.Utils.GetUrlImageTheme("set-meusdados.png") %> " alt=""/>
+                                <li class="mega"><a class="tour_1" href="#">Meus Dados<img src="/App_Themes/Default/Images/set-meusdados.png" alt="" /></a>
                                     <div>
-                                        <ul>
-                                            <li><a href=" <%=UI.Web.EC.Utils.GetUsuarioPerfil(null) %>" > Nome qualquer</a></li>
-                                        
-                                        </ul>
-                                    </div>
-                                </li>--%>
-
-                                <li class="mega"><a class="tour_1" href="#" class="out">Meus Dados<img src="/App_Themes/Default/Images/set-meusdados.png" alt="" /></a>
-                                    <div style="width:auto">
                                         <ul>
                                             <li><a href="#"><span>Alterar Dados Pessoais</span></a></li>
                                             <li><a href="#"><span>Alterar Senha da Biblioteca</span></a></li>
                                             <li><a href="#"><span>Alterar Senha do Espaço Aluno</span></a></li>
-                                            <%--<li id="liicDescadastramentoAlerta" runat="server" visible="false"><a href="#">Descadastramento de Alerta</a></li>--%>
                                             <li><a href="#"><span>Avatar</span></a></li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li>|</li>
-                                <li><a href="../Loging.aspx">Sair</a></li>
-                                <%--<li><a href="logout.ashx">Sair</a></li>--%>
+                                <li><a href="logout.ashx">Sair</a></li>
                             </ul>
                         </div>
                         <%--<div id="pesquisa">
