@@ -115,7 +115,7 @@ namespace UI.Web.EC.Coordenador
         public void VerifyFoto()
         {
             //if (repeater.Items.Count < 5)
-            //    divCropImage0.Visible = !(divUploadImage0.Visible = true);
+                divCropImage0.Visible = !(divUploadImage0.Visible = true);
             //else
             //{
             //    alert.Show(new EC.UI.WebControls.Alert("919").Description);
@@ -135,12 +135,12 @@ namespace UI.Web.EC.Coordenador
 
         private void HideCrop()
         {
-            divUploadPhotoButtons.Visible = divCropImage0.Visible = divCropImage1.Visible = divCropImage2.Visible = divCropImage3.Visible = divCropImage4.Visible = false;
+            divUploadPhotoButtons.Visible = /*divCropImage0.Visible = divCropImage1.Visible =*/ divCropImage2.Visible = /*divCropImage3.Visible = divCropImage4.Visible =*/ false;
         }
 
         private void ShowCrop()
         {
-            divUploadPhotoButtons.Visible = divCropImage0.Visible = divCropImage1.Visible = divCropImage2.Visible = divCropImage3.Visible = divCropImage4.Visible = true;
+            divUploadPhotoButtons.Visible = /*divCropImage0.Visible = divCropImage1.Visible =*/ divCropImage2.Visible = /*divCropImage3.Visible = divCropImage4.Visible =*/ true;
         }
 
         protected void cehUpload_CustomEvent(object sender, EventArgs e)
@@ -239,6 +239,9 @@ namespace UI.Web.EC.Coordenador
 
             usuario.FOTO = Library.ConvertImageToByte(image);
             NUsuario.Atualiza(usuario);
+
+            string imageCache = string.Format(@"{0}{1}.tmp", Utils.PathImagesCache, usuario.ID_USUARIO);
+            File.Delete(imageCache);
 
             //o.idFotoUsuario = 0;
             //o.imFotoUsuario = Library.ConvertImageToByte(image);

@@ -91,7 +91,7 @@ div#content
             float: left;
         }
 
-        div#content div#header div#fotoaluno
+        div#content div#header div#fotocoordenador
         {
             border: solid 1px #d7d7d7;
             background-color: #ffffff;
@@ -101,37 +101,37 @@ div#content
             float: left;
         }
 
-        /* Início Dados do Aluno */
-        div#content div#header div#dadosaluno
+        /* Início Dados do coordenador */
+        div#content div#header div#coordenador
         {
             float: left;
             margin-left: 15px;
             margin-top: 5px;
         }
 
-            div#content div#header div#dadosaluno ul
+            div#content div#header div#coordenador ul
             {
                 list-style-type: none;
             }
 
-            div#content div#header div#dadosaluno li#ra
+            div#content div#header div#coordenador li#ra
             {
                 color: #a3a3a3;
             }
 
-            div#content div#header div#dadosaluno li#situacao
+            div#content div#header div#coordenador li#situacao
             {
                 color: #a3a3a3;
             }
 
-            div#content div#header div#dadosaluno a#nome
+            div#content div#header div#coordenador a#nome
             {
                 color: #575757;
                 font-size: 140%;
                 font-weight: normal;
             }
 
-            div#content div#header div#dadosaluno a#curso
+            div#content div#header div#coordenador a#curso
             {
                 color: #a28e6a;
                 font-size: 110%;
@@ -142,7 +142,7 @@ div#content
     color: #c7bead;
     font-size: 100%;
 }
-/* Fim Dados do Aluno */
+/* Fim Dados do coordenador */
 
 
 /* Início Pesquisa e Menu Rápido */
@@ -292,6 +292,16 @@ div#content div#menu
                 opacity: 0.95;
                 width: 362px;
             }
+
+                div#detalhe div#menurapido > ul > li.mega > div > ul
+                {
+                    /*margin: 0;
+                    list-style: none;
+                    padding: 10px;
+                    position: relative;
+                    float: left;*/
+                    width: 230px;
+                }
 
                 div#content div#menu div#items > ul > li.mega > div > ul
                 {
@@ -1199,7 +1209,7 @@ div.itemcomposicaofoto
         width: 34px;
     }
 
-div.itemcomposicaoaluno img:hover
+div.itemcomposicaocoordenador img:hover
 {
     /*border:solid 1px #ededed;*/
 }

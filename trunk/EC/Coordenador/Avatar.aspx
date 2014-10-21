@@ -66,7 +66,7 @@
 
     <div class="form-in">
         <div class="row">
-            <asp:Repeater ID="repeater" runat="server" OnItemCommand="repeater_ItemCommand">
+            <%--<asp:Repeater ID="repeater" runat="server" OnItemCommand="repeater_ItemCommand">
                 <HeaderTemplate>
                     <div class="column">
                         <img id="imbFotoPessoa" alt="Foto do Coordenador" onclick="<%# "__doPostBack('" + cevFotoUsuario.UniqueID + "', '0');" %>"
@@ -87,7 +87,7 @@
         </div>
         <div class="row">
             A(s) foto(s) com a borda em vermelho ainda não foi(ram) aprovada(s) pelo departamento
-            responsável.</div>
+            responsável.</div>--%>
     </div>
     <div id="divIncluirImagem" runat="server">
         <br />
@@ -117,9 +117,9 @@
                 na direção desejada. Quando estiver satisfeito com a seleção, clique o botão Recortar.
             </div>
             <div class="row" id="divCropImage2" runat="server" visible="false">
-                <%--<center>--%>
+                <center>
                     <asp:Image ID="imageCrop" runat="server" Visible="true" />
-                <%--</center>--%>
+                </center>
             </div>
             <div class="row" id="divCropImage3" runat="server" visible="false">
                 Senha do Espaço Professor<br />
@@ -135,8 +135,8 @@
         <div class="separator">
         </div>
         <div id="divUploadPhotoButtons" runat="server" visible="false">
-            <sgi:Button ID="btnOriginal" runat="server" Text="Usar original" OnClick="btnOriginal_Click" />
-            &nbsp;<sgi:Button ID="btnCrop" runat="server" Text="Recortar" OnClick="btnCrop_Click" />
+            <sgi:Button ID="btnOriginal" runat="server" Text="Salvar" OnClick="btnOriginal_Click" />
+            &nbsp;<%--<sgi:Button ID="btnCrop" runat="server" Text="Recortar" OnClick="btnCrop_Click" />--%>
             &nbsp;<sgi:Button ID="btnCancel" runat="server" Text="Cancelar" CausesValidation="false"
                 OnClick="btnCancel_Click" />
         </div>
