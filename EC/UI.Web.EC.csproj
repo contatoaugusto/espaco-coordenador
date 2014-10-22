@@ -1206,6 +1206,7 @@
     <Content Include="Paginas\ConsultarReuniao.aspx" />
     <Content Include="Paginas\Evento.aspx" />
     <Content Include="Paginas\Lancamento.aspx" />
+    <Content Include="Paginas\Prova.aspx" />
     <Content Include="Paginas\Questao.aspx" />
     <Content Include="Paginas\InicioTeste.aspx" />
     <Content Include="Paginas\Amc.aspx" />
@@ -1412,6 +1413,13 @@
     </Compile>
     <Compile Include="Paginas\Lancamento.aspx.designer.cs">
       <DependentUpon>Lancamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Prova.aspx.cs">
+      <DependentUpon>Prova.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Prova.aspx.designer.cs">
+      <DependentUpon>Prova.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Questao.aspx.cs">
       <DependentUpon>Questao.aspx</DependentUpon>
