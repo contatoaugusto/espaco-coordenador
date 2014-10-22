@@ -101,9 +101,9 @@ namespace UI.Web.EC.Paginas
 
             listaResposta.Add(resposta1);
             listaResposta.Add(resposta2);
-            listaResposta.Add(resposta1);
-            listaResposta.Add(resposta2);
-            listaResposta.Add(resposta1);
+            listaResposta.Add(resposta3);
+            listaResposta.Add(resposta4);
+            listaResposta.Add(resposta5);
           
             questao.RESPOSTA = listaResposta;
             NQuestão.Salvar(questao);
