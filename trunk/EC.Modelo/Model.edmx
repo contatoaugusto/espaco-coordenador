@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EC.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ECModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACAO">
           <Key>
             <PropertyRef Name="ID_ACAO" />
@@ -322,7 +322,7 @@
           <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="SENHA" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="FOTO" Type="binary" MaxLength="1000" />
+          <Property Name="FOTO" Type="varbinary(max)" />
           <Property Name="ID_FUNCIONARIO" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="ACAO_STATUS">
@@ -337,7 +337,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_acao_amc">
+        <Association Name="FK_ACAO_AMC_ACAO">
           <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
           <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -346,6 +346,18 @@
             </Principal>
             <Dependent Role="ACAO_AMC">
               <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ACAO_AMC_AMC">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_AMC">
+              <PropertyRef Name="ID_ACAO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -397,43 +409,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_ALUNO_AMC">
-          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
-          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AMC">
-              <PropertyRef Name="ID_AMC" />
-            </Principal>
-            <Dependent Role="ALUNO_AMC">
-              <PropertyRef Name="ID_AMC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ALUNO_CURSO">
-          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
-          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TURMA">
-              <PropertyRef Name="ID_TURMA" />
-            </Principal>
-            <Dependent Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_TURMA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ALUNOCURSO_ALUNO">
-          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
-          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ALUNO">
-              <PropertyRef Name="ID_ALUNO" />
-            </Principal>
-            <Dependent Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_ALUNO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ALUNOCURSO_AMC">
+        <Association Name="FK_ALUNO_AMC_ALUNO_CURSO">
           <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="1" />
           <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -445,27 +421,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ALUNOCURSO_REPRESENTANTE">
-          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="0..1" />
-          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+        <Association Name="FK_ALUNO_AMC_AMC">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
             </Principal>
-            <Dependent Role="REPRESENTANTE_TURMA">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Dependent Role="ALUNO_AMC">
+              <PropertyRef Name="ID_AMC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_AMC_aCAO">
-          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
-          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
+        <Association Name="FK_ALUNO_CURSO_ALUNO">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ACAO">
-              <PropertyRef Name="ID_ACAO" />
+            <Principal Role="ALUNO">
+              <PropertyRef Name="ID_ALUNO" />
             </Principal>
-            <Dependent Role="ACAO_AMC">
-              <PropertyRef Name="ID_ACAO" />
+            <Dependent Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_CURSO_TURMA">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_TURMA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -565,18 +553,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_DISCIPLINA_QUESTAO">
-          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
-          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DISCIPLINA">
-              <PropertyRef Name="ID_DISCIPLINA" />
-            </Principal>
-            <Dependent Role="QUESTAO">
-              <PropertyRef Name="ID_DISCIPLINA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_EVENTO_aCAO">
           <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
           <End Role="ACAO_EVENTO" Type="Self.ACAO_EVENTO" Multiplicity="*" />
@@ -622,42 +598,6 @@
             </Principal>
             <Dependent Role="FUNCIONARIO">
               <PropertyRef Name="ID_PESSOA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_FUNCIONARIO_QUESTAO">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
-          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="QUESTAO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ID_FUNCIONARIO_QUESTAO">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
-          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="QUESTAO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ID_QUESTAO">
-          <End Role="AMC" Type="Self.AMC" Multiplicity="0..1" />
-          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AMC">
-              <PropertyRef Name="ID_AMC" />
-            </Principal>
-            <Dependent Role="QUESTAO">
-              <PropertyRef Name="ID_AMC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -757,7 +697,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_RESPOSTA_QUESTAO">
+        <Association Name="FK_QUESTAO_AMC">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUESTAO_DISCIPLINA">
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUESTAO_FUNCIONARIOPROFESSOR">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
+          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO_CURSO">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_ALUNOCURSO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESPOSTA_QUESTAO">
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="0..1" />
           <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -793,7 +781,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TIPOREPRESENTANTE_REPRESENTANTE">
+        <Association Name="FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA">
           <End Role="TIPO_REPRESENTANTE" Type="Self.TIPO_REPRESENTANTE" Multiplicity="0..1" />
           <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -829,7 +817,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TURMA_REPRESENTANTE">
+        <Association Name="FK_TURMA_REPRESENTANTE_TURMA">
           <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
           <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -906,8 +894,12 @@
             <End Role="STATUS_ACAO" EntitySet="STATUS_ACAO" />
             <End Role="ACAO" EntitySet="ACAO" />
           </AssociationSet>
-          <AssociationSet Name="fk_acao_amc" Association="Self.fk_acao_amc">
+          <AssociationSet Name="FK_ACAO_AMC_ACAO" Association="Self.FK_ACAO_AMC_ACAO">
             <End Role="AMC" EntitySet="AMC" />
+            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ACAO_AMC_AMC" Association="Self.FK_ACAO_AMC_AMC">
+            <End Role="ACAO" EntitySet="ACAO" />
             <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
           </AssociationSet>
           <AssociationSet Name="fk_acao_evento" Association="Self.fk_acao_evento">
@@ -926,29 +918,21 @@
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
           </AssociationSet>
-          <AssociationSet Name="fk_ALUNO_AMC" Association="Self.fk_ALUNO_AMC">
+          <AssociationSet Name="FK_ALUNO_AMC_ALUNO_CURSO" Association="Self.FK_ALUNO_AMC_ALUNO_CURSO">
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_AMC_AMC" Association="Self.FK_ALUNO_AMC_AMC">
             <End Role="AMC" EntitySet="AMC" />
             <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
           </AssociationSet>
-          <AssociationSet Name="FK_ALUNO_CURSO" Association="Self.FK_ALUNO_CURSO">
-            <End Role="TURMA" EntitySet="TURMA" />
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ALUNOCURSO_ALUNO" Association="Self.fk_ALUNOCURSO_ALUNO">
+          <AssociationSet Name="FK_ALUNO_CURSO_ALUNO" Association="Self.FK_ALUNO_CURSO_ALUNO">
             <End Role="ALUNO" EntitySet="ALUNO" />
             <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
           </AssociationSet>
-          <AssociationSet Name="fk_ALUNOCURSO_AMC" Association="Self.fk_ALUNOCURSO_AMC">
+          <AssociationSet Name="FK_ALUNO_CURSO_TURMA" Association="Self.FK_ALUNO_CURSO_TURMA">
+            <End Role="TURMA" EntitySet="TURMA" />
             <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
-            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ALUNOCURSO_REPRESENTANTE" Association="Self.FK_ALUNOCURSO_REPRESENTANTE">
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
-            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="fk_AMC_aCAO" Association="Self.fk_AMC_aCAO">
-            <End Role="ACAO" EntitySet="ACAO" />
-            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
           </AssociationSet>
           <AssociationSet Name="FK_ASSTRATADOS" Association="Self.FK_ASSTRATADOS">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
@@ -982,10 +966,6 @@
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
-          <AssociationSet Name="fk_DISCIPLINA_QUESTAO" Association="Self.fk_DISCIPLINA_QUESTAO">
-            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
-            <End Role="QUESTAO" EntitySet="QUESTAO" />
-          </AssociationSet>
           <AssociationSet Name="fk_EVENTO_aCAO" Association="Self.fk_EVENTO_aCAO">
             <End Role="ACAO" EntitySet="ACAO" />
             <End Role="ACAO_EVENTO" EntitySet="ACAO_EVENTO" />
@@ -1001,18 +981,6 @@
           <AssociationSet Name="fk_FUNCIONARIO_PESSOA" Association="Self.fk_FUNCIONARIO_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-          </AssociationSet>
-          <AssociationSet Name="fk_FUNCIONARIO_QUESTAO" Association="Self.fk_FUNCIONARIO_QUESTAO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="QUESTAO" EntitySet="QUESTAO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ID_FUNCIONARIO_QUESTAO" Association="Self.FK_ID_FUNCIONARIO_QUESTAO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="QUESTAO" EntitySet="QUESTAO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ID_QUESTAO" Association="Self.FK_ID_QUESTAO">
-            <End Role="AMC" EntitySet="AMC" />
-            <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
           <AssociationSet Name="FK_ID_TIPOEVENTO" Association="Self.FK_ID_TIPOEVENTO">
             <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
@@ -1046,7 +1014,23 @@
             <End Role="PRIORIDADE_ACAO" EntitySet="PRIORIDADE_ACAO" />
             <End Role="ACAO" EntitySet="ACAO" />
           </AssociationSet>
-          <AssociationSet Name="fk_RESPOSTA_QUESTAO" Association="Self.fk_RESPOSTA_QUESTAO">
+          <AssociationSet Name="FK_QUESTAO_AMC" Association="Self.FK_QUESTAO_AMC">
+            <End Role="AMC" EntitySet="AMC" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUESTAO_DISCIPLINA" Association="Self.FK_QUESTAO_DISCIPLINA">
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUESTAO_FUNCIONARIOPROFESSOR" Association="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO" Association="Self.FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESPOSTA_QUESTAO" Association="Self.FK_RESPOSTA_QUESTAO">
             <End Role="QUESTAO" EntitySet="QUESTAO" />
             <End Role="RESPOSTA" EntitySet="RESPOSTA" />
           </AssociationSet>
@@ -1058,7 +1042,7 @@
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="PAUTA_REUNIAO" EntitySet="PAUTA_REUNIAO" />
           </AssociationSet>
-          <AssociationSet Name="FK_TIPOREPRESENTANTE_REPRESENTANTE" Association="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE">
+          <AssociationSet Name="FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" Association="Self.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA">
             <End Role="TIPO_REPRESENTANTE" EntitySet="TIPO_REPRESENTANTE" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
@@ -1070,7 +1054,7 @@
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="TURMA" EntitySet="TURMA" />
           </AssociationSet>
-          <AssociationSet Name="FK_TURMA_REPRESENTANTE" Association="Self.FK_TURMA_REPRESENTANTE">
+          <AssociationSet Name="FK_TURMA_REPRESENTANTE_TURMA" Association="Self.FK_TURMA_REPRESENTANTE_TURMA">
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
@@ -1087,7 +1071,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EC.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ECModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ACAO">
           <Key>
             <PropertyRef Name="ID_ACAO" />
@@ -1100,9 +1084,9 @@
           <Property Name="ID_PRIORIDADE" Type="Int32" />
           <Property Name="ID_PESSOA" Type="Int32" />
           <NavigationProperty Name="STATUS_ACAO" Relationship="Self.ACAO_STATUS" FromRole="ACAO" ToRole="STATUS_ACAO" />
+          <NavigationProperty Name="ACAO_AMC" Relationship="Self.FK_ACAO_AMC_AMC" FromRole="ACAO" ToRole="ACAO_AMC" />
           <NavigationProperty Name="PESSOA" Relationship="Self.fk_ACAO_PESSOA" FromRole="ACAO" ToRole="PESSOA" />
           <NavigationProperty Name="ACAO_REUNIAO" Relationship="Self.fk_ACAO_REUNIAO_ACAO" FromRole="ACAO" ToRole="ACAO_REUNIAO" />
-          <NavigationProperty Name="ACAO_AMC" Relationship="Self.fk_AMC_aCAO" FromRole="ACAO" ToRole="ACAO_AMC" />
           <NavigationProperty Name="ACAO_EVENTO" Relationship="Self.fk_EVENTO_aCAO" FromRole="ACAO" ToRole="ACAO_EVENTO" />
           <NavigationProperty Name="PRIORIDADE_ACAO" Relationship="Self.fk_PRIORIDADE_ACAO_ACAO" FromRole="ACAO" ToRole="PRIORIDADE_ACAO" />
         </EntityType>
@@ -1113,8 +1097,8 @@
           <Property Name="ID_ACAOAMC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_ACAO" Type="Int32" Nullable="false" />
           <Property Name="ID_AMC" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ACAO" Relationship="Self.fk_AMC_aCAO" FromRole="ACAO_AMC" ToRole="ACAO" />
-          <NavigationProperty Name="AMC" Relationship="Self.fk_acao_amc" FromRole="ACAO_AMC" ToRole="AMC" />
+          <NavigationProperty Name="ACAO" Relationship="Self.FK_ACAO_AMC_AMC" FromRole="ACAO_AMC" ToRole="ACAO" />
+          <NavigationProperty Name="AMC" Relationship="Self.FK_ACAO_AMC_ACAO" FromRole="ACAO_AMC" ToRole="AMC" />
         </EntityType>
         <EntityType Name="ACAO_EVENTO">
           <Key>
@@ -1143,7 +1127,7 @@
           <Property Name="ID_ALUNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RA" Type="Int32" />
           <Property Name="ID_PESSOA" Type="Int32" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.fk_ALUNOCURSO_ALUNO" FromRole="ALUNO" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO" ToRole="ALUNO_CURSO" />
           <NavigationProperty Name="PARTICIPANTE" Relationship="Self.fk_PARTICIPANTE_ALUNO" FromRole="ALUNO" ToRole="PARTICIPANTE" />
           <NavigationProperty Name="PESSOA" Relationship="Self.fk_PESSOA_ALUNO" FromRole="ALUNO" ToRole="PESSOA" />
         </EntityType>
@@ -1156,8 +1140,8 @@
           <Property Name="ID_ALUNOCURSO" Type="Int32" Nullable="false" />
           <Property Name="NOTA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="CLASIFICACAO" Type="Int32" />
-          <NavigationProperty Name="AMC" Relationship="Self.fk_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="AMC" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.fk_ALUNOCURSO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_ALUNO_AMC_ALUNO_CURSO" FromRole="ALUNO_AMC" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="AMC" Relationship="Self.FK_ALUNO_AMC_AMC" FromRole="ALUNO_AMC" ToRole="AMC" />
         </EntityType>
         <EntityType Name="ALUNO_CURSO">
           <Key>
@@ -1167,10 +1151,10 @@
           <Property Name="ID_ALUNO" Type="Int32" Nullable="false" />
           <Property Name="ID_TURMA" Type="Int32" />
           <Property Name="DATA_MATRICULA" Type="DateTime" />
-          <NavigationProperty Name="ALUNO" Relationship="Self.fk_ALUNOCURSO_ALUNO" FromRole="ALUNO_CURSO" ToRole="ALUNO" />
-          <NavigationProperty Name="ALUNO_AMC" Relationship="Self.fk_ALUNOCURSO_AMC" FromRole="ALUNO_CURSO" ToRole="ALUNO_AMC" />
-          <NavigationProperty Name="TURMA" Relationship="Self.FK_ALUNO_CURSO" FromRole="ALUNO_CURSO" ToRole="TURMA" />
-          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_ALUNOCURSO_REPRESENTANTE" FromRole="ALUNO_CURSO" ToRole="REPRESENTANTE_TURMA" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO_CURSO" ToRole="ALUNO" />
+          <NavigationProperty Name="ALUNO_AMC" Relationship="Self.FK_ALUNO_AMC_ALUNO_CURSO" FromRole="ALUNO_CURSO" ToRole="ALUNO_AMC" />
+          <NavigationProperty Name="TURMA" Relationship="Self.FK_ALUNO_CURSO_TURMA" FromRole="ALUNO_CURSO" ToRole="TURMA" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" FromRole="ALUNO_CURSO" ToRole="REPRESENTANTE_TURMA" />
         </EntityType>
         <EntityType Name="AMC">
           <Key>
@@ -1180,9 +1164,9 @@
           <Property Name="SEMESTRE" Type="Int32" Nullable="false" />
           <Property Name="ANO" Type="Int32" Nullable="false" />
           <Property Name="DATA_APLICACAO" Type="DateTime" />
-          <NavigationProperty Name="ACAO_AMC" Relationship="Self.fk_acao_amc" FromRole="AMC" ToRole="ACAO_AMC" />
-          <NavigationProperty Name="ALUNO_AMC" Relationship="Self.fk_ALUNO_AMC" FromRole="AMC" ToRole="ALUNO_AMC" />
-          <NavigationProperty Name="QUESTAO" Relationship="Self.FK_ID_QUESTAO" FromRole="AMC" ToRole="QUESTAO" />
+          <NavigationProperty Name="ACAO_AMC" Relationship="Self.FK_ACAO_AMC_ACAO" FromRole="AMC" ToRole="ACAO_AMC" />
+          <NavigationProperty Name="ALUNO_AMC" Relationship="Self.FK_ALUNO_AMC_AMC" FromRole="AMC" ToRole="ALUNO_AMC" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.FK_QUESTAO_AMC" FromRole="AMC" ToRole="QUESTAO" />
         </EntityType>
         <EntityType Name="ASSUNTO_TRATADO">
           <Key>
@@ -1245,7 +1229,7 @@
           <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CURSO" Relationship="Self.Fk_DISCIPLINA_CURSO" FromRole="DISCIPLINA" ToRole="CURSO" />
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA" ToRole="DISCIPLINA_PROFESSOR" />
-          <NavigationProperty Name="QUESTAO" Relationship="Self.fk_DISCIPLINA_QUESTAO" FromRole="DISCIPLINA" ToRole="QUESTAO" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.FK_QUESTAO_DISCIPLINA" FromRole="DISCIPLINA" ToRole="QUESTAO" />
         </EntityType>
         <EntityType Name="DISCIPLINA_PROFESSOR">
           <Key>
@@ -1285,9 +1269,8 @@
           <NavigationProperty Name="CURSO_COORDENADOR" Relationship="Self.FK_COORDENADOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="CURSO_COORDENADOR" />
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="Self.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="PESSOA" Relationship="Self.fk_FUNCIONARIO_PESSOA" FromRole="FUNCIONARIO" ToRole="PESSOA" />
-          <NavigationProperty Name="QUESTAO" Relationship="Self.fk_FUNCIONARIO_QUESTAO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
-          <NavigationProperty Name="QUESTAO1" Relationship="Self.FK_ID_FUNCIONARIO_QUESTAO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
           <NavigationProperty Name="PARTICIPANTE" Relationship="Self.fk_PARTICIPANTE_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="PARTICIPANTE" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
           <NavigationProperty Name="TURMA" Relationship="Self.FK_TURMA_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="TURMA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.fk_USUARIO_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="USUARIO" />
         </EntityType>
@@ -1360,11 +1343,10 @@
           <Property Name="ID_FUNCIONARIO" Type="Int32" />
           <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IMAGEM" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="AMC" Relationship="Self.FK_ID_QUESTAO" FromRole="QUESTAO" ToRole="AMC" />
-          <NavigationProperty Name="DISCIPLINA" Relationship="Self.fk_DISCIPLINA_QUESTAO" FromRole="QUESTAO" ToRole="DISCIPLINA" />
-          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.fk_FUNCIONARIO_QUESTAO" FromRole="QUESTAO" ToRole="FUNCIONARIO" />
-          <NavigationProperty Name="FUNCIONARIO1" Relationship="Self.FK_ID_FUNCIONARIO_QUESTAO" FromRole="QUESTAO" ToRole="FUNCIONARIO" />
-          <NavigationProperty Name="RESPOSTA" Relationship="Self.fk_RESPOSTA_QUESTAO" FromRole="QUESTAO" ToRole="RESPOSTA" />
+          <NavigationProperty Name="AMC" Relationship="Self.FK_QUESTAO_AMC" FromRole="QUESTAO" ToRole="AMC" />
+          <NavigationProperty Name="DISCIPLINA" Relationship="Self.FK_QUESTAO_DISCIPLINA" FromRole="QUESTAO" ToRole="DISCIPLINA" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR" FromRole="QUESTAO" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="RESPOSTA" Relationship="Self.FK_RESPOSTA_QUESTAO" FromRole="QUESTAO" ToRole="RESPOSTA" />
         </EntityType>
         <EntityType Name="REPRESENTANTE_TURMA">
           <Key>
@@ -1374,9 +1356,9 @@
           <Property Name="ID_TIPOREPRESENTANTE" Type="Int32" />
           <Property Name="ID_ALUNOCURSO" Type="Int32" />
           <Property Name="ID_TURMA" Type="Int32" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_ALUNOCURSO_REPRESENTANTE" FromRole="REPRESENTANTE_TURMA" ToRole="ALUNO_CURSO" />
-          <NavigationProperty Name="TIPO_REPRESENTANTE" Relationship="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE" FromRole="REPRESENTANTE_TURMA" ToRole="TIPO_REPRESENTANTE" />
-          <NavigationProperty Name="TURMA" Relationship="Self.FK_TURMA_REPRESENTANTE" FromRole="REPRESENTANTE_TURMA" ToRole="TURMA" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" FromRole="REPRESENTANTE_TURMA" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="TIPO_REPRESENTANTE" Relationship="Self.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" FromRole="REPRESENTANTE_TURMA" ToRole="TIPO_REPRESENTANTE" />
+          <NavigationProperty Name="TURMA" Relationship="Self.FK_TURMA_REPRESENTANTE_TURMA" FromRole="REPRESENTANTE_TURMA" ToRole="TURMA" />
         </EntityType>
         <EntityType Name="RESPOSTA">
           <Key>
@@ -1386,7 +1368,7 @@
           <Property Name="ID_QUESTAO" Type="Int32" />
           <Property Name="TEXTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RESPOSTA_CORRETA" Type="Boolean" />
-          <NavigationProperty Name="QUESTAO" Relationship="Self.fk_RESPOSTA_QUESTAO" FromRole="RESPOSTA" ToRole="QUESTAO" />
+          <NavigationProperty Name="QUESTAO" Relationship="Self.FK_RESPOSTA_QUESTAO" FromRole="RESPOSTA" ToRole="QUESTAO" />
         </EntityType>
         <EntityType Name="REUNIAO">
           <Key>
@@ -1453,7 +1435,7 @@
           </Key>
           <Property Name="ID_TIPOREPRESENTANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE" FromRole="TIPO_REPRESENTANTE" ToRole="REPRESENTANTE_TURMA" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" FromRole="TIPO_REPRESENTANTE" ToRole="REPRESENTANTE_TURMA" />
         </EntityType>
         <EntityType Name="TIPO_REUNIAO">
           <Key>
@@ -1481,10 +1463,10 @@
           <Property Name="ID_TIPOTURMA" Type="Int32" />
           <Property Name="SEMESTRE" Type="Int32" />
           <Property Name="ANO" Type="Int32" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_ALUNO_CURSO" FromRole="TURMA" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="ALUNO_CURSO" Relationship="Self.FK_ALUNO_CURSO_TURMA" FromRole="TURMA" ToRole="ALUNO_CURSO" />
           <NavigationProperty Name="FUNCIONARIO" Relationship="Self.FK_TURMA_FUNCIONARIO" FromRole="TURMA" ToRole="FUNCIONARIO" />
           <NavigationProperty Name="LANCAMENTO" Relationship="Self.Fk_LANCAMENTO_TURMA" FromRole="TURMA" ToRole="LANCAMENTO" />
-          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_TURMA_REPRESENTANTE" FromRole="TURMA" ToRole="REPRESENTANTE_TURMA" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_TURMA_REPRESENTANTE_TURMA" FromRole="TURMA" ToRole="REPRESENTANTE_TURMA" />
           <NavigationProperty Name="TIPO_TURMA" Relationship="Self.FK_TURMA_TIPO" FromRole="TURMA" ToRole="TIPO_TURMA" />
         </EntityType>
         <EntityType Name="USUARIO">
@@ -1494,7 +1476,7 @@
           <Property Name="ID_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <Property Name="SENHA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FOTO" Type="Binary" MaxLength="1000" FixedLength="true" />
+          <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ID_FUNCIONARIO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FUNCIONARIO" Relationship="Self.fk_USUARIO_FUNCIONARIO" FromRole="USUARIO" ToRole="FUNCIONARIO" />
         </EntityType>
@@ -1507,6 +1489,18 @@
             </Principal>
             <Dependent Role="ACAO">
               <PropertyRef Name="ID_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ACAO_AMC_AMC">
+          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
+          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ACAO">
+              <PropertyRef Name="ID_ACAO" />
+            </Principal>
+            <Dependent Role="ACAO_AMC">
+              <PropertyRef Name="ID_ACAO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1530,18 +1524,6 @@
               <PropertyRef Name="ID_ACAO" />
             </Principal>
             <Dependent Role="ACAO_REUNIAO">
-              <PropertyRef Name="ID_ACAO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_AMC_aCAO">
-          <End Role="ACAO" Type="Self.ACAO" Multiplicity="1" />
-          <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ACAO">
-              <PropertyRef Name="ID_ACAO" />
-            </Principal>
-            <Dependent Role="ACAO_AMC">
               <PropertyRef Name="ID_ACAO" />
             </Dependent>
           </ReferentialConstraint>
@@ -1570,7 +1552,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_acao_amc">
+        <Association Name="FK_ACAO_AMC_ACAO">
           <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
           <End Role="ACAO_AMC" Type="Self.ACAO_AMC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1606,7 +1588,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_ALUNOCURSO_ALUNO">
+        <Association Name="FK_ALUNO_CURSO_ALUNO">
           <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
           <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1642,19 +1624,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_ALUNO_AMC">
-          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
-          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AMC">
-              <PropertyRef Name="ID_AMC" />
-            </Principal>
-            <Dependent Role="ALUNO_AMC">
-              <PropertyRef Name="ID_AMC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ALUNOCURSO_AMC">
+        <Association Name="FK_ALUNO_AMC_ALUNO_CURSO">
           <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="1" />
           <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1666,7 +1636,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ALUNO_CURSO">
+        <Association Name="FK_ALUNO_AMC_AMC">
+          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Principal>
+            <Dependent Role="ALUNO_AMC">
+              <PropertyRef Name="ID_AMC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_CURSO_TURMA">
           <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
           <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1678,7 +1660,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ALUNOCURSO_REPRESENTANTE">
+        <Association Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
           <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="0..1" />
           <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1690,7 +1672,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ID_QUESTAO">
+        <Association Name="FK_QUESTAO_AMC">
           <End Role="AMC" Type="Self.AMC" Multiplicity="0..1" />
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1810,7 +1792,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_DISCIPLINA_QUESTAO">
+        <Association Name="FK_QUESTAO_DISCIPLINA">
           <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1870,30 +1852,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_FUNCIONARIO_QUESTAO">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
-          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="QUESTAO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ID_FUNCIONARIO_QUESTAO">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
-          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="QUESTAO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_PARTICIPANTE_FUNCIONARIO">
           <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
           <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
@@ -1902,6 +1860,18 @@
               <PropertyRef Name="ID_FUNCIONARIO" />
             </Principal>
             <Dependent Role="PARTICIPANTE">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUESTAO_FUNCIONARIOPROFESSOR">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
               <PropertyRef Name="ID_FUNCIONARIO" />
             </Dependent>
           </ReferentialConstraint>
@@ -1978,7 +1948,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_RESPOSTA_QUESTAO">
+        <Association Name="FK_RESPOSTA_QUESTAO">
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="0..1" />
           <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1990,7 +1960,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TIPOREPRESENTANTE_REPRESENTANTE">
+        <Association Name="FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA">
           <End Role="TIPO_REPRESENTANTE" Type="Self.TIPO_REPRESENTANTE" Multiplicity="0..1" />
           <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2002,7 +1972,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TURMA_REPRESENTANTE">
+        <Association Name="FK_TURMA_REPRESENTANTE_TURMA">
           <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
           <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2079,6 +2049,10 @@
             <End Role="STATUS_ACAO" EntitySet="STATUS_ACAO" />
             <End Role="ACAO" EntitySet="ACAO" />
           </AssociationSet>
+          <AssociationSet Name="FK_ACAO_AMC_AMC" Association="Self.FK_ACAO_AMC_AMC">
+            <End Role="ACAO" EntitySet="ACAO" />
+            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
+          </AssociationSet>
           <AssociationSet Name="fk_ACAO_PESSOA" Association="Self.fk_ACAO_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="ACAO" EntitySet="ACAO" />
@@ -2086,10 +2060,6 @@
           <AssociationSet Name="fk_ACAO_REUNIAO_ACAO" Association="Self.fk_ACAO_REUNIAO_ACAO">
             <End Role="ACAO" EntitySet="ACAO" />
             <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
-          </AssociationSet>
-          <AssociationSet Name="fk_AMC_aCAO" Association="Self.fk_AMC_aCAO">
-            <End Role="ACAO" EntitySet="ACAO" />
-            <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
           </AssociationSet>
           <AssociationSet Name="fk_EVENTO_aCAO" Association="Self.fk_EVENTO_aCAO">
             <End Role="ACAO" EntitySet="ACAO" />
@@ -2099,7 +2069,7 @@
             <End Role="PRIORIDADE_ACAO" EntitySet="PRIORIDADE_ACAO" />
             <End Role="ACAO" EntitySet="ACAO" />
           </AssociationSet>
-          <AssociationSet Name="fk_acao_amc" Association="Self.fk_acao_amc">
+          <AssociationSet Name="FK_ACAO_AMC_ACAO" Association="Self.FK_ACAO_AMC_ACAO">
             <End Role="AMC" EntitySet="AMC" />
             <End Role="ACAO_AMC" EntitySet="ACAO_AMC" />
           </AssociationSet>
@@ -2111,7 +2081,7 @@
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
           </AssociationSet>
-          <AssociationSet Name="fk_ALUNOCURSO_ALUNO" Association="Self.fk_ALUNOCURSO_ALUNO">
+          <AssociationSet Name="FK_ALUNO_CURSO_ALUNO" Association="Self.FK_ALUNO_CURSO_ALUNO">
             <End Role="ALUNO" EntitySet="ALUNO" />
             <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
           </AssociationSet>
@@ -2123,23 +2093,23 @@
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="ALUNO" EntitySet="ALUNO" />
           </AssociationSet>
-          <AssociationSet Name="fk_ALUNO_AMC" Association="Self.fk_ALUNO_AMC">
+          <AssociationSet Name="FK_ALUNO_AMC_ALUNO_CURSO" Association="Self.FK_ALUNO_AMC_ALUNO_CURSO">
+            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_AMC_AMC" Association="Self.FK_ALUNO_AMC_AMC">
             <End Role="AMC" EntitySet="AMC" />
             <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
           </AssociationSet>
-          <AssociationSet Name="fk_ALUNOCURSO_AMC" Association="Self.fk_ALUNOCURSO_AMC">
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
-            <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ALUNO_CURSO" Association="Self.FK_ALUNO_CURSO">
+          <AssociationSet Name="FK_ALUNO_CURSO_TURMA" Association="Self.FK_ALUNO_CURSO_TURMA">
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
           </AssociationSet>
-          <AssociationSet Name="FK_ALUNOCURSO_REPRESENTANTE" Association="Self.FK_ALUNOCURSO_REPRESENTANTE">
+          <AssociationSet Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO" Association="Self.FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
             <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
-          <AssociationSet Name="FK_ID_QUESTAO" Association="Self.FK_ID_QUESTAO">
+          <AssociationSet Name="FK_QUESTAO_AMC" Association="Self.FK_QUESTAO_AMC">
             <End Role="AMC" EntitySet="AMC" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
@@ -2179,7 +2149,7 @@
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
             <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
-          <AssociationSet Name="fk_DISCIPLINA_QUESTAO" Association="Self.fk_DISCIPLINA_QUESTAO">
+          <AssociationSet Name="FK_QUESTAO_DISCIPLINA" Association="Self.FK_QUESTAO_DISCIPLINA">
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
@@ -2199,17 +2169,13 @@
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
           </AssociationSet>
-          <AssociationSet Name="fk_FUNCIONARIO_QUESTAO" Association="Self.fk_FUNCIONARIO_QUESTAO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="QUESTAO" EntitySet="QUESTAO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ID_FUNCIONARIO_QUESTAO" Association="Self.FK_ID_FUNCIONARIO_QUESTAO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="QUESTAO" EntitySet="QUESTAO" />
-          </AssociationSet>
           <AssociationSet Name="fk_PARTICIPANTE_FUNCIONARIO" Association="Self.fk_PARTICIPANTE_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUESTAO_FUNCIONARIOPROFESSOR" Association="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
           <AssociationSet Name="FK_TURMA_FUNCIONARIO" Association="Self.FK_TURMA_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
@@ -2235,15 +2201,15 @@
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="PAUTA_REUNIAO" EntitySet="PAUTA_REUNIAO" />
           </AssociationSet>
-          <AssociationSet Name="fk_RESPOSTA_QUESTAO" Association="Self.fk_RESPOSTA_QUESTAO">
+          <AssociationSet Name="FK_RESPOSTA_QUESTAO" Association="Self.FK_RESPOSTA_QUESTAO">
             <End Role="QUESTAO" EntitySet="QUESTAO" />
             <End Role="RESPOSTA" EntitySet="RESPOSTA" />
           </AssociationSet>
-          <AssociationSet Name="FK_TIPOREPRESENTANTE_REPRESENTANTE" Association="Self.FK_TIPOREPRESENTANTE_REPRESENTANTE">
+          <AssociationSet Name="FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" Association="Self.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA">
             <End Role="TIPO_REPRESENTANTE" EntitySet="TIPO_REPRESENTANTE" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
-          <AssociationSet Name="FK_TURMA_REPRESENTANTE" Association="Self.FK_TURMA_REPRESENTANTE">
+          <AssociationSet Name="FK_TURMA_REPRESENTANTE_TURMA" Association="Self.FK_TURMA_REPRESENTANTE_TURMA">
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
@@ -2263,7 +2229,7 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ECModelStoreContainer" CdmEntityContainer="ECEntities">
           <EntitySetMapping Name="ACAO">
-            <EntityTypeMapping TypeName="EC.Model.ACAO">
+            <EntityTypeMapping TypeName="ECModel.ACAO">
               <MappingFragment StoreEntitySet="ACAO">
                 <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
                 <ScalarProperty Name="TITULO" ColumnName="TITULO" />
@@ -2276,7 +2242,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACAO_AMC">
-            <EntityTypeMapping TypeName="EC.Model.ACAO_AMC">
+            <EntityTypeMapping TypeName="ECModel.ACAO_AMC">
               <MappingFragment StoreEntitySet="ACAO_AMC">
                 <ScalarProperty Name="ID_ACAOAMC" ColumnName="ID_ACAOAMC" />
                 <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
@@ -2285,7 +2251,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACAO_EVENTO">
-            <EntityTypeMapping TypeName="EC.Model.ACAO_EVENTO">
+            <EntityTypeMapping TypeName="ECModel.ACAO_EVENTO">
               <MappingFragment StoreEntitySet="ACAO_EVENTO">
                 <ScalarProperty Name="ID_ACAO_EVENTO" ColumnName="ID_ACAO_EVENTO" />
                 <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
@@ -2294,7 +2260,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ACAO_REUNIAO">
-            <EntityTypeMapping TypeName="EC.Model.ACAO_REUNIAO">
+            <EntityTypeMapping TypeName="ECModel.ACAO_REUNIAO">
               <MappingFragment StoreEntitySet="ACAO_REUNIAO">
                 <ScalarProperty Name="ID_ACAO_REUNIAO" ColumnName="ID_ACAO_REUNIAO" />
                 <ScalarProperty Name="ID_ACAO" ColumnName="ID_ACAO" />
@@ -2303,7 +2269,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ALUNO">
-            <EntityTypeMapping TypeName="EC.Model.ALUNO">
+            <EntityTypeMapping TypeName="ECModel.ALUNO">
               <MappingFragment StoreEntitySet="ALUNO">
                 <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
                 <ScalarProperty Name="RA" ColumnName="RA" />
@@ -2312,7 +2278,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ALUNO_AMC">
-            <EntityTypeMapping TypeName="EC.Model.ALUNO_AMC">
+            <EntityTypeMapping TypeName="ECModel.ALUNO_AMC">
               <MappingFragment StoreEntitySet="ALUNO_AMC">
                 <ScalarProperty Name="ID_ALUNOAMC" ColumnName="ID_ALUNOAMC" />
                 <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
@@ -2323,7 +2289,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ALUNO_CURSO">
-            <EntityTypeMapping TypeName="EC.Model.ALUNO_CURSO">
+            <EntityTypeMapping TypeName="ECModel.ALUNO_CURSO">
               <MappingFragment StoreEntitySet="ALUNO_CURSO">
                 <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
                 <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
@@ -2333,7 +2299,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AMC">
-            <EntityTypeMapping TypeName="EC.Model.AMC">
+            <EntityTypeMapping TypeName="ECModel.AMC">
               <MappingFragment StoreEntitySet="AMC">
                 <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
                 <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
@@ -2343,7 +2309,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ASSUNTO_TRATADO">
-            <EntityTypeMapping TypeName="EC.Model.ASSUNTO_TRATADO">
+            <EntityTypeMapping TypeName="ECModel.ASSUNTO_TRATADO">
               <MappingFragment StoreEntitySet="ASSUNTO_TRATADO">
                 <ScalarProperty Name="ID_ASSTRAT" ColumnName="ID_ASSTRAT" />
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
@@ -2354,7 +2320,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CARGO">
-            <EntityTypeMapping TypeName="EC.Model.CARGO">
+            <EntityTypeMapping TypeName="ECModel.CARGO">
               <MappingFragment StoreEntitySet="CARGO">
                 <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2362,7 +2328,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COMPROMISSO">
-            <EntityTypeMapping TypeName="EC.Model.COMPROMISSO">
+            <EntityTypeMapping TypeName="ECModel.COMPROMISSO">
               <MappingFragment StoreEntitySet="COMPROMISSO">
                 <ScalarProperty Name="ID_COMPROMISSO" ColumnName="ID_COMPROMISSO" />
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
@@ -2374,7 +2340,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CURSO">
-            <EntityTypeMapping TypeName="EC.Model.CURSO">
+            <EntityTypeMapping TypeName="ECModel.CURSO">
               <MappingFragment StoreEntitySet="CURSO">
                 <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2382,7 +2348,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CURSO_COORDENADOR">
-            <EntityTypeMapping TypeName="EC.Model.CURSO_COORDENADOR">
+            <EntityTypeMapping TypeName="ECModel.CURSO_COORDENADOR">
               <MappingFragment StoreEntitySet="CURSO_COORDENADOR">
                 <ScalarProperty Name="ID_CURSO_COORDENADOR" ColumnName="ID_CURSO_COORDENADOR" />
                 <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
@@ -2391,7 +2357,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DISCIPLINA">
-            <EntityTypeMapping TypeName="EC.Model.DISCIPLINA">
+            <EntityTypeMapping TypeName="ECModel.DISCIPLINA">
               <MappingFragment StoreEntitySet="DISCIPLINA">
                 <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
                 <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
@@ -2400,7 +2366,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DISCIPLINA_PROFESSOR">
-            <EntityTypeMapping TypeName="EC.Model.DISCIPLINA_PROFESSOR">
+            <EntityTypeMapping TypeName="ECModel.DISCIPLINA_PROFESSOR">
               <MappingFragment StoreEntitySet="DISCIPLINA_PROFESSOR">
                 <ScalarProperty Name="ID_DISCIPLINA_PROFESSOR" ColumnName="ID_DISCIPLINA_PROFESSOR" />
                 <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
@@ -2409,7 +2375,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EVENTO">
-            <EntityTypeMapping TypeName="EC.Model.EVENTO">
+            <EntityTypeMapping TypeName="ECModel.EVENTO">
               <MappingFragment StoreEntitySet="EVENTO">
                 <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
                 <ScalarProperty Name="ID_TIPOEVENTO" ColumnName="ID_TIPOEVENTO" />
@@ -2423,7 +2389,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FUNCIONARIO">
-            <EntityTypeMapping TypeName="EC.Model.FUNCIONARIO">
+            <EntityTypeMapping TypeName="ECModel.FUNCIONARIO">
               <MappingFragment StoreEntitySet="FUNCIONARIO">
                 <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
                 <ScalarProperty Name="MATRICULA" ColumnName="MATRICULA" />
@@ -2433,7 +2399,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LANCAMENTO">
-            <EntityTypeMapping TypeName="EC.Model.LANCAMENTO">
+            <EntityTypeMapping TypeName="ECModel.LANCAMENTO">
               <MappingFragment StoreEntitySet="LANCAMENTO">
                 <ScalarProperty Name="ID_LANCAMENTO" ColumnName="ID_LANCAMENTO" />
                 <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
@@ -2446,7 +2412,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PARTICIPANTE">
-            <EntityTypeMapping TypeName="EC.Model.PARTICIPANTE">
+            <EntityTypeMapping TypeName="ECModel.PARTICIPANTE">
               <MappingFragment StoreEntitySet="PARTICIPANTE">
                 <ScalarProperty Name="ID_PARTICIPANTE" ColumnName="ID_PARTICIPANTE" />
                 <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
@@ -2457,7 +2423,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PAUTA_REUNIAO">
-            <EntityTypeMapping TypeName="EC.Model.PAUTA_REUNIAO">
+            <EntityTypeMapping TypeName="ECModel.PAUTA_REUNIAO">
               <MappingFragment StoreEntitySet="PAUTA_REUNIAO">
                 <ScalarProperty Name="ID_PAUTA" ColumnName="ID_PAUTA" />
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
@@ -2467,7 +2433,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PESSOA">
-            <EntityTypeMapping TypeName="EC.Model.PESSOA">
+            <EntityTypeMapping TypeName="ECModel.PESSOA">
               <MappingFragment StoreEntitySet="PESSOA">
                 <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
@@ -2477,7 +2443,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRIORIDADE_ACAO">
-            <EntityTypeMapping TypeName="EC.Model.PRIORIDADE_ACAO">
+            <EntityTypeMapping TypeName="ECModel.PRIORIDADE_ACAO">
               <MappingFragment StoreEntitySet="PRIORIDADE_ACAO">
                 <ScalarProperty Name="ID_PRIORIDADE" ColumnName="ID_PRIORIDADE" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2485,7 +2451,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QUESTAO">
-            <EntityTypeMapping TypeName="EC.Model.QUESTAO">
+            <EntityTypeMapping TypeName="ECModel.QUESTAO">
               <MappingFragment StoreEntitySet="QUESTAO">
                 <ScalarProperty Name="ID_QUESTAO" ColumnName="ID_QUESTAO" />
                 <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
@@ -2497,7 +2463,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REPRESENTANTE_TURMA">
-            <EntityTypeMapping TypeName="EC.Model.REPRESENTANTE_TURMA">
+            <EntityTypeMapping TypeName="ECModel.REPRESENTANTE_TURMA">
               <MappingFragment StoreEntitySet="REPRESENTANTE_TURMA">
                 <ScalarProperty Name="ID_REPRESENTANTE" ColumnName="ID_REPRESENTANTE" />
                 <ScalarProperty Name="ID_TIPOREPRESENTANTE" ColumnName="ID_TIPOREPRESENTANTE" />
@@ -2507,7 +2473,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RESPOSTA">
-            <EntityTypeMapping TypeName="EC.Model.RESPOSTA">
+            <EntityTypeMapping TypeName="ECModel.RESPOSTA">
               <MappingFragment StoreEntitySet="RESPOSTA">
                 <ScalarProperty Name="ID_RESPOSTA" ColumnName="ID_RESPOSTA" />
                 <ScalarProperty Name="ID_QUESTAO" ColumnName="ID_QUESTAO" />
@@ -2517,7 +2483,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REUNIAO">
-            <EntityTypeMapping TypeName="EC.Model.REUNIAO">
+            <EntityTypeMapping TypeName="ECModel.REUNIAO">
               <MappingFragment StoreEntitySet="REUNIAO">
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
                 <ScalarProperty Name="ID_TIPOREUNIAO" ColumnName="ID_TIPOREUNIAO" />
@@ -2529,7 +2495,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="STATUS_ACAO">
-            <EntityTypeMapping TypeName="EC.Model.STATUS_ACAO">
+            <EntityTypeMapping TypeName="ECModel.STATUS_ACAO">
               <MappingFragment StoreEntitySet="STATUS_ACAO">
                 <ScalarProperty Name="ID_STATUS" ColumnName="ID_STATUS" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2537,7 +2503,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="EC.Model.sysdiagrams">
+            <EntityTypeMapping TypeName="ECModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -2548,7 +2514,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPO_ASSUNTO_TRATADO">
-            <EntityTypeMapping TypeName="EC.Model.TIPO_ASSUNTO_TRATADO">
+            <EntityTypeMapping TypeName="ECModel.TIPO_ASSUNTO_TRATADO">
               <MappingFragment StoreEntitySet="TIPO_ASSUNTO_TRATADO">
                 <ScalarProperty Name="ID_TIPOASSTRATADO" ColumnName="ID_TIPOASSTRATADO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2556,7 +2522,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPO_EVENTO">
-            <EntityTypeMapping TypeName="EC.Model.TIPO_EVENTO">
+            <EntityTypeMapping TypeName="ECModel.TIPO_EVENTO">
               <MappingFragment StoreEntitySet="TIPO_EVENTO">
                 <ScalarProperty Name="ID_TIPOEVENTO" ColumnName="ID_TIPOEVENTO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2564,7 +2530,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPO_LANCAMENTO">
-            <EntityTypeMapping TypeName="EC.Model.TIPO_LANCAMENTO">
+            <EntityTypeMapping TypeName="ECModel.TIPO_LANCAMENTO">
               <MappingFragment StoreEntitySet="TIPO_LANCAMENTO">
                 <ScalarProperty Name="ID_TIPOLANCAMENTO" ColumnName="ID_TIPOLANCAMENTO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2572,7 +2538,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPO_REPRESENTANTE">
-            <EntityTypeMapping TypeName="EC.Model.TIPO_REPRESENTANTE">
+            <EntityTypeMapping TypeName="ECModel.TIPO_REPRESENTANTE">
               <MappingFragment StoreEntitySet="TIPO_REPRESENTANTE">
                 <ScalarProperty Name="ID_TIPOREPRESENTANTE" ColumnName="ID_TIPOREPRESENTANTE" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2580,7 +2546,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPO_REUNIAO">
-            <EntityTypeMapping TypeName="EC.Model.TIPO_REUNIAO">
+            <EntityTypeMapping TypeName="ECModel.TIPO_REUNIAO">
               <MappingFragment StoreEntitySet="TIPO_REUNIAO">
                 <ScalarProperty Name="ID_TIPOREUNIAO" ColumnName="ID_TIPOREUNIAO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2588,7 +2554,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPO_TURMA">
-            <EntityTypeMapping TypeName="EC.Model.TIPO_TURMA">
+            <EntityTypeMapping TypeName="ECModel.TIPO_TURMA">
               <MappingFragment StoreEntitySet="TIPO_TURMA">
                 <ScalarProperty Name="ID_TIPOTURMA" ColumnName="ID_TIPOTURMA" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
@@ -2596,7 +2562,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TURMA">
-            <EntityTypeMapping TypeName="EC.Model.TURMA">
+            <EntityTypeMapping TypeName="ECModel.TURMA">
               <MappingFragment StoreEntitySet="TURMA">
                 <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
                 <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
@@ -2608,7 +2574,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
-            <EntityTypeMapping TypeName="EC.Model.USUARIO">
+            <EntityTypeMapping TypeName="ECModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
                 <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />

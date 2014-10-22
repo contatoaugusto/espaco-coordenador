@@ -19,51 +19,50 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("EC.Model", "ACAO_STATUS", "STATUS_ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.STATUS_ACAO), "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_ACAO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_ACAO_REUNIAO_ACAO", "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ACAO), "ACAO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_REUNIAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_AMC_aCAO", "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ACAO), "ACAO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_AMC), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_EVENTO_aCAO", "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ACAO), "ACAO_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_EVENTO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PRIORIDADE_ACAO), "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_acao_amc", "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.AMC), "ACAO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_AMC), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_acao_evento", "EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.EVENTO), "ACAO_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_EVENTO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_ACAO_REUNIAO_REUNIAO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.REUNIAO), "ACAO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_REUNIAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_ALUNOCURSO_ALUNO", "ALUNO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ALUNO), "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_CURSO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_PARTICIPANTE_ALUNO", "ALUNO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.ALUNO), "PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PARTICIPANTE), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_PESSOA_ALUNO", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "ALUNO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_ALUNO_AMC", "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.AMC), "ALUNO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_AMC), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_ALUNOCURSO_AMC", "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ALUNO_CURSO), "ALUNO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_AMC), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_ALUNO_CURSO", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_CURSO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_ALUNOCURSO_REPRESENTANTE", "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.ALUNO_CURSO), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_ID_QUESTAO", "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.AMC), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_ASSTRATADOS", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ASSUNTO_TRATADO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_ASSUNTO_TRATADO), "ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ASSUNTO_TRATADO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_FUNCIONARIO_CARGO", "CARGO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.CARGO), "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.FUNCIONARIO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_COMPROMISSO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.COMPROMISSO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_REUNIAO_COMPROMISSO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.COMPROMISSO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_COORDENADOR_CURSO", "CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.CURSO), "CURSO_COORDENADOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.CURSO_COORDENADOR), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "Fk_DISCIPLINA_CURSO", "CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.CURSO), "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.DISCIPLINA), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "CURSO_COORDENADOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.CURSO_COORDENADOR), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.DISCIPLINA), "DISCIPLINA_PROFESSOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.DISCIPLINA_PROFESSOR), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_DISCIPLINA_QUESTAO", "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.DISCIPLINA), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "DISCIPLINA_PROFESSOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.DISCIPLINA_PROFESSOR), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_EVENTO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.EVENTO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_ID_TIPOEVENTO", "TIPO_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_EVENTO), "EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.EVENTO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_FUNCIONARIO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.FUNCIONARIO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_FUNCIONARIO_QUESTAO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_ID_FUNCIONARIO_QUESTAO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PARTICIPANTE), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_TURMA_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_USUARIO_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.USUARIO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_LANCAMENTO), "LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.LANCAMENTO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "Fk_LANCAMENTO_TURMA", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.LANCAMENTO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_PARTICIPANTE_REUNIAO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PARTICIPANTE), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_REUNIAO_PAUTA", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "PAUTA_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PAUTA_REUNIAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "fk_RESPOSTA_QUESTAO", "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.QUESTAO), "RESPOSTA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.RESPOSTA), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_TIPOREPRESENTANTE_REPRESENTANTE", "TIPO_REPRESENTANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_REPRESENTANTE), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_TURMA_REPRESENTANTE", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_TIPOREUNIAO", "TIPO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.TIPO_REUNIAO), "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO), true)]
-[assembly: EdmRelationshipAttribute("EC.Model", "FK_TURMA_TIPO", "TIPO_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_TURMA), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "ACAO_STATUS", "STATUS_ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.STATUS_ACAO), "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ACAO_AMC_AMC", "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ACAO), "ACAO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_AMC), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_ACAO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_ACAO_REUNIAO_ACAO", "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ACAO), "ACAO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_REUNIAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_EVENTO_aCAO", "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ACAO), "ACAO_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_EVENTO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PRIORIDADE_ACAO), "ACAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ACAO_AMC_ACAO", "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.AMC), "ACAO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_AMC), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_acao_evento", "EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.EVENTO), "ACAO_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_EVENTO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_ACAO_REUNIAO_REUNIAO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.REUNIAO), "ACAO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ACAO_REUNIAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ALUNO_CURSO_ALUNO", "ALUNO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ALUNO), "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_CURSO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_PARTICIPANTE_ALUNO", "ALUNO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.ALUNO), "PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PARTICIPANTE), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_PESSOA_ALUNO", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "ALUNO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.ALUNO_CURSO), "ALUNO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_AMC), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ALUNO_AMC_AMC", "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.AMC), "ALUNO_AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_AMC), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ALUNO_CURSO_TURMA", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ALUNO_CURSO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.ALUNO_CURSO), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_AMC", "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.AMC), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ASSUNTO_TRATADO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_ASSUNTO_TRATADO), "ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ASSUNTO_TRATADO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_FUNCIONARIO_CARGO", "CARGO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.CARGO), "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.FUNCIONARIO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.COMPROMISSO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.COMPROMISSO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_COORDENADOR_CURSO", "CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.CURSO), "CURSO_COORDENADOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.CURSO_COORDENADOR), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "Fk_DISCIPLINA_CURSO", "CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.CURSO), "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.DISCIPLINA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "CURSO_COORDENADOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.CURSO_COORDENADOR), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.DISCIPLINA), "DISCIPLINA_PROFESSOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.DISCIPLINA_PROFESSOR), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_DISCIPLINA", "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.DISCIPLINA), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "DISCIPLINA_PROFESSOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.DISCIPLINA_PROFESSOR), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_EVENTO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.EVENTO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ID_TIPOEVENTO", "TIPO_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_EVENTO), "EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.EVENTO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_FUNCIONARIO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.FUNCIONARIO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PARTICIPANTE), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_FUNCIONARIOPROFESSOR", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_USUARIO_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.USUARIO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_LANCAMENTO), "LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.LANCAMENTO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "Fk_LANCAMENTO_TURMA", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.LANCAMENTO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_PARTICIPANTE_REUNIAO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PARTICIPANTE), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_REUNIAO_PAUTA", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "PAUTA_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PAUTA_REUNIAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_RESPOSTA_QUESTAO", "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.QUESTAO), "RESPOSTA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.RESPOSTA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_REPRESENTANTE), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_REPRESENTANTE_TURMA", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_TIPOREUNIAO", "TIPO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.TIPO_REUNIAO), "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_TIPO", "TIPO_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_TURMA), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
 
 #endregion
 
@@ -994,7 +993,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ACAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ACAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ACAO : EntityObject
@@ -1197,16 +1196,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "ACAO_STATUS", "STATUS_ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "ACAO_STATUS", "STATUS_ACAO")]
         public STATUS_ACAO STATUS_ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS_ACAO>("EC.Model.ACAO_STATUS", "STATUS_ACAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS_ACAO>("ECModel.ACAO_STATUS", "STATUS_ACAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS_ACAO>("EC.Model.ACAO_STATUS", "STATUS_ACAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS_ACAO>("ECModel.ACAO_STATUS", "STATUS_ACAO").Value = value;
             }
         }
         /// <summary>
@@ -1218,13 +1217,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS_ACAO>("EC.Model.ACAO_STATUS", "STATUS_ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS_ACAO>("ECModel.ACAO_STATUS", "STATUS_ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<STATUS_ACAO>("EC.Model.ACAO_STATUS", "STATUS_ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<STATUS_ACAO>("ECModel.ACAO_STATUS", "STATUS_ACAO", value);
                 }
             }
         }
@@ -1235,16 +1234,38 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ACAO_PESSOA", "PESSOA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ACAO_AMC_AMC", "ACAO_AMC")]
+        public EntityCollection<ACAO_AMC> ACAO_AMC
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_AMC>("ECModel.FK_ACAO_AMC_AMC", "ACAO_AMC");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_AMC>("ECModel.FK_ACAO_AMC_AMC", "ACAO_AMC", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ACAO_PESSOA", "PESSOA")]
         public PESSOA PESSOA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_ACAO_PESSOA", "PESSOA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_ACAO_PESSOA", "PESSOA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_ACAO_PESSOA", "PESSOA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_ACAO_PESSOA", "PESSOA").Value = value;
             }
         }
         /// <summary>
@@ -1256,13 +1277,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_ACAO_PESSOA", "PESSOA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_ACAO_PESSOA", "PESSOA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("EC.Model.fk_ACAO_PESSOA", "PESSOA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("ECModel.fk_ACAO_PESSOA", "PESSOA", value);
                 }
             }
         }
@@ -1273,18 +1294,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ACAO_REUNIAO_ACAO", "ACAO_REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ACAO_REUNIAO_ACAO", "ACAO_REUNIAO")]
         public EntityCollection<ACAO_REUNIAO> ACAO_REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_REUNIAO>("EC.Model.fk_ACAO_REUNIAO_ACAO", "ACAO_REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_REUNIAO>("ECModel.fk_ACAO_REUNIAO_ACAO", "ACAO_REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_REUNIAO>("EC.Model.fk_ACAO_REUNIAO_ACAO", "ACAO_REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_REUNIAO>("ECModel.fk_ACAO_REUNIAO_ACAO", "ACAO_REUNIAO", value);
                 }
             }
         }
@@ -1295,40 +1316,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_AMC_aCAO", "ACAO_AMC")]
-        public EntityCollection<ACAO_AMC> ACAO_AMC
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_AMC>("EC.Model.fk_AMC_aCAO", "ACAO_AMC");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_AMC>("EC.Model.fk_AMC_aCAO", "ACAO_AMC", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_EVENTO_aCAO", "ACAO_EVENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_EVENTO_aCAO", "ACAO_EVENTO")]
         public EntityCollection<ACAO_EVENTO> ACAO_EVENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_EVENTO>("EC.Model.fk_EVENTO_aCAO", "ACAO_EVENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_EVENTO>("ECModel.fk_EVENTO_aCAO", "ACAO_EVENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_EVENTO>("EC.Model.fk_EVENTO_aCAO", "ACAO_EVENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_EVENTO>("ECModel.fk_EVENTO_aCAO", "ACAO_EVENTO", value);
                 }
             }
         }
@@ -1339,16 +1338,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO")]
         public PRIORIDADE_ACAO PRIORIDADE_ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PRIORIDADE_ACAO>("EC.Model.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PRIORIDADE_ACAO>("ECModel.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PRIORIDADE_ACAO>("EC.Model.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PRIORIDADE_ACAO>("ECModel.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO").Value = value;
             }
         }
         /// <summary>
@@ -1360,13 +1359,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PRIORIDADE_ACAO>("EC.Model.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PRIORIDADE_ACAO>("ECModel.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PRIORIDADE_ACAO>("EC.Model.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PRIORIDADE_ACAO>("ECModel.fk_PRIORIDADE_ACAO_ACAO", "PRIORIDADE_ACAO", value);
                 }
             }
         }
@@ -1378,7 +1377,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ACAO_AMC")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ACAO_AMC")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ACAO_AMC : EntityObject
@@ -1489,16 +1488,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_AMC_aCAO", "ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ACAO_AMC_AMC", "ACAO")]
         public ACAO ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_AMC_aCAO", "ACAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.FK_ACAO_AMC_AMC", "ACAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_AMC_aCAO", "ACAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.FK_ACAO_AMC_AMC", "ACAO").Value = value;
             }
         }
         /// <summary>
@@ -1510,13 +1509,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_AMC_aCAO", "ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.FK_ACAO_AMC_AMC", "ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ACAO>("EC.Model.fk_AMC_aCAO", "ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ACAO>("ECModel.FK_ACAO_AMC_AMC", "ACAO", value);
                 }
             }
         }
@@ -1527,16 +1526,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_acao_amc", "AMC")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ACAO_AMC_ACAO", "AMC")]
         public AMC AMC
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.fk_acao_amc", "AMC").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_ACAO_AMC_ACAO", "AMC").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.fk_acao_amc", "AMC").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_ACAO_AMC_ACAO", "AMC").Value = value;
             }
         }
         /// <summary>
@@ -1548,13 +1547,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.fk_acao_amc", "AMC");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_ACAO_AMC_ACAO", "AMC");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AMC>("EC.Model.fk_acao_amc", "AMC", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AMC>("ECModel.FK_ACAO_AMC_ACAO", "AMC", value);
                 }
             }
         }
@@ -1566,7 +1565,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ACAO_EVENTO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ACAO_EVENTO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ACAO_EVENTO : EntityObject
@@ -1677,16 +1676,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_EVENTO_aCAO", "ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_EVENTO_aCAO", "ACAO")]
         public ACAO ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_EVENTO_aCAO", "ACAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.fk_EVENTO_aCAO", "ACAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_EVENTO_aCAO", "ACAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.fk_EVENTO_aCAO", "ACAO").Value = value;
             }
         }
         /// <summary>
@@ -1698,13 +1697,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_EVENTO_aCAO", "ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.fk_EVENTO_aCAO", "ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ACAO>("EC.Model.fk_EVENTO_aCAO", "ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ACAO>("ECModel.fk_EVENTO_aCAO", "ACAO", value);
                 }
             }
         }
@@ -1715,16 +1714,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_acao_evento", "EVENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_acao_evento", "EVENTO")]
         public EVENTO EVENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EVENTO>("EC.Model.fk_acao_evento", "EVENTO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EVENTO>("ECModel.fk_acao_evento", "EVENTO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EVENTO>("EC.Model.fk_acao_evento", "EVENTO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EVENTO>("ECModel.fk_acao_evento", "EVENTO").Value = value;
             }
         }
         /// <summary>
@@ -1736,13 +1735,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EVENTO>("EC.Model.fk_acao_evento", "EVENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EVENTO>("ECModel.fk_acao_evento", "EVENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EVENTO>("EC.Model.fk_acao_evento", "EVENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EVENTO>("ECModel.fk_acao_evento", "EVENTO", value);
                 }
             }
         }
@@ -1754,7 +1753,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ACAO_REUNIAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ACAO_REUNIAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ACAO_REUNIAO : EntityObject
@@ -1865,16 +1864,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ACAO_REUNIAO_ACAO", "ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ACAO_REUNIAO_ACAO", "ACAO")]
         public ACAO ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_ACAO_REUNIAO_ACAO", "ACAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.fk_ACAO_REUNIAO_ACAO", "ACAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_ACAO_REUNIAO_ACAO", "ACAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.fk_ACAO_REUNIAO_ACAO", "ACAO").Value = value;
             }
         }
         /// <summary>
@@ -1886,13 +1885,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("EC.Model.fk_ACAO_REUNIAO_ACAO", "ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ACAO>("ECModel.fk_ACAO_REUNIAO_ACAO", "ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ACAO>("EC.Model.fk_ACAO_REUNIAO_ACAO", "ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ACAO>("ECModel.fk_ACAO_REUNIAO_ACAO", "ACAO", value);
                 }
             }
         }
@@ -1903,16 +1902,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ACAO_REUNIAO_REUNIAO", "REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ACAO_REUNIAO_REUNIAO", "REUNIAO")]
         public REUNIAO REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO").Value = value;
             }
         }
         /// <summary>
@@ -1924,13 +1923,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("EC.Model.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.fk_ACAO_REUNIAO_REUNIAO", "REUNIAO", value);
                 }
             }
         }
@@ -1942,7 +1941,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ALUNO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ALUNO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ALUNO : EntityObject
@@ -2049,18 +2048,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ALUNOCURSO_ALUNO", "ALUNO_CURSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_CURSO_ALUNO", "ALUNO_CURSO")]
         public EntityCollection<ALUNO_CURSO> ALUNO_CURSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_CURSO>("EC.Model.fk_ALUNOCURSO_ALUNO", "ALUNO_CURSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_CURSO>("ECModel.FK_ALUNO_CURSO_ALUNO", "ALUNO_CURSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_CURSO>("EC.Model.fk_ALUNOCURSO_ALUNO", "ALUNO_CURSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_CURSO>("ECModel.FK_ALUNO_CURSO_ALUNO", "ALUNO_CURSO", value);
                 }
             }
         }
@@ -2071,18 +2070,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PARTICIPANTE_ALUNO", "PARTICIPANTE")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PARTICIPANTE_ALUNO", "PARTICIPANTE")]
         public EntityCollection<PARTICIPANTE> PARTICIPANTE
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PARTICIPANTE>("EC.Model.fk_PARTICIPANTE_ALUNO", "PARTICIPANTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PARTICIPANTE>("ECModel.fk_PARTICIPANTE_ALUNO", "PARTICIPANTE");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PARTICIPANTE>("EC.Model.fk_PARTICIPANTE_ALUNO", "PARTICIPANTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PARTICIPANTE>("ECModel.fk_PARTICIPANTE_ALUNO", "PARTICIPANTE", value);
                 }
             }
         }
@@ -2093,16 +2092,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PESSOA_ALUNO", "PESSOA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PESSOA_ALUNO", "PESSOA")]
         public PESSOA PESSOA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_PESSOA_ALUNO", "PESSOA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_PESSOA_ALUNO", "PESSOA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_PESSOA_ALUNO", "PESSOA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_PESSOA_ALUNO", "PESSOA").Value = value;
             }
         }
         /// <summary>
@@ -2114,13 +2113,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_PESSOA_ALUNO", "PESSOA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_PESSOA_ALUNO", "PESSOA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("EC.Model.fk_PESSOA_ALUNO", "PESSOA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("ECModel.fk_PESSOA_ALUNO", "PESSOA", value);
                 }
             }
         }
@@ -2132,7 +2131,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ALUNO_AMC")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ALUNO_AMC")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ALUNO_AMC : EntityObject
@@ -2291,54 +2290,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ALUNO_AMC", "AMC")]
-        public AMC AMC
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.fk_ALUNO_AMC", "AMC").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.fk_ALUNO_AMC", "AMC").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<AMC> AMCReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.fk_ALUNO_AMC", "AMC");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AMC>("EC.Model.fk_ALUNO_AMC", "AMC", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ALUNOCURSO_AMC", "ALUNO_CURSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_CURSO")]
         public ALUNO_CURSO ALUNO_CURSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("EC.Model.fk_ALUNOCURSO_AMC", "ALUNO_CURSO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("ECModel.FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_CURSO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("EC.Model.fk_ALUNOCURSO_AMC", "ALUNO_CURSO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("ECModel.FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_CURSO").Value = value;
             }
         }
         /// <summary>
@@ -2350,13 +2311,51 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("EC.Model.fk_ALUNOCURSO_AMC", "ALUNO_CURSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("ECModel.FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_CURSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO_CURSO>("EC.Model.fk_ALUNOCURSO_AMC", "ALUNO_CURSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO_CURSO>("ECModel.FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_CURSO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_AMC_AMC", "AMC")]
+        public AMC AMC
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_ALUNO_AMC_AMC", "AMC").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_ALUNO_AMC_AMC", "AMC").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AMC> AMCReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_ALUNO_AMC_AMC", "AMC");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AMC>("ECModel.FK_ALUNO_AMC_AMC", "AMC", value);
                 }
             }
         }
@@ -2368,7 +2367,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ALUNO_CURSO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ALUNO_CURSO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ALUNO_CURSO : EntityObject
@@ -2501,16 +2500,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ALUNOCURSO_ALUNO", "ALUNO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_CURSO_ALUNO", "ALUNO")]
         public ALUNO ALUNO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("EC.Model.fk_ALUNOCURSO_ALUNO", "ALUNO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("ECModel.FK_ALUNO_CURSO_ALUNO", "ALUNO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("EC.Model.fk_ALUNOCURSO_ALUNO", "ALUNO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("ECModel.FK_ALUNO_CURSO_ALUNO", "ALUNO").Value = value;
             }
         }
         /// <summary>
@@ -2522,13 +2521,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("EC.Model.fk_ALUNOCURSO_ALUNO", "ALUNO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("ECModel.FK_ALUNO_CURSO_ALUNO", "ALUNO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO>("EC.Model.fk_ALUNOCURSO_ALUNO", "ALUNO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO>("ECModel.FK_ALUNO_CURSO_ALUNO", "ALUNO", value);
                 }
             }
         }
@@ -2539,18 +2538,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ALUNOCURSO_AMC", "ALUNO_AMC")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_AMC")]
         public EntityCollection<ALUNO_AMC> ALUNO_AMC
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_AMC>("EC.Model.fk_ALUNOCURSO_AMC", "ALUNO_AMC");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_AMC>("ECModel.FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_AMC");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_AMC>("EC.Model.fk_ALUNOCURSO_AMC", "ALUNO_AMC", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_AMC>("ECModel.FK_ALUNO_AMC_ALUNO_CURSO", "ALUNO_AMC", value);
                 }
             }
         }
@@ -2561,16 +2560,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ALUNO_CURSO", "TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_CURSO_TURMA", "TURMA")]
         public TURMA TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.FK_ALUNO_CURSO", "TURMA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_ALUNO_CURSO_TURMA", "TURMA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.FK_ALUNO_CURSO", "TURMA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_ALUNO_CURSO_TURMA", "TURMA").Value = value;
             }
         }
         /// <summary>
@@ -2582,13 +2581,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.FK_ALUNO_CURSO", "TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_ALUNO_CURSO_TURMA", "TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TURMA>("EC.Model.FK_ALUNO_CURSO", "TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TURMA>("ECModel.FK_ALUNO_CURSO_TURMA", "TURMA", value);
                 }
             }
         }
@@ -2599,18 +2598,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ALUNOCURSO_REPRESENTANTE", "REPRESENTANTE_TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "REPRESENTANTE_TURMA")]
         public EntityCollection<REPRESENTANTE_TURMA> REPRESENTANTE_TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REPRESENTANTE_TURMA>("EC.Model.FK_ALUNOCURSO_REPRESENTANTE", "REPRESENTANTE_TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "REPRESENTANTE_TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REPRESENTANTE_TURMA>("EC.Model.FK_ALUNOCURSO_REPRESENTANTE", "REPRESENTANTE_TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "REPRESENTANTE_TURMA", value);
                 }
             }
         }
@@ -2622,7 +2621,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="AMC")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="AMC")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class AMC : EntityObject
@@ -2757,18 +2756,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_acao_amc", "ACAO_AMC")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ACAO_AMC_ACAO", "ACAO_AMC")]
         public EntityCollection<ACAO_AMC> ACAO_AMC
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_AMC>("EC.Model.fk_acao_amc", "ACAO_AMC");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_AMC>("ECModel.FK_ACAO_AMC_ACAO", "ACAO_AMC");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_AMC>("EC.Model.fk_acao_amc", "ACAO_AMC", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_AMC>("ECModel.FK_ACAO_AMC_ACAO", "ACAO_AMC", value);
                 }
             }
         }
@@ -2779,18 +2778,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ALUNO_AMC", "ALUNO_AMC")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_AMC_AMC", "ALUNO_AMC")]
         public EntityCollection<ALUNO_AMC> ALUNO_AMC
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_AMC>("EC.Model.fk_ALUNO_AMC", "ALUNO_AMC");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_AMC>("ECModel.FK_ALUNO_AMC_AMC", "ALUNO_AMC");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_AMC>("EC.Model.fk_ALUNO_AMC", "ALUNO_AMC", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_AMC>("ECModel.FK_ALUNO_AMC_AMC", "ALUNO_AMC", value);
                 }
             }
         }
@@ -2801,18 +2800,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ID_QUESTAO", "QUESTAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_AMC", "QUESTAO")]
         public EntityCollection<QUESTAO> QUESTAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("EC.Model.FK_ID_QUESTAO", "QUESTAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_AMC", "QUESTAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("EC.Model.FK_ID_QUESTAO", "QUESTAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_AMC", "QUESTAO", value);
                 }
             }
         }
@@ -2824,7 +2823,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="ASSUNTO_TRATADO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ASSUNTO_TRATADO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ASSUNTO_TRATADO : EntityObject
@@ -2979,16 +2978,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ASSTRATADOS", "REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO")]
         public REUNIAO REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.FK_ASSTRATADOS", "REUNIAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.FK_ASSTRATADOS", "REUNIAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO").Value = value;
             }
         }
         /// <summary>
@@ -3000,13 +2999,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.FK_ASSTRATADOS", "REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("EC.Model.FK_ASSTRATADOS", "REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO", value);
                 }
             }
         }
@@ -3017,16 +3016,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO")]
         public TIPO_ASSUNTO_TRATADO TIPO_ASSUNTO_TRATADO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value = value;
             }
         }
         /// <summary>
@@ -3038,13 +3037,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_ASSUNTO_TRATADO>("EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", value);
                 }
             }
         }
@@ -3056,7 +3055,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="CARGO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="CARGO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class CARGO : EntityObject
@@ -3139,18 +3138,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_FUNCIONARIO_CARGO", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_FUNCIONARIO_CARGO", "FUNCIONARIO")]
         public EntityCollection<FUNCIONARIO> FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_CARGO", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FUNCIONARIO>("ECModel.fk_FUNCIONARIO_CARGO", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_CARGO", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FUNCIONARIO>("ECModel.fk_FUNCIONARIO_CARGO", "FUNCIONARIO", value);
                 }
             }
         }
@@ -3162,7 +3161,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="COMPROMISSO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="COMPROMISSO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class COMPROMISSO : EntityObject
@@ -3341,16 +3340,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_COMPROMISSO_PESSOA", "PESSOA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "PESSOA")]
         public PESSOA PESSOA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_COMPROMISSO_PESSOA", "PESSOA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_COMPROMISSO_PESSOA", "PESSOA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA").Value = value;
             }
         }
         /// <summary>
@@ -3362,13 +3361,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_COMPROMISSO_PESSOA", "PESSOA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("EC.Model.fk_COMPROMISSO_PESSOA", "PESSOA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA", value);
                 }
             }
         }
@@ -3379,16 +3378,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_REUNIAO_COMPROMISSO", "REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO")]
         public REUNIAO REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value = value;
             }
         }
         /// <summary>
@@ -3400,13 +3399,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_COMPROMISSO", "REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_COMPROMISSO", "REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO", value);
                 }
             }
         }
@@ -3418,7 +3417,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="CURSO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="CURSO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class CURSO : EntityObject
@@ -3501,18 +3500,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_COORDENADOR_CURSO", "CURSO_COORDENADOR")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_COORDENADOR_CURSO", "CURSO_COORDENADOR")]
         public EntityCollection<CURSO_COORDENADOR> CURSO_COORDENADOR
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CURSO_COORDENADOR>("EC.Model.FK_COORDENADOR_CURSO", "CURSO_COORDENADOR");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CURSO_COORDENADOR>("ECModel.FK_COORDENADOR_CURSO", "CURSO_COORDENADOR");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CURSO_COORDENADOR>("EC.Model.FK_COORDENADOR_CURSO", "CURSO_COORDENADOR", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CURSO_COORDENADOR>("ECModel.FK_COORDENADOR_CURSO", "CURSO_COORDENADOR", value);
                 }
             }
         }
@@ -3523,18 +3522,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "Fk_DISCIPLINA_CURSO", "DISCIPLINA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "Fk_DISCIPLINA_CURSO", "DISCIPLINA")]
         public EntityCollection<DISCIPLINA> DISCIPLINA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DISCIPLINA>("EC.Model.Fk_DISCIPLINA_CURSO", "DISCIPLINA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DISCIPLINA>("ECModel.Fk_DISCIPLINA_CURSO", "DISCIPLINA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DISCIPLINA>("EC.Model.Fk_DISCIPLINA_CURSO", "DISCIPLINA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DISCIPLINA>("ECModel.Fk_DISCIPLINA_CURSO", "DISCIPLINA", value);
                 }
             }
         }
@@ -3546,7 +3545,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="CURSO_COORDENADOR")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="CURSO_COORDENADOR")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class CURSO_COORDENADOR : EntityObject
@@ -3657,16 +3656,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_COORDENADOR_CURSO", "CURSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_COORDENADOR_CURSO", "CURSO")]
         public CURSO CURSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("EC.Model.FK_COORDENADOR_CURSO", "CURSO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("ECModel.FK_COORDENADOR_CURSO", "CURSO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("EC.Model.FK_COORDENADOR_CURSO", "CURSO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("ECModel.FK_COORDENADOR_CURSO", "CURSO").Value = value;
             }
         }
         /// <summary>
@@ -3678,13 +3677,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("EC.Model.FK_COORDENADOR_CURSO", "CURSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("ECModel.FK_COORDENADOR_CURSO", "CURSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CURSO>("EC.Model.FK_COORDENADOR_CURSO", "CURSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CURSO>("ECModel.FK_COORDENADOR_CURSO", "CURSO", value);
                 }
             }
         }
@@ -3695,16 +3694,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO")]
         public FUNCIONARIO FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO").Value = value;
             }
         }
         /// <summary>
@@ -3716,13 +3715,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("EC.Model.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.FK_COORDENADOR_FUNCIONARIO", "FUNCIONARIO", value);
                 }
             }
         }
@@ -3734,7 +3733,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="DISCIPLINA")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="DISCIPLINA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class DISCIPLINA : EntityObject
@@ -3841,16 +3840,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "Fk_DISCIPLINA_CURSO", "CURSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "Fk_DISCIPLINA_CURSO", "CURSO")]
         public CURSO CURSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("EC.Model.Fk_DISCIPLINA_CURSO", "CURSO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("ECModel.Fk_DISCIPLINA_CURSO", "CURSO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("EC.Model.Fk_DISCIPLINA_CURSO", "CURSO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("ECModel.Fk_DISCIPLINA_CURSO", "CURSO").Value = value;
             }
         }
         /// <summary>
@@ -3862,13 +3861,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("EC.Model.Fk_DISCIPLINA_CURSO", "CURSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CURSO>("ECModel.Fk_DISCIPLINA_CURSO", "CURSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CURSO>("EC.Model.Fk_DISCIPLINA_CURSO", "CURSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CURSO>("ECModel.Fk_DISCIPLINA_CURSO", "CURSO", value);
                 }
             }
         }
@@ -3879,18 +3878,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA_PROFESSOR")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA_PROFESSOR")]
         public EntityCollection<DISCIPLINA_PROFESSOR> DISCIPLINA_PROFESSOR
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DISCIPLINA_PROFESSOR>("EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA_PROFESSOR");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DISCIPLINA_PROFESSOR>("ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA_PROFESSOR");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DISCIPLINA_PROFESSOR>("EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA_PROFESSOR", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DISCIPLINA_PROFESSOR>("ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA_PROFESSOR", value);
                 }
             }
         }
@@ -3901,18 +3900,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_DISCIPLINA_QUESTAO", "QUESTAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_DISCIPLINA", "QUESTAO")]
         public EntityCollection<QUESTAO> QUESTAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("EC.Model.fk_DISCIPLINA_QUESTAO", "QUESTAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_DISCIPLINA", "QUESTAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("EC.Model.fk_DISCIPLINA_QUESTAO", "QUESTAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_DISCIPLINA", "QUESTAO", value);
                 }
             }
         }
@@ -3924,7 +3923,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="DISCIPLINA_PROFESSOR")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="DISCIPLINA_PROFESSOR")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class DISCIPLINA_PROFESSOR : EntityObject
@@ -4035,16 +4034,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA")]
         public DISCIPLINA DISCIPLINA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA").Value = value;
             }
         }
         /// <summary>
@@ -4056,13 +4055,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISCIPLINA>("EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISCIPLINA>("ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA", "DISCIPLINA", value);
                 }
             }
         }
@@ -4073,16 +4072,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO")]
         public FUNCIONARIO FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO").Value = value;
             }
         }
         /// <summary>
@@ -4094,13 +4093,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("EC.Model.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "FUNCIONARIO", value);
                 }
             }
         }
@@ -4112,7 +4111,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="EVENTO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="EVENTO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class EVENTO : EntityObject
@@ -4339,18 +4338,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_acao_evento", "ACAO_EVENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_acao_evento", "ACAO_EVENTO")]
         public EntityCollection<ACAO_EVENTO> ACAO_EVENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_EVENTO>("EC.Model.fk_acao_evento", "ACAO_EVENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_EVENTO>("ECModel.fk_acao_evento", "ACAO_EVENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_EVENTO>("EC.Model.fk_acao_evento", "ACAO_EVENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_EVENTO>("ECModel.fk_acao_evento", "ACAO_EVENTO", value);
                 }
             }
         }
@@ -4361,16 +4360,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_EVENTO_PESSOA", "PESSOA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_EVENTO_PESSOA", "PESSOA")]
         public PESSOA PESSOA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_EVENTO_PESSOA", "PESSOA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_EVENTO_PESSOA", "PESSOA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_EVENTO_PESSOA", "PESSOA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_EVENTO_PESSOA", "PESSOA").Value = value;
             }
         }
         /// <summary>
@@ -4382,13 +4381,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_EVENTO_PESSOA", "PESSOA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_EVENTO_PESSOA", "PESSOA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("EC.Model.fk_EVENTO_PESSOA", "PESSOA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("ECModel.fk_EVENTO_PESSOA", "PESSOA", value);
                 }
             }
         }
@@ -4399,16 +4398,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ID_TIPOEVENTO", "TIPO_EVENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ID_TIPOEVENTO", "TIPO_EVENTO")]
         public TIPO_EVENTO TIPO_EVENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_EVENTO>("EC.Model.FK_ID_TIPOEVENTO", "TIPO_EVENTO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_EVENTO>("ECModel.FK_ID_TIPOEVENTO", "TIPO_EVENTO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_EVENTO>("EC.Model.FK_ID_TIPOEVENTO", "TIPO_EVENTO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_EVENTO>("ECModel.FK_ID_TIPOEVENTO", "TIPO_EVENTO").Value = value;
             }
         }
         /// <summary>
@@ -4420,13 +4419,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_EVENTO>("EC.Model.FK_ID_TIPOEVENTO", "TIPO_EVENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_EVENTO>("ECModel.FK_ID_TIPOEVENTO", "TIPO_EVENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_EVENTO>("EC.Model.FK_ID_TIPOEVENTO", "TIPO_EVENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_EVENTO>("ECModel.FK_ID_TIPOEVENTO", "TIPO_EVENTO", value);
                 }
             }
         }
@@ -4438,7 +4437,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="FUNCIONARIO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="FUNCIONARIO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class FUNCIONARIO : EntityObject
@@ -4569,16 +4568,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_FUNCIONARIO_CARGO", "CARGO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_FUNCIONARIO_CARGO", "CARGO")]
         public CARGO CARGO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO>("EC.Model.fk_FUNCIONARIO_CARGO", "CARGO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO>("ECModel.fk_FUNCIONARIO_CARGO", "CARGO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO>("EC.Model.fk_FUNCIONARIO_CARGO", "CARGO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO>("ECModel.fk_FUNCIONARIO_CARGO", "CARGO").Value = value;
             }
         }
         /// <summary>
@@ -4590,13 +4589,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO>("EC.Model.fk_FUNCIONARIO_CARGO", "CARGO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CARGO>("ECModel.fk_FUNCIONARIO_CARGO", "CARGO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CARGO>("EC.Model.fk_FUNCIONARIO_CARGO", "CARGO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CARGO>("ECModel.fk_FUNCIONARIO_CARGO", "CARGO", value);
                 }
             }
         }
@@ -4607,18 +4606,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_COORDENADOR_FUNCIONARIO", "CURSO_COORDENADOR")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_COORDENADOR_FUNCIONARIO", "CURSO_COORDENADOR")]
         public EntityCollection<CURSO_COORDENADOR> CURSO_COORDENADOR
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CURSO_COORDENADOR>("EC.Model.FK_COORDENADOR_FUNCIONARIO", "CURSO_COORDENADOR");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CURSO_COORDENADOR>("ECModel.FK_COORDENADOR_FUNCIONARIO", "CURSO_COORDENADOR");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CURSO_COORDENADOR>("EC.Model.FK_COORDENADOR_FUNCIONARIO", "CURSO_COORDENADOR", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CURSO_COORDENADOR>("ECModel.FK_COORDENADOR_FUNCIONARIO", "CURSO_COORDENADOR", value);
                 }
             }
         }
@@ -4629,18 +4628,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "DISCIPLINA_PROFESSOR")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "DISCIPLINA_PROFESSOR")]
         public EntityCollection<DISCIPLINA_PROFESSOR> DISCIPLINA_PROFESSOR
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DISCIPLINA_PROFESSOR>("EC.Model.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "DISCIPLINA_PROFESSOR");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DISCIPLINA_PROFESSOR>("ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "DISCIPLINA_PROFESSOR");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DISCIPLINA_PROFESSOR>("EC.Model.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "DISCIPLINA_PROFESSOR", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DISCIPLINA_PROFESSOR>("ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO", "DISCIPLINA_PROFESSOR", value);
                 }
             }
         }
@@ -4651,16 +4650,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_FUNCIONARIO_PESSOA", "PESSOA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_FUNCIONARIO_PESSOA", "PESSOA")]
         public PESSOA PESSOA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_FUNCIONARIO_PESSOA", "PESSOA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_FUNCIONARIO_PESSOA", "PESSOA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_FUNCIONARIO_PESSOA", "PESSOA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_FUNCIONARIO_PESSOA", "PESSOA").Value = value;
             }
         }
         /// <summary>
@@ -4672,13 +4671,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("EC.Model.fk_FUNCIONARIO_PESSOA", "PESSOA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_FUNCIONARIO_PESSOA", "PESSOA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("EC.Model.fk_FUNCIONARIO_PESSOA", "PESSOA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("ECModel.fk_FUNCIONARIO_PESSOA", "PESSOA", value);
                 }
             }
         }
@@ -4689,62 +4688,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_FUNCIONARIO_QUESTAO", "QUESTAO")]
-        public EntityCollection<QUESTAO> QUESTAO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("EC.Model.fk_FUNCIONARIO_QUESTAO", "QUESTAO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("EC.Model.fk_FUNCIONARIO_QUESTAO", "QUESTAO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ID_FUNCIONARIO_QUESTAO", "QUESTAO")]
-        public EntityCollection<QUESTAO> QUESTAO1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("EC.Model.FK_ID_FUNCIONARIO_QUESTAO", "QUESTAO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("EC.Model.FK_ID_FUNCIONARIO_QUESTAO", "QUESTAO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PARTICIPANTE_FUNCIONARIO", "PARTICIPANTE")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PARTICIPANTE_FUNCIONARIO", "PARTICIPANTE")]
         public EntityCollection<PARTICIPANTE> PARTICIPANTE
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PARTICIPANTE>("EC.Model.fk_PARTICIPANTE_FUNCIONARIO", "PARTICIPANTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PARTICIPANTE>("ECModel.fk_PARTICIPANTE_FUNCIONARIO", "PARTICIPANTE");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PARTICIPANTE>("EC.Model.fk_PARTICIPANTE_FUNCIONARIO", "PARTICIPANTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PARTICIPANTE>("ECModel.fk_PARTICIPANTE_FUNCIONARIO", "PARTICIPANTE", value);
                 }
             }
         }
@@ -4755,18 +4710,40 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TURMA_FUNCIONARIO", "TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_FUNCIONARIOPROFESSOR", "QUESTAO")]
+        public EntityCollection<QUESTAO> QUESTAO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_FUNCIONARIOPROFESSOR", "QUESTAO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_FUNCIONARIOPROFESSOR", "QUESTAO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_FUNCIONARIO", "TURMA")]
         public EntityCollection<TURMA> TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TURMA>("EC.Model.FK_TURMA_FUNCIONARIO", "TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TURMA>("ECModel.FK_TURMA_FUNCIONARIO", "TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TURMA>("EC.Model.FK_TURMA_FUNCIONARIO", "TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TURMA>("ECModel.FK_TURMA_FUNCIONARIO", "TURMA", value);
                 }
             }
         }
@@ -4777,18 +4754,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_USUARIO_FUNCIONARIO", "USUARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_USUARIO_FUNCIONARIO", "USUARIO")]
         public EntityCollection<USUARIO> USUARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<USUARIO>("EC.Model.fk_USUARIO_FUNCIONARIO", "USUARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<USUARIO>("ECModel.fk_USUARIO_FUNCIONARIO", "USUARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<USUARIO>("EC.Model.fk_USUARIO_FUNCIONARIO", "USUARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<USUARIO>("ECModel.fk_USUARIO_FUNCIONARIO", "USUARIO", value);
                 }
             }
         }
@@ -4800,7 +4777,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="LANCAMENTO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="LANCAMENTO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class LANCAMENTO : EntityObject
@@ -5003,16 +4980,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO")]
         public TIPO_LANCAMENTO TIPO_LANCAMENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_LANCAMENTO>("ECModel.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_LANCAMENTO>("ECModel.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO").Value = value;
             }
         }
         /// <summary>
@@ -5024,13 +5001,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_LANCAMENTO>("ECModel.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_LANCAMENTO>("ECModel.Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO", value);
                 }
             }
         }
@@ -5041,16 +5018,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "Fk_LANCAMENTO_TURMA", "TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "Fk_LANCAMENTO_TURMA", "TURMA")]
         public TURMA TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.Fk_LANCAMENTO_TURMA", "TURMA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.Fk_LANCAMENTO_TURMA", "TURMA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.Fk_LANCAMENTO_TURMA", "TURMA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.Fk_LANCAMENTO_TURMA", "TURMA").Value = value;
             }
         }
         /// <summary>
@@ -5062,13 +5039,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.Fk_LANCAMENTO_TURMA", "TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.Fk_LANCAMENTO_TURMA", "TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TURMA>("EC.Model.Fk_LANCAMENTO_TURMA", "TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TURMA>("ECModel.Fk_LANCAMENTO_TURMA", "TURMA", value);
                 }
             }
         }
@@ -5080,7 +5057,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="PARTICIPANTE")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="PARTICIPANTE")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PARTICIPANTE : EntityObject
@@ -5235,16 +5212,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PARTICIPANTE_ALUNO", "ALUNO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PARTICIPANTE_ALUNO", "ALUNO")]
         public ALUNO ALUNO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("EC.Model.fk_PARTICIPANTE_ALUNO", "ALUNO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("ECModel.fk_PARTICIPANTE_ALUNO", "ALUNO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("EC.Model.fk_PARTICIPANTE_ALUNO", "ALUNO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("ECModel.fk_PARTICIPANTE_ALUNO", "ALUNO").Value = value;
             }
         }
         /// <summary>
@@ -5256,13 +5233,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("EC.Model.fk_PARTICIPANTE_ALUNO", "ALUNO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO>("ECModel.fk_PARTICIPANTE_ALUNO", "ALUNO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO>("EC.Model.fk_PARTICIPANTE_ALUNO", "ALUNO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO>("ECModel.fk_PARTICIPANTE_ALUNO", "ALUNO", value);
                 }
             }
         }
@@ -5273,16 +5250,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO")]
         public FUNCIONARIO FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO").Value = value;
             }
         }
         /// <summary>
@@ -5294,13 +5271,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("EC.Model.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.fk_PARTICIPANTE_FUNCIONARIO", "FUNCIONARIO", value);
                 }
             }
         }
@@ -5311,16 +5288,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PARTICIPANTE_REUNIAO", "REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PARTICIPANTE_REUNIAO", "REUNIAO")]
         public REUNIAO REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_PARTICIPANTE_REUNIAO", "REUNIAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_PARTICIPANTE_REUNIAO", "REUNIAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_PARTICIPANTE_REUNIAO", "REUNIAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_PARTICIPANTE_REUNIAO", "REUNIAO").Value = value;
             }
         }
         /// <summary>
@@ -5332,13 +5309,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_PARTICIPANTE_REUNIAO", "REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_PARTICIPANTE_REUNIAO", "REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("EC.Model.fk_PARTICIPANTE_REUNIAO", "REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.fk_PARTICIPANTE_REUNIAO", "REUNIAO", value);
                 }
             }
         }
@@ -5350,7 +5327,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="PAUTA_REUNIAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="PAUTA_REUNIAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PAUTA_REUNIAO : EntityObject
@@ -5481,16 +5458,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_REUNIAO_PAUTA", "REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_PAUTA", "REUNIAO")]
         public REUNIAO REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_PAUTA", "REUNIAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_PAUTA", "REUNIAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_PAUTA", "REUNIAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_PAUTA", "REUNIAO").Value = value;
             }
         }
         /// <summary>
@@ -5502,13 +5479,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_PAUTA", "REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_PAUTA", "REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("EC.Model.fk_REUNIAO_PAUTA", "REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_PAUTA", "REUNIAO", value);
                 }
             }
         }
@@ -5520,7 +5497,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="PESSOA")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="PESSOA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PESSOA : EntityObject
@@ -5651,18 +5628,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ACAO_PESSOA", "ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ACAO_PESSOA", "ACAO")]
         public EntityCollection<ACAO> ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO>("EC.Model.fk_ACAO_PESSOA", "ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO>("ECModel.fk_ACAO_PESSOA", "ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO>("EC.Model.fk_ACAO_PESSOA", "ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO>("ECModel.fk_ACAO_PESSOA", "ACAO", value);
                 }
             }
         }
@@ -5673,18 +5650,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PESSOA_ALUNO", "ALUNO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PESSOA_ALUNO", "ALUNO")]
         public EntityCollection<ALUNO> ALUNO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO>("EC.Model.fk_PESSOA_ALUNO", "ALUNO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO>("ECModel.fk_PESSOA_ALUNO", "ALUNO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO>("EC.Model.fk_PESSOA_ALUNO", "ALUNO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO>("ECModel.fk_PESSOA_ALUNO", "ALUNO", value);
                 }
             }
         }
@@ -5695,18 +5672,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_COMPROMISSO_PESSOA", "COMPROMISSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "COMPROMISSO")]
         public EntityCollection<COMPROMISSO> COMPROMISSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<COMPROMISSO>("EC.Model.fk_COMPROMISSO_PESSOA", "COMPROMISSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<COMPROMISSO>("ECModel.fk_COMPROMISSO_PESSOA", "COMPROMISSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMPROMISSO>("EC.Model.fk_COMPROMISSO_PESSOA", "COMPROMISSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMPROMISSO>("ECModel.fk_COMPROMISSO_PESSOA", "COMPROMISSO", value);
                 }
             }
         }
@@ -5717,18 +5694,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_EVENTO_PESSOA", "EVENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_EVENTO_PESSOA", "EVENTO")]
         public EntityCollection<EVENTO> EVENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVENTO>("EC.Model.fk_EVENTO_PESSOA", "EVENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVENTO>("ECModel.fk_EVENTO_PESSOA", "EVENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVENTO>("EC.Model.fk_EVENTO_PESSOA", "EVENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVENTO>("ECModel.fk_EVENTO_PESSOA", "EVENTO", value);
                 }
             }
         }
@@ -5739,18 +5716,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_FUNCIONARIO_PESSOA", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_FUNCIONARIO_PESSOA", "FUNCIONARIO")]
         public EntityCollection<FUNCIONARIO> FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_PESSOA", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<FUNCIONARIO>("ECModel.fk_FUNCIONARIO_PESSOA", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_PESSOA", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FUNCIONARIO>("ECModel.fk_FUNCIONARIO_PESSOA", "FUNCIONARIO", value);
                 }
             }
         }
@@ -5762,7 +5739,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="PRIORIDADE_ACAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="PRIORIDADE_ACAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PRIORIDADE_ACAO : EntityObject
@@ -5845,18 +5822,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PRIORIDADE_ACAO_ACAO", "ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PRIORIDADE_ACAO_ACAO", "ACAO")]
         public EntityCollection<ACAO> ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO>("EC.Model.fk_PRIORIDADE_ACAO_ACAO", "ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO>("ECModel.fk_PRIORIDADE_ACAO_ACAO", "ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO>("EC.Model.fk_PRIORIDADE_ACAO_ACAO", "ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO>("ECModel.fk_PRIORIDADE_ACAO_ACAO", "ACAO", value);
                 }
             }
         }
@@ -5868,7 +5845,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="QUESTAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="QUESTAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class QUESTAO : EntityObject
@@ -6047,16 +6024,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ID_QUESTAO", "AMC")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_AMC", "AMC")]
         public AMC AMC
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.FK_ID_QUESTAO", "AMC").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_QUESTAO_AMC", "AMC").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.FK_ID_QUESTAO", "AMC").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_QUESTAO_AMC", "AMC").Value = value;
             }
         }
         /// <summary>
@@ -6068,13 +6045,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("EC.Model.FK_ID_QUESTAO", "AMC");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AMC>("ECModel.FK_QUESTAO_AMC", "AMC");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AMC>("EC.Model.FK_ID_QUESTAO", "AMC", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AMC>("ECModel.FK_QUESTAO_AMC", "AMC", value);
                 }
             }
         }
@@ -6085,16 +6062,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_DISCIPLINA_QUESTAO", "DISCIPLINA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_DISCIPLINA", "DISCIPLINA")]
         public DISCIPLINA DISCIPLINA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("EC.Model.fk_DISCIPLINA_QUESTAO", "DISCIPLINA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_QUESTAO_DISCIPLINA", "DISCIPLINA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("EC.Model.fk_DISCIPLINA_QUESTAO", "DISCIPLINA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_QUESTAO_DISCIPLINA", "DISCIPLINA").Value = value;
             }
         }
         /// <summary>
@@ -6106,13 +6083,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("EC.Model.fk_DISCIPLINA_QUESTAO", "DISCIPLINA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_QUESTAO_DISCIPLINA", "DISCIPLINA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISCIPLINA>("EC.Model.fk_DISCIPLINA_QUESTAO", "DISCIPLINA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISCIPLINA>("ECModel.FK_QUESTAO_DISCIPLINA", "DISCIPLINA", value);
                 }
             }
         }
@@ -6123,16 +6100,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_FUNCIONARIO_QUESTAO", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_FUNCIONARIOPROFESSOR", "FUNCIONARIO")]
         public FUNCIONARIO FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_QUESTAO", "FUNCIONARIO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIOPROFESSOR", "FUNCIONARIO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_QUESTAO", "FUNCIONARIO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIOPROFESSOR", "FUNCIONARIO").Value = value;
             }
         }
         /// <summary>
@@ -6144,13 +6121,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_QUESTAO", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIOPROFESSOR", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("EC.Model.fk_FUNCIONARIO_QUESTAO", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIOPROFESSOR", "FUNCIONARIO", value);
                 }
             }
         }
@@ -6161,56 +6138,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ID_FUNCIONARIO_QUESTAO", "FUNCIONARIO")]
-        public FUNCIONARIO FUNCIONARIO1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_ID_FUNCIONARIO_QUESTAO", "FUNCIONARIO").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_ID_FUNCIONARIO_QUESTAO", "FUNCIONARIO").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<FUNCIONARIO> FUNCIONARIO1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_ID_FUNCIONARIO_QUESTAO", "FUNCIONARIO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("EC.Model.FK_ID_FUNCIONARIO_QUESTAO", "FUNCIONARIO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_RESPOSTA_QUESTAO", "RESPOSTA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_RESPOSTA_QUESTAO", "RESPOSTA")]
         public EntityCollection<RESPOSTA> RESPOSTA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RESPOSTA>("EC.Model.fk_RESPOSTA_QUESTAO", "RESPOSTA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RESPOSTA>("ECModel.FK_RESPOSTA_QUESTAO", "RESPOSTA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RESPOSTA>("EC.Model.fk_RESPOSTA_QUESTAO", "RESPOSTA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RESPOSTA>("ECModel.FK_RESPOSTA_QUESTAO", "RESPOSTA", value);
                 }
             }
         }
@@ -6222,7 +6161,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="REPRESENTANTE_TURMA")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="REPRESENTANTE_TURMA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class REPRESENTANTE_TURMA : EntityObject
@@ -6353,16 +6292,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ALUNOCURSO_REPRESENTANTE", "ALUNO_CURSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "ALUNO_CURSO")]
         public ALUNO_CURSO ALUNO_CURSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("EC.Model.FK_ALUNOCURSO_REPRESENTANTE", "ALUNO_CURSO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "ALUNO_CURSO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("EC.Model.FK_ALUNOCURSO_REPRESENTANTE", "ALUNO_CURSO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "ALUNO_CURSO").Value = value;
             }
         }
         /// <summary>
@@ -6374,13 +6313,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("EC.Model.FK_ALUNOCURSO_REPRESENTANTE", "ALUNO_CURSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ALUNO_CURSO>("ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "ALUNO_CURSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO_CURSO>("EC.Model.FK_ALUNOCURSO_REPRESENTANTE", "ALUNO_CURSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ALUNO_CURSO>("ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "ALUNO_CURSO", value);
                 }
             }
         }
@@ -6391,16 +6330,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TIPOREPRESENTANTE_REPRESENTANTE", "TIPO_REPRESENTANTE")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE")]
         public TIPO_REPRESENTANTE TIPO_REPRESENTANTE
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REPRESENTANTE>("EC.Model.FK_TIPOREPRESENTANTE_REPRESENTANTE", "TIPO_REPRESENTANTE").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REPRESENTANTE>("ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REPRESENTANTE>("EC.Model.FK_TIPOREPRESENTANTE_REPRESENTANTE", "TIPO_REPRESENTANTE").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REPRESENTANTE>("ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE").Value = value;
             }
         }
         /// <summary>
@@ -6412,13 +6351,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REPRESENTANTE>("EC.Model.FK_TIPOREPRESENTANTE_REPRESENTANTE", "TIPO_REPRESENTANTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REPRESENTANTE>("ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_REPRESENTANTE>("EC.Model.FK_TIPOREPRESENTANTE_REPRESENTANTE", "TIPO_REPRESENTANTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_REPRESENTANTE>("ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE", value);
                 }
             }
         }
@@ -6429,16 +6368,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TURMA_REPRESENTANTE", "TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_REPRESENTANTE_TURMA", "TURMA")]
         public TURMA TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.FK_TURMA_REPRESENTANTE", "TURMA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_TURMA_REPRESENTANTE_TURMA", "TURMA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.FK_TURMA_REPRESENTANTE", "TURMA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_TURMA_REPRESENTANTE_TURMA", "TURMA").Value = value;
             }
         }
         /// <summary>
@@ -6450,13 +6389,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("EC.Model.FK_TURMA_REPRESENTANTE", "TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_TURMA_REPRESENTANTE_TURMA", "TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TURMA>("EC.Model.FK_TURMA_REPRESENTANTE", "TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TURMA>("ECModel.FK_TURMA_REPRESENTANTE_TURMA", "TURMA", value);
                 }
             }
         }
@@ -6468,7 +6407,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="RESPOSTA")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="RESPOSTA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class RESPOSTA : EntityObject
@@ -6599,16 +6538,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_RESPOSTA_QUESTAO", "QUESTAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_RESPOSTA_QUESTAO", "QUESTAO")]
         public QUESTAO QUESTAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QUESTAO>("EC.Model.fk_RESPOSTA_QUESTAO", "QUESTAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QUESTAO>("ECModel.FK_RESPOSTA_QUESTAO", "QUESTAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QUESTAO>("EC.Model.fk_RESPOSTA_QUESTAO", "QUESTAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QUESTAO>("ECModel.FK_RESPOSTA_QUESTAO", "QUESTAO").Value = value;
             }
         }
         /// <summary>
@@ -6620,13 +6559,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QUESTAO>("EC.Model.fk_RESPOSTA_QUESTAO", "QUESTAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QUESTAO>("ECModel.FK_RESPOSTA_QUESTAO", "QUESTAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<QUESTAO>("EC.Model.fk_RESPOSTA_QUESTAO", "QUESTAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<QUESTAO>("ECModel.FK_RESPOSTA_QUESTAO", "QUESTAO", value);
                 }
             }
         }
@@ -6638,7 +6577,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="REUNIAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="REUNIAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class REUNIAO : EntityObject
@@ -6821,18 +6760,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ACAO_REUNIAO_REUNIAO", "ACAO_REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ACAO_REUNIAO_REUNIAO", "ACAO_REUNIAO")]
         public EntityCollection<ACAO_REUNIAO> ACAO_REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_REUNIAO>("EC.Model.fk_ACAO_REUNIAO_REUNIAO", "ACAO_REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO_REUNIAO>("ECModel.fk_ACAO_REUNIAO_REUNIAO", "ACAO_REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_REUNIAO>("EC.Model.fk_ACAO_REUNIAO_REUNIAO", "ACAO_REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO_REUNIAO>("ECModel.fk_ACAO_REUNIAO_REUNIAO", "ACAO_REUNIAO", value);
                 }
             }
         }
@@ -6843,18 +6782,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ASSTRATADOS", "ASSUNTO_TRATADO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ASSTRATADOS", "ASSUNTO_TRATADO")]
         public EntityCollection<ASSUNTO_TRATADO> ASSUNTO_TRATADO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ASSUNTO_TRATADO>("EC.Model.FK_ASSTRATADOS", "ASSUNTO_TRATADO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ASSUNTO_TRATADO>("ECModel.FK_ASSTRATADOS", "ASSUNTO_TRATADO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ASSUNTO_TRATADO>("EC.Model.FK_ASSTRATADOS", "ASSUNTO_TRATADO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ASSUNTO_TRATADO>("ECModel.FK_ASSTRATADOS", "ASSUNTO_TRATADO", value);
                 }
             }
         }
@@ -6865,18 +6804,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_REUNIAO_COMPROMISSO", "COMPROMISSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "COMPROMISSO")]
         public EntityCollection<COMPROMISSO> COMPROMISSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<COMPROMISSO>("EC.Model.fk_REUNIAO_COMPROMISSO", "COMPROMISSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<COMPROMISSO>("ECModel.fk_REUNIAO_COMPROMISSO", "COMPROMISSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMPROMISSO>("EC.Model.fk_REUNIAO_COMPROMISSO", "COMPROMISSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMPROMISSO>("ECModel.fk_REUNIAO_COMPROMISSO", "COMPROMISSO", value);
                 }
             }
         }
@@ -6887,18 +6826,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_PARTICIPANTE_REUNIAO", "PARTICIPANTE")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_PARTICIPANTE_REUNIAO", "PARTICIPANTE")]
         public EntityCollection<PARTICIPANTE> PARTICIPANTE
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PARTICIPANTE>("EC.Model.fk_PARTICIPANTE_REUNIAO", "PARTICIPANTE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PARTICIPANTE>("ECModel.fk_PARTICIPANTE_REUNIAO", "PARTICIPANTE");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PARTICIPANTE>("EC.Model.fk_PARTICIPANTE_REUNIAO", "PARTICIPANTE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PARTICIPANTE>("ECModel.fk_PARTICIPANTE_REUNIAO", "PARTICIPANTE", value);
                 }
             }
         }
@@ -6909,18 +6848,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_REUNIAO_PAUTA", "PAUTA_REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_PAUTA", "PAUTA_REUNIAO")]
         public EntityCollection<PAUTA_REUNIAO> PAUTA_REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PAUTA_REUNIAO>("EC.Model.fk_REUNIAO_PAUTA", "PAUTA_REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PAUTA_REUNIAO>("ECModel.fk_REUNIAO_PAUTA", "PAUTA_REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PAUTA_REUNIAO>("EC.Model.fk_REUNIAO_PAUTA", "PAUTA_REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PAUTA_REUNIAO>("ECModel.fk_REUNIAO_PAUTA", "PAUTA_REUNIAO", value);
                 }
             }
         }
@@ -6931,16 +6870,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TIPOREUNIAO", "TIPO_REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TIPOREUNIAO", "TIPO_REUNIAO")]
         public TIPO_REUNIAO TIPO_REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REUNIAO>("EC.Model.FK_TIPOREUNIAO", "TIPO_REUNIAO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REUNIAO>("ECModel.FK_TIPOREUNIAO", "TIPO_REUNIAO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REUNIAO>("EC.Model.FK_TIPOREUNIAO", "TIPO_REUNIAO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REUNIAO>("ECModel.FK_TIPOREUNIAO", "TIPO_REUNIAO").Value = value;
             }
         }
         /// <summary>
@@ -6952,13 +6891,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REUNIAO>("EC.Model.FK_TIPOREUNIAO", "TIPO_REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_REUNIAO>("ECModel.FK_TIPOREUNIAO", "TIPO_REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_REUNIAO>("EC.Model.FK_TIPOREUNIAO", "TIPO_REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_REUNIAO>("ECModel.FK_TIPOREUNIAO", "TIPO_REUNIAO", value);
                 }
             }
         }
@@ -6970,7 +6909,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="STATUS_ACAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="STATUS_ACAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class STATUS_ACAO : EntityObject
@@ -7053,18 +6992,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "ACAO_STATUS", "ACAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "ACAO_STATUS", "ACAO")]
         public EntityCollection<ACAO> ACAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO>("EC.Model.ACAO_STATUS", "ACAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ACAO>("ECModel.ACAO_STATUS", "ACAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO>("EC.Model.ACAO_STATUS", "ACAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ACAO>("ECModel.ACAO_STATUS", "ACAO", value);
                 }
             }
         }
@@ -7076,7 +7015,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="sysdiagrams")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="sysdiagrams")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class sysdiagrams : EntityObject
@@ -7232,7 +7171,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="TIPO_ASSUNTO_TRATADO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="TIPO_ASSUNTO_TRATADO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TIPO_ASSUNTO_TRATADO : EntityObject
@@ -7315,18 +7254,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO")]
         public EntityCollection<ASSUNTO_TRATADO> ASSUNTO_TRATADO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ASSUNTO_TRATADO>("EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ASSUNTO_TRATADO>("EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO", value);
                 }
             }
         }
@@ -7338,7 +7277,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="TIPO_EVENTO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="TIPO_EVENTO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TIPO_EVENTO : EntityObject
@@ -7421,18 +7360,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ID_TIPOEVENTO", "EVENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ID_TIPOEVENTO", "EVENTO")]
         public EntityCollection<EVENTO> EVENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVENTO>("EC.Model.FK_ID_TIPOEVENTO", "EVENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<EVENTO>("ECModel.FK_ID_TIPOEVENTO", "EVENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVENTO>("EC.Model.FK_ID_TIPOEVENTO", "EVENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<EVENTO>("ECModel.FK_ID_TIPOEVENTO", "EVENTO", value);
                 }
             }
         }
@@ -7444,7 +7383,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="TIPO_LANCAMENTO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="TIPO_LANCAMENTO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TIPO_LANCAMENTO : EntityObject
@@ -7527,18 +7466,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "Fk_LANCAMENTO_TIPOLANCAM", "LANCAMENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "Fk_LANCAMENTO_TIPOLANCAM", "LANCAMENTO")]
         public EntityCollection<LANCAMENTO> LANCAMENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TIPOLANCAM", "LANCAMENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LANCAMENTO>("ECModel.Fk_LANCAMENTO_TIPOLANCAM", "LANCAMENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TIPOLANCAM", "LANCAMENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LANCAMENTO>("ECModel.Fk_LANCAMENTO_TIPOLANCAM", "LANCAMENTO", value);
                 }
             }
         }
@@ -7550,7 +7489,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="TIPO_REPRESENTANTE")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="TIPO_REPRESENTANTE")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TIPO_REPRESENTANTE : EntityObject
@@ -7633,18 +7572,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TIPOREPRESENTANTE_REPRESENTANTE", "REPRESENTANTE_TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "REPRESENTANTE_TURMA")]
         public EntityCollection<REPRESENTANTE_TURMA> REPRESENTANTE_TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REPRESENTANTE_TURMA>("EC.Model.FK_TIPOREPRESENTANTE_REPRESENTANTE", "REPRESENTANTE_TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "REPRESENTANTE_TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REPRESENTANTE_TURMA>("EC.Model.FK_TIPOREPRESENTANTE_REPRESENTANTE", "REPRESENTANTE_TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "REPRESENTANTE_TURMA", value);
                 }
             }
         }
@@ -7656,7 +7595,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="TIPO_REUNIAO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="TIPO_REUNIAO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TIPO_REUNIAO : EntityObject
@@ -7739,18 +7678,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TIPOREUNIAO", "REUNIAO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TIPOREUNIAO", "REUNIAO")]
         public EntityCollection<REUNIAO> REUNIAO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REUNIAO>("EC.Model.FK_TIPOREUNIAO", "REUNIAO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REUNIAO>("ECModel.FK_TIPOREUNIAO", "REUNIAO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REUNIAO>("EC.Model.FK_TIPOREUNIAO", "REUNIAO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REUNIAO>("ECModel.FK_TIPOREUNIAO", "REUNIAO", value);
                 }
             }
         }
@@ -7762,7 +7701,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="TIPO_TURMA")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="TIPO_TURMA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TIPO_TURMA : EntityObject
@@ -7845,18 +7784,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TURMA_TIPO", "TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_TIPO", "TURMA")]
         public EntityCollection<TURMA> TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TURMA>("EC.Model.FK_TURMA_TIPO", "TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TURMA>("ECModel.FK_TURMA_TIPO", "TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TURMA>("EC.Model.FK_TURMA_TIPO", "TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TURMA>("ECModel.FK_TURMA_TIPO", "TURMA", value);
                 }
             }
         }
@@ -7868,7 +7807,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="TURMA")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="TURMA")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class TURMA : EntityObject
@@ -8047,18 +7986,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_ALUNO_CURSO", "ALUNO_CURSO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ALUNO_CURSO_TURMA", "ALUNO_CURSO")]
         public EntityCollection<ALUNO_CURSO> ALUNO_CURSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_CURSO>("EC.Model.FK_ALUNO_CURSO", "ALUNO_CURSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ALUNO_CURSO>("ECModel.FK_ALUNO_CURSO_TURMA", "ALUNO_CURSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_CURSO>("EC.Model.FK_ALUNO_CURSO", "ALUNO_CURSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ALUNO_CURSO>("ECModel.FK_ALUNO_CURSO_TURMA", "ALUNO_CURSO", value);
                 }
             }
         }
@@ -8069,16 +8008,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TURMA_FUNCIONARIO", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_FUNCIONARIO", "FUNCIONARIO")]
         public FUNCIONARIO FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_TURMA_FUNCIONARIO", "FUNCIONARIO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_TURMA_FUNCIONARIO", "FUNCIONARIO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_TURMA_FUNCIONARIO", "FUNCIONARIO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_TURMA_FUNCIONARIO", "FUNCIONARIO").Value = value;
             }
         }
         /// <summary>
@@ -8090,13 +8029,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.FK_TURMA_FUNCIONARIO", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_TURMA_FUNCIONARIO", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("EC.Model.FK_TURMA_FUNCIONARIO", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.FK_TURMA_FUNCIONARIO", "FUNCIONARIO", value);
                 }
             }
         }
@@ -8107,18 +8046,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "Fk_LANCAMENTO_TURMA", "LANCAMENTO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "Fk_LANCAMENTO_TURMA", "LANCAMENTO")]
         public EntityCollection<LANCAMENTO> LANCAMENTO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TURMA", "LANCAMENTO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LANCAMENTO>("ECModel.Fk_LANCAMENTO_TURMA", "LANCAMENTO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LANCAMENTO>("EC.Model.Fk_LANCAMENTO_TURMA", "LANCAMENTO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LANCAMENTO>("ECModel.Fk_LANCAMENTO_TURMA", "LANCAMENTO", value);
                 }
             }
         }
@@ -8129,18 +8068,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TURMA_REPRESENTANTE", "REPRESENTANTE_TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_REPRESENTANTE_TURMA", "REPRESENTANTE_TURMA")]
         public EntityCollection<REPRESENTANTE_TURMA> REPRESENTANTE_TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REPRESENTANTE_TURMA>("EC.Model.FK_TURMA_REPRESENTANTE", "REPRESENTANTE_TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_TURMA_REPRESENTANTE_TURMA", "REPRESENTANTE_TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REPRESENTANTE_TURMA>("EC.Model.FK_TURMA_REPRESENTANTE", "REPRESENTANTE_TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_TURMA_REPRESENTANTE_TURMA", "REPRESENTANTE_TURMA", value);
                 }
             }
         }
@@ -8151,16 +8090,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "FK_TURMA_TIPO", "TIPO_TURMA")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_TIPO", "TIPO_TURMA")]
         public TIPO_TURMA TIPO_TURMA
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_TURMA>("EC.Model.FK_TURMA_TIPO", "TIPO_TURMA").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_TURMA>("ECModel.FK_TURMA_TIPO", "TIPO_TURMA").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_TURMA>("EC.Model.FK_TURMA_TIPO", "TIPO_TURMA").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_TURMA>("ECModel.FK_TURMA_TIPO", "TIPO_TURMA").Value = value;
             }
         }
         /// <summary>
@@ -8172,13 +8111,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_TURMA>("EC.Model.FK_TURMA_TIPO", "TIPO_TURMA");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_TURMA>("ECModel.FK_TURMA_TIPO", "TIPO_TURMA");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_TURMA>("EC.Model.FK_TURMA_TIPO", "TIPO_TURMA", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_TURMA>("ECModel.FK_TURMA_TIPO", "TIPO_TURMA", value);
                 }
             }
         }
@@ -8190,7 +8129,7 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EC.Model", Name="USUARIO")]
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="USUARIO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class USUARIO : EntityObject
@@ -8351,16 +8290,16 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("EC.Model", "fk_USUARIO_FUNCIONARIO", "FUNCIONARIO")]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_USUARIO_FUNCIONARIO", "FUNCIONARIO")]
         public FUNCIONARIO FUNCIONARIO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO").Value = value;
             }
         }
         /// <summary>
@@ -8372,13 +8311,13 @@ namespace EC.Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("EC.Model.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("EC.Model.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.fk_USUARIO_FUNCIONARIO", "FUNCIONARIO", value);
                 }
             }
         }

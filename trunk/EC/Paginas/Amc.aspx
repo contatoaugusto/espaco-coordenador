@@ -49,7 +49,7 @@
                 </asp:EntityDataSource>--%>
         <br />
         <br />
-  
+  </asp:Panel>
     <div class="form-separator"></div>
         <hr class="line" />
     <h3>AMCs Cadastradas</h3>
