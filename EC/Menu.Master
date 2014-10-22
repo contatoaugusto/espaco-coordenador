@@ -54,7 +54,7 @@
                                             <li><a href="#"><span>Alterar Dados Pessoais</span></a></li>
                                             <li><a href="#"><span>Alterar Senha da Biblioteca</span></a></li>
                                             <li><a href="#"><span>Alterar Senha do Espaço Aluno</span></a></li>
-                                            <li><a href="#"><span>Avatar</span></a></li>
+                                            <%--<li><a href="#"><span>Avatar</span></a></li>--%>
                                         </ul>
                                     </div>
                                 </li>
@@ -137,10 +137,11 @@
                 <%-- ************************ Menu Fim --%>
                 <br />
                 <br />
+                <div class="cb" style="clear:both;"></div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
             </div>
             
-            <div class="cb"></div>
+            <div class="cb" style="clear:both;"></div>
             <div id="footer" class="noprint">
                 Espaço Coordenador – UniCEUB © 2014<br />
             </div>

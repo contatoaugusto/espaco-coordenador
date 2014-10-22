@@ -22,6 +22,15 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.MessageBox messageBox;
         
         /// <summary>
+        /// pnlAmc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAmc;
+        
+        /// <summary>
         /// ddlSemestre control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace UI.Web.EC.Paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSalvar;
+        
+        /// <summary>
+        /// GridView_AMC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.GridView GridView_AMC;
         
         /// <summary>
         /// messageBox1 control.

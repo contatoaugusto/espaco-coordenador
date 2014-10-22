@@ -17,6 +17,7 @@ namespace UI.Web.EC.Paginas
             if (!IsPostBack)
             {
                 BindControl();
+                BindDataGrid();
             }
          }
 
@@ -24,6 +25,12 @@ namespace UI.Web.EC.Paginas
         {
             BindDropDownList();
             //BindPage();
+        }
+
+        public void BindDataGrid()
+        {
+            GridView_AMC.DataSource = NAmc.ConsultarAmc();
+            GridView_AMC.DataBind();
         }
 
 

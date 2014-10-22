@@ -16,10 +16,12 @@ namespace EC.Dado
                 List<AMC> ltAmc = new List<AMC>();
                 foreach (var tipo in c)
                 {
-                   AMC amc = new AMC();
-                   amc.ID_AMC = tipo.ID_AMC;
-                   amc.ANO = tipo.ANO;
-                   amc.SEMESTRE = tipo.SEMESTRE;
+                    AMC amc = new AMC();
+                    amc.ID_AMC = tipo.ID_AMC;
+                    amc.ANO = tipo.ANO;
+                    amc.SEMESTRE = tipo.SEMESTRE;
+                    amc.DATA_APLICACAO = tipo.DATA_APLICACAO;
+                    
                     ltAmc.Add(amc);
                 }
 

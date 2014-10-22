@@ -4,30 +4,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <script src="~/content/scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
-    <link href="Content/EspacoCoordenador.css" rel="stylesheet" />
-    <link href="Content/Page.css" rel="stylesheet" />
+    <%--<link href="Content/EspacoCoordenador.css" rel="stylesheet" />--%>
+    <%--<link href="Content/Page.css" rel="stylesheet" />--%>
     <title>Espaço Coordenador</title>
 
 
      <style type="text/css">
-        .caixa
+         .caixa
         {
-            border-bottom: #d5d5d5 1px solid;
-            border-left: #d5d5d5 1px solid;
-            position: relative;
-            padding: 20px;
-            width: 350px;
-            padding-right: 12px;
-            display: inline;
-            background: url(/Content/Images/caixa-bg.png) repeat-x left bottom;
-            float: left;
-            height: auto;
-            color: #6a6665;
-            border-top: #d5d5d5 1px solid;
-            border-right: #d5d5d5 1px solid;
-            text-align: left;
-            margin-top: 100px;
-        }
+            border: 1px solid #d5d5d5;
+             position: relative;
+            width: 304px;
+             padding-right: 12px;
+             display: inline;
+             background: url(/Content/Images/caixa-bg.png) repeat-x left bottom;
+             float: left;
+            height: 89px;
+             color: #6a6665;
+             text-align: left;
+             margin-top: 100px;
+             top: -14px;
+             left: -19px;
+             padding-left: 20px;
+             padding-top: 20px;
+             padding-bottom: 20px;
+         }
         .caixa .lt
         {
             position: absolute;
@@ -157,7 +158,82 @@
             /*border-right: #d5d5d5 1px solid;*/
             text-align: center;
             margin-top: 50px;
+             top: 97px;
+             left: -43px;
+         }
+
+        
+        /* Begin Button */
+        /*
+        label.button
+        {
+	        cursor: pointer;
+	        text-align: center;
+	        line-height: normal !important;
+	        text-decoration: none;
+	        vertical-align: top;
+	        display: inline-block;
+	        white-space: nowrap;
+	        background: #f1f2f2;
+	        border: solid 1px #dadada;
+	        border-radius: 2px;
+	        box-shadow: 0px 0px 0px #ccc;
+	        width: auto;
+	        height: auto;
+	        margin-right: 5px;
+        }*/
+
+        .botao
+        {
+	        background: #fff;
+	        border: solid 1px #ccc;
+	        cursor: pointer;
+	        color: #717272;
+	        border-radius: 2px;
+	        padding: 6px 8px;
+	        font-size: 90%;
+	        font-weight: bold;
+	        min-width:50px;
         }
+
+        .botao:hover
+        {
+	        background: #f1f1f1;
+	        color: #494848;
+        }
+
+        label.button button
+        {
+	        background: #fff;
+	        border: solid 1px #ccc;
+	        cursor: pointer;
+	        color: #717272;
+	        border-radius: 2px;
+	        padding: 6px 8px;
+	        font-size: 90%;
+	        font-weight: bold;
+	        min-width:50px;
+        }
+
+        label.button button.red
+        {
+	        border: solid 1px #851115;
+	        background: #af1d22;
+	        color:#fff;
+        }
+
+        label.button button:hover
+        {
+	        background: #f1f1f1;
+	        color: #494848;
+        }
+
+        label.button button.red:hover
+        {
+	        background: #851115;
+	        color:#f1f1f1;
+        }
+        /* End Button */
     </style>
 
 </head>
@@ -175,7 +251,7 @@
 
     <form id="form1" method="post" runat="server">
         <div style="top: 100px; width: 300px; margin: auto;">
-            <div class="cabecalho">Espaço Coordenador</div>
+            <div class="cabecalho" style="font-size: 110%; color: #990000; font-weight: bold;">Espaço Coordenador</div>
             <div id="login-container" class="caixa">
                 <center>
                 <div >
@@ -193,12 +269,25 @@
                 </center>
                 </div>
            <div>
-                    <span class="lt"></span><span class="rt"></span><span class="lb"></span><span class="rb"></span>
+              
+               <center>
+                        <label class="button">
+                            <sgi:Button ID="btnLogin" runat="server" Text="Ok" Style="margin-left: 10px;" CausesValidation="true" OnClick="btnLogin_Click" />
+                        </label>
 
-                        <sgi:Button ID="btnLogin" runat="server" Text="Ok" Style="margin-left: 80px;" CausesValidation="true" class="w50" CssClass="buttonEC" OnClick="btnLogin_Click" />
+                    </center>
             </div>
-        
         </div>
+        <table class="w150">
+            <tr>
+
+                <td>
+                    
+
+                </td>
+            </tr>
+
+        </table>
         <div id="footer">Espaço Coordenador – UniCEUB © 2014</div>
         <sgi:MessageBox ID="messageBox" runat="server" />
         <sgi:AlertBox ID="alert" runat="server" AutoClose="true" Visible="false" Timeout="25" />
