@@ -124,11 +124,11 @@ namespace EC.Dado
                 var id = q.ID_QUESTAO;
                 
 
-                foreach(RESPOSTA resposta in q.RESPOSTA)
-                {
-                    resposta.ID_QUESTAO = id;
-                    db.RESPOSTA.AddObject(resposta);
-                }
+                //foreach(RESPOSTA resposta in q.RESPOSTA)
+                //{
+                //    resposta.ID_QUESTAO = id;
+                //    db.RESPOSTA.AddObject(resposta);
+                //}
                 db.SaveChanges();
                 db.Dispose();
             }
