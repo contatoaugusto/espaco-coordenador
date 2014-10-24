@@ -91,6 +91,31 @@ namespace EC.Dado
             }
         }
 
+        public List<QUESTAO> ConsultarQuestaoGeraProva(int idAmc, int idCurso, int qtdeQuestoes)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var q = db.QUESTAO.Where(rs => rs.ID_AMC == idAmc && rs.id == objquestao.ID_FUNCIONARIO && rs.ID_AMC == objquestao.ID_AMC);
+
+                List<QUESTAO> ltQuestao = new List<QUESTAO>();
+
+                foreach (var tipo in q)
+                {
+                    QUESTAO questao = new QUESTAO();
+                    questao.ID_QUESTAO = tipo.ID_QUESTAO;
+                    questao.DESCRICAO = tipo.DESCRICAO;
+                    questao.FUNCIONARIO = new FUNCIONARIO();
+                    questao.FUNCIONARIO.PESSOA = new PESSOA();
+                    questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
+                    questao.DISCIPLINA = new DISCIPLINA();
+                    questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
+                    ltQuestao.Add(questao);
+                }
+
+                return ltQuestao;
+            }
+        }
+
                 public List<RESPOSTA> ConsultarResposta()
                 {
                     using (ECEntities db = new ECEntities())

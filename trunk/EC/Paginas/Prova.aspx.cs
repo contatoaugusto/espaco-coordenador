@@ -30,12 +30,14 @@ namespace UI.Web.EC.Paginas
 
         protected void ddlAmc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlDataSource_Questoes.SelectParameters["ID_AMC"].DefaultValue = ddlAmc.SelectedValue.ToString();
+            //SqlDataSource_Questoes.SelectParameters["ID_AMC"].DefaultValue = ddlAmc.SelectedValue.ToString();
         }
 
-        protected void btnSalvar_Click(object sender, EventArgs e)
-        {
 
+        protected void btnGerarProva_Click(object sender, EventArgs e)
+        {
+            // Selecionar as questões dessa AMC e do curso do usuario logado (professor ou coordenador)
+            NQuestão.ConsultarQuestao
         }
     }
 }

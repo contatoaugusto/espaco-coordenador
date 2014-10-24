@@ -30,6 +30,11 @@ namespace EC.Negocio
             return (new DQuestao()).ConsultarQuestao(questao);
         }
 
+        public static List<QUESTAO> ConsultarQuestaoGeraProva(int idAmc, int idCurso, int qtdeQuestoes)
+        {
+            return (new DQuestao()).ConsultarQuestaoGeraProva(idAmc, idCurso, qtdeQuestoes);
+        }
+
         public static List<RESPOSTA> ConsultarResposta()
         {
             return (new DQuestao()).ConsultarResposta();

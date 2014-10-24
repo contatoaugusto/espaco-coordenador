@@ -22,6 +22,15 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.MessageBox messageBox;
         
         /// <summary>
+        /// divInstrucoesGeraProva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstrucoesGeraProva;
+        
+        /// <summary>
         /// ddlAmc control.
         /// </summary>
         /// <remarks>
@@ -29,24 +38,6 @@ namespace UI.Web.EC.Paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::EC.UI.WebControls.DropDownList ddlAmc;
-        
-        /// <summary>
-        /// CheckBoxList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
-        
-        /// <summary>
-        /// SqlDataSource_Questoes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_Questoes;
         
         /// <summary>
         /// btnSalvar control.
