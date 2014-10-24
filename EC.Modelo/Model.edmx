@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ECModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ECModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACAO">
           <Key>
             <PropertyRef Name="ID_ACAO" />
@@ -205,6 +205,16 @@
           <Property Name="ID_PRIORIDADE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="PROVA">
+          <Key>
+            <PropertyRef Name="ID_PROVA" />
+          </Key>
+          <Property Name="ID_PROVA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA_CRIACAO" Type="datetime" Nullable="false" />
+          <Property Name="ID_FUNCIONARIO_CADATRO" Type="int" Nullable="false" />
+          <Property Name="DATA_RESULTADO" Type="datetime" />
+          <Property Name="OBSERVACAO" Type="varchar" MaxLength="1000" />
+        </EntityType>
         <EntityType Name="QUESTAO">
           <Key>
             <PropertyRef Name="ID_QUESTAO" />
@@ -215,6 +225,7 @@
           <Property Name="ID_FUNCIONARIO" Type="int" />
           <Property Name="DESCRICAO" Type="varchar(max)" />
           <Property Name="IMAGEM" Type="varbinary(max)" />
+          <Property Name="ID_PROVA" Type="int" />
         </EntityType>
         <EntityType Name="REPRESENTANTE_TURMA">
           <Key>
@@ -697,6 +708,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PROVA_FUNCIONARIO_CADASTRO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="PROVA" Type="Self.PROVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="PROVA">
+              <PropertyRef Name="ID_FUNCIONARIO_CADATRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROVA_PROVA">
+          <End Role="PROVA" Type="Self.PROVA" Multiplicity="1" />
+          <End Role="PROVA1" Type="Self.PROVA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PROVA">
+              <PropertyRef Name="ID_PROVA" />
+            </Principal>
+            <Dependent Role="PROVA1">
+              <PropertyRef Name="ID_PROVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_QUESTAO_AMC">
           <End Role="AMC" Type="Self.AMC" Multiplicity="0..1" />
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
@@ -730,6 +765,18 @@
             </Principal>
             <Dependent Role="QUESTAO">
               <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUESTAO_PROVA">
+          <End Role="PROVA" Type="Self.PROVA" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVA">
+              <PropertyRef Name="ID_PROVA" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_PROVA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -876,6 +923,7 @@
           <EntitySet Name="PAUTA_REUNIAO" EntityType="Self.PAUTA_REUNIAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PESSOA" EntityType="Self.PESSOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRIORIDADE_ACAO" EntityType="Self.PRIORIDADE_ACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROVA" EntityType="Self.PROVA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QUESTAO" EntityType="Self.QUESTAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REPRESENTANTE_TURMA" EntityType="Self.REPRESENTANTE_TURMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RESPOSTA" EntityType="Self.RESPOSTA" Schema="dbo" store:Type="Tables" />
@@ -1014,6 +1062,14 @@
             <End Role="PRIORIDADE_ACAO" EntitySet="PRIORIDADE_ACAO" />
             <End Role="ACAO" EntitySet="ACAO" />
           </AssociationSet>
+          <AssociationSet Name="FK_PROVA_FUNCIONARIO_CADASTRO" Association="Self.FK_PROVA_FUNCIONARIO_CADASTRO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="PROVA" EntitySet="PROVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROVA_PROVA" Association="Self.FK_PROVA_PROVA">
+            <End Role="PROVA" EntitySet="PROVA" />
+            <End Role="PROVA1" EntitySet="PROVA" />
+          </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_AMC" Association="Self.FK_QUESTAO_AMC">
             <End Role="AMC" EntitySet="AMC" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
@@ -1024,6 +1080,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_FUNCIONARIOPROFESSOR" Association="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUESTAO_PROVA" Association="Self.FK_QUESTAO_PROVA">
+            <End Role="PROVA" EntitySet="PROVA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
           <AssociationSet Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO" Association="Self.FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
@@ -1067,8 +1127,7 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ECModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1078,8 +1137,8 @@
           </Key>
           <Property Name="ID_ACAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TITULO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="INICIO" Type="DateTime" />
-          <Property Name="CONCLUSAO" Type="DateTime" />
+          <Property Name="INICIO" Type="DateTime" Precision="3" />
+          <Property Name="CONCLUSAO" Type="DateTime" Precision="3" />
           <Property Name="ID_STATUS" Type="Int32" />
           <Property Name="ID_PRIORIDADE" Type="Int32" />
           <Property Name="ID_PESSOA" Type="Int32" />
@@ -1150,7 +1209,7 @@
           <Property Name="ID_ALUNOCURSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_ALUNO" Type="Int32" Nullable="false" />
           <Property Name="ID_TURMA" Type="Int32" />
-          <Property Name="DATA_MATRICULA" Type="DateTime" />
+          <Property Name="DATA_MATRICULA" Type="DateTime" Precision="0" />
           <NavigationProperty Name="ALUNO" Relationship="Self.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO_CURSO" ToRole="ALUNO" />
           <NavigationProperty Name="ALUNO_AMC" Relationship="Self.FK_ALUNO_AMC_ALUNO_CURSO" FromRole="ALUNO_CURSO" ToRole="ALUNO_AMC" />
           <NavigationProperty Name="TURMA" Relationship="Self.FK_ALUNO_CURSO_TURMA" FromRole="ALUNO_CURSO" ToRole="TURMA" />
@@ -1163,7 +1222,7 @@
           <Property Name="ID_AMC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SEMESTRE" Type="Int32" Nullable="false" />
           <Property Name="ANO" Type="Int32" Nullable="false" />
-          <Property Name="DATA_APLICACAO" Type="DateTime" />
+          <Property Name="DATA_APLICACAO" Type="DateTime" Precision="3" />
           <NavigationProperty Name="ACAO_AMC" Relationship="Self.FK_ACAO_AMC_ACAO" FromRole="AMC" ToRole="ACAO_AMC" />
           <NavigationProperty Name="ALUNO_AMC" Relationship="Self.FK_ALUNO_AMC_AMC" FromRole="AMC" ToRole="ALUNO_AMC" />
           <NavigationProperty Name="QUESTAO" Relationship="Self.FK_QUESTAO_AMC" FromRole="AMC" ToRole="QUESTAO" />
@@ -1197,7 +1256,7 @@
           <Property Name="ID_PESSOA" Type="Int32" />
           <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ITEM" Type="Int32" />
-          <Property Name="DATA" Type="DateTime" />
+          <Property Name="DATA" Type="DateTime" Precision="0" />
           <NavigationProperty Name="PESSOA" Relationship="Self.fk_COMPROMISSO_PESSOA" FromRole="COMPROMISSO" ToRole="PESSOA" />
           <NavigationProperty Name="REUNIAO" Relationship="Self.fk_REUNIAO_COMPROMISSO" FromRole="COMPROMISSO" ToRole="REUNIAO" />
         </EntityType>
@@ -1250,8 +1309,8 @@
           <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="LOCAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="INICIO" Type="DateTime" />
-          <Property Name="CONCLUSAO" Type="DateTime" />
+          <Property Name="INICIO" Type="DateTime" Precision="3" />
+          <Property Name="CONCLUSAO" Type="DateTime" Precision="3" />
           <Property Name="ID_PESSOA" Type="Int32" />
           <NavigationProperty Name="ACAO_EVENTO" Relationship="Self.fk_acao_evento" FromRole="EVENTO" ToRole="ACAO_EVENTO" />
           <NavigationProperty Name="PESSOA" Relationship="Self.fk_EVENTO_PESSOA" FromRole="EVENTO" ToRole="PESSOA" />
@@ -1273,6 +1332,7 @@
           <NavigationProperty Name="QUESTAO" Relationship="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
           <NavigationProperty Name="TURMA" Relationship="Self.FK_TURMA_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="TURMA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.fk_USUARIO_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="USUARIO" />
+          <NavigationProperty Name="PROVA" Relationship="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" FromRole="FUNCIONARIO" ToRole="PROVA" />
         </EntityType>
         <EntityType Name="LANCAMENTO">
           <Key>
@@ -1281,7 +1341,7 @@
           <Property Name="ID_LANCAMENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_TURMA" Type="Int32" />
           <Property Name="ID_TIPOLANCAMENTO" Type="Int32" />
-          <Property Name="DATA_LANCAMENTO" Type="DateTime" />
+          <Property Name="DATA_LANCAMENTO" Type="DateTime" Precision="0" />
           <Property Name="SEMESTRE" Type="Int32" />
           <Property Name="JUSTIFICATIVA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PROVIDENCIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -1347,6 +1407,8 @@
           <NavigationProperty Name="DISCIPLINA" Relationship="Self.FK_QUESTAO_DISCIPLINA" FromRole="QUESTAO" ToRole="DISCIPLINA" />
           <NavigationProperty Name="FUNCIONARIO" Relationship="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR" FromRole="QUESTAO" ToRole="FUNCIONARIO" />
           <NavigationProperty Name="RESPOSTA" Relationship="Self.FK_RESPOSTA_QUESTAO" FromRole="QUESTAO" ToRole="RESPOSTA" />
+          <Property Name="ID_PROVA" Type="Int32" />
+          <NavigationProperty Name="PROVA" Relationship="ECModel.FK_QUESTAO_PROVA" FromRole="QUESTAO" ToRole="PROVA" />
         </EntityType>
         <EntityType Name="REPRESENTANTE_TURMA">
           <Key>
@@ -1379,7 +1441,7 @@
           <Property Name="TITULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SEMESTRE" Type="Int32" Nullable="false" />
           <Property Name="LOCAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DATAHORA" Type="DateTime" />
+          <Property Name="DATAHORA" Type="DateTime" Precision="3" />
           <NavigationProperty Name="ACAO_REUNIAO" Relationship="Self.fk_ACAO_REUNIAO_REUNIAO" FromRole="REUNIAO" ToRole="ACAO_REUNIAO" />
           <NavigationProperty Name="ASSUNTO_TRATADO" Relationship="Self.FK_ASSTRATADOS" FromRole="REUNIAO" ToRole="ASSUNTO_TRATADO" />
           <NavigationProperty Name="COMPROMISSO" Relationship="Self.fk_REUNIAO_COMPROMISSO" FromRole="REUNIAO" ToRole="COMPROMISSO" />
@@ -2221,7 +2283,70 @@
             <End Role="TIPO_TURMA" EntitySet="TIPO_TURMA" />
             <End Role="TURMA" EntitySet="TURMA" />
           </AssociationSet>
+          <EntitySet Name="PROVA" EntityType="ECModel.PROVA" />
+          <AssociationSet Name="FK_PROVA_FUNCIONARIO_CADASTRO" Association="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="PROVA" EntitySet="PROVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROVA_PROVA" Association="ECModel.FK_PROVA_PROVA">
+            <End Role="PROVA" EntitySet="PROVA" />
+            <End Role="PROVA1" EntitySet="PROVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUESTAO_PROVA" Association="ECModel.FK_QUESTAO_PROVA">
+            <End Role="PROVA" EntitySet="PROVA" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="PROVA">
+          <Key>
+            <PropertyRef Name="ID_PROVA" />
+          </Key>
+          <Property Name="ID_PROVA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA_CRIACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_FUNCIONARIO_CADATRO" Type="Int32" Nullable="false" />
+          <Property Name="DATA_RESULTADO" Type="DateTime" Precision="3" />
+          <Property Name="OBSERVACAO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" FromRole="PROVA" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="PROVA1" Relationship="ECModel.FK_PROVA_PROVA" FromRole="PROVA" ToRole="PROVA1" />
+          <NavigationProperty Name="PROVA2" Relationship="ECModel.FK_PROVA_PROVA" FromRole="PROVA1" ToRole="PROVA" />
+          <NavigationProperty Name="QUESTAO" Relationship="ECModel.FK_QUESTAO_PROVA" FromRole="PROVA" ToRole="QUESTAO" />
+        </EntityType>
+        <Association Name="FK_PROVA_FUNCIONARIO_CADASTRO">
+          <End Type="ECModel.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="1" />
+          <End Type="ECModel.PROVA" Role="PROVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="PROVA">
+              <PropertyRef Name="ID_FUNCIONARIO_CADATRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROVA_PROVA">
+          <End Type="ECModel.PROVA" Role="PROVA" Multiplicity="1" />
+          <End Type="ECModel.PROVA" Role="PROVA1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PROVA">
+              <PropertyRef Name="ID_PROVA" />
+            </Principal>
+            <Dependent Role="PROVA1">
+              <PropertyRef Name="ID_PROVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUESTAO_PROVA">
+          <End Type="ECModel.PROVA" Role="PROVA" Multiplicity="0..1" />
+          <End Type="ECModel.QUESTAO" Role="QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVA">
+              <PropertyRef Name="ID_PROVA" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_PROVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2453,6 +2578,7 @@
           <EntitySetMapping Name="QUESTAO">
             <EntityTypeMapping TypeName="ECModel.QUESTAO">
               <MappingFragment StoreEntitySet="QUESTAO">
+                <ScalarProperty Name="ID_PROVA" ColumnName="ID_PROVA" />
                 <ScalarProperty Name="ID_QUESTAO" ColumnName="ID_QUESTAO" />
                 <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
                 <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
@@ -2581,6 +2707,17 @@
                 <ScalarProperty Name="SENHA" ColumnName="SENHA" />
                 <ScalarProperty Name="FOTO" ColumnName="FOTO" />
                 <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVA">
+            <EntityTypeMapping TypeName="ECModel.PROVA">
+              <MappingFragment StoreEntitySet="PROVA">
+                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+                <ScalarProperty Name="DATA_RESULTADO" ColumnName="DATA_RESULTADO" />
+                <ScalarProperty Name="ID_FUNCIONARIO_CADATRO" ColumnName="ID_FUNCIONARIO_CADATRO" />
+                <ScalarProperty Name="DATA_CRIACAO" ColumnName="DATA_CRIACAO" />
+                <ScalarProperty Name="ID_PROVA" ColumnName="ID_PROVA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

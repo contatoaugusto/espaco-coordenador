@@ -50,11 +50,6 @@ namespace UI.Web.EC
                 foreach (CURSO item in listCurso)
                 {
                     oStr.Append("<li'><a href='#'><span>" + item.DESCRICAO + "</span></a></li>");
-                    //if (lblCursoFirst.Text == string.Empty)
-                    //{
-                    //    lblCursoFirst.Text = item.DESCRICAO;
-                    //    hddidCurso.Value = item.ID_CURSO.ToString();
-                    //}
                 }
                 oStr.Append("</ul></div></li>");
                 lblCurso.Text = oStr.ToString();

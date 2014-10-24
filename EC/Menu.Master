@@ -53,7 +53,7 @@
                                         <ul>
                                             <li><a href="#"><span>Alterar Dados Pessoais</span></a></li>
                                             <li><a href="#"><span>Alterar Senha da Biblioteca</span></a></li>
-                                            <li><a href="#"><span>Alterar Senha do Espaço Aluno</span></a></li>
+                                            <li><a href="#"><span>Alterar Senha do Espaço Coordenador</span></a></li>
                                             <%--<li><a href="#"><span>Avatar</span></a></li>--%>
                                         </ul>
                                     </div>

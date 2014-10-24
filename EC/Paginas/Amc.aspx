@@ -55,17 +55,38 @@
     <h3>AMCs Cadastradas</h3>
     
     <sgi:GridView ID="GridView_AMC" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_AMC" Width="474px" BackColor="#BFBFBF" BorderColor="#BFBFBF" 
-        BorderStyle="Solid" CssClass="gridview" >
+        BorderStyle="Solid" CssClass="gridview" GroupFooter="False" PageSize="50" ShowWhenEmpty="False" >
+        <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>
-            <%--<asp:BoundField DataField="ID_AMC" HeaderText="ID" ReadOnly="True" SortExpression="ID_AMC" />--%>
+            <%--<asp:BoundField DataField="ID_AMC" HeaderText="ID" ReadOnly="True" SortExpression="ID_AMC" />--%>   
             <asp:BoundField DataField="SEMESTRE" HeaderText="Semestre" SortExpression="SEMESTRE" />
             <asp:BoundField DataField="ANO" HeaderText="Ano" SortExpression="ANO" />
             <asp:BoundField DataField="DATA_APLICACAO" HeaderText="Data" SortExpression="DATA_APLICACAO" />
+            
+            <asp:CommandField DeleteImageUrl="~/Imagens/close.png" ShowDeleteButton="True" DeleteText="Excluir" />
+            
         </Columns>
+
+        <HeaderStyle CssClass="gridviewrowheader"></HeaderStyle>
+
+        <PagerStyle CssClass="gridviewpaging"></PagerStyle>
+
+        <RowStyle CssClass="gridviewrow"></RowStyle>
         </sgi:GridView>
 
     
+
+
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=ECEntities" DefaultContainerName="ECEntities" EnableDelete="True" EnableFlattening="False" EnableUpdate="True" EntitySetName="AMC">
+    </asp:EntityDataSource>
+
+    
+
+
     </div>
+
+
+
     <sgi:MessageBox ID="messageBox1" runat="server" />
     <sgi:AlertBox ID="alert" runat="server" AutoClose="true" Visible="false" Timeout="25" />
     <%--</sgi:UpdatePanel>--%>
