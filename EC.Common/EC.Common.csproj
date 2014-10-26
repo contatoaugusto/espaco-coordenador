@@ -95,6 +95,7 @@
     <Compile Include="ReturnObject.cs" />
     <Compile Include="Safe.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="SessionUsuario.cs" />
     <Compile Include="SGIException.cs" />
     <Compile Include="TypeAlert.cs" />
     <Compile Include="TypeParameterException.cs" />
@@ -128,6 +129,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />

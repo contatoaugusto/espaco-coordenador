@@ -19,10 +19,17 @@
                 AMC:
             </div>
             <div class="column w500">
-                <sgi:DropDownList ID="ddlAmc" runat="server" OnSelectedIndexChanged="ddlAmc_SelectedIndexChanged" AutoPostBack="true"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlAmc" runat="server" equiredField="true"></sgi:DropDownList>
             </div>
         </div>
-        
+         <div class="row">
+            <div class="column w100">
+                Quantidade de questões:
+            </div>
+            <div class="column w100">
+                <asp:TextBox ID="txtQuantidadeQuestoes" runat="server" RequiredField="true"></asp:TextBox>
+            </div>
+        </div>
         <%--<div class="row">--%>
             <%--<div class="column w350">
                 <asp:ListBox 
@@ -73,4 +80,43 @@
         <asp:Button ID="btnSalvar" runat="server" Text="Gerar Prova" OnClick="btnGerarProva_Click"/>
         <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
     </div>
+    <div class="form-separator"></div>
+
+     <h3>AMCs Cadastradas</h3>
+    <sgi:GridView ID="GridView1" 
+        runat="server" 
+        AutoGenerateColumns="False" 
+        DataKeyNames="ID_PROVA" 
+        DataSourceID="SqlDataSource" 
+        BackColor="#BFBFBF" 
+        BorderColor="#BFBFBF" 
+        BorderStyle="Solid" 
+        CssClass="gridview" 
+        GroupFooter="False" 
+        PageSize="50" 
+        ShowWhenEmpty="False"
+        OnRowCommand="GridView1_RowCommand">
+        <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
+        <Columns>
+            <%--<asp:BoundField DataField="ID_PROVA" HeaderText="ID_PROVA" InsertVisible="False" ReadOnly="True" SortExpression="ID_PROVA" />--%>
+            <asp:BoundField DataField="DATA_CRIACAO" HeaderText="Data Criação" SortExpression="DATA_CRIACAO" />
+            <%--<asp:BoundField DataField="ID_FUNCIONARIO_CADATRO" HeaderText="ID_FUNCIONARIO_CADATRO" SortExpression="ID_FUNCIONARIO_CADATRO" />--%>
+            <%--<asp:BoundField DataField="DATA_RESULTADO" HeaderText="DATA_RESULTADO" SortExpression="DATA_RESULTADO" />--%>
+            <asp:BoundField DataField="OBSERVACAO" HeaderText="Observação" SortExpression="OBSERVACAO" />
+            <asp:BoundField DataField="QTDE_QUESTOES" HeaderText="Qtde Questões" SortExpression="QTDE_QUESTOES" />
+            <asp:TemplateField HeaderText="Ações">
+                <ItemTemplate>
+                    <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_PROVA")%>' CommandName="Imprimir" Text="Imprimir" CausesValidation="false" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+        </Columns>
+
+<HeaderStyle CssClass="gridviewrowheader"></HeaderStyle>
+
+<PagerStyle CssClass="gridviewpaging"></PagerStyle>
+
+<RowStyle CssClass="gridviewrow"></RowStyle>
+    </sgi:GridView>
+<asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ECConnectionString %>" SelectCommand="SELECT * FROM [PROVA]"></asp:SqlDataSource>
 </asp:Content>

@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EC.Modelo;
 using EC.Negocio;
+using EC.Common;
 
 namespace UI.Web.EC
 {
@@ -30,16 +31,17 @@ namespace UI.Web.EC
             l.Text = "<script type=\"text/javascript\" src=\"" + ResolveClientUrl("~/Templates/Clean/Includes/Initialize.js") + "\"></script>";
             Page.Header.Controls.Add(l);
 
-            USUARIO usuario = (USUARIO)Session["USUARIO"];
-            if (usuario == null)
+            SessionUsuario sessionUsuario = (SessionUsuario)Session["USUARIO"];
+            
+            if (sessionUsuario == null)
                 Response.Redirect ("~/Login.aspx");
 
-            lblMatricula.Text = usuario.FUNCIONARIO.MATRICULA.ToString();
-            lblNomeCoordenador.Text = usuario.FUNCIONARIO.PESSOA.NOME;
-            
+            lblMatricula.Text = sessionUsuario.USUARIO.FUNCIONARIO.MATRICULA.ToString();
+            lblNomeCoordenador.Text = sessionUsuario.USUARIO.FUNCIONARIO.PESSOA.NOME;
+            lblCursoUnico.Text = sessionUsuario.NmCurso;
             
             // Cursos do coordenador
-            List<CURSO> listCurso = NCursoCoordenador.ConsultarCursoByCoordenador(usuario.FUNCIONARIO.ID_FUNCIONARIO);
+            List<CURSO> listCurso = NCursoCoordenador.ConsultarCursoByCoordenador(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO);
             if (listCurso.Count > 0 && listCurso != null)
             {
 
@@ -49,7 +51,7 @@ namespace UI.Web.EC
                 oStr.Append("<div style=\"width:auto\"><ul>");
                 foreach (CURSO item in listCurso)
                 {
-                    oStr.Append("<li'><a href='#'><span>" + item.DESCRICAO + "</span></a></li>");
+                    oStr.Append("<br/><li'><a href='#'><span>" + item.DESCRICAO + "</span></a></li>");
                 }
                 oStr.Append("</ul></div></li>");
                 lblCurso.Text = oStr.ToString();
@@ -58,7 +60,7 @@ namespace UI.Web.EC
             //btnPesquisar.ImageUrl = Utils.GetUrlImageTheme("btn-pesquisar.gif");
             //btnPesquisar.OnClientClick = "searchInBing('" + ResolveClientUrl("~/pesquisa.aspx") + "', '" + txtdePesquisa.ClientID + "');return false;";
 
-            imgAluno.ImageUrl = string.Format("content/avatar.ashx?{0}", usuario.ID_USUARIO);
+            imgAluno.ImageUrl = string.Format("content/avatar.ashx?{0}", sessionUsuario.USUARIO.ID_USUARIO);
             imgAluno.OnClientClick = string.Format("redirect('{0}');return false;", ResolveClientUrl("~/Coordenador/avatar.aspx"));
 
 

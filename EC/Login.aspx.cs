@@ -38,7 +38,8 @@ namespace UI.Web.EC
                 return;
             }
 
-            var u = NUsuario.ConsultarUsuarioByLoging(matricula, true);
+            SessionUsuario u = new SessionUsuario();
+            u.USUARIO = NUsuario.ConsultarUsuarioByLoging(matricula, true);
 
             if (u == null)
             {
@@ -47,26 +48,28 @@ namespace UI.Web.EC
                 return;
             }
 
-            if (u.FUNCIONARIO.CARGO.ID_CARGO != 2)
+            if (u.USUARIO.FUNCIONARIO.CARGO.ID_CARGO != 2)
             {
                 btnLogin.Enabled = true;
                 alert.Show("O funcionário não é coordenador de curso. ");
                 return;
             }
 
-            if ((txtMatricula.Text == u.FUNCIONARIO.MATRICULA.ToString()) && (txtcoAcesso.Text == u.SENHA)) 
+            if ((txtMatricula.Text == u.USUARIO.FUNCIONARIO.MATRICULA.ToString()) && (txtcoAcesso.Text == u.USUARIO.SENHA)) 
             {
                 FormsAuthentication.RedirectFromLoginPage(txtMatricula.Text, true);
                 System.Web.HttpCookie cookie = new System.Web.HttpCookie("espacocorrdenador@uniceub.br", matricula.ToString());
                 cookie.Expires = DateTime.Now.AddDays(30);
                 Response.Cookies.Add(cookie);
 
+                // Curso
+                var curso = NCursoCoordenador.ConsultarCursoByCoordenador(u.USUARIO.FUNCIONARIO.ID_FUNCIONARIO).First();
+                u.IdCurso = curso.ID_CURSO;
+                u.NmCurso = curso.DESCRICAO;
+
                 Session["USUARIO"] = u;
 
-                // Curso
-                var curso = NCursoCoordenador.ConsultarCursoByCoordenador(u.FUNCIONARIO.ID_FUNCIONARIO).First();
-                Session["ID_CURSO"] = curso.ID_CURSO;
-                Session["NM_CURSO"] = curso.DESCRICAO;
+                
 
                 //Session objSession = new Session();
                 //Session.id = u.idPessoa;

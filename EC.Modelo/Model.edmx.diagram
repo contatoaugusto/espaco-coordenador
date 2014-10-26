@@ -85,11 +85,10 @@
         <AssociationConnector Association="ECModel.FK_TURMA_REPRESENTANTE_TURMA" ManuallyRouted="false" />
         <AssociationConnector Association="ECModel.FK_TIPOREUNIAO" ManuallyRouted="false" />
         <AssociationConnector Association="ECModel.FK_TURMA_TIPO" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ECModel.PROVA" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="ECModel.PROVA" Width="1.5" PointX="5.25" PointY="2.75" />
         <AssociationConnector Association="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" />
-        <AssociationConnector Association="ECModel.FK_PROVA_PROVA" />
         <AssociationConnector Association="ECModel.FK_QUESTAO_PROVA" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

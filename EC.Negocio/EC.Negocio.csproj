@@ -49,8 +49,11 @@
     <Compile Include="NCursoCoordenador.cs" />
     <Compile Include="NDisciplina.cs" />
     <Compile Include="NEvento.cs" />
+    <Compile Include="NFuncionario.cs" />
     <Compile Include="NLancamento.cs" />
+    <Compile Include="NProva.cs" />
     <Compile Include="NQuestão.cs" />
+    <Compile Include="NResposta.cs" />
     <Compile Include="NReuniao.cs" />
     <Compile Include="NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

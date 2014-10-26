@@ -47,7 +47,7 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarFuncionario()
         {
-            var lista = NQuestão.ConsultarFuncionario();
+            var lista = NFuncionario.ConsultarFuncionario();
 
             foreach (FUNCIONARIO func in lista)
             {

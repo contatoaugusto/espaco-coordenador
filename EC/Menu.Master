@@ -37,7 +37,7 @@
                         <ul>
                             <li id="matricula">Matrícula: <asp:Label ID="lblMatricula" runat="server"></asp:Label>  </li>
                             <li><a id="nome" href="#"><asp:Label ID="lblNomeCoordenador" runat="server"></asp:Label></a></li>
-                            <li><a id="curso" href="#"><%= Session["NM_CURSO"]%></a></li>
+                            <li><a id="curso" href="#"><asp:Label ID="lblCursoUnico" runat="server"></asp:Label></a></li>
                             
                             <%--<li style="width: 400px; overflow-x: hidden; text-wrap: normal;">Ciências da computação</li>--%>
                         </ul>

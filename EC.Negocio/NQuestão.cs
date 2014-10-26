@@ -20,26 +20,17 @@ namespace EC.Negocio
             return (new DQuestao()).ConsultarDisciplina();
         }
 
-        public static List<FUNCIONARIO> ConsultarFuncionario()
-        {
-            return (new DQuestao()).ConsultarFuncionario();
-        }
-
         public static List<QUESTAO> ConsultarQuestao(QUESTAO questao)
         {
             return (new DQuestao()).ConsultarQuestao(questao);
         }
 
-        public static List<QUESTAO> ConsultarQuestaoGeraProva(int idAmc, int idCurso, int qtdeQuestoes)
+        public static List<QUESTAO> ConsultarQuestaoByProva(int idProva)
         {
-            return (new DQuestao()).ConsultarQuestaoGeraProva(idAmc, idCurso, qtdeQuestoes);
+            return (new DQuestao()).ConsultarQuestaoByProva(idProva);
         }
 
-        public static List<RESPOSTA> ConsultarResposta()
-        {
-            return (new DQuestao()).ConsultarResposta();
-        }
-
+        
         public static void Salvar(QUESTAO q)
         {
             DQuestao dquestao = new DQuestao();

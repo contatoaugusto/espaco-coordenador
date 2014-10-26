@@ -47,24 +47,7 @@ namespace EC.Dado
             }
         }
 
-        public List<FUNCIONARIO> ConsultarFuncionario()
-        {
-            using (ECEntities db = new ECEntities())
-            {
-                var f = db.FUNCIONARIO.ToList();
-                List<FUNCIONARIO> ltFuncionario = new List<FUNCIONARIO>();
-                foreach (var tipo in f)
-                {                    
-                  FUNCIONARIO funcionario = new FUNCIONARIO();
-                  funcionario.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
-                  funcionario.PESSOA = new PESSOA();
-                  funcionario.PESSOA.NOME = tipo.PESSOA.NOME;
-                  ltFuncionario.Add(funcionario);
-                }
-
-                return ltFuncionario;
-            }
-        }
+        
 
         public List<QUESTAO> ConsultarQuestao(QUESTAO objquestao)
         {
@@ -83,6 +66,7 @@ namespace EC.Dado
                     questao.FUNCIONARIO.PESSOA = new PESSOA();
                     questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
                     questao.DISCIPLINA = new DISCIPLINA();
+                    questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
                     questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
                     ltQuestao.Add(questao);
                 }
@@ -91,11 +75,53 @@ namespace EC.Dado
             }
         }
 
-        public List<QUESTAO> ConsultarQuestaoGeraProva(int idAmc, int idCurso, int qtdeQuestoes)
+        public List<QUESTAO> ConsultarQuestaoByProva(int idProva)
         {
             using (ECEntities db = new ECEntities())
             {
-                var q = db.QUESTAO.Where(rs => rs.ID_AMC == idAmc && rs.id == objquestao.ID_FUNCIONARIO && rs.ID_AMC == objquestao.ID_AMC);
+                var q = db.QUESTAO.Where(rs => rs.ID_PROVA == idProva);
+
+                List<QUESTAO> ltQuestao = new List<QUESTAO>();
+
+                foreach (var tipo in q)
+                {
+                    QUESTAO questao = new QUESTAO();
+                    questao.ID_QUESTAO = tipo.ID_QUESTAO;
+                    questao.DESCRICAO = tipo.DESCRICAO;
+                    questao.IMAGEM = tipo.IMAGEM;
+
+                    //DDisciplina disciplina = new DDisciplina();
+                    questao.DISCIPLINA = tipo.DISCIPLINA; //disciplina.ConsultarById(tipo.DISCIPLINA.ID_DISCIPLINA);
+
+                    //DFuncionario funcionario = new DFuncionario();
+                    questao.FUNCIONARIO = tipo.FUNCIONARIO; //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
+
+                    //Respostas dessa questão
+                    DResposta resposta = new DResposta();
+                    var resp = resposta.ConsultarRespostaByQuestao(tipo.ID_QUESTAO);
+
+                    foreach (var r in resp)
+                    {
+                        RESPOSTA obj = new RESPOSTA();
+                        obj.ID_RESPOSTA = r.ID_RESPOSTA;
+                        obj.ID_QUESTAO = r.ID_QUESTAO;
+                        obj.TEXTO = r.TEXTO;
+                        obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
+                        questao.RESPOSTA.Add(obj);
+                    }
+
+                    ltQuestao.Add(questao);
+                }
+
+                return ltQuestao;
+            }
+        }
+
+        public List<QUESTAO> ConsultarQuestaoProvaByAmcCurso(int idAmc, int idCurso)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var q = db.QUESTAO.Where(rs => rs.ID_AMC == idAmc && rs.DISCIPLINA.ID_CURSO == idCurso && rs.ID_PROVA == null);
 
                 List<QUESTAO> ltQuestao = new List<QUESTAO>();
 
@@ -108,6 +134,7 @@ namespace EC.Dado
                     questao.FUNCIONARIO.PESSOA = new PESSOA();
                     questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
                     questao.DISCIPLINA = new DISCIPLINA();
+                    questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
                     questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
                     ltQuestao.Add(questao);
                 }
@@ -116,27 +143,7 @@ namespace EC.Dado
             }
         }
 
-                public List<RESPOSTA> ConsultarResposta()
-                {
-                    using (ECEntities db = new ECEntities())
-                    {
-                        var r = db.RESPOSTA.ToList();
-                        List<RESPOSTA> ltResposta = new List<RESPOSTA>();
-
-                        foreach (var tipo in r)
-                        {
-                            RESPOSTA resposta = new RESPOSTA();
-                            resposta.ID_QUESTAO = tipo.ID_RESPOSTA;
-                            resposta.TEXTO = tipo.TEXTO;
-                           ltResposta.Add(resposta);
-                        }
-
-                        return ltResposta;
-                    }
-                }
-
-
-
+        
         public void Salvar(QUESTAO q)
         {   
             using (ECEntities db = new ECEntities())
