@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EC.Negocio;
@@ -58,10 +59,47 @@ namespace UI.Web.EC.Paginas
                 reportViewer.LocalReport.EnableExternalImages = true;
 
                 List<QUESTAO> questao = NQuestão.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
+                
+                List<QuestaoHelper> questaoHelper = new List<QuestaoHelper>();
+                foreach (var item in questao){
+                    QuestaoHelper obj = new QuestaoHelper();
+                    obj.QUESTAO = item;
+                    obj.Imagem = Library.ConvertByteToImage( item.IMAGEM);
+                    questaoHelper.Add(obj);
+                }
+
+                // Montar questão e respostas em um campo
+                int i = 0;
+                char[] letrasResposta = { 'A', 'B', 'C', 'D', 'E' };
+                int countResposta;
+                foreach (var item in questao)
+                {
+                    StringBuilder strResposta = new StringBuilder();
+                    
+                    strResposta.Append("\n Questão " + (i + 1) + " - " + item.DESCRICAO + "\n ");
+
+                    if (item.IMAGEM != null && item.IMAGEM.ToArray().Count() > 0)
+                        strResposta.Append("\n @&imagem \n");
+
+                    countResposta = 0; 
+                    foreach (var itemResposta in item.RESPOSTA)
+                    {
+                        strResposta.Append("\n (" + letrasResposta[countResposta] + ") " + itemResposta.TEXTO);
+                        countResposta++;
+                    }
+                    questao[i].DESCRICAO =  strResposta.ToString();
+                    
+                    i++;
+                }
+                
+                //var questaoDataTable = Library.ConvertListToDataTable(questao);
+
+                questao
+
                 reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Questoes", questao));
 
                 reportViewer.DocumentMapCollapsed = true;
-                Utils.RenderReportToPDF(Context, reportViewer, "historicoescolar");
+                Utils.RenderReportToPDF(Context, reportViewer, "Prova");
             }
         }
     }

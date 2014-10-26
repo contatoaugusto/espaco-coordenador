@@ -5680,7 +5680,11 @@ namespace EC.Common
             for (int i = 0; i < props.Count; i++)
             {
                 PropertyDescriptor prop = props[i];
-                table.Columns.Add(prop.Name, prop.PropertyType);
+
+                DataColumn column = new DataColumn(prop.Name, prop.PropertyType);
+                column.AllowDBNull = true;
+                //if (!prop.PropertyType.ToString().Contains("Nullable"))
+                table.Columns.Add(column);    
             }
             
             object[] values = new object[props.Count];
