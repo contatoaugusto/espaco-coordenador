@@ -214,6 +214,7 @@
           <Property Name="ID_FUNCIONARIO_CADATRO" Type="int" Nullable="false" />
           <Property Name="DATA_RESULTADO" Type="datetime" />
           <Property Name="OBSERVACAO" Type="varchar" MaxLength="1000" />
+          <Property Name="QTDE_QUESTOES" Type="int" />
         </EntityType>
         <EntityType Name="QUESTAO">
           <Key>
@@ -720,18 +721,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PROVA_PROVA">
-          <End Role="PROVA" Type="Self.PROVA" Multiplicity="1" />
-          <End Role="PROVA1" Type="Self.PROVA" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="PROVA">
-              <PropertyRef Name="ID_PROVA" />
-            </Principal>
-            <Dependent Role="PROVA1">
-              <PropertyRef Name="ID_PROVA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_QUESTAO_AMC">
           <End Role="AMC" Type="Self.AMC" Multiplicity="0..1" />
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
@@ -1065,10 +1054,6 @@
           <AssociationSet Name="FK_PROVA_FUNCIONARIO_CADASTRO" Association="Self.FK_PROVA_FUNCIONARIO_CADASTRO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="PROVA" EntitySet="PROVA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PROVA_PROVA" Association="Self.FK_PROVA_PROVA">
-            <End Role="PROVA" EntitySet="PROVA" />
-            <End Role="PROVA1" EntitySet="PROVA" />
           </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_AMC" Association="Self.FK_QUESTAO_AMC">
             <End Role="AMC" EntitySet="AMC" />
@@ -2288,10 +2273,6 @@
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="PROVA" EntitySet="PROVA" />
           </AssociationSet>
-          <AssociationSet Name="FK_PROVA_PROVA" Association="ECModel.FK_PROVA_PROVA">
-            <End Role="PROVA" EntitySet="PROVA" />
-            <End Role="PROVA1" EntitySet="PROVA" />
-          </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_PROVA" Association="ECModel.FK_QUESTAO_PROVA">
             <End Role="PROVA" EntitySet="PROVA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
@@ -2306,9 +2287,8 @@
           <Property Name="ID_FUNCIONARIO_CADATRO" Type="Int32" Nullable="false" />
           <Property Name="DATA_RESULTADO" Type="DateTime" Precision="3" />
           <Property Name="OBSERVACAO" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="QTDE_QUESTOES" Type="Int32" />
           <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" FromRole="PROVA" ToRole="FUNCIONARIO" />
-          <NavigationProperty Name="PROVA1" Relationship="ECModel.FK_PROVA_PROVA" FromRole="PROVA" ToRole="PROVA1" />
-          <NavigationProperty Name="PROVA2" Relationship="ECModel.FK_PROVA_PROVA" FromRole="PROVA1" ToRole="PROVA" />
           <NavigationProperty Name="QUESTAO" Relationship="ECModel.FK_QUESTAO_PROVA" FromRole="PROVA" ToRole="QUESTAO" />
         </EntityType>
         <Association Name="FK_PROVA_FUNCIONARIO_CADASTRO">
@@ -2320,18 +2300,6 @@
             </Principal>
             <Dependent Role="PROVA">
               <PropertyRef Name="ID_FUNCIONARIO_CADATRO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PROVA_PROVA">
-          <End Type="ECModel.PROVA" Role="PROVA" Multiplicity="1" />
-          <End Type="ECModel.PROVA" Role="PROVA1" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="PROVA">
-              <PropertyRef Name="ID_PROVA" />
-            </Principal>
-            <Dependent Role="PROVA1">
-              <PropertyRef Name="ID_PROVA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2713,6 +2681,7 @@
           <EntitySetMapping Name="PROVA">
             <EntityTypeMapping TypeName="ECModel.PROVA">
               <MappingFragment StoreEntitySet="PROVA">
+                <ScalarProperty Name="QTDE_QUESTOES" ColumnName="QTDE_QUESTOES" />
                 <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
                 <ScalarProperty Name="DATA_RESULTADO" ColumnName="DATA_RESULTADO" />
                 <ScalarProperty Name="ID_FUNCIONARIO_CADATRO" ColumnName="ID_FUNCIONARIO_CADATRO" />

@@ -64,7 +64,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TIPOREUNIAO", "TIPO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.TIPO_REUNIAO), "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_TIPO", "TIPO_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_TURMA), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_PROVA_FUNCIONARIO_CADASTRO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PROVA), true)]
-[assembly: EdmRelationshipAttribute("ECModel", "FK_PROVA_PROVA", "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.PROVA), "PROVA1", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PROVA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_PROVA", "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PROVA), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
 
 #endregion
@@ -6042,6 +6041,30 @@ namespace EC.Modelo
         private global::System.String _OBSERVACAO;
         partial void OnOBSERVACAOChanging(global::System.String value);
         partial void OnOBSERVACAOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> QTDE_QUESTOES
+        {
+            get
+            {
+                return _QTDE_QUESTOES;
+            }
+            set
+            {
+                OnQTDE_QUESTOESChanging(value);
+                ReportPropertyChanging("QTDE_QUESTOES");
+                _QTDE_QUESTOES = StructuralObject.SetValidValue(value, "QTDE_QUESTOES");
+                ReportPropertyChanged("QTDE_QUESTOES");
+                OnQTDE_QUESTOESChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _QTDE_QUESTOES;
+        partial void OnQTDE_QUESTOESChanging(Nullable<global::System.Int32> value);
+        partial void OnQTDE_QUESTOESChanged();
 
         #endregion
 
@@ -6081,82 +6104,6 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.FK_PROVA_FUNCIONARIO_CADASTRO", "FUNCIONARIO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_PROVA_PROVA", "PROVA1")]
-        public PROVA PROVA1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA1").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA1").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<PROVA> PROVA1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA1");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA1", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_PROVA_PROVA", "PROVA")]
-        public PROVA PROVA2
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<PROVA> PROVA2Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PROVA>("ECModel.FK_PROVA_PROVA", "PROVA", value);
                 }
             }
         }

@@ -1330,6 +1330,16 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ECDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ECDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ECDataSet_Prova.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ECDataSet_Prova.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1450,11 +1460,6 @@
     <Compile Include="Paginas\AgendaReuniao.aspx.designer.cs">
       <DependentUpon>AgendaReuniao.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ReportDataSource\Declaracao.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Declaracao.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -1501,9 +1506,6 @@
     <Content Include="Content\Scripts\preloadCssImages.jQuery_v5.min.js.map" />
     <Content Include="Content\Scripts\script.min.js.map" />
     <Content Include="Content\Scripts\timeline.min.js.map" />
-    <Content Include="ReportDataSource\Declaracao.xsc">
-      <DependentUpon>Declaracao.xsd</DependentUpon>
-    </Content>
     <Content Include="Includes\Avatar.ashx" />
     <Content Include="Includes\FotoPessoa.ashx" />
     <Content Include="Includes\FotoUsuario.ashx" />
@@ -1524,13 +1526,27 @@
     <Content Include="Coordenador\CEP.ashx" />
     <Content Include="Coordenador\Imagem.ashx" />
     <Content Include="Content\Avatar.ashx" />
-    <None Include="ReportDataSource\Declaracao.xsd">
+    <Content Include="ECDataSet.xsc">
+      <DependentUpon>ECDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ECDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Declaracao.Designer.cs</LastGenOutput>
+      <LastGenOutput>ECDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <Content Include="ReportDataSource\Declaracao.xss">
-      <DependentUpon>Declaracao.xsd</DependentUpon>
+    <Content Include="ECDataSet.xss">
+      <DependentUpon>ECDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="ECDataSet_Prova.xsc">
+      <DependentUpon>ECDataSet_Prova.xsd</DependentUpon>
+    </Content>
+    <None Include="ECDataSet_Prova.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ECDataSet_Prova.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ECDataSet_Prova.xss">
+      <DependentUpon>ECDataSet_Prova.xsd</DependentUpon>
     </Content>
     <Content Include="Scripts\core.min.js.map" />
     <Content Include="Scripts\encoder.min.js.map" />
@@ -1590,6 +1606,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Paginas\Relatorios\Prova.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

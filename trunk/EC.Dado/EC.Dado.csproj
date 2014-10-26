@@ -48,8 +48,11 @@
     <Compile Include="DCoordenador.cs" />
     <Compile Include="DCurso.cs" />
     <Compile Include="DEvento.cs" />
+    <Compile Include="DFuncionario.cs" />
     <Compile Include="DLancamento.cs" />
+    <Compile Include="DProva.cs" />
     <Compile Include="DQuestao.cs" />
+    <Compile Include="DResposta.cs" />
     <Compile Include="DReuniao.cs" />
     <Compile Include="DUsuario.cs" />
     <Compile Include="DDisciplina.cs" />

@@ -9,6 +9,7 @@ using EC.Common;
 using EC.Negocio;
 using EC.Modelo;
 using EC.Modelo;
+using EC.UI.WebControls;
 
 namespace UI.Web.EC.Paginas
 {
@@ -27,23 +28,30 @@ namespace UI.Web.EC.Paginas
         }
         private void CarregarAmc()
         {
-
+            ddlAmc.Items.Add(new ListItem("Selecione", "0"));
             foreach (var item in NQuestão.ConsultarAmc())
             {
                 ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
             }
-            //ddlAmc.DataSource = NQuestão.ConsultarAmc();
-            //ddlAmc.DataTextField = "ANO";
-            //ddlAmc.DataValueField = "ID_AMC";
-            //ddlAmc.DataBind();
+            
         }
 
         private void CarregarDisciplina()
         {
-            ddlDisciplina.DataSource = NDisciplina.ConsultarByCurso(Session["ID_CURSO"].ToInt32()); //NQuestão.ConsultarDisciplina();
-            ddlDisciplina.DataTextField = "DESCRICAO";
-            ddlDisciplina.DataValueField = "ID_DISCIPLINA";
-            ddlDisciplina.DataBind();
+            //ddlDisciplina.DataSource = NDisciplina.ConsultarByCurso(((SessionUsuario)Session["USUARIO"]).IdCurso); //NQuestão.ConsultarDisciplina();
+            //ddlDisciplina.DataTextField = "DESCRICAO";
+            //ddlDisciplina.DataValueField = "ID_DISCIPLINA";
+            //ddlDisciplina.DataBind();
+
+            var disciplina = NDisciplina.ConsultarByCurso(((SessionUsuario)Session["USUARIO"]).IdCurso);
+            ddlDisciplina.Items.Clear();
+
+            ddlDisciplina.Items.Add(new ListItem("Selecione", "0"));
+
+            foreach (DISCIPLINA dis in disciplina)
+            {
+                ddlDisciplina.Items.Add(new ListItem(dis.ID_DISCIPLINA.ToString(), dis.DESCRICAO));
+            }
 
             CarregarFuncionario(ddlDisciplina.SelectedValue.ToInt32());
         }
@@ -66,6 +74,22 @@ namespace UI.Web.EC.Paginas
     
         protected void Button1_Click1(object sender, EventArgs e)
         {
+            if (ddlAmc.SelectedIndex == 0)
+            {
+                messageBox.Show("Selecione a AMC", "Erro", MessageBoxType.Error);
+                return;
+            }
+            if (ddlDisciplina.SelectedIndex == 0)
+            {
+                messageBox.Show("Selecione uma disciplina", "Erro", MessageBoxType.Error);
+                return;
+            }
+            if (ddlFuncionario.SelectedIndex == 0)
+            {
+                messageBox.Show("Selecione um professor", "Erro", MessageBoxType.Error);
+                return;
+            }
+            
             System.IO.Stream file = upLoad.PostedFile.InputStream;
             Byte[] buffer = new byte[file.Length];
             file.Read(buffer, 0,(int)file.Length);

@@ -429,7 +429,7 @@ namespace EC.UI.WebControls
             writer.Write("            <td class=\"" + CssClassHeaderIcon + "\">\n");
 
             string onClick = string.Empty;
-            string closeImage = Page.ClientScript.GetWebResourceUrl(GetType(), "EC.UI.WebControls.MessageBox.MessageBox-Close.gif");
+            string closeImage = Page.ClientScript.GetWebResourceUrl(GetType(), "../EC.UI.WebControls/MessageBox/MessageBox-Close.gif");
             onClick = (!string.IsNullOrEmpty(OnCloseClientClick) ? OnCloseClientClick : Page.ClientScript.GetPostBackEventReference(this, "CloseClick"));
 
             writer.Write("                <img style=\"cursor:hand;\" onclick=\"" + onClick + "\" src=\"" + closeImage.Replace("~/", "") + "\" alt=\"\" />\n");
@@ -442,7 +442,7 @@ namespace EC.UI.WebControls
             writer.Write("                    <tr>\n");
             writer.Write("                        <td class=\"" + CssClassContentIcon + "\">\n");
 
-            string iconImage = Page.ClientScript.GetWebResourceUrl(GetType(), "EC.UI.WebControls.MessageBox.MessageBox-" + Type.ToString() + ".gif");
+            string iconImage = Page.ClientScript.GetWebResourceUrl(GetType(), "../EC.UI.WebControls/MessageBox/MessageBox-" + Type.ToString() + ".gif");
 
             writer.Write("                            <img src=\"" + iconImage.Replace("~/", "") + "\" alt=\"" + Type.ToString() + "\" />\n");
 
@@ -521,7 +521,7 @@ namespace EC.UI.WebControls
             base.OnInit(e);
 
             RegisterCss(string.Format("EC.UI.WebControls.MessageBox.Styles.{0}.css", Skin.ToString()));
-
+            
             //if (!Page.ClientScript.IsClientScriptIncludeRegistered("JQUERY"))
             //    Page.ClientScript.RegisterClientScriptInclude("JQUERY", Page.ClientScript.GetWebResourceUrl(GetType(), "EC.UI.WebControls.jQuery.jquery-1.2.6.js"));
 

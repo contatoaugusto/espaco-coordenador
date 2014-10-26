@@ -81,12 +81,6 @@
     </asp:EntityDataSource>
 
     
-
-
-    </div>
-
-
-
     <sgi:MessageBox ID="messageBox1" runat="server" />
     <sgi:AlertBox ID="alert" runat="server" AutoClose="true" Visible="false" Timeout="25" />
     <%--</sgi:UpdatePanel>--%>
