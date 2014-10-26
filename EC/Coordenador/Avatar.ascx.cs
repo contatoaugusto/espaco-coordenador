@@ -156,7 +156,7 @@ namespace UI.Web.EC.Coordenador
         }
         protected void btnOriginal_Click(object sender, EventArgs e)
         {
-            System.Drawing.Image croppedImage = System.Drawing.Image.FromFile(uploadImagePath + _imageFileName);
+            System.Drawing.Image croppedImage = System.Drawing.Image.FromFile(AppSettings.PathUpload /*uploadImagePath*/ + _imageFileName);
 
             if (ValidaLogin() && croppedImage != null)
             {
@@ -167,7 +167,7 @@ namespace UI.Web.EC.Coordenador
         }
         protected void btnCrop_Click(object sender, EventArgs e)
         {
-            System.Drawing.Image originalImage = System.Drawing.Image.FromFile(ResolveClientUrl(uploadImagePath + _imageFileName));
+            System.Drawing.Image originalImage = System.Drawing.Image.FromFile(ResolveClientUrl(AppSettings.PathUpload /*uploadImagePath*/  + _imageFileName));
             float proportion = (((float)imageCrop.Width.Value / (float)originalImage.Width));
             originalImage = originalImage.GetThumbnailImage(Library.ToInteger(imageCrop.Width.Value), Library.ToInteger(originalImage.Height * proportion), null, new IntPtr());
             System.Drawing.Image croppedImage = RecortarImagem(Library.ToInteger(hdfX.Value)
