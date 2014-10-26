@@ -235,7 +235,7 @@ namespace UI.Web.EC.Coordenador
         private void SaveImage(System.Drawing.Image image)
         {
             //var o = new SGI.BusinessObject.Coorporativo.FotoUsuario();
-            var usuario = NUsuario.ConsultarById(((USUARIO)Context.Session["USUARIO"]).ID_USUARIO);
+            var usuario = NUsuario.ConsultarById(((SessionUsuario)Context.Session["USUARIO"]).USUARIO.ID_USUARIO);
 
             usuario.FOTO = Library.ConvertImageToByte(image);
             NUsuario.Atualiza(usuario);
