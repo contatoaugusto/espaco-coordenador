@@ -1452,11 +1452,6 @@
     <Compile Include="Paginas\Amc.aspx.designer.cs">
       <DependentUpon>Amc.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Paginas\Relatorios\DataSet_Prova.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet_Prova.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Paginas\AgendaReuniao.aspx.cs">
       <DependentUpon>AgendaReuniao.aspx</DependentUpon>
@@ -1571,17 +1566,6 @@
     <Content Include="Scripts\script.min.js.map" />
     <Content Include="Scripts\timeline.min.js.map" />
     <Content Include="Temp\Upload\16095\b96b22a5-03f6-45da-bdbc-6e3149953d3e.pptx" />
-    <Content Include="Paginas\Relatorios\DataSet_Prova.xsc">
-      <DependentUpon>DataSet_Prova.xsd</DependentUpon>
-    </Content>
-    <None Include="Paginas\Relatorios\DataSet_Prova.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet_Prova.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Paginas\Relatorios\DataSet_Prova.xss">
-      <DependentUpon>DataSet_Prova.xsd</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

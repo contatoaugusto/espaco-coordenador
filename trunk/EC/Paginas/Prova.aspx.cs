@@ -11,6 +11,8 @@ using EC.Modelo;
 using Microsoft.Reporting.WebForms;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using System.Data;
+using System.ComponentModel;
 
 namespace UI.Web.EC.Paginas
 {
@@ -60,26 +62,36 @@ namespace UI.Web.EC.Paginas
 
                 List<QUESTAO> questao = NQuestão.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
                 
-                List<QuestaoHelper> questaoHelper = new List<QuestaoHelper>();
-                foreach (var item in questao){
-                    QuestaoHelper obj = new QuestaoHelper();
-                    obj.QUESTAO = item;
-                    obj.Imagem = Library.ConvertByteToImage( item.IMAGEM);
-                    questaoHelper.Add(obj);
-                }
+                //List<QuestaoHelper> questaoHelper = new List<QuestaoHelper>();
+                //foreach (var item in questao){
+                //    QuestaoHelper obj = new QuestaoHelper();
+                //    obj.QUESTAO = item;
+                //    if (item.IMAGEM != null && item.IMAGEM.ToArray().Count() > 0)
+                //        obj.Imagem = Library.ConvertByteToImage( item.IMAGEM);
+                //    questaoHelper.Add(obj);
+                //}
 
                 // Montar questão e respostas em um campo
                 int i = 0;
                 char[] letrasResposta = { 'A', 'B', 'C', 'D', 'E' };
                 int countResposta;
+
+
+                DataTable table = new DataTable();
+                bool colunaCriada = false;
+
+                //for (int i = 0; i < props.Count; i++)
+                //{
+                    //PropertyDescriptor prop = props[i];
                 foreach (var item in questao)
                 {
+                    StringBuilder strQuestao = new StringBuilder();
                     StringBuilder strResposta = new StringBuilder();
-                    
-                    strResposta.Append("\n Questão " + (i + 1) + " - " + item.DESCRICAO + "\n ");
 
-                    if (item.IMAGEM != null && item.IMAGEM.ToArray().Count() > 0)
-                        strResposta.Append("\n @&imagem \n");
+                    strQuestao.Append("\n Questão " + (i + 1) + " - " + item.DESCRICAO + "\n ");
+
+                    //if (item.IMAGEM != null && item.IMAGEM.ToArray().Count() > 0)
+                    //    strResposta.Append("\n @imagem_questão \n");
 
                     countResposta = 0; 
                     foreach (var itemResposta in item.RESPOSTA)
@@ -87,16 +99,39 @@ namespace UI.Web.EC.Paginas
                         strResposta.Append("\n (" + letrasResposta[countResposta] + ") " + itemResposta.TEXTO);
                         countResposta++;
                     }
-                    questao[i].DESCRICAO =  strResposta.ToString();
+                    //questao[i].DESCRICAO = strResposta.ToString();
                     
+
+                    // Cria datatable
+                    //PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(item));
+                    if (!colunaCriada)
+                    {
+                        DataColumn column;
+                        column = new DataColumn("DESCRICAO", item.DESCRICAO.GetType());
+                        column.AllowDBNull = true;
+                        table.Columns.Add(column);
+
+                        column = new DataColumn("IMAGEM", item.DESCRICAO.GetType());
+                        column.AllowDBNull = true;
+                        table.Columns.Add(column);
+
+                        column = new DataColumn("RESPOSTA", item.DESCRICAO.GetType());
+                        column.AllowDBNull = true;
+                        table.Columns.Add(column);
+
+                        colunaCriada = true;
+                    }
+
+                    //DataRow drow = table.NewRow();
+                    //string pat = new Uri(Server.MapPath(Utils.PathImagesCache + "/imagem_questao/HTTTStatusCode.jpg")).AbsoluteUri;
+                    string path = new Uri(Utils.PathImagesCache + "imagem_questao/HTTTStatusCode.jpg").AbsoluteUri;
+                    //drow["IMAGEM"] = pat;
+                    table.Rows.Add(strQuestao.ToString(), path, strResposta.ToString());
+
                     i++;
                 }
-                
-                //var questaoDataTable = Library.ConvertListToDataTable(questao);
 
-                questao
-
-                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Questoes", questao));
+                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Questoes", table));//questao));
 
                 reportViewer.DocumentMapCollapsed = true;
                 Utils.RenderReportToPDF(Context, reportViewer, "Prova");
