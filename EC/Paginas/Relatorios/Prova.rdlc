@@ -54,9 +54,9 @@
                 <TablixCell>
                   <CellContents>
                     <Image Name="Image3">
-                      <Source>Embedded</Source>
+                      <Source>Database</Source>
                       <Value>=Fields!IMAGEM.Value</Value>
-                      <Sizing>FitProportional</Sizing>
+                      <MIMEType>image/jpeg</MIMEType>
                       <Visibility>
                         <Hidden>=IsNothing(Fields!IMAGEM.Value)</Hidden>
                       </Visibility>
@@ -66,6 +66,7 @@
                         </Border>
                       </Style>
                     </Image>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -151,7 +152,6 @@
           <Source>Embedded</Source>
           <Value>logo</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0cm</Top>
           <Left>0.31433cm</Left>
           <Height>1.5cm</Height>
           <Width>3.48437cm</Width>

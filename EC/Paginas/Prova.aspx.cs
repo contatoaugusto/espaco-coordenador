@@ -103,7 +103,6 @@ namespace UI.Web.EC.Paginas
                     
 
                     // Cria datatable
-                    //PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(item));
                     if (!colunaCriada)
                     {
                         DataColumn column;
@@ -111,7 +110,7 @@ namespace UI.Web.EC.Paginas
                         column.AllowDBNull = true;
                         table.Columns.Add(column);
 
-                        column = new DataColumn("IMAGEM", item.DESCRICAO.GetType());
+                        column = new DataColumn("IMAGEM",  typeof(byte[]));// item.IMAGEM.GetType());
                         column.AllowDBNull = true;
                         table.Columns.Add(column);
 
@@ -126,7 +125,7 @@ namespace UI.Web.EC.Paginas
                     //string pat = new Uri(Server.MapPath(Utils.PathImagesCache + "/imagem_questao/HTTTStatusCode.jpg")).AbsoluteUri;
                     string path = new Uri(Utils.PathImagesCache + "imagem_questao/HTTTStatusCode.jpg").AbsoluteUri;
                     //drow["IMAGEM"] = pat;
-                    table.Rows.Add(strQuestao.ToString(), path, strResposta.ToString());
+                    table.Rows.Add(strQuestao.ToString(), item.IMAGEM, strResposta.ToString());
 
                     i++;
                 }
