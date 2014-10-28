@@ -15,19 +15,27 @@
 
 
         <div class="row">
-            <div class="column w100">
+            <div class="column w150">
                 AMC:
             </div>
-            <div class="column w500">
+            <div class="column w250">
                 <sgi:DropDownList ID="ddlAmc" runat="server" equiredField="true"></sgi:DropDownList>
             </div>
         </div>
          <div class="row">
-            <div class="column w100">
+            <div class="column w150">
                 Quantidade de questões:
             </div>
-            <div class="column w100">
+            <div class="column w250">
                 <asp:TextBox ID="txtQuantidadeQuestoes" runat="server" RequiredField="true"></asp:TextBox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column w150">
+                Observação
+            </div>
+            <div class="column w250">
+                <asp:TextBox ID="txtObservacao" runat="server" RequiredField="true"></asp:TextBox>
             </div>
         </div>
         <%--<div class="row">--%>

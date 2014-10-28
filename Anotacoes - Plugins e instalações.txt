@@ -20,6 +20,7 @@ Dados code Google:
 
 URL: https://espaco-coordenador.googlecode.com/svn/trunk/
 
+     https://espaco-coordenador.googlecode.com/svn/trunk/
 usuario: contatoaugusto@gmail.com
 
 Senha: FD6Ry7Wu4qY7
