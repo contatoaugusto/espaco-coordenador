@@ -1,0 +1,26 @@
+Para versionamento do projeto:
+
+
+
+Instalar o pluguin VisualSVN for Visual Studio
+
+http://www.visualsvn.com/downloads/
+
+
+
+Depois o Tortois
+
+http://www.visualsvn.com/visualsvn/download/tortoisesvn/
+
+
+
+
+Dados code Google:
+
+
+URL: https://espaco-coordenador.googlecode.com/svn/trunk/
+
+     https://espaco-coordenador.googlecode.com/svn/trunk/
+usuario: contatoaugusto@gmail.com
+
+Senha: FD6Ry7Wu4qY7
