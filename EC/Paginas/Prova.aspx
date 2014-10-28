@@ -115,6 +115,8 @@
             <asp:TemplateField HeaderText="Ações">
                 <ItemTemplate>
                     <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_PROVA")%>' CommandName="Imprimir" Text="Imprimir" CausesValidation="false" />
+                    |
+                    <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_PROVA")%>' CommandName="Gabarito" Text="Gabarito" CausesValidation="false" />
                 </ItemTemplate>
             </asp:TemplateField>
             

@@ -1608,6 +1608,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Paginas\Relatorios\Gabarito.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Paginas\Relatorios\Prova.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
