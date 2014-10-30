@@ -517,7 +517,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_COORDENADOR_FUNCIONARIO">
+        <Association Name="FK_CURSO_COORDENADOR_FUNCIONARIO">
           <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
           <End Role="CURSO_COORDENADOR" Type="Self.CURSO_COORDENADOR" Multiplicity="*" />
           <ReferentialConstraint>
@@ -553,7 +553,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
+        <Association Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO">
           <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
           <End Role="DISCIPLINA_PROFESSOR" Type="Self.DISCIPLINA_PROFESSOR" Multiplicity="*" />
           <ReferentialConstraint>
@@ -661,18 +661,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_PARTICIPANTE_FUNCIONARIO">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
-          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="PARTICIPANTE">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_PARTICIPANTE_REUNIAO">
           <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
           <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
@@ -742,18 +730,6 @@
             </Principal>
             <Dependent Role="QUESTAO">
               <PropertyRef Name="ID_DISCIPLINA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_QUESTAO_FUNCIONARIOPROFESSOR">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
-          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="QUESTAO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -841,6 +817,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TURMA_DISCIPLINA">
+          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Principal>
+            <Dependent Role="TURMA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TURMA_FUNCIONARIO">
           <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
           <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
@@ -874,18 +862,6 @@
             </Principal>
             <Dependent Role="TURMA">
               <PropertyRef Name="ID_TIPOTURMA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_USUARIO_FUNCIONARIO">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="USUARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -987,7 +963,7 @@
             <End Role="CURSO" EntitySet="CURSO" />
             <End Role="CURSO_COORDENADOR" EntitySet="CURSO_COORDENADOR" />
           </AssociationSet>
-          <AssociationSet Name="FK_COORDENADOR_FUNCIONARIO" Association="Self.FK_COORDENADOR_FUNCIONARIO">
+          <AssociationSet Name="FK_CURSO_COORDENADOR_FUNCIONARIO" Association="Self.FK_CURSO_COORDENADOR_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="CURSO_COORDENADOR" EntitySet="CURSO_COORDENADOR" />
           </AssociationSet>
@@ -999,7 +975,7 @@
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
             <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
-          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" Association="Self.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
+          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO" Association="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
@@ -1035,10 +1011,6 @@
             <End Role="ALUNO" EntitySet="ALUNO" />
             <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
           </AssociationSet>
-          <AssociationSet Name="fk_PARTICIPANTE_FUNCIONARIO" Association="Self.fk_PARTICIPANTE_FUNCIONARIO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
-          </AssociationSet>
           <AssociationSet Name="fk_PARTICIPANTE_REUNIAO" Association="Self.fk_PARTICIPANTE_REUNIAO">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
@@ -1061,10 +1033,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_DISCIPLINA" Association="Self.FK_QUESTAO_DISCIPLINA">
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
-            <End Role="QUESTAO" EntitySet="QUESTAO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_QUESTAO_FUNCIONARIOPROFESSOR" Association="Self.FK_QUESTAO_FUNCIONARIOPROFESSOR">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_PROVA" Association="Self.FK_QUESTAO_PROVA">
@@ -1095,6 +1063,10 @@
             <End Role="TIPO_REUNIAO" EntitySet="TIPO_REUNIAO" />
             <End Role="REUNIAO" EntitySet="REUNIAO" />
           </AssociationSet>
+          <AssociationSet Name="FK_TURMA_DISCIPLINA" Association="Self.FK_TURMA_DISCIPLINA">
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+            <End Role="TURMA" EntitySet="TURMA" />
+          </AssociationSet>
           <AssociationSet Name="FK_TURMA_FUNCIONARIO" Association="Self.FK_TURMA_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="TURMA" EntitySet="TURMA" />
@@ -1106,10 +1078,6 @@
           <AssociationSet Name="FK_TURMA_TIPO" Association="Self.FK_TURMA_TIPO">
             <End Role="TIPO_TURMA" EntitySet="TIPO_TURMA" />
             <End Role="TURMA" EntitySet="TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="fk_USUARIO_FUNCIONARIO" Association="Self.fk_USUARIO_FUNCIONARIO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -1274,6 +1242,7 @@
           <NavigationProperty Name="CURSO" Relationship="Self.Fk_DISCIPLINA_CURSO" FromRole="DISCIPLINA" ToRole="CURSO" />
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="QUESTAO" Relationship="Self.FK_QUESTAO_DISCIPLINA" FromRole="DISCIPLINA" ToRole="QUESTAO" />
+          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_DISCIPLINA" FromRole="DISCIPLINA" ToRole="TURMA" />
         </EntityType>
         <EntityType Name="DISCIPLINA_PROFESSOR">
           <Key>
@@ -1515,6 +1484,7 @@
           <NavigationProperty Name="LANCAMENTO" Relationship="Self.Fk_LANCAMENTO_TURMA" FromRole="TURMA" ToRole="LANCAMENTO" />
           <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="Self.FK_TURMA_REPRESENTANTE_TURMA" FromRole="TURMA" ToRole="REPRESENTANTE_TURMA" />
           <NavigationProperty Name="TIPO_TURMA" Relationship="Self.FK_TURMA_TIPO" FromRole="TURMA" ToRole="TIPO_TURMA" />
+          <NavigationProperty Name="DISCIPLINA" Relationship="ECModel.FK_TURMA_DISCIPLINA" FromRole="TURMA" ToRole="DISCIPLINA" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -2277,6 +2247,10 @@
             <End Role="PROVA" EntitySet="PROVA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
+          <AssociationSet Name="FK_TURMA_DISCIPLINA" Association="ECModel.FK_TURMA_DISCIPLINA">
+            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+            <End Role="TURMA" EntitySet="TURMA" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PROVA">
           <Key>
@@ -2312,6 +2286,18 @@
             </Principal>
             <Dependent Role="QUESTAO">
               <PropertyRef Name="ID_PROVA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_DISCIPLINA">
+          <End Type="ECModel.DISCIPLINA" Role="DISCIPLINA" Multiplicity="0..1" />
+          <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA">
+              <PropertyRef Name="ID_DISCIPLINA" />
+            </Principal>
+            <Dependent Role="TURMA">
+              <PropertyRef Name="ID_DISCIPLINA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

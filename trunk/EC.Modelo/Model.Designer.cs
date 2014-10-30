@@ -65,6 +65,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_TIPO", "TIPO_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_TURMA), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_PROVA_FUNCIONARIO_CADASTRO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PROVA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_PROVA", "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PROVA), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_DISCIPLINA", "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.DISCIPLINA), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
 
 #endregion
 
@@ -3938,6 +3939,28 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_DISCIPLINA", "QUESTAO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_DISCIPLINA", "TURMA")]
+        public EntityCollection<TURMA> TURMA
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TURMA>("ECModel.FK_TURMA_DISCIPLINA", "TURMA");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TURMA>("ECModel.FK_TURMA_DISCIPLINA", "TURMA", value);
                 }
             }
         }
@@ -8472,6 +8495,44 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_TURMA>("ECModel.FK_TURMA_TIPO", "TIPO_TURMA", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_DISCIPLINA", "DISCIPLINA")]
+        public DISCIPLINA DISCIPLINA
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_TURMA_DISCIPLINA", "DISCIPLINA").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_TURMA_DISCIPLINA", "DISCIPLINA").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<DISCIPLINA> DISCIPLINAReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISCIPLINA>("ECModel.FK_TURMA_DISCIPLINA", "DISCIPLINA");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISCIPLINA>("ECModel.FK_TURMA_DISCIPLINA", "DISCIPLINA", value);
                 }
             }
         }
