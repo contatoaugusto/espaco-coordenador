@@ -94,7 +94,7 @@
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Amc.aspx")%>'><span>Abrir AMC</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Questao.aspx")%>'><span>Criar Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Prova.aspx")%>'><span>Criar Prova</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarQuestao.aspx")%>'><span>Banco de Questão</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Banco de Questão</span></a></li>
                                         
                                     </ul>
                                 </div>

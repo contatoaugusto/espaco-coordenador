@@ -20,6 +20,7 @@ namespace EC.Dado
                     amc.ID_AMC = tipo.ID_AMC;
                     amc.ANO = tipo.ANO;
                     amc.SEMESTRE = tipo.SEMESTRE;
+                    amc.DATA_APLICACAO = tipo.DATA_APLICACAO;
                     ltAmc.Add(amc);
                 }
 

@@ -29,7 +29,7 @@ namespace EC.Dado
                 return list;
             }
         }
-
+        
         public List<DISCIPLINA> ConsultarByCurso(int idCurso)
         {
             using (ECEntities db = new ECEntities())

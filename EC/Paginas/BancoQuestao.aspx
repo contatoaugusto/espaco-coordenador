@@ -1,30 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/BancoQuestao.aspx.cs" Inherits="UI.Web.EC.Paginas.BancoQuestao" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style6 {
-            width: 120px;
-        }
+<asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server"></asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-        .auto-style8 {
-            width: 457px;
-        }
-
-        .auto-style9 {
-            width: 150px;
-        }
-
-        .auto-style10 {
-            width: 510px;
-        }
-    </style>
-
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h3>Consultar Questões</h3>
 
     <div style="width: 1280px; height: 768px;">
-        <h2 style="text-align: center; width: 100%; height: 24px;">Consultar Questões</h2>
-
         <table style="width: 100%; margin: 5px; height: 94px;">
 
             <tr>

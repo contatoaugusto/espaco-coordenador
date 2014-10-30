@@ -8,53 +8,72 @@ namespace EC.Dado
 {
     public class DQuestao
     {
-        public List<AMC> ConsultarAmc()
+
+        public List<QUESTAO> ConsultarQuestao()
         {
             using (ECEntities db = new ECEntities())
             {
-                var c = db.AMC.ToList();
-                List<AMC> ltAmc = new List<AMC>();
-                foreach (var tipo in c)
+                var q = db.QUESTAO.ToList();
+
+                List<QUESTAO> ltQuestao = new List<QUESTAO>();
+
+                foreach (var tipo in q)
                 {
-                    AMC amc = new AMC();
-                    amc.ID_AMC = tipo.ID_AMC;
-                    amc.ANO = tipo.ANO;
-                    amc.SEMESTRE = tipo.SEMESTRE;
-                    amc.DATA_APLICACAO = tipo.DATA_APLICACAO;
-                    
-                    ltAmc.Add(amc);
+                    QUESTAO questao = new QUESTAO();
+                    questao.ID_QUESTAO = tipo.ID_QUESTAO;
+                    questao.DESCRICAO = tipo.DESCRICAO;
+                    questao.IMAGEM = tipo.IMAGEM;
+
+                    questao.AMC = tipo.AMC;
+                    questao.PROVA = tipo.PROVA;
+
+                    questao.FUNCIONARIO = tipo.FUNCIONARIO;
+                    questao.DISCIPLINA = tipo.DISCIPLINA;
+
+                    //questao.FUNCIONARIO = new FUNCIONARIO();
+                    //questao.FUNCIONARIO.PESSOA = new PESSOA();
+                    //questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
+                    //questao.DISCIPLINA = new DISCIPLINA();
+                    //questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
+                    //questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
+                    ltQuestao.Add(questao);
                 }
 
-                return ltAmc;
+                return ltQuestao;
             }
         }
-
-        public List<DISCIPLINA> ConsultarDisciplina()
-        {
-            using (ECEntities db = new ECEntities())
-            {
-                var d = db.DISCIPLINA.ToList();
-                List<DISCIPLINA> ltDisciplina = new List<DISCIPLINA>();
-                foreach (var tipo in d)
-                {
-                      DISCIPLINA disciplina = new DISCIPLINA();
-                      disciplina.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
-                      disciplina.DESCRICAO = tipo.DESCRICAO;  
-                      ltDisciplina.Add(disciplina);
-                }
-
-                return ltDisciplina;
-            }
-        }
-
         
-
         public List<QUESTAO> ConsultarQuestao(QUESTAO objquestao)
         {
             using (ECEntities db = new ECEntities())
             {
                 var q = db.QUESTAO.Where(rs => rs.ID_DISCIPLINA == objquestao.ID_DISCIPLINA && rs.ID_FUNCIONARIO == objquestao.ID_FUNCIONARIO && rs.ID_AMC == objquestao.ID_AMC);
-                    
+
+                if (q.Count() == 0)
+                {
+                    if (objquestao.ID_AMC != null && objquestao.ID_AMC > 0 &&
+                        objquestao.ID_DISCIPLINA != null && objquestao.ID_DISCIPLINA > 0)
+                        q = db.QUESTAO.Where(rs => rs.ID_AMC == objquestao.ID_AMC && rs.ID_DISCIPLINA == objquestao.ID_DISCIPLINA);
+
+                    else
+                        if (objquestao.ID_AMC != null && objquestao.ID_AMC > 0 &&
+                            objquestao.ID_FUNCIONARIO != null && objquestao.ID_FUNCIONARIO > 0)
+                            q = db.QUESTAO.Where(rs => rs.ID_AMC == objquestao.ID_AMC && rs.ID_FUNCIONARIO == objquestao.ID_FUNCIONARIO);
+                        else
+                            if (objquestao.ID_DISCIPLINA != null && objquestao.ID_DISCIPLINA > 0 &&
+                                objquestao.ID_FUNCIONARIO != null && objquestao.ID_FUNCIONARIO > 0)
+                                q = db.QUESTAO.Where(rs => rs.ID_DISCIPLINA == objquestao.ID_DISCIPLINA && rs.ID_FUNCIONARIO == objquestao.ID_FUNCIONARIO);
+                            else
+                                if (objquestao.ID_AMC != null && objquestao.ID_AMC > 0)
+                                    q = db.QUESTAO.Where(rs => rs.ID_AMC == objquestao.ID_AMC);
+                                else
+                                    if (objquestao.ID_FUNCIONARIO != null && objquestao.ID_FUNCIONARIO > 0)
+                                        q = db.QUESTAO.Where(rs => rs.ID_FUNCIONARIO == objquestao.ID_FUNCIONARIO);
+                                    else
+                                        if (objquestao.ID_DISCIPLINA != null && objquestao.ID_DISCIPLINA > 0)
+                                            q = db.QUESTAO.Where(rs => rs.ID_DISCIPLINA == objquestao.ID_DISCIPLINA);
+                }
+                
                 List<QUESTAO> ltQuestao = new List<QUESTAO>();
 
                 foreach (var tipo in q)
@@ -154,15 +173,6 @@ namespace EC.Dado
 
                 //Retorna o id novo gerado na inserção
                 var id = q.ID_QUESTAO;
-                
-
-                //foreach(RESPOSTA resposta in q.RESPOSTA)
-                //{
-                //    resposta.ID_QUESTAO = id;
-                //    db.RESPOSTA.AddObject(resposta);
-                //}
-                db.SaveChanges();
-                db.Dispose();
             }
         }     
     }

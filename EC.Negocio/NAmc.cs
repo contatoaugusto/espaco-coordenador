@@ -9,11 +9,15 @@ namespace EC.Negocio
 {
     public class NAmc
     {
-         public static List<AMC> ConsultarAmc()
+        public static List<AMC> ConsultarAmc()
         {
-            return (new DQuestao()).ConsultarAmc();
+            return (new DAmc()).ConsultarAmc();
         }
 
+        public static List<AMC> ConsultarAmc(AMC obj)
+        {
+            return (new DAmc()).ConsultarAmc(obj);
+        }
          public static bool Salvar(AMC obj)
          {
              bool retorno = true;

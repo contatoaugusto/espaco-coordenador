@@ -30,7 +30,7 @@ namespace UI.Web.EC.Paginas
         private void CarregarAmc()
         {
 
-            foreach (var item in NQuestão.ConsultarAmc())   
+            foreach (var item in NAmc.ConsultarAmc())   
             {
                 ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
             }
