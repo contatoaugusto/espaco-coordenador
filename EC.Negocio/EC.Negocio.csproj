@@ -51,6 +51,7 @@
     <Compile Include="NEvento.cs" />
     <Compile Include="NFuncionario.cs" />
     <Compile Include="NLancamento.cs" />
+    <Compile Include="NPessoa.cs" />
     <Compile Include="NProva.cs" />
     <Compile Include="NQuestão.cs" />
     <Compile Include="NResposta.cs" />

@@ -64,6 +64,6 @@ namespace UI.Web.EC.Paginas {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdQuestao;
+        protected global::EC.UI.WebControls.GridView grdQuestao;
     }
 }

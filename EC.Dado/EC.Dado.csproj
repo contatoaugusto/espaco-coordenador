@@ -50,6 +50,7 @@
     <Compile Include="DEvento.cs" />
     <Compile Include="DFuncionario.cs" />
     <Compile Include="DLancamento.cs" />
+    <Compile Include="DPessoa.cs" />
     <Compile Include="DProva.cs" />
     <Compile Include="DQuestao.cs" />
     <Compile Include="DResposta.cs" />

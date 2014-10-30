@@ -29,8 +29,9 @@ namespace EC.Dado
                 {
                     FUNCIONARIO funcionario = new FUNCIONARIO();
                     funcionario.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
-                    funcionario.PESSOA = new PESSOA();
-                    funcionario.PESSOA.NOME = tipo.PESSOA.NOME;
+                    //funcionario.PESSOA = new PESSOA();
+                    //funcionario.PESSOA.NOME = tipo.PESSOA.NOME;
+                    funcionario.PESSOA = tipo.PESSOA;
                     ltFuncionario.Add(funcionario);
                 }
 
