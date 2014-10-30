@@ -26,7 +26,7 @@ namespace UI.Web.EC.Paginas
         }
         private void CarregarAmc()
         {
-            ddlAmc.DataSource = NQuestão.ConsultarAmc();
+            ddlAmc.DataSource = NAmc.ConsultarAmc();
             ddlAmc.DataTextField = "ANO";
             ddlAmc.DataValueField = "ID_AMC";
             ddlAmc.DataBind();
@@ -36,7 +36,7 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarDisciplina()
         {
-            ddlDisciplina.DataSource = NQuestão.ConsultarDisciplina();
+            ddlDisciplina.DataSource = NDisciplina.Consultar();
             ddlDisciplina.DataTextField = "DESCRICAO";
             ddlDisciplina.DataValueField = "ID_DISCIPLINA";
             ddlDisciplina.DataBind();
@@ -61,7 +61,11 @@ namespace UI.Web.EC.Paginas
         private void CarregarQuestao()
         {
             QUESTAO questao = new QUESTAO();
-            grdQuestao.DataSource = NQuestão.ConsultarQuestao(questao);
+            var questoes = NQuestão.ConsultarQuestao(questao);
+            if (questoes.Count() == 0)
+                questoes = NQuestão.ConsultarQuestao();
+
+            grdQuestao.DataSource = questoes;
             grdQuestao.DataBind();
         }
 

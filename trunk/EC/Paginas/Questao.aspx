@@ -1,31 +1,9 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/Questao.aspx.cs" Inherits="UI.Web.EC.Paginas.Questao" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%--<style type="text/css">
-        .auto-style1 {
-            height: 167px;
-        }
-
-        .auto-style2 {
-            width: 202px;
-            height: 167px;
-        }
-
-        .auto-style3 {
-            width: 106px;
-        }
-
-        .auto-style4 {
-            height: 167px;
-            width: 106px;
-        }
-        .auto-style5 {
-            width: 202px;
-        }
-    </style>--%>
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+  
+      
     <link href="../EC.UI.WebControls/MessageBox/Styles/Outlook.css" rel="stylesheet" />
     <link href="../EC.UI.WebControls/MessageBox/Styles/UniCEUB.css" rel="stylesheet" />
 
@@ -37,11 +15,13 @@
             });
         });
     </script>
-    <sgi:MessageBox ID="messageBox" runat="server" />
+   <sgi:MessageBox ID="messageBox" runat="server" />
     
     <div class="form-separator"></div>
     <h3>Incluir Questões</h3>
 
+    
+    
     <div class="form-in">
         <div class="row">
             <div class="column w100">

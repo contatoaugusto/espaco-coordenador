@@ -29,7 +29,7 @@ namespace UI.Web.EC.Paginas
         private void CarregarAmc()
         {
             ddlAmc.Items.Add(new ListItem("Selecione", "0"));
-            foreach (var item in NQuestão.ConsultarAmc())
+            foreach (var item in NAmc.ConsultarAmc())
             {
                 ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
             }
@@ -50,7 +50,7 @@ namespace UI.Web.EC.Paginas
 
             foreach (DISCIPLINA dis in disciplina)
             {
-                ddlDisciplina.Items.Add(new ListItem(dis.ID_DISCIPLINA.ToString(), dis.DESCRICAO));
+                ddlDisciplina.Items.Add(new ListItem(dis.DESCRICAO, dis.ID_DISCIPLINA.ToString()));
             }
 
             CarregarFuncionario(ddlDisciplina.SelectedValue.ToInt32());
@@ -96,11 +96,12 @@ namespace UI.Web.EC.Paginas
             file.Close();
             
             QUESTAO questao = new QUESTAO();
-            questao.ID_AMC = int.Parse(ddlAmc.SelectedValue);
-            questao.ID_DISCIPLINA = int.Parse(ddlDisciplina.SelectedValue);
-            questao.ID_FUNCIONARIO = int.Parse(ddlFuncionario.SelectedValue);
+            questao.ID_AMC = ddlAmc.SelectedValue.ToInt32();
+            questao.ID_DISCIPLINA = ddlDisciplina.SelectedValue.ToInt32();
+            questao.ID_FUNCIONARIO = ddlFuncionario.SelectedValue.ToInt32();
             questao.DESCRICAO = TxtDescricao.Text;
             questao.IMAGEM = buffer;
+
             EntityCollection<RESPOSTA> listaResposta = new EntityCollection<RESPOSTA>();
             
             RESPOSTA resposta1 = new RESPOSTA();
