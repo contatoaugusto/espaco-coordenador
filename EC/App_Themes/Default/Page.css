@@ -114,7 +114,7 @@ div#content
                 list-style-type: none;
             }
 
-            div#content div#header div#coordenador li#ra
+            div#content div#header div#coordenador li#matricula
             {
                 color: #a3a3a3;
             }
@@ -136,6 +136,30 @@ div#content
                 color: #a28e6a;
                 font-size: 110%;
             }
+
+
+       /* Início Dados do semestre */
+        div#content div#header div#semestrecorrente
+        {
+            float: left;
+            margin-left: 50px;
+            margin-top: 21px;
+        }
+
+            div#content div#header div#semestrecorrente ul
+            {
+                list-style-type: none;
+            }
+
+            
+            div#content div#header div#semestrecorrente li#tituloSemestreCorrente
+            {
+                color: #af1d22;
+                font-size: 120%;
+                font-weight: normal;
+            }
+
+
 
 .turnocampus
 {

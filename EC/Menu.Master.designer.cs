@@ -76,6 +76,15 @@ namespace UI.Web.EC {
         protected global::System.Web.UI.WebControls.Label lblCursoUnico;
         
         /// <summary>
+        /// lblAnoSemestreCorrente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnoSemestreCorrente;
+        
+        /// <summary>
         /// lblCurso control.
         /// </summary>
         /// <remarks>

@@ -10,7 +10,7 @@
 namespace UI.Web.EC.Paginas {
     
     
-    public partial class WebForm1 {
+    public partial class Semestre {
         
         /// <summary>
         /// messageBox control.
@@ -22,13 +22,49 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.MessageBox messageBox;
         
         /// <summary>
-        /// pnlAmc control.
+        /// divInstrucoesGeraProva control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAmc;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstrucoesGeraProva;
+        
+        /// <summary>
+        /// pnlSemestreAberto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSemestreAberto;
+        
+        /// <summary>
+        /// lblAnoInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnoInicio;
+        
+        /// <summary>
+        /// lblSemestreInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSemestreInicio;
+        
+        /// <summary>
+        /// lblAnoCorrente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnoCorrente;
         
         /// <summary>
         /// lblSemestreCorrente control.
@@ -40,57 +76,30 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.Label lblSemestreCorrente;
         
         /// <summary>
-        /// dtAplicacao control.
+        /// btnAbrirSemestre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dtAplicacao;
+        protected global::System.Web.UI.WebControls.Button btnAbrirSemestre;
         
         /// <summary>
-        /// btnSalvar control.
+        /// pnlGridSemestre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalvar;
+        protected global::System.Web.UI.WebControls.Panel pnlGridSemestre;
         
         /// <summary>
-        /// GridView_AMC control.
+        /// gridViewSemestre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EC.UI.WebControls.GridView GridView_AMC;
-        
-        /// <summary>
-        /// EntityDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
-        
-        /// <summary>
-        /// messageBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::EC.UI.WebControls.MessageBox messageBox1;
-        
-        /// <summary>
-        /// alert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::EC.UI.WebControls.AlertBox alert;
+        protected global::EC.UI.WebControls.GridView gridViewSemestre;
     }
 }

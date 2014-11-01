@@ -26,27 +26,6 @@ namespace EC.Dado
             }
         }
 
-        public List<AMC> ConsultarAmc()
-        {
-            using (ECEntities db = new ECEntities())
-            {
-                var m = db.AMC.ToList();
-                List<AMC> ltAmc = new List<AMC>();
-                foreach (var tipo in m)
-                {
-                    AMC amc = new AMC();
-                    amc.ID_AMC = tipo.ID_AMC;
-                    //amc.ANO = tipo.ANO;
-                    //amc.SEMESTRE = tipo.SEMESTRE;
-                    amc.DATA_APLICACAO = tipo.DATA_APLICACAO;
-                    amc.ID_SEMESTRE = tipo.ID_SEMESTRE;
-                    ltAmc.Add(amc);
-                }
-
-                return ltAmc;
-            }
-        }
-
         public List<EVENTO> ConsultarEvento()
         {
             using (ECEntities db = new ECEntities())

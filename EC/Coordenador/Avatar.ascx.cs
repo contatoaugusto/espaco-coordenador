@@ -19,11 +19,11 @@ namespace UI.Web.EC.Coordenador
 
         public int idUsuario
         {
-            get { return ((USUARIO)Session["USUARIO"]).ID_USUARIO; }
+            get { return Utils.GetUsuarioLogado().USUARIO.ID_USUARIO; }
         }
         public long idPessoa
         {
-            get { return ((USUARIO)Session["USUARIO"]).FUNCIONARIO.ID_PESSOA.ToInt64(); }
+            get { return Utils.GetUsuarioLogado().USUARIO.FUNCIONARIO.ID_PESSOA.ToInt64(); }
         }
         public bool icModalVisible
         {
@@ -52,13 +52,13 @@ namespace UI.Web.EC.Coordenador
 
         public override void BindControl()
         {
-            if (((SessionUsuario)Session["USUARIO"]).USUARIO.FUNCIONARIO.ID_PESSOA == 0) return;
+            if (((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.ID_PESSOA == 0) return;
 
             //var fotoUsuario = new SGI.DataContext.Controller.Coorporativo.FotoUsuario().BindByPessoa(Library.ToInteger(idPessoa));
             //if(fotoUsuario == null)
             //    imgAluno.ImageUrl = string.Format("~/includes/fotopessoa.ashx?{0}", idPessoa);
             //else
-            imgAluno.ImageUrl = string.Format("~/includes/fotofotousuario.ashx?{0}", ((SessionUsuario)Session["USUARIO"]).USUARIO.ID_USUARIO);
+            imgAluno.ImageUrl = string.Format("~/includes/fotofotousuario.ashx?{0}", ((SessionUsuario)Session[Const.USUARIO]).USUARIO.ID_USUARIO);
         }
         protected void repeater_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
@@ -118,7 +118,7 @@ namespace UI.Web.EC.Coordenador
 
                 divCropImage.Visible = !(divUploadImage.Visible = false);
 
-                string fileName = string.Format("Temp/UploadImage/{0}{1}", ((SessionUsuario)Session["USUARIO"]).USUARIO.ID_USUARIO, System.IO.Path.GetExtension(fileUpload.FileName));
+                string fileName = string.Format("Temp/UploadImage/{0}{1}", ((SessionUsuario)Session[Const.USUARIO]).USUARIO.ID_USUARIO, System.IO.Path.GetExtension(fileUpload.FileName));
                 string tmp = System.IO.Path.Combine(Server.MapPath(""), fileName.Replace("/", "\\"));
 
                 fileUpload.SaveAs(tmp);
@@ -150,7 +150,7 @@ namespace UI.Web.EC.Coordenador
                 }
 
                 img.Dispose();
-                CarregarImagem(string.Format("{0}{1}", ((USUARIO)Context.Session["USUARIO"]).ID_USUARIO, System.IO.Path.GetExtension(fileUpload.FileName)), fileUpload.FileBytes);
+                CarregarImagem(string.Format("{0}{1}", Utils.GetUsuarioLogado().USUARIO.ID_USUARIO, System.IO.Path.GetExtension(fileUpload.FileName)), fileUpload.FileBytes);
                 divCropImage.Visible = !(divUploadImage.Visible = false);
             }
         }
@@ -211,7 +211,7 @@ namespace UI.Web.EC.Coordenador
         }
         private void SaveImage(System.Drawing.Image image)
         {
-            var usuario = ((SessionUsuario)Session["USUARIO"]).USUARIO;
+            var usuario = ((SessionUsuario)Session[Const.USUARIO]).USUARIO;
             usuario.FOTO = Library.ConvertImageToByte(image);
             NUsuario.Salvar(usuario);
 

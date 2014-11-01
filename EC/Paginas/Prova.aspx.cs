@@ -30,10 +30,10 @@ namespace UI.Web.EC.Paginas
         private void CarregarAmc()
         {
 
-            foreach (var item in NAmc.ConsultarAmc())   
-            {
-                ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
-            }
+            //foreach (var item in NAmc.ConsultarAmc())   
+            //{
+            //    ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
+            //}
         }
 
         protected void ddlAmc_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,8 +44,8 @@ namespace UI.Web.EC.Paginas
 
         protected void btnGerarProva_Click(object sender, EventArgs e)
         {
-            var idCurso = ((SessionUsuario)Session["USUARIO"]).IdCurso;
-            var idFuncionario = ((SessionUsuario)Session["USUARIO"]).USUARIO.FUNCIONARIO.ID_FUNCIONARIO;
+            var idCurso = ((SessionUsuario)Session[Const.USUARIO]).IdCurso;
+            var idFuncionario = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.ID_FUNCIONARIO;
             // Selecionar as questões dessa AMC e do curso do usuario logado (professor ou coordenador)
             NProva.GerarProvaRandomicamente(Library.ToInteger(ddlAmc.SelectedValue), idCurso, Library.ToInteger(txtQuantidadeQuestoes.Text), idFuncionario);
         }

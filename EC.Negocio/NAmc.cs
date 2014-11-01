@@ -30,5 +30,10 @@ namespace EC.Negocio
 
              return retorno;
          }
+
+         public static List<AMC> ConsultarAmcBySemestre(int idSemestre)
+         {
+             return (new DAmc()).ConsultarAmcBySemestre(idSemestre);
+         }
     }
 }

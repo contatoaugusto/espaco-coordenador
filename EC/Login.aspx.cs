@@ -67,30 +67,17 @@ namespace UI.Web.EC
                 sessionUsuario.IdCurso = curso.ID_CURSO;
                 sessionUsuario.NmCurso = curso.DESCRICAO;
 
-
                 // Não possui semestre aberto ou ativo
                 var semestre = NSemestre.ConsultarAtivo();
+                if (semestre != null)
+                    sessionUsuario.IdSemestre = semestre.ID_SEMESTRE;
+                
+                Session[Const.USUARIO] = sessionUsuario;
+
                 if (semestre == null)
-                    Context.Response.Redirect("~/Semestre.aspx");
-                
-                sessionUsuario.IdSemestre = semestre.ID_SEMESTRE;
-                Session["USUARIO"] = sessionUsuario;
-
-                
-
-                //Session objSession = new Session();
-                //Session.id = u.idPessoa;
-                //EC.Common.Session.idPerfil = u.idPerfil;
-                //EC.Common.Session.coAcesso = u.coAcesso;
-                //EC.Common.Session.nmPessoa = u.nmPessoa;
-                //EC.Common.Session.edEmailProfissional = u.edEmailProfissional;
-                //EC.Common.Session.edEmailPessoal = u.edEmailPessoal;
-                //EC.Common.Session.edEmailPessoal = u.edEmailPessoal;
-                //EC.Common.Session.icCoordenador = u.icCoordenador;
-                //Session["sgCentroCusto"] = u.sgCentroCusto;
+                    Context.Response.Redirect("~/Paginas/Semestre.aspx");
 
                 Response.Write(string.Format("<script>window.parent.location.href='{0}';</script>", ResolveClientUrl("~/Default.aspx")));
-
             }
             else
             {

@@ -26,12 +26,15 @@ namespace UI.Web.EC.Paginas
         }
         private void CarregarAmc()
         {
-            ddlAmc.DataSource = NAmc.ConsultarAmc();
-            ddlAmc.DataTextField = "ANO";
-            ddlAmc.DataValueField = "ID_AMC";
-            ddlAmc.DataBind();
+            var lista = NAmc.ConsultarAmc();
+            ddlAmc.Items.Clear();
+            ddlAmc.Items.Add(new ListItem("Selecione", ""));
 
-            ddlAmc.Items.Insert(0, new ListItem("", ""));
+            foreach (AMC obj in lista)
+            {
+                if (obj.SEMESTRE.ATIVO)
+                    ddlAmc.Items.Add(new ListItem(obj.SEMESTRE.SEMESTRE1 + "º sem/" + obj.SEMESTRE.ANO, obj.ID_AMC.ToString()));
+            }
         }
 
         private void CarregarDisciplina()
@@ -41,7 +44,7 @@ namespace UI.Web.EC.Paginas
             ddlDisciplina.DataValueField = "ID_DISCIPLINA";
             ddlDisciplina.DataBind();
 
-            ddlDisciplina.Items.Insert(0, new ListItem("", ""));
+            ddlDisciplina.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
 
@@ -54,7 +57,7 @@ namespace UI.Web.EC.Paginas
                 ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
             }
 
-            ddlFuncionario.Items.Insert(0, new ListItem("", ""));
+            ddlFuncionario.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
 

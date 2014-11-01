@@ -28,22 +28,21 @@ namespace UI.Web.EC.Paginas
         }
         private void CarregarAmc()
         {
-            ddlAmc.Items.Add(new ListItem("Selecione", "0"));
-            foreach (var item in NAmc.ConsultarAmc())
+            var lista = NAmc.ConsultarAmc();
+            ddlAmc.Items.Clear();
+            ddlAmc.Items.Add(new ListItem("Selecione", ""));
+
+            foreach (AMC obj in lista)
             {
-                ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
+                if (obj.SEMESTRE.ATIVO)
+                    ddlAmc.Items.Add(new ListItem(obj.SEMESTRE.SEMESTRE1 + "º sem/" + obj.SEMESTRE.ANO, obj.ID_AMC.ToString()));
             }
-            
         }
 
         private void CarregarDisciplina()
         {
-            //ddlDisciplina.DataSource = NDisciplina.ConsultarByCurso(((SessionUsuario)Session["USUARIO"]).IdCurso); //NQuestão.ConsultarDisciplina();
-            //ddlDisciplina.DataTextField = "DESCRICAO";
-            //ddlDisciplina.DataValueField = "ID_DISCIPLINA";
-            //ddlDisciplina.DataBind();
-
-            var disciplina = NDisciplina.ConsultarByCurso(((SessionUsuario)Session["USUARIO"]).IdCurso);
+  
+            var disciplina = NDisciplina.ConsultarByCurso(Utils.GetUsuarioLogado().IdCurso);
             ddlDisciplina.Items.Clear();
 
             ddlDisciplina.Items.Add(new ListItem("Selecione", "0"));

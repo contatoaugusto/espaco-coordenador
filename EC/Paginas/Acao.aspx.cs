@@ -148,7 +148,7 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarAmc()
         {
-            ddlAmc.DataSource = NAcao.ConsultarAmc();
+            ddlAmc.DataSource = NAmc.ConsultarAmc();
             ddlAmc.DataTextField = "ANO";
             ddlAmc.DataValueField = "ID_AMC";
             ddlAmc.DataBind();

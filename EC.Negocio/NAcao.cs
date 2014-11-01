@@ -19,10 +19,7 @@ namespace EC.Negocio
         {
             return (new DAcao()).ConsultarEvento();
         }
-        public static List<AMC> ConsultarAmc()
-        {
-            return (new DAcao()).ConsultarAmc();
-        }
+        
         public static List<STATUS_ACAO> ConsultarStatus()
         {
             return (new DAcao()).ConsultarStatus();
