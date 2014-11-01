@@ -24,5 +24,15 @@ namespace EC.Negocio
         {
             return (new DSemestre()).ConsultarAtivo();
         }
+
+        public static void Salvar(SEMESTRE se)
+        {
+            (new DSemestre()).Salvar(se);
+        }
+
+        public static void Atualizar(SEMESTRE se)
+        {
+            (new DSemestre()).Atualizar(se);
+        } 
     }
 }

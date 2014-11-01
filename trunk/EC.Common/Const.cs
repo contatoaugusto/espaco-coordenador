@@ -463,6 +463,7 @@ namespace EC.Common
         public static readonly string IDTIPOIDENTIFICACAO = "idTipoIdentificacao";
         public static readonly string IDTIPOIDENTIFICACAO_CACHE = "idTipoIdentificacao:Cache";
         public static readonly string IDSITUACAOLOTECARTEIRA_CACHE = "idSituacaoLoteCarteira:Cache";
+        public static readonly string USUARIO = "USUARIO";
         
         //-- Report's
         //public static readonly string PATH_REPORT_CACHE = System.Configuration.ConfigurationSettings.AppSettings.Get("PathFileReport");
@@ -546,6 +547,15 @@ namespace EC.Common
         public static readonly int FILTRO_TURMA = 3;
         public static readonly int FILTRO_AVANÇADO = 4;
 
+        // Mensagems
+        public static readonly string MENSAGEM_CADASTRO_REPETIDO = "Cadastro já existe no sistema";
+        public static readonly string MENSAGEM_PREENCHER_CAMPOS = "Todos os campos da tela devem ser preenchidos";
+        public static readonly string MENSAGEM_EXCLUSAO_CONFIRMA = "Deseja excluir registro? ";
+        public static readonly string MENSAGEM_EXCLUSAO_SUCESSO = "Registro Excluído com Sucesso!";
+        public static readonly string MENSAGEM_INCLUSAO_SUCESSO = "Registro Cadastrado com sucesso!";
+        public static readonly string MENSAGEM_ALTERACAO_SUCESSO = "Registro Alterado com sucesso!";
+        public static readonly string MENSAGEM_CADASTRO_NAO_LOCALIZADO = "Cadastro não localizado no sistema";
+        
         public static readonly string APP_TYPE_PDF = "application/pdf";
     }
 }

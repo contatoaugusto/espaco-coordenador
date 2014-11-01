@@ -53,6 +53,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ECModel", "FK_ID_TIPOEVENTO", "TIPO_EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_EVENTO), "EVENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.EVENTO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "fk_FUNCIONARIO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.FUNCIONARIO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_PROVA_FUNCIONARIO_CADASTRO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.PROVA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_FUNCIONARIO_CADASTRO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.FUNCIONARIO), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_USUARIO_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.USUARIO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_LANCAMENTO), "LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.LANCAMENTO), true)]
@@ -4792,6 +4793,28 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_FUNCIONARIO_CADASTRO", "QUESTAO")]
+        public EntityCollection<QUESTAO> QUESTAO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO", "QUESTAO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<QUESTAO>("ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO", "QUESTAO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TURMA_FUNCIONARIO", "TURMA")]
         public EntityCollection<TURMA> TURMA
         {
@@ -6380,6 +6403,44 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISCIPLINA>("ECModel.FK_QUESTAO_DISCIPLINA", "DISCIPLINA", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_QUESTAO_FUNCIONARIO_CADASTRO", "FUNCIONARIO")]
+        public FUNCIONARIO FUNCIONARIO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO", "FUNCIONARIO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO", "FUNCIONARIO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<FUNCIONARIO> FUNCIONARIOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO", "FUNCIONARIO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FUNCIONARIO>("ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO", "FUNCIONARIO", value);
                 }
             }
         }

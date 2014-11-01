@@ -31,7 +31,7 @@ namespace UI.Web.EC
             l.Text = "<script type=\"text/javascript\" src=\"" + ResolveClientUrl("~/Templates/Clean/Includes/Initialize.js") + "\"></script>";
             Page.Header.Controls.Add(l);
 
-            SessionUsuario sessionUsuario = (SessionUsuario)Session["USUARIO"];
+            SessionUsuario sessionUsuario = (SessionUsuario)Session[Const.USUARIO];
             
             if (sessionUsuario == null)
                 Response.Redirect ("~/Login.aspx");
@@ -40,6 +40,13 @@ namespace UI.Web.EC
             lblNomeCoordenador.Text = sessionUsuario.USUARIO.FUNCIONARIO.PESSOA.NOME;
             lblCursoUnico.Text = sessionUsuario.NmCurso;
             
+            // Semestre corrente
+            var semestre = NSemestre.ConsultarAtivo();
+            if (semestre != null)
+                lblAnoSemestreCorrente.Text = semestre.SEMESTRE1 + "º sem/" + semestre.ANO;
+            else
+                lblAnoSemestreCorrente.Text = "Não cadastrado";
+
             // Cursos do coordenador
             List<CURSO> listCurso = NCursoCoordenador.ConsultarCursoByCoordenador(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO);
             if (listCurso.Count > 0 && listCurso != null)

@@ -29,7 +29,7 @@ namespace UI.Web.EC.Coordenador
 
         public long idPessoa
         {
-            get { return ((SessionUsuario)Session["USUARIO"]).USUARIO.ID_USUARIO.ToInt64(); } //SGI.Common.Session.idPessoa; }
+            get { return ((SessionUsuario)Session[Const.USUARIO]).USUARIO.ID_USUARIO.ToInt64(); } //SGI.Common.Session.idPessoa; }
         }
         public bool icModalVisible
         {
@@ -97,7 +97,7 @@ namespace UI.Web.EC.Coordenador
             //new SGI.DataContext.Controller.Coorporativo.FotoUsuario().SetMostraSiteHoje(((USUARIO)Session["USUARIO"]).ID_USUARIO, idFotoUsuario);
 
             //Excluo cache da imagem
-            string imageCache = string.Format(@"{0}\{1}.tmp", string.Format(@"{0}_imagecache\", AppSettings.PathUpload), ((SessionUsuario)Session["USUARIO"]).USUARIO.ID_USUARIO);
+            string imageCache = string.Format(@"{0}\{1}.tmp", string.Format(@"{0}_imagecache\", AppSettings.PathUpload), ((SessionUsuario)Session[Const.USUARIO]).USUARIO.ID_USUARIO);
 
             if (File.Exists(imageCache))
             {
@@ -166,7 +166,7 @@ namespace UI.Web.EC.Coordenador
                 }
 
                 img.Dispose();
-                CarregarImagem(string.Format("{0}{1}", ((SessionUsuario)Session["USUARIO"]).USUARIO.ID_USUARIO, System.IO.Path.GetExtension(fileUpload.FileName)), fileUpload.FileBytes);
+                CarregarImagem(string.Format("{0}{1}", ((SessionUsuario)Session[Const.USUARIO]).USUARIO.ID_USUARIO, System.IO.Path.GetExtension(fileUpload.FileName)), fileUpload.FileBytes);
                 ShowCrop();
             }
         }
@@ -235,7 +235,7 @@ namespace UI.Web.EC.Coordenador
         private void SaveImage(System.Drawing.Image image)
         {
             //var o = new SGI.BusinessObject.Coorporativo.FotoUsuario();
-            var usuario = NUsuario.ConsultarById(((SessionUsuario)Context.Session["USUARIO"]).USUARIO.ID_USUARIO);
+            var usuario = NUsuario.ConsultarById(Utils.GetUsuarioLogado().USUARIO.ID_USUARIO);
 
             usuario.FOTO = Library.ConvertImageToByte(image);
             NUsuario.Atualiza(usuario);

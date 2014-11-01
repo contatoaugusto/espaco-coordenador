@@ -43,6 +43,12 @@
                         </ul>
                     </div>
 
+                    <div id="semestrecorrente">
+                        <ul>
+                            <li id="tituloSemestreCorrente"><h1>Semestre Corrente</h1><asp:Label ID="lblAnoSemestreCorrente" runat="server"></asp:Label></li>
+                        </ul>
+                    </div>
+
                     <div id="detalhe">
                         <div id="menurapido">
                             <ul>
@@ -91,6 +97,7 @@
                              <li class='mega'><a href='#'><span>AMC</span></a>
                                 <div style="width:auto">
                                     <ul>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Semestre.aspx")%>'><span>Abrir Semestre</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Amc.aspx")%>'><span>Abrir AMC</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Questao.aspx")%>'><span>Criar Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Prova.aspx")%>'><span>Criar Prova</span></a></li>

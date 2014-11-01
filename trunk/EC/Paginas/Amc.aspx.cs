@@ -23,8 +23,7 @@ namespace UI.Web.EC.Paginas
 
         public void BindControl()
         {
-            BindDropDownList();
-            //BindPage();
+            CarregaSemestreCorrente();
         }
 
         public void BindDataGrid()
@@ -34,40 +33,43 @@ namespace UI.Web.EC.Paginas
         }
 
 
-        protected void BindDropDownList()
+        protected void CarregaSemestreCorrente()
         {
 
-            //Semestre
-            ddlSemestre.Items.Add(new ListItem("1", "1"));
-            ddlSemestre.Items.Add(new ListItem("2", "2"));
+            var semestre = NSemestre.ConsultarAtivo();
 
-            // Preenche ano
-            int anoAtual = DateTime.Now.Year;
-            for (int i = anoAtual; i <= anoAtual + 2; i++)
+            if (semestre != null && semestre.ID_SEMESTRE > 0)
             {
-                ddlAno.Items.Add(new ListItem(i.ToString(), i.ToString()));
+                pnlAmc.Visible = true;
+                lblSemestreCorrente.Text = semestre.SEMESTRE1 + "º sem/" + semestre.ANO;
             }
-
+            else
+                pnlAmc.Visible = false;
         }
 
         protected void Salvar_Click1(object sender, EventArgs e)
         {
-            AMC amc = new AMC();
-            //amc.SEMESTRE = ddlSemestre.SelectedValue.ToInt32();
-            //amc.ANO = ddlAno.SelectedValue.ToInt32();
-
-            amc.ID_SEMESTRE = ((SessionUsuario)Session["USUARIO"]).IdSemestre;
-
-            amc.DATA_APLICACAO = Library.ToDate(dtAplicacao.Text);
-
-            if (NAmc.Salvar(amc))
-                alert.Show("Operação efetuada com sucesso!");
-            else
+            if (Utils.GetUsuarioLogado().IdSemestre == 0 ||
+                NAmc.ConsultarAmcBySemestre(Utils.GetUsuarioLogado().IdSemestre).Count > 0)
             {
-                alert.Show("Não foi possível criar uma nova AMC");
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('"+ Const.MENSAGEM_CADASTRO_REPETIDO +"');</script>");
                 return;
             }
-            
+            else
+            {
+                AMC amc = new AMC();
+
+                amc.ID_SEMESTRE = ((SessionUsuario)Session[Const.USUARIO]).IdSemestre;
+                amc.DATA_APLICACAO = Library.ToDate(dtAplicacao.Text);
+
+                if (NAmc.Salvar(amc))
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
+                else
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_CADASTRO_REPETIDO + "');</script>");
+                    return;
+                }
+            }    
         }
     }
 }

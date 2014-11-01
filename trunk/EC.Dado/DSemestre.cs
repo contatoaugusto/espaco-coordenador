@@ -37,7 +37,16 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                return db.SEMESTRE.First(rs => rs.ATIVO == true);
+                try
+                {
+                    return db.SEMESTRE.First(rs => rs.ATIVO == true);
+
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
+
             }
         }
 
@@ -46,6 +55,50 @@ namespace EC.Dado
             using (ECEntities db = new ECEntities())
             {
                 return db.SEMESTRE.First(rs => rs.ID_SEMESTRE == id);
+            }
+        }
+
+        public void Salvar(SEMESTRE se)
+        {
+            using (var db = new ECEntities())
+            {
+
+                AtualizarStatus(false);
+                
+                db.SEMESTRE.AddObject(se);
+                db.SaveChanges();
+                db.Dispose();
+            }
+        }
+
+        public void Atualizar(SEMESTRE q)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+
+                AtualizarStatus(false);
+
+                var original = db.SEMESTRE.First(rs => rs.ID_SEMESTRE == q.ID_SEMESTRE);
+
+                original.ID_SEMESTRE = q.ID_SEMESTRE;
+                original.ANO = q.ANO;
+                original.SEMESTRE1 = q.SEMESTRE1;
+                original.ATIVO = q.ATIVO;
+
+                db.SaveChanges();
+            }
+        }
+
+
+        public void AtualizarStatus(bool status)
+        {
+            using (var db = new ECEntities())
+            {
+
+                var semestre = db.SEMESTRE.ToList();
+                semestre.ForEach(a => a.ATIVO = status);
+
+                db.SaveChanges();
             }
         }
     }

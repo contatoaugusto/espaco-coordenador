@@ -753,6 +753,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_QUESTAO_FUNCIONARIO_CADASTRO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+          <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_QUESTAO_PROVA">
           <End Role="PROVA" Type="Self.PROVA" Multiplicity="0..1" />
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="*" />
@@ -1072,6 +1084,10 @@
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
+          <AssociationSet Name="FK_QUESTAO_FUNCIONARIO_CADASTRO" Association="Self.FK_QUESTAO_FUNCIONARIO_CADASTRO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
+          </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_PROVA" Association="Self.FK_QUESTAO_PROVA">
             <End Role="PROVA" EntitySet="PROVA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
@@ -1299,6 +1315,10 @@
           <AssociationSet Name="FK_PROVA_FUNCIONARIO_CADASTRO" Association="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="PROVA" EntitySet="PROVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUESTAO_FUNCIONARIO_CADASTRO" Association="ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
           <AssociationSet Name="FK_TURMA_FUNCIONARIO" Association="ECModel.FK_TURMA_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
@@ -1548,6 +1568,7 @@
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="PESSOA" Relationship="ECModel.fk_FUNCIONARIO_PESSOA" FromRole="FUNCIONARIO" ToRole="PESSOA" />
           <NavigationProperty Name="PROVA" Relationship="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" FromRole="FUNCIONARIO" ToRole="PROVA" />
+          <NavigationProperty Name="QUESTAO" Relationship="ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
           <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="TURMA" />
           <NavigationProperty Name="USUARIO" Relationship="ECModel.FK_USUARIO_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="USUARIO" />
         </EntityType>
@@ -1635,6 +1656,7 @@
           <Property Name="ID_PROVA" Type="Int32" />
           <NavigationProperty Name="AMC" Relationship="ECModel.FK_QUESTAO_AMC" FromRole="QUESTAO" ToRole="AMC" />
           <NavigationProperty Name="DISCIPLINA" Relationship="ECModel.FK_QUESTAO_DISCIPLINA" FromRole="QUESTAO" ToRole="DISCIPLINA" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO" FromRole="QUESTAO" ToRole="FUNCIONARIO" />
           <NavigationProperty Name="PROVA" Relationship="ECModel.FK_QUESTAO_PROVA" FromRole="QUESTAO" ToRole="PROVA" />
           <NavigationProperty Name="RESPOSTA" Relationship="ECModel.FK_RESPOSTA_QUESTAO" FromRole="QUESTAO" ToRole="RESPOSTA" />
         </EntityType>
@@ -2186,6 +2208,18 @@
             </Principal>
             <Dependent Role="PROVA">
               <PropertyRef Name="ID_FUNCIONARIO_CADATRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUESTAO_FUNCIONARIO_CADASTRO">
+          <End Type="ECModel.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="0..1" />
+          <End Type="ECModel.QUESTAO" Role="QUESTAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="QUESTAO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

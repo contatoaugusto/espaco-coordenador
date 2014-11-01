@@ -1210,6 +1210,7 @@
     <Content Include="Paginas\Questao.aspx" />
     <Content Include="Paginas\InicioTeste.aspx" />
     <Content Include="Paginas\Amc.aspx" />
+    <Content Include="Paginas\Semestre.aspx" />
     <Content Include="Scripts\api.js" />
     <Content Include="Scripts\core.js" />
     <Content Include="Scripts\core.min.js" />
@@ -1451,6 +1452,13 @@
     </Compile>
     <Compile Include="Paginas\Amc.aspx.designer.cs">
       <DependentUpon>Amc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Semestre.aspx.cs">
+      <DependentUpon>Semestre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Semestre.aspx.designer.cs">
+      <DependentUpon>Semestre.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Paginas\AgendaReuniao.aspx.cs">

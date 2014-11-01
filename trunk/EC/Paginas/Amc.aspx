@@ -12,21 +12,12 @@
       
         <div class="row">
             <div class="column w150">
-                Semestre:
+                Semestre corrente:
             </div>
             <div class="column w250">
-                <sgi:DropDownList ID="ddlSemestre" runat="server" RequiredField="True"></sgi:DropDownList>
+                <asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>
             </div>
         </div>  
-
-        <div class="row">
-            <div class="column w150">
-                Ano:
-            </div>
-            <div class="column w250">
-                <asp:DropDownList ID="ddlAno" runat="server" RequiredField="True" TabIndex="1"></asp:DropDownList>    
-            </div>
-        </div>
 
         <div class="row">
             <div class="column w150">
@@ -59,9 +50,17 @@
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>
             <%--<asp:BoundField DataField="ID_AMC" HeaderText="ID" ReadOnly="True" SortExpression="ID_AMC" />--%>   
-            <asp:BoundField DataField="SEMESTRE" HeaderText="Semestre" SortExpression="SEMESTRE" />
-            <asp:BoundField DataField="ANO" HeaderText="Ano" SortExpression="ANO" />
-            <asp:BoundField DataField="DATA_APLICACAO" HeaderText="Data" SortExpression="DATA_APLICACAO" />
+            <%--<asp:BoundField DataField="SEMESTRE" HeaderText="Semestre" SortExpression="SEMESTRE" />--%>
+            
+            <asp:TemplateField HeaderText="Semestre/Ano">
+                <ItemTemplate>
+                    <asp:Label ID="lblSemestereAno" runat="server" Text='<%# Bind("SEMESTRE.SEMESTRE1") %>'></asp:Label>º sem/ <asp:Label ID="Label1" runat="server" Text='<%# Bind("SEMESTRE.ANO") %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle HorizontalAlign="Center" />
+            </asp:TemplateField>
+
+            <%--<asp:BoundField DataField="ANO" HeaderText="Ano" SortExpression="ANO" />--%>
+            <asp:BoundField DataField="DATA_APLICACAO" HeaderText="Data Aplicação da prova" SortExpression="DATA_APLICACAO" />
             
             <asp:CommandField DeleteImageUrl="~/Imagens/close.png" ShowDeleteButton="True" DeleteText="Excluir" />
             

@@ -25,7 +25,7 @@ public class FotoPessoa : IHttpHandler, IRequiresSessionState
         }
         
         if (checkSession)
-            idPessoa = ((EC.Modelo.USUARIO)context.Session["USUARIO"]).ID_USUARIO;// SessionAluno.idPessoa.ToInt32();
+            idPessoa = Utils.GetUsuarioLogado().USUARIO.ID_USUARIO;// SessionAluno.idPessoa.ToInt32();
 
         System.Drawing.Image img = null;
 
