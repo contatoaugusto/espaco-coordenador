@@ -38,24 +38,24 @@ namespace UI.Web.EC
                 return;
             }
 
-            SessionUsuario u = new SessionUsuario();
-            u.USUARIO = NUsuario.ConsultarUsuarioByLoging(matricula, true);
+            SessionUsuario sessionUsuario = new SessionUsuario();
+            sessionUsuario.USUARIO = NUsuario.ConsultarUsuarioByLoging(matricula, true);
 
-            if (u == null)
+            if (sessionUsuario == null)
             {
                 btnLogin.Enabled = true;
                 alert.Show("O Usuário ou a senha que você digitou não foi reconhecido(a). ");
                 return;
             }
 
-            if (u.USUARIO.FUNCIONARIO.CARGO.ID_CARGO != 2)
+            if (sessionUsuario.USUARIO.FUNCIONARIO.CARGO.ID_CARGO != 2)
             {
                 btnLogin.Enabled = true;
                 alert.Show("O funcionário não é coordenador de curso. ");
                 return;
             }
 
-            if ((txtMatricula.Text == u.USUARIO.FUNCIONARIO.MATRICULA.ToString()) && (txtcoAcesso.Text == u.USUARIO.SENHA)) 
+            if ((txtMatricula.Text == sessionUsuario.USUARIO.FUNCIONARIO.MATRICULA.ToString()) && (txtcoAcesso.Text == sessionUsuario.USUARIO.SENHA)) 
             {
                 FormsAuthentication.RedirectFromLoginPage(txtMatricula.Text, true);
                 System.Web.HttpCookie cookie = new System.Web.HttpCookie("espacocorrdenador@uniceub.br", matricula.ToString());
@@ -63,11 +63,18 @@ namespace UI.Web.EC
                 Response.Cookies.Add(cookie);
 
                 // Curso
-                var curso = NCursoCoordenador.ConsultarCursoByCoordenador(u.USUARIO.FUNCIONARIO.ID_FUNCIONARIO).First();
-                u.IdCurso = curso.ID_CURSO;
-                u.NmCurso = curso.DESCRICAO;
+                var curso = NCursoCoordenador.ConsultarCursoByCoordenador(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO).First();
+                sessionUsuario.IdCurso = curso.ID_CURSO;
+                sessionUsuario.NmCurso = curso.DESCRICAO;
 
-                Session["USUARIO"] = u;
+
+                // Não possui semestre aberto ou ativo
+                var semestre = NSemestre.ConsultarAtivo();
+                if (semestre == null)
+                    Context.Response.Redirect("~/Semestre.aspx");
+                
+                sessionUsuario.IdSemestre = semestre.ID_SEMESTRE;
+                Session["USUARIO"] = sessionUsuario;
 
                 
 

@@ -56,6 +56,7 @@
     <Compile Include="NQuestão.cs" />
     <Compile Include="NResposta.cs" />
     <Compile Include="NReuniao.cs" />
+    <Compile Include="NSemestre.cs" />
     <Compile Include="NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
