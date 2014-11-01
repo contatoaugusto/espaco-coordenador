@@ -55,6 +55,7 @@
     <Compile Include="DQuestao.cs" />
     <Compile Include="DResposta.cs" />
     <Compile Include="DReuniao.cs" />
+    <Compile Include="DSemestre.cs" />
     <Compile Include="DUsuario.cs" />
     <Compile Include="DDisciplina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

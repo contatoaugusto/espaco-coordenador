@@ -12,6 +12,8 @@ namespace EC.Common
 
         private USUARIO USER;
 
+        private int idSemestre;
+               
         public USUARIO USUARIO
         {
             get { return USER; }
@@ -32,6 +34,11 @@ namespace EC.Common
             get { return idCurso; }
             set { idCurso = value; }
         }
-        
+
+        public int IdSemestre
+        {
+            get { return idSemestre; }
+            set { idSemestre = value; }
+        }
     }
 }

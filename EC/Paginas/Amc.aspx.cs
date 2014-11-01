@@ -53,8 +53,11 @@ namespace UI.Web.EC.Paginas
         protected void Salvar_Click1(object sender, EventArgs e)
         {
             AMC amc = new AMC();
-            amc.SEMESTRE = ddlSemestre.SelectedValue.ToInt32();
-            amc.ANO = ddlAno.SelectedValue.ToInt32();
+            //amc.SEMESTRE = ddlSemestre.SelectedValue.ToInt32();
+            //amc.ANO = ddlAno.SelectedValue.ToInt32();
+
+            amc.ID_SEMESTRE = ((SessionUsuario)Session["USUARIO"]).IdSemestre;
+
             amc.DATA_APLICACAO = Library.ToDate(dtAplicacao.Text);
 
             if (NAmc.Salvar(amc))
