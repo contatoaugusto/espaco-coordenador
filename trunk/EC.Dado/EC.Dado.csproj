@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DAcao.cs" />
     <Compile Include="DAmc.cs" />
+    <Compile Include="DProfessor.cs" />
     <Compile Include="DCoordenador.cs" />
     <Compile Include="DCurso.cs" />
     <Compile Include="DEvento.cs" />

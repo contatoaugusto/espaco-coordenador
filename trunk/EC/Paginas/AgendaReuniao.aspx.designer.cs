@@ -19,7 +19,7 @@ namespace UI.Web.EC.Reuniao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoReuniao;
+        protected global::EC.UI.WebControls.DropDownList ddlTipoReuniao;
         
         /// <summary>
         /// ddlSemestre control.
@@ -28,16 +28,7 @@ namespace UI.Web.EC.Reuniao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSemestre;
-        
-        /// <summary>
-        /// lbData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbData;
+        protected global::EC.UI.WebControls.DropDownList ddlSemestre;
         
         /// <summary>
         /// ddlDia control.
@@ -46,7 +37,7 @@ namespace UI.Web.EC.Reuniao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDia;
+        protected global::EC.UI.WebControls.DropDownList ddlDia;
         
         /// <summary>
         /// ddlMes control.
@@ -55,7 +46,7 @@ namespace UI.Web.EC.Reuniao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMes;
+        protected global::EC.UI.WebControls.DropDownList ddlMes;
         
         /// <summary>
         /// ddlAno control.
@@ -64,16 +55,7 @@ namespace UI.Web.EC.Reuniao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAno;
-        
-        /// <summary>
-        /// lbHora control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbHora;
+        protected global::EC.UI.WebControls.DropDownList ddlAno;
         
         /// <summary>
         /// ddlHora control.
@@ -82,7 +64,7 @@ namespace UI.Web.EC.Reuniao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHora;
+        protected global::EC.UI.WebControls.DropDownList ddlHora;
         
         /// <summary>
         /// ddlMinuto control.
@@ -91,52 +73,25 @@ namespace UI.Web.EC.Reuniao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMinuto;
+        protected global::EC.UI.WebControls.DropDownList ddlMinuto;
         
         /// <summary>
-        /// lbTitulo control.
+        /// txtTitulo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTitulo;
+        protected global::System.Web.UI.WebControls.TextBox txtTitulo;
         
         /// <summary>
-        /// TxtTitulo control.
+        /// txtLocal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtTitulo;
-        
-        /// <summary>
-        /// lbLocal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbLocal;
-        
-        /// <summary>
-        /// TxtLocal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtLocal;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtLocal;
         
         /// <summary>
         /// TxtPauta control.

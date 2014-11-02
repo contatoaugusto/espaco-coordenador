@@ -109,8 +109,8 @@
                             <li class='mega'><a href='#'><span>Reunião</span></a>
                                 <div style="width:auto">
                                     <ul>
-                                        <li><a href='AgendaReuniao.aspx'><span>Agendar Reuniao</span></a></li>
-                                        <li class='last'><a href='ConsultarReuniao.aspx'><span>Consultar Reunião</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/AgendaReuniao.aspx")%>'><span>Agendar Reuniao</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarReuniao.aspx")%>'><span>Consultar Reunião</span></a></li>
                                     </ul>
                                 </div>
                             </li>
