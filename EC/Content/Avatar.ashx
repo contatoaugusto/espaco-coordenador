@@ -56,9 +56,7 @@ public class Avatar : IHttpHandler, IRequiresSessionState
 
     private Image GetImage(int idUsuario, HttpContext context)
     {
-        //string pastaImagemTemp = "C:\\temp\\uploadimage\\";
-
-        string pathImages = string.Format(@"{0}\imagens\", /*pastaImagemTemp*/ AppSettings.PathRoot);
+        string pathImages = string.Format(@"{0}\imagens\", AppSettings.PathUpload);
 
         System.Drawing.Image img = null;
 
@@ -68,10 +66,10 @@ public class Avatar : IHttpHandler, IRequiresSessionState
         {
             
 
-            imageCache = string.Format(@"{0}{1}.tmp", /*pastaImagemTemp*/ Utils.PathImagesCache, idUsuario);
+            imageCache = string.Format(@"{0}{1}.tmp", Utils.PathImagesCache, idUsuario);
 
-            if (!Directory.Exists(/*pastaImagemTemp*/ Utils.PathImagesCache))
-                Directory.CreateDirectory(/*pastaImagemTemp*/ Utils.PathImagesCache);
+            if (!Directory.Exists(Utils.PathImagesCache))
+                Directory.CreateDirectory(Utils.PathImagesCache);
 
             if (File.Exists(imageCache))
             {

@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EC.Common;
 using EC.Negocio;
+using EC.Modelo;
 
 namespace UI.Web.EC
 {
@@ -48,12 +49,12 @@ namespace UI.Web.EC
                 return;
             }
 
-            if (sessionUsuario.USUARIO.FUNCIONARIO.CARGO.ID_CARGO != 2)
-            {
-                btnLogin.Enabled = true;
-                alert.Show("O funcionário não é coordenador de curso. ");
-                return;
-            }
+            //if (sessionUsuario.USUARIO.FUNCIONARIO.CARGO.ID_CARGO != 2)
+            //{
+            //    btnLogin.Enabled = true;
+            //    alert.Show("O funcionário não é coordenador de curso. ");
+            //    return;
+            //}
 
             if ((txtMatricula.Text == sessionUsuario.USUARIO.FUNCIONARIO.MATRICULA.ToString()) && (txtcoAcesso.Text == sessionUsuario.USUARIO.SENHA)) 
             {
@@ -63,7 +64,17 @@ namespace UI.Web.EC
                 Response.Cookies.Add(cookie);
 
                 // Curso
-                var curso = NCursoCoordenador.ConsultarCursoByCoordenador(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO).First();
+                var curso = new CURSO();
+
+                if (sessionUsuario.USUARIO.FUNCIONARIO.ID_CARGO == 1)
+                    curso = NDisciplinaProfessor.ConsultarCursoByProfessor(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO).First();
+                else if (sessionUsuario.USUARIO.FUNCIONARIO.ID_CARGO == 2)
+                    curso = NCursoCoordenador.ConsultarCursoByCoordenador(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO).First();
+                else
+                {
+                    curso.ID_CURSO = 0;
+                    curso.DESCRICAO = "Sem ligação com curso";
+                }
                 sessionUsuario.IdCurso = curso.ID_CURSO;
                 sessionUsuario.NmCurso = curso.DESCRICAO;
 

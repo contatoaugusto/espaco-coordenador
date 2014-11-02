@@ -135,9 +135,9 @@ namespace UI.Web.EC.Reuniao
         {
             {
             REUNIAO reuniao = new REUNIAO();
-            reuniao.TITULO = TxtTitulo.Text;
+            reuniao.TITULO = txtTitulo.Text;
             reuniao.ID_TIPOREUNIAO = int.Parse(ddlTipoReuniao.SelectedValue);
-            reuniao.LOCAL = TxtLocal.Text;
+            reuniao.LOCAL = txtLocal.Text;
             reuniao.SEMESTRE = int.Parse(ddlSemestre.Text);
             reuniao.DATAHORA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
             reuniao.PAUTA_REUNIAO = pautas;

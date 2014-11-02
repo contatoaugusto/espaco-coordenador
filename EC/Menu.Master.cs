@@ -47,8 +47,15 @@ namespace UI.Web.EC
             else
                 lblAnoSemestreCorrente.Text = "Não cadastrado";
 
-            // Cursos do coordenador
-            List<CURSO> listCurso = NCursoCoordenador.ConsultarCursoByCoordenador(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO);
+            // Cursos
+             List<CURSO> listCurso = new List<CURSO>();
+
+            if (sessionUsuario.USUARIO.FUNCIONARIO.ID_CARGO == 1)
+                listCurso = NDisciplinaProfessor.ConsultarCursoByProfessor(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO);
+            else if (sessionUsuario.USUARIO.FUNCIONARIO.ID_CARGO == 2)
+                listCurso = NCursoCoordenador.ConsultarCursoByCoordenador(sessionUsuario.USUARIO.FUNCIONARIO.ID_FUNCIONARIO);
+
+            
             if (listCurso.Count > 0 && listCurso != null)
             {
 

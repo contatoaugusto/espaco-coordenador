@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="Amc.aspx.cs" Inherits="UI.Web.EC.Paginas.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+   
     <sgi:MessageBox ID="messageBox" runat="server" />
 <%--<sgi:UpdatePanel ID="pnlAmc" runat="server">--%>
     <div class="form-separator"></div>
@@ -25,7 +25,15 @@
             </div>
             <div class="column w250">
                <asp:TextBox ID="dtAplicacao" runat="server" ></asp:TextBox>
+               <actk:CalendarExtender 
+                   runat="server" 
+                   ID="dtAplicacaoExtender" 
+                   TargetControlID="dtAplicacao" 
+                   Format="MMMM/dd/yyyy" 
+                   CssClass="MyCalendar" 
+                   PopupPosition="Left"></actk:CalendarExtender>
             </div>
+            
         </div>
         <br />
         <div class="form-bottombuttons">

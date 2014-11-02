@@ -1285,6 +1285,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\ControleAcesso.cs" />
     <Compile Include="Code\Page.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1330,16 +1331,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ECDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ECDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ECDataSet_Prova.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ECDataSet_Prova.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -1534,28 +1525,6 @@
     <Content Include="Coordenador\CEP.ashx" />
     <Content Include="Coordenador\Imagem.ashx" />
     <Content Include="Content\Avatar.ashx" />
-    <Content Include="ECDataSet.xsc">
-      <DependentUpon>ECDataSet.xsd</DependentUpon>
-    </Content>
-    <None Include="ECDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ECDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="ECDataSet.xss">
-      <DependentUpon>ECDataSet.xsd</DependentUpon>
-    </Content>
-    <Content Include="ECDataSet_Prova.xsc">
-      <DependentUpon>ECDataSet_Prova.xsd</DependentUpon>
-    </Content>
-    <None Include="ECDataSet_Prova.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ECDataSet_Prova.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="ECDataSet_Prova.xss">
-      <DependentUpon>ECDataSet_Prova.xsd</DependentUpon>
-    </Content>
     <Content Include="Scripts\core.min.js.map" />
     <Content Include="Scripts\encoder.min.js.map" />
     <Content Include="Scripts\global.min.js.map" />
