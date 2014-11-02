@@ -16,7 +16,6 @@ namespace EC.Negocio
             return (new DFuncionario()).ConsultarFuncionario();
         }
 
-
         public static FUNCIONARIO ConsultarById(int idFuncionario)
         {
             return (new DFuncionario()).ConsultarById(idFuncionario);

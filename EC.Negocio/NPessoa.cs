@@ -15,10 +15,15 @@ namespace EC.Negocio
             return (new DPessoa()).Consultar();
         }
 
-        public static PESSOA ConsultarQuestao(int id)
+        public static List<PESSOA> Consultar(string prefixText, int count)
+        {
+            return (new DPessoa()).Consultar(prefixText, count);
+        }
+
+        public static PESSOA ConsultarById(int id)
         {
             return (new DPessoa()).ConsultarById(id);
         }
 
-    }
+    } 
 }
