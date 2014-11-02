@@ -7,12 +7,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EC.Modelo;
 using EC.Negocio;
+using EC.Common;
 
 namespace UI.Web.EC.Reuniao
 {
     public partial class AgendaReuniao : System.Web.UI.Page
     {
-        public static EntityCollection<PAUTA_REUNIAO> pautas;
+        public static EntityCollection<REUNIAO_PAUTA> pautas;
+        public static List<PESSOA> participantes;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +26,10 @@ namespace UI.Web.EC.Reuniao
                 CarregarListaHora();
                 CarregarListaMinuto();
                 CarregarTipoReuniao();
-                pautas = new EntityCollection<PAUTA_REUNIAO>();
+                CarregarSemestre();
+                CarregarPessoaParticipante();
+                pautas = new EntityCollection<REUNIAO_PAUTA>();
+                participantes = new List<PESSOA>();
             }   
          }
 
@@ -42,6 +47,12 @@ namespace UI.Web.EC.Reuniao
             ddlDia.Items.Insert(0, new ListItem("", ""));
         }
 
+        private void CarregarSemestre()
+        {
+            var semestre = NSemestre.ConsultarAtivo();
+            lblSemestreCorrente.Text = semestre.SEMESTRE1 + "º sem/" + semestre.ANO;
+            hddSemestreCorrente.Value = semestre.ID_SEMESTRE.ToString();
+        }
 
         private void CarregarListaMes()
         {
@@ -101,66 +112,94 @@ namespace UI.Web.EC.Reuniao
             ddlTipoReuniao.DataValueField = "ID_TIPOREUNIAO";
             ddlTipoReuniao.DataBind();
 
-            ddlTipoReuniao.Items.Insert(0, new ListItem("", ""));
+            ddlTipoReuniao.Items.Insert(0, new ListItem("Selecione", "0"));
         }
 
-           //List<PAUTA_REUNIAO> listaPauta = new List<PAUTA_REUNIAO>();
+        private void CarregarPessoaParticipante()
+        {
+            ddlParticipante.DataSource = NPessoa.Consultar();
+            ddlParticipante.DataTextField = "NOME";
+            ddlParticipante.DataValueField = "ID_PESSOA";
+            ddlParticipante.DataBind();
 
-           //PAUTA_REUNIAO pauta1 = new PAUTA_REUNIAO();
-           //pauta1.DESCRICAO = TxtPauta.Text;
+            ddlParticipante.Items.Insert(0, new ListItem("Selecione", "0"));
+        }
 
-            //PAUTA_REUNIAO pauta2 = new PAUTA_REUNIAO();
-            //pauta2.DESCRICAO = TxtPauta2.Text;
 
-            //PAUTA_REUNIAO pauta3 = new PAUTA_REUNIAO();
-            //pauta3.DESCRICAO = TxtPauta3.Text;
-
-            //PAUTA_REUNIAO pauta4 = new PAUTA_REUNIAO();
-            //pauta4.DESCRICAO = TxtPauta4.Text;
-
-            //PAUTA_REUNIAO pauta5 = new PAUTA_REUNIAO();
-            //pauta5.DESCRICAO = TxtPauta5.Text;
-
-            //listaPauta.Add(pauta1);
-            //listaPauta.Add(pauta2);
-            //listaPauta.Add(pauta1);
-            //listaPauta.Add(pauta2);
-            //listaPauta.Add(pauta1);
-
-            //reuniao.PAUTA_REUNIAO = listaPauta;
-            //NReuniao.Salvar(reuniao);
-            //Response.Redirect("ConsultarReuniao.aspx", true);
-     
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
-            {
             REUNIAO reuniao = new REUNIAO();
             reuniao.TITULO = txtTitulo.Text;
             reuniao.ID_TIPOREUNIAO = int.Parse(ddlTipoReuniao.SelectedValue);
             reuniao.LOCAL = txtLocal.Text;
-            reuniao.SEMESTRE = int.Parse(ddlSemestre.Text);
+            reuniao.ID_SEMESTRE = int.Parse(hddSemestreCorrente.Value);
             reuniao.DATAHORA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
-            reuniao.PAUTA_REUNIAO = pautas;
-            NReuniao.Salvar(reuniao);
-            Response.Redirect("ConsultarReuniao.aspx", true);
+            reuniao.REUNIAO_PAUTA = pautas;
+
+            EntityCollection<REUNIAO_PARTICIPANTE> reuniao_participantes = new EntityCollection<REUNIAO_PARTICIPANTE>();
+            foreach (var obj in participantes)
+            {
+                REUNIAO_PARTICIPANTE reuniao_part = new REUNIAO_PARTICIPANTE();
+                reuniao_part.ID_PESSOA =  obj.ID_PESSOA;
+                reuniao_participantes.Add(reuniao_part);
             }
-   
+            reuniao.REUNIAO_PARTICIPANTE = reuniao_participantes;
+
+            NReuniao.Salvar(reuniao);
+
+            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
+            Response.Redirect("ConsultarReuniao.aspx", true);
         }
 
+        protected void Validacoes()
+        {
+            //Verificar campos obrigatorios
+
+            // Verificar se não tem reunião igual
+        }
+
+
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-         {
-            PAUTA_REUNIAO pauta = new PAUTA_REUNIAO();
-            pauta.DESCRICAO = TxtPauta.Text;
+        {
+            REUNIAO_PAUTA pauta = new REUNIAO_PAUTA();
+            pauta.DESCRICAO = txtPauta.Text;
             pauta.ITEM = pautas.Count + 1;
             pautas.Add(pauta);
             grdPauta.DataSource = pautas;
             grdPauta.DataBind();
-            
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
             Response.Redirect("ConsultarReuniao.aspx", true);
         }
+
+        protected void imgAdicionaParticipante_Click(object sender, ImageClickEventArgs e)
+        {
+            PESSOA pessoa = new PESSOA();
+            pessoa = NPessoa.ConsultarById(Library.ToInteger(ddlParticipante.SelectedValue));
+
+            participantes.Add(pessoa);
+            grdParticipante.DataSource = participantes;
+            grdParticipante.DataBind();
+
+        }
+        public static string GetCargos(int idPessoa){
+            string cargo = "";
+            var cargoList = NCargo.ConsultarByPessoa(idPessoa);
+
+            foreach (var obj in cargoList) {
+                cargo += obj.DESCRICAO + "\n";
+            }
+
+            return cargo;
+        }
+        //http://www.ajaxtutorials.com/general/using-autocomplete-in-the-ajax-toolkit/
+        //public static string[] GetNames(string prefixText, int count)
+        //{
+        //    NPessoa.Consultar(prefixText, count);
+            
+        //    return .Select(n => n.NOME).Take(count)
+        //}
     }
 }

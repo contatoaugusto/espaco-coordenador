@@ -169,25 +169,6 @@
           <Property Name="JUSTIFICATIVA" Type="varchar(max)" />
           <Property Name="PROVIDENCIA" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="PARTICIPANTE">
-          <Key>
-            <PropertyRef Name="ID_PARTICIPANTE" />
-          </Key>
-          <Property Name="ID_PARTICIPANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_FUNCIONARIO" Type="int" />
-          <Property Name="ID_ALUNO" Type="int" />
-          <Property Name="ID_REUNIAO" Type="int" />
-          <Property Name="PRESENCA" Type="bit" />
-        </EntityType>
-        <EntityType Name="PAUTA_REUNIAO">
-          <Key>
-            <PropertyRef Name="ID_PAUTA" />
-          </Key>
-          <Property Name="ID_PAUTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_REUNIAO" Type="int" />
-          <Property Name="DESCRICAO" Type="varchar(max)" />
-          <Property Name="ITEM" Type="int" />
-        </EntityType>
         <EntityType Name="PESSOA">
           <Key>
             <PropertyRef Name="ID_PESSOA" />
@@ -252,9 +233,27 @@
           <Property Name="ID_REUNIAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_TIPOREUNIAO" Type="int" Nullable="false" />
           <Property Name="TITULO" Type="varchar" MaxLength="50" />
-          <Property Name="SEMESTRE" Type="int" Nullable="false" />
           <Property Name="LOCAL" Type="varchar" MaxLength="50" />
           <Property Name="DATAHORA" Type="datetime" />
+          <Property Name="ID_SEMESTRE" Type="int" />
+        </EntityType>
+        <EntityType Name="REUNIAO_PARTICIPANTE">
+          <Key>
+            <PropertyRef Name="ID_PARTICIPANTE" />
+          </Key>
+          <Property Name="ID_PARTICIPANTE" Type="int" Nullable="false" />
+          <Property Name="ID_PESSOA" Type="int" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" Nullable="false" />
+          <Property Name="PRESENCA" Type="bit" />
+        </EntityType>
+        <EntityType Name="REUNIAO_PAUTA">
+          <Key>
+            <PropertyRef Name="ID_PAUTA" />
+          </Key>
+          <Property Name="ID_PAUTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="ITEM" Type="int" />
         </EntityType>
         <EntityType Name="SEMESTRE">
           <Key>
@@ -669,30 +668,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_PARTICIPANTE_ALUNO">
-          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="0..1" />
-          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ALUNO">
-              <PropertyRef Name="ID_ALUNO" />
-            </Principal>
-            <Dependent Role="PARTICIPANTE">
-              <PropertyRef Name="ID_ALUNO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_PARTICIPANTE_REUNIAO">
-          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
-          <End Role="PARTICIPANTE" Type="Self.PARTICIPANTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="REUNIAO">
-              <PropertyRef Name="ID_REUNIAO" />
-            </Principal>
-            <Dependent Role="PARTICIPANTE">
-              <PropertyRef Name="ID_REUNIAO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_PESSOA_ALUNO">
           <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
           <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="*" />
@@ -813,15 +788,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_REUNIAO_PAUTA">
-          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
-          <End Role="PAUTA_REUNIAO" Type="Self.PAUTA_REUNIAO" Multiplicity="*" />
+        <Association Name="FK_REUNIAO_PARTICIPANTE_PESSOA">
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="1" />
+          <End Role="REUNIAO_PARTICIPANTE" Type="Self.REUNIAO_PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="REUNIAO_PARTICIPANTE">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REUNIAO_PARTICIPANTE_REUNIAO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="1" />
+          <End Role="REUNIAO_PARTICIPANTE" Type="Self.REUNIAO_PARTICIPANTE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REUNIAO">
               <PropertyRef Name="ID_REUNIAO" />
             </Principal>
-            <Dependent Role="PAUTA_REUNIAO">
+            <Dependent Role="REUNIAO_PARTICIPANTE">
               <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_REUNIAO_PAUTA">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
+          <End Role="REUNIAO_PAUTA" Type="Self.REUNIAO_PAUTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO_PAUTA">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REUNIAO_SEMESTRE">
+          <End Role="SEMESTRE" Type="Self.SEMESTRE" Multiplicity="0..1" />
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMESTRE">
+              <PropertyRef Name="ID_SEMESTRE" />
+            </Principal>
+            <Dependent Role="REUNIAO">
+              <PropertyRef Name="ID_SEMESTRE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -928,8 +939,6 @@
           <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FUNCIONARIO" EntityType="Self.FUNCIONARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LANCAMENTO" EntityType="Self.LANCAMENTO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PARTICIPANTE" EntityType="Self.PARTICIPANTE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PAUTA_REUNIAO" EntityType="Self.PAUTA_REUNIAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PESSOA" EntityType="Self.PESSOA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRIORIDADE_ACAO" EntityType="Self.PRIORIDADE_ACAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROVA" EntityType="Self.PROVA" Schema="dbo" store:Type="Tables" />
@@ -937,6 +946,8 @@
           <EntitySet Name="REPRESENTANTE_TURMA" EntityType="Self.REPRESENTANTE_TURMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RESPOSTA" EntityType="Self.RESPOSTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO" EntityType="Self.REUNIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REUNIAO_PARTICIPANTE" EntityType="Self.REUNIAO_PARTICIPANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REUNIAO_PAUTA" EntityType="Self.REUNIAO_PAUTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SEMESTRE" EntityType="Self.SEMESTRE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STATUS_ACAO" EntityType="Self.STATUS_ACAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -1056,14 +1067,6 @@
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
           </AssociationSet>
-          <AssociationSet Name="fk_PARTICIPANTE_ALUNO" Association="Self.fk_PARTICIPANTE_ALUNO">
-            <End Role="ALUNO" EntitySet="ALUNO" />
-            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
-          </AssociationSet>
-          <AssociationSet Name="fk_PARTICIPANTE_REUNIAO" Association="Self.fk_PARTICIPANTE_REUNIAO">
-            <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
-          </AssociationSet>
           <AssociationSet Name="fk_PESSOA_ALUNO" Association="Self.fk_PESSOA_ALUNO">
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="ALUNO" EntitySet="ALUNO" />
@@ -1104,9 +1107,21 @@
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
           </AssociationSet>
+          <AssociationSet Name="FK_REUNIAO_PARTICIPANTE_PESSOA" Association="Self.FK_REUNIAO_PARTICIPANTE_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="REUNIAO_PARTICIPANTE" EntitySet="REUNIAO_PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REUNIAO_PARTICIPANTE_REUNIAO" Association="Self.FK_REUNIAO_PARTICIPANTE_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="REUNIAO_PARTICIPANTE" EntitySet="REUNIAO_PARTICIPANTE" />
+          </AssociationSet>
           <AssociationSet Name="fk_REUNIAO_PAUTA" Association="Self.fk_REUNIAO_PAUTA">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="PAUTA_REUNIAO" EntitySet="PAUTA_REUNIAO" />
+            <End Role="REUNIAO_PAUTA" EntitySet="REUNIAO_PAUTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REUNIAO_SEMESTRE" Association="Self.FK_REUNIAO_SEMESTRE">
+            <End Role="SEMESTRE" EntitySet="SEMESTRE" />
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
           </AssociationSet>
           <AssociationSet Name="FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" Association="Self.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA">
             <End Role="TIPO_REPRESENTANTE" EntitySet="TIPO_REPRESENTANTE" />
@@ -1160,8 +1175,6 @@
           <EntitySet Name="EVENTO" EntityType="ECModel.EVENTO" />
           <EntitySet Name="FUNCIONARIO" EntityType="ECModel.FUNCIONARIO" />
           <EntitySet Name="LANCAMENTO" EntityType="ECModel.LANCAMENTO" />
-          <EntitySet Name="PARTICIPANTE" EntityType="ECModel.PARTICIPANTE" />
-          <EntitySet Name="PAUTA_REUNIAO" EntityType="ECModel.PAUTA_REUNIAO" />
           <EntitySet Name="PESSOA" EntityType="ECModel.PESSOA" />
           <EntitySet Name="PRIORIDADE_ACAO" EntityType="ECModel.PRIORIDADE_ACAO" />
           <EntitySet Name="PROVA" EntityType="ECModel.PROVA" />
@@ -1169,6 +1182,8 @@
           <EntitySet Name="REPRESENTANTE_TURMA" EntityType="ECModel.REPRESENTANTE_TURMA" />
           <EntitySet Name="RESPOSTA" EntityType="ECModel.RESPOSTA" />
           <EntitySet Name="REUNIAO" EntityType="ECModel.REUNIAO" />
+          <EntitySet Name="REUNIAO_PARTICIPANTE" EntityType="ECModel.REUNIAO_PARTICIPANTE" />
+          <EntitySet Name="REUNIAO_PAUTA" EntityType="ECModel.REUNIAO_PAUTA" />
           <EntitySet Name="SEMESTRE" EntityType="ECModel.SEMESTRE" />
           <EntitySet Name="STATUS_ACAO" EntityType="ECModel.STATUS_ACAO" />
           <EntitySet Name="sysdiagrams" EntityType="ECModel.sysdiagrams" />
@@ -1219,10 +1234,6 @@
           <AssociationSet Name="FK_ALUNO_CURSO_ALUNO" Association="ECModel.FK_ALUNO_CURSO_ALUNO">
             <End Role="ALUNO" EntitySet="ALUNO" />
             <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
-          </AssociationSet>
-          <AssociationSet Name="fk_PARTICIPANTE_ALUNO" Association="ECModel.fk_PARTICIPANTE_ALUNO">
-            <End Role="ALUNO" EntitySet="ALUNO" />
-            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
           </AssociationSet>
           <AssociationSet Name="fk_PESSOA_ALUNO" Association="ECModel.fk_PESSOA_ALUNO">
             <End Role="PESSOA" EntitySet="PESSOA" />
@@ -1336,13 +1347,9 @@
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
           </AssociationSet>
-          <AssociationSet Name="fk_PARTICIPANTE_REUNIAO" Association="ECModel.fk_PARTICIPANTE_REUNIAO">
-            <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="PARTICIPANTE" EntitySet="PARTICIPANTE" />
-          </AssociationSet>
-          <AssociationSet Name="fk_REUNIAO_PAUTA" Association="ECModel.fk_REUNIAO_PAUTA">
-            <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="PAUTA_REUNIAO" EntitySet="PAUTA_REUNIAO" />
+          <AssociationSet Name="FK_REUNIAO_PARTICIPANTE_PESSOA" Association="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="REUNIAO_PARTICIPANTE" EntitySet="REUNIAO_PARTICIPANTE" />
           </AssociationSet>
           <AssociationSet Name="FK_QUESTAO_PROVA" Association="ECModel.FK_QUESTAO_PROVA">
             <End Role="PROVA" EntitySet="PROVA" />
@@ -1359,6 +1366,18 @@
           <AssociationSet Name="FK_TURMA_REPRESENTANTE_TURMA" Association="ECModel.FK_TURMA_REPRESENTANTE_TURMA">
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REUNIAO_PARTICIPANTE_REUNIAO" Association="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="REUNIAO_PARTICIPANTE" EntitySet="REUNIAO_PARTICIPANTE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_REUNIAO_PAUTA" Association="ECModel.fk_REUNIAO_PAUTA">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="REUNIAO_PAUTA" EntitySet="REUNIAO_PAUTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REUNIAO_SEMESTRE" Association="ECModel.FK_REUNIAO_SEMESTRE">
+            <End Role="SEMESTRE" EntitySet="SEMESTRE" />
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
           </AssociationSet>
           <AssociationSet Name="FK_TIPOREUNIAO" Association="ECModel.FK_TIPOREUNIAO">
             <End Role="TIPO_REUNIAO" EntitySet="TIPO_REUNIAO" />
@@ -1425,7 +1444,6 @@
           <Property Name="RA" Type="Int32" />
           <Property Name="ID_PESSOA" Type="Int32" />
           <NavigationProperty Name="ALUNO_CURSO" Relationship="ECModel.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO" ToRole="ALUNO_CURSO" />
-          <NavigationProperty Name="PARTICIPANTE" Relationship="ECModel.fk_PARTICIPANTE_ALUNO" FromRole="ALUNO" ToRole="PARTICIPANTE" />
           <NavigationProperty Name="PESSOA" Relationship="ECModel.fk_PESSOA_ALUNO" FromRole="ALUNO" ToRole="PESSOA" />
         </EntityType>
         <EntityType Name="ALUNO_AMC">
@@ -1586,28 +1604,6 @@
           <NavigationProperty Name="TIPO_LANCAMENTO" Relationship="ECModel.Fk_LANCAMENTO_TIPOLANCAM" FromRole="LANCAMENTO" ToRole="TIPO_LANCAMENTO" />
           <NavigationProperty Name="TURMA" Relationship="ECModel.Fk_LANCAMENTO_TURMA" FromRole="LANCAMENTO" ToRole="TURMA" />
         </EntityType>
-        <EntityType Name="PARTICIPANTE">
-          <Key>
-            <PropertyRef Name="ID_PARTICIPANTE" />
-          </Key>
-          <Property Name="ID_PARTICIPANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_FUNCIONARIO" Type="Int32" />
-          <Property Name="ID_ALUNO" Type="Int32" />
-          <Property Name="ID_REUNIAO" Type="Int32" />
-          <Property Name="PRESENCA" Type="Boolean" />
-          <NavigationProperty Name="ALUNO" Relationship="ECModel.fk_PARTICIPANTE_ALUNO" FromRole="PARTICIPANTE" ToRole="ALUNO" />
-          <NavigationProperty Name="REUNIAO" Relationship="ECModel.fk_PARTICIPANTE_REUNIAO" FromRole="PARTICIPANTE" ToRole="REUNIAO" />
-        </EntityType>
-        <EntityType Name="PAUTA_REUNIAO">
-          <Key>
-            <PropertyRef Name="ID_PAUTA" />
-          </Key>
-          <Property Name="ID_PAUTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_REUNIAO" Type="Int32" />
-          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ITEM" Type="Int32" />
-          <NavigationProperty Name="REUNIAO" Relationship="ECModel.fk_REUNIAO_PAUTA" FromRole="PAUTA_REUNIAO" ToRole="REUNIAO" />
-        </EntityType>
         <EntityType Name="PESSOA">
           <Key>
             <PropertyRef Name="ID_PESSOA" />
@@ -1621,6 +1617,7 @@
           <NavigationProperty Name="COMPROMISSO" Relationship="ECModel.fk_COMPROMISSO_PESSOA" FromRole="PESSOA" ToRole="COMPROMISSO" />
           <NavigationProperty Name="EVENTO" Relationship="ECModel.fk_EVENTO_PESSOA" FromRole="PESSOA" ToRole="EVENTO" />
           <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.fk_FUNCIONARIO_PESSOA" FromRole="PESSOA" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="REUNIAO_PARTICIPANTE" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA" FromRole="PESSOA" ToRole="REUNIAO_PARTICIPANTE" />
         </EntityType>
         <EntityType Name="PRIORIDADE_ACAO">
           <Key>
@@ -1689,15 +1686,37 @@
           <Property Name="ID_REUNIAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_TIPOREUNIAO" Type="Int32" Nullable="false" />
           <Property Name="TITULO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SEMESTRE" Type="Int32" Nullable="false" />
           <Property Name="LOCAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DATAHORA" Type="DateTime" Precision="3" />
+          <Property Name="ID_SEMESTRE" Type="Int32" />
           <NavigationProperty Name="ACAO_REUNIAO" Relationship="ECModel.fk_ACAO_REUNIAO_REUNIAO" FromRole="REUNIAO" ToRole="ACAO_REUNIAO" />
           <NavigationProperty Name="ASSUNTO_TRATADO" Relationship="ECModel.FK_ASSTRATADOS" FromRole="REUNIAO" ToRole="ASSUNTO_TRATADO" />
           <NavigationProperty Name="COMPROMISSO" Relationship="ECModel.fk_REUNIAO_COMPROMISSO" FromRole="REUNIAO" ToRole="COMPROMISSO" />
-          <NavigationProperty Name="PARTICIPANTE" Relationship="ECModel.fk_PARTICIPANTE_REUNIAO" FromRole="REUNIAO" ToRole="PARTICIPANTE" />
-          <NavigationProperty Name="PAUTA_REUNIAO" Relationship="ECModel.fk_REUNIAO_PAUTA" FromRole="REUNIAO" ToRole="PAUTA_REUNIAO" />
+          <NavigationProperty Name="REUNIAO_PARTICIPANTE" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO" FromRole="REUNIAO" ToRole="REUNIAO_PARTICIPANTE" />
+          <NavigationProperty Name="REUNIAO_PAUTA" Relationship="ECModel.fk_REUNIAO_PAUTA" FromRole="REUNIAO" ToRole="REUNIAO_PAUTA" />
+          <NavigationProperty Name="SEMESTRE" Relationship="ECModel.FK_REUNIAO_SEMESTRE" FromRole="REUNIAO" ToRole="SEMESTRE" />
           <NavigationProperty Name="TIPO_REUNIAO" Relationship="ECModel.FK_TIPOREUNIAO" FromRole="REUNIAO" ToRole="TIPO_REUNIAO" />
+        </EntityType>
+        <EntityType Name="REUNIAO_PARTICIPANTE">
+          <Key>
+            <PropertyRef Name="ID_PARTICIPANTE" />
+          </Key>
+          <Property Name="ID_PARTICIPANTE" Type="Int32" Nullable="false" />
+          <Property Name="ID_PESSOA" Type="Int32" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="Int32" Nullable="false" />
+          <Property Name="PRESENCA" Type="Boolean" />
+          <NavigationProperty Name="PESSOA" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA" FromRole="REUNIAO_PARTICIPANTE" ToRole="PESSOA" />
+          <NavigationProperty Name="REUNIAO" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO" FromRole="REUNIAO_PARTICIPANTE" ToRole="REUNIAO" />
+        </EntityType>
+        <EntityType Name="REUNIAO_PAUTA">
+          <Key>
+            <PropertyRef Name="ID_PAUTA" />
+          </Key>
+          <Property Name="ID_PAUTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_REUNIAO" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="Int32" />
+          <NavigationProperty Name="REUNIAO" Relationship="ECModel.fk_REUNIAO_PAUTA" FromRole="REUNIAO_PAUTA" ToRole="REUNIAO" />
         </EntityType>
         <EntityType Name="SEMESTRE">
           <Key>
@@ -1708,6 +1727,7 @@
           <Property Name="SEMESTRE1" Type="Int32" Nullable="false" />
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AMC" Relationship="ECModel.FK_AMC_SEMESTRE" FromRole="SEMESTRE" ToRole="AMC" />
+          <NavigationProperty Name="REUNIAO" Relationship="ECModel.FK_REUNIAO_SEMESTRE" FromRole="SEMESTRE" ToRole="REUNIAO" />
         </EntityType>
         <EntityType Name="STATUS_ACAO">
           <Key>
@@ -1919,18 +1939,6 @@
               <PropertyRef Name="ID_ALUNO" />
             </Principal>
             <Dependent Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_ALUNO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_PARTICIPANTE_ALUNO">
-          <End Type="ECModel.ALUNO" Role="ALUNO" Multiplicity="0..1" />
-          <End Type="ECModel.PARTICIPANTE" Role="PARTICIPANTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ALUNO">
-              <PropertyRef Name="ID_ALUNO" />
-            </Principal>
-            <Dependent Role="PARTICIPANTE">
               <PropertyRef Name="ID_ALUNO" />
             </Dependent>
           </ReferentialConstraint>
@@ -2271,27 +2279,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_PARTICIPANTE_REUNIAO">
-          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="0..1" />
-          <End Type="ECModel.PARTICIPANTE" Role="PARTICIPANTE" Multiplicity="*" />
+        <Association Name="FK_REUNIAO_PARTICIPANTE_PESSOA">
+          <End Type="ECModel.PESSOA" Role="PESSOA" Multiplicity="1" />
+          <End Type="ECModel.REUNIAO_PARTICIPANTE" Role="REUNIAO_PARTICIPANTE" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="REUNIAO">
-              <PropertyRef Name="ID_REUNIAO" />
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
             </Principal>
-            <Dependent Role="PARTICIPANTE">
-              <PropertyRef Name="ID_REUNIAO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_REUNIAO_PAUTA">
-          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="0..1" />
-          <End Type="ECModel.PAUTA_REUNIAO" Role="PAUTA_REUNIAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="REUNIAO">
-              <PropertyRef Name="ID_REUNIAO" />
-            </Principal>
-            <Dependent Role="PAUTA_REUNIAO">
-              <PropertyRef Name="ID_REUNIAO" />
+            <Dependent Role="REUNIAO_PARTICIPANTE">
+              <PropertyRef Name="ID_PESSOA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2340,6 +2336,42 @@
             </Principal>
             <Dependent Role="REPRESENTANTE_TURMA">
               <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REUNIAO_PARTICIPANTE_REUNIAO">
+          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="1" />
+          <End Type="ECModel.REUNIAO_PARTICIPANTE" Role="REUNIAO_PARTICIPANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO_PARTICIPANTE">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_REUNIAO_PAUTA">
+          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="0..1" />
+          <End Type="ECModel.REUNIAO_PAUTA" Role="REUNIAO_PAUTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO_PAUTA">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REUNIAO_SEMESTRE">
+          <End Type="ECModel.SEMESTRE" Role="SEMESTRE" Multiplicity="0..1" />
+          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMESTRE">
+              <PropertyRef Name="ID_SEMESTRE" />
+            </Principal>
+            <Dependent Role="REUNIAO">
+              <PropertyRef Name="ID_SEMESTRE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2555,27 +2587,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PARTICIPANTE">
-            <EntityTypeMapping TypeName="ECModel.PARTICIPANTE">
-              <MappingFragment StoreEntitySet="PARTICIPANTE">
-                <ScalarProperty Name="PRESENCA" ColumnName="PRESENCA" />
-                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
-                <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
-                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
-                <ScalarProperty Name="ID_PARTICIPANTE" ColumnName="ID_PARTICIPANTE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PAUTA_REUNIAO">
-            <EntityTypeMapping TypeName="ECModel.PAUTA_REUNIAO">
-              <MappingFragment StoreEntitySet="PAUTA_REUNIAO">
-                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
-                <ScalarProperty Name="ID_PAUTA" ColumnName="ID_PAUTA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PESSOA">
             <EntityTypeMapping TypeName="ECModel.PESSOA">
               <MappingFragment StoreEntitySet="PESSOA">
@@ -2642,12 +2653,32 @@
           <EntitySetMapping Name="REUNIAO">
             <EntityTypeMapping TypeName="ECModel.REUNIAO">
               <MappingFragment StoreEntitySet="REUNIAO">
+                <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
                 <ScalarProperty Name="DATAHORA" ColumnName="DATAHORA" />
                 <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
-                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
                 <ScalarProperty Name="TITULO" ColumnName="TITULO" />
                 <ScalarProperty Name="ID_TIPOREUNIAO" ColumnName="ID_TIPOREUNIAO" />
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REUNIAO_PARTICIPANTE">
+            <EntityTypeMapping TypeName="ECModel.REUNIAO_PARTICIPANTE">
+              <MappingFragment StoreEntitySet="REUNIAO_PARTICIPANTE">
+                <ScalarProperty Name="PRESENCA" ColumnName="PRESENCA" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+                <ScalarProperty Name="ID_PARTICIPANTE" ColumnName="ID_PARTICIPANTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REUNIAO_PAUTA">
+            <EntityTypeMapping TypeName="ECModel.REUNIAO_PAUTA">
+              <MappingFragment StoreEntitySet="REUNIAO_PAUTA">
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="ID_PAUTA" ColumnName="ID_PAUTA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
