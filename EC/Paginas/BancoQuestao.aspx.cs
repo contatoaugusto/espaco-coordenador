@@ -65,9 +65,9 @@ namespace UI.Web.EC.Paginas
         private void CarregarQuestao()
         {
             QUESTAO questao = new QUESTAO();
-            var questoes = NQuestão.ConsultarQuestao(questao);
+            var questoes = NQuestao.ConsultarQuestao(questao);
             if (questoes.Count() == 0)
-                questoes = NQuestão.ConsultarQuestao();
+                questoes = NQuestao.ConsultarQuestao();
 
             grdQuestao.DataSource = questoes;
             grdQuestao.DataBind();
@@ -89,7 +89,7 @@ namespace UI.Web.EC.Paginas
                 if (!string.IsNullOrEmpty(ddlAmc.SelectedValue))
                     questao.ID_AMC = Convert.ToInt32(ddlAmc.SelectedValue);
 
-                var lista = NQuestão.ConsultarQuestao(questao);
+                var lista = NQuestao.ConsultarQuestao(questao);
 
                 grdQuestao.DataSource = lista;
                 grdQuestao.DataBind();

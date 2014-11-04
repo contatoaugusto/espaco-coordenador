@@ -69,6 +69,7 @@
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha1" runat="server" Width="600px" TextMode="MultiLine" Rows="2" ></asp:TextBox>
+                <asp:HiddenField ID="hddIdResposta1" runat="server" />
             </div>
         </div>
         
@@ -78,6 +79,7 @@
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha2" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                <asp:HiddenField ID="hddIdResposta2" runat="server" />
             </div>
         </div>
 
@@ -87,6 +89,7 @@
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha3" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                <asp:HiddenField ID="hddIdResposta3" runat="server" />
             </div>
         </div>
 
@@ -96,6 +99,7 @@
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha4" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                <asp:HiddenField ID="hddIdResposta4" runat="server" />
             </div>
         </div>
          
@@ -105,6 +109,7 @@
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha5" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                <asp:HiddenField ID="hddIdResposta5" runat="server" />
             </div>
         </div>
            

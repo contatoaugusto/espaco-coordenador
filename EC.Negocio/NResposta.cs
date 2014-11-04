@@ -15,5 +15,15 @@ namespace EC.Negocio
         {
             return (new DResposta()).ConsultarResposta();
         }
+
+        //public static List<RESPOSTA> ConsultarByQuestao(int idQuestao)
+        //{
+        //    return (new DResposta()).ConsultarByQuestao();
+        //}
+
+        //public static RESPOSTA ConsultarById(int idResposta)
+        //{
+        //    return (new DResposta()).ConsultarById();
+        //}
     }
 }

@@ -55,7 +55,7 @@
     <Compile Include="NPessoa.cs" />
     <Compile Include="NProva.cs" />
     <Compile Include="NCargo.cs" />
-    <Compile Include="NQuestão.cs" />
+    <Compile Include="NQuestao.cs" />
     <Compile Include="NResposta.cs" />
     <Compile Include="NReuniao.cs" />
     <Compile Include="NSemestre.cs" />
