@@ -21,6 +21,10 @@ namespace EC.Negocio
             return (new DQuestao()).ConsultarQuestao(questao);
         }
 
+        public static QUESTAO ConsultarById(int idQuestao)
+        {
+            return (new DQuestao()).ConsultarById(idQuestao);
+        }
 
         public static List<QUESTAO> ConsultarQuestaoByProva(int idProva)
         {
@@ -33,5 +37,7 @@ namespace EC.Negocio
             DQuestao dquestao = new DQuestao();
             dquestao.Salvar(q);
         }
+
+
 }
 }

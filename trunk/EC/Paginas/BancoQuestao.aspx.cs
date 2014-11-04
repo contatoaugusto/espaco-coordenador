@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EC.Negocio;
 using EC.Modelo;
+using EC.Common;
 
 namespace UI.Web.EC.Paginas
 {
@@ -92,12 +93,22 @@ namespace UI.Web.EC.Paginas
 
                 grdQuestao.DataSource = lista;
                 grdQuestao.DataBind();
-            }            
+            }
         }
 
         protected void btnNovo_Click(object sender, EventArgs e)
         {
-             Response.Redirect("Questao.aspx", true);
+            Response.Redirect("Questao.aspx", true);
         }
+
+
+        protected void grdQuestao_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Editar")
+            {
+
+                Context.Response.Redirect("~/Paginas/Questao.aspx?idQuestao=" + Library.ToInteger(e.CommandArgument));
+            }
         }
     }
+}
