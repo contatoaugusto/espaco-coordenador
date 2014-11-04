@@ -50,6 +50,7 @@ namespace UI.Web.EC.Paginas
             {
                 pnlAmc.Visible = true;
                 lblSemestreCorrente.Text = semestre.SEMESTRE1 + "º sem/" + semestre.ANO;
+                lblCursoUnico.Text = ((SessionUsuario)Session[Const.USUARIO]).NmCurso;
             }
             else
                 pnlAmc.Visible = false;

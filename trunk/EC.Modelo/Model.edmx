@@ -76,33 +76,12 @@
           <Property Name="DATA_APLICACAO" Type="datetime" />
           <Property Name="ID_SEMESTRE" Type="int" />
         </EntityType>
-        <EntityType Name="ASSUNTO_TRATADO">
-          <Key>
-            <PropertyRef Name="ID_ASSTRAT" />
-          </Key>
-          <Property Name="ID_ASSTRAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_REUNIAO" Type="int" />
-          <Property Name="DESCRICAO" Type="varchar(max)" />
-          <Property Name="ITEM" Type="int" />
-          <Property Name="ID_TIPOASSTRATADO" Type="int" />
-        </EntityType>
         <EntityType Name="CARGO">
           <Key>
             <PropertyRef Name="ID_CARGO" />
           </Key>
           <Property Name="ID_CARGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="500" />
-        </EntityType>
-        <EntityType Name="COMPROMISSO">
-          <Key>
-            <PropertyRef Name="ID_COMPROMISSO" />
-          </Key>
-          <Property Name="ID_COMPROMISSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_REUNIAO" Type="int" />
-          <Property Name="ID_PESSOA" Type="int" />
-          <Property Name="DESCRICAO" Type="varchar(max)" />
-          <Property Name="ITEM" Type="int" />
-          <Property Name="DATA" Type="date" />
         </EntityType>
         <EntityType Name="CURSO">
           <Key>
@@ -236,6 +215,27 @@
           <Property Name="LOCAL" Type="varchar" MaxLength="50" />
           <Property Name="DATAHORA" Type="datetime" />
           <Property Name="ID_SEMESTRE" Type="int" />
+        </EntityType>
+        <EntityType Name="REUNIAO_ASSUNTO_TRATADO">
+          <Key>
+            <PropertyRef Name="ID_ASSTRAT" />
+          </Key>
+          <Property Name="ID_ASSTRAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="ITEM" Type="int" />
+          <Property Name="ID_TIPOASSTRATADO" Type="int" />
+        </EntityType>
+        <EntityType Name="REUNIAO_COMPROMISSO">
+          <Key>
+            <PropertyRef Name="ID_COMPROMISSO" />
+          </Key>
+          <Property Name="ID_COMPROMISSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" />
+          <Property Name="ID_PESSOA" Type="int" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
+          <Property Name="ITEM" Type="int" />
+          <Property Name="DATA" Type="date" />
         </EntityType>
         <EntityType Name="REUNIAO_PARTICIPANTE">
           <Key>
@@ -490,36 +490,36 @@
         </Association>
         <Association Name="FK_ASSTRATADOS">
           <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
-          <End Role="ASSUNTO_TRATADO" Type="Self.ASSUNTO_TRATADO" Multiplicity="*" />
+          <End Role="REUNIAO_ASSUNTO_TRATADO" Type="Self.REUNIAO_ASSUNTO_TRATADO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REUNIAO">
               <PropertyRef Name="ID_REUNIAO" />
             </Principal>
-            <Dependent Role="ASSUNTO_TRATADO">
+            <Dependent Role="REUNIAO_ASSUNTO_TRATADO">
               <PropertyRef Name="ID_REUNIAO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_ASSUNTRATADO_TIPOASSTRATADO">
           <End Role="TIPO_ASSUNTO_TRATADO" Type="Self.TIPO_ASSUNTO_TRATADO" Multiplicity="0..1" />
-          <End Role="ASSUNTO_TRATADO" Type="Self.ASSUNTO_TRATADO" Multiplicity="*" />
+          <End Role="REUNIAO_ASSUNTO_TRATADO" Type="Self.REUNIAO_ASSUNTO_TRATADO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TIPO_ASSUNTO_TRATADO">
               <PropertyRef Name="ID_TIPOASSTRATADO" />
             </Principal>
-            <Dependent Role="ASSUNTO_TRATADO">
+            <Dependent Role="REUNIAO_ASSUNTO_TRATADO">
               <PropertyRef Name="ID_TIPOASSTRATADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_COMPROMISSO_PESSOA">
           <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
-          <End Role="COMPROMISSO" Type="Self.COMPROMISSO" Multiplicity="*" />
+          <End Role="REUNIAO_COMPROMISSO" Type="Self.REUNIAO_COMPROMISSO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PESSOA">
               <PropertyRef Name="ID_PESSOA" />
             </Principal>
-            <Dependent Role="COMPROMISSO">
+            <Dependent Role="REUNIAO_COMPROMISSO">
               <PropertyRef Name="ID_PESSOA" />
             </Dependent>
           </ReferentialConstraint>
@@ -778,12 +778,12 @@
         </Association>
         <Association Name="fk_REUNIAO_COMPROMISSO">
           <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
-          <End Role="COMPROMISSO" Type="Self.COMPROMISSO" Multiplicity="*" />
+          <End Role="REUNIAO_COMPROMISSO" Type="Self.REUNIAO_COMPROMISSO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REUNIAO">
               <PropertyRef Name="ID_REUNIAO" />
             </Principal>
-            <Dependent Role="COMPROMISSO">
+            <Dependent Role="REUNIAO_COMPROMISSO">
               <PropertyRef Name="ID_REUNIAO" />
             </Dependent>
           </ReferentialConstraint>
@@ -929,9 +929,7 @@
           <EntitySet Name="ALUNO_AMC" EntityType="Self.ALUNO_AMC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ALUNO_CURSO" EntityType="Self.ALUNO_CURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AMC" EntityType="Self.AMC" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ASSUNTO_TRATADO" EntityType="Self.ASSUNTO_TRATADO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="COMPROMISSO" EntityType="Self.COMPROMISSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CURSO" EntityType="Self.CURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CURSO_COORDENADOR" EntityType="Self.CURSO_COORDENADOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DISCIPLINA" EntityType="Self.DISCIPLINA" Schema="dbo" store:Type="Tables" />
@@ -946,6 +944,8 @@
           <EntitySet Name="REPRESENTANTE_TURMA" EntityType="Self.REPRESENTANTE_TURMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RESPOSTA" EntityType="Self.RESPOSTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO" EntityType="Self.REUNIAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REUNIAO_ASSUNTO_TRATADO" EntityType="Self.REUNIAO_ASSUNTO_TRATADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REUNIAO_COMPROMISSO" EntityType="Self.REUNIAO_COMPROMISSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO_PARTICIPANTE" EntityType="Self.REUNIAO_PARTICIPANTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO_PAUTA" EntityType="Self.REUNIAO_PAUTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SEMESTRE" EntityType="Self.SEMESTRE" Schema="dbo" store:Type="Tables" />
@@ -1009,15 +1009,15 @@
           </AssociationSet>
           <AssociationSet Name="FK_ASSTRATADOS" Association="Self.FK_ASSTRATADOS">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
+            <End Role="REUNIAO_ASSUNTO_TRATADO" EntitySet="REUNIAO_ASSUNTO_TRATADO" />
           </AssociationSet>
           <AssociationSet Name="fk_ASSUNTRATADO_TIPOASSTRATADO" Association="Self.fk_ASSUNTRATADO_TIPOASSTRATADO">
             <End Role="TIPO_ASSUNTO_TRATADO" EntitySet="TIPO_ASSUNTO_TRATADO" />
-            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
+            <End Role="REUNIAO_ASSUNTO_TRATADO" EntitySet="REUNIAO_ASSUNTO_TRATADO" />
           </AssociationSet>
           <AssociationSet Name="fk_COMPROMISSO_PESSOA" Association="Self.fk_COMPROMISSO_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
-            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
+            <End Role="REUNIAO_COMPROMISSO" EntitySet="REUNIAO_COMPROMISSO" />
           </AssociationSet>
           <AssociationSet Name="FK_COORDENADOR_CURSO" Association="Self.FK_COORDENADOR_CURSO">
             <End Role="CURSO" EntitySet="CURSO" />
@@ -1105,7 +1105,7 @@
           </AssociationSet>
           <AssociationSet Name="fk_REUNIAO_COMPROMISSO" Association="Self.fk_REUNIAO_COMPROMISSO">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
+            <End Role="REUNIAO_COMPROMISSO" EntitySet="REUNIAO_COMPROMISSO" />
           </AssociationSet>
           <AssociationSet Name="FK_REUNIAO_PARTICIPANTE_PESSOA" Association="Self.FK_REUNIAO_PARTICIPANTE_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
@@ -1165,9 +1165,7 @@
           <EntitySet Name="ALUNO_AMC" EntityType="ECModel.ALUNO_AMC" />
           <EntitySet Name="ALUNO_CURSO" EntityType="ECModel.ALUNO_CURSO" />
           <EntitySet Name="AMC" EntityType="ECModel.AMC" />
-          <EntitySet Name="ASSUNTO_TRATADO" EntityType="ECModel.ASSUNTO_TRATADO" />
           <EntitySet Name="CARGO" EntityType="ECModel.CARGO" />
-          <EntitySet Name="COMPROMISSO" EntityType="ECModel.COMPROMISSO" />
           <EntitySet Name="CURSO" EntityType="ECModel.CURSO" />
           <EntitySet Name="CURSO_COORDENADOR" EntityType="ECModel.CURSO_COORDENADOR" />
           <EntitySet Name="DISCIPLINA" EntityType="ECModel.DISCIPLINA" />
@@ -1182,6 +1180,8 @@
           <EntitySet Name="REPRESENTANTE_TURMA" EntityType="ECModel.REPRESENTANTE_TURMA" />
           <EntitySet Name="RESPOSTA" EntityType="ECModel.RESPOSTA" />
           <EntitySet Name="REUNIAO" EntityType="ECModel.REUNIAO" />
+          <EntitySet Name="REUNIAO_ASSUNTO_TRATADO" EntityType="ECModel.REUNIAO_ASSUNTO_TRATADO" />
+          <EntitySet Name="REUNIAO_COMPROMISSO" EntityType="ECModel.REUNIAO_COMPROMISSO" />
           <EntitySet Name="REUNIAO_PARTICIPANTE" EntityType="ECModel.REUNIAO_PARTICIPANTE" />
           <EntitySet Name="REUNIAO_PAUTA" EntityType="ECModel.REUNIAO_PAUTA" />
           <EntitySet Name="SEMESTRE" EntityType="ECModel.SEMESTRE" />
@@ -1263,25 +1263,9 @@
             <End Role="AMC" EntitySet="AMC" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
-          <AssociationSet Name="FK_ASSTRATADOS" Association="ECModel.FK_ASSTRATADOS">
-            <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ASSUNTRATADO_TIPOASSTRATADO" Association="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO">
-            <End Role="TIPO_ASSUNTO_TRATADO" EntitySet="TIPO_ASSUNTO_TRATADO" />
-            <End Role="ASSUNTO_TRATADO" EntitySet="ASSUNTO_TRATADO" />
-          </AssociationSet>
           <AssociationSet Name="fk_FUNCIONARIO_CARGO" Association="ECModel.fk_FUNCIONARIO_CARGO">
             <End Role="CARGO" EntitySet="CARGO" />
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-          </AssociationSet>
-          <AssociationSet Name="fk_COMPROMISSO_PESSOA" Association="ECModel.fk_COMPROMISSO_PESSOA">
-            <End Role="PESSOA" EntitySet="PESSOA" />
-            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
-          </AssociationSet>
-          <AssociationSet Name="fk_REUNIAO_COMPROMISSO" Association="ECModel.fk_REUNIAO_COMPROMISSO">
-            <End Role="REUNIAO" EntitySet="REUNIAO" />
-            <End Role="COMPROMISSO" EntitySet="COMPROMISSO" />
           </AssociationSet>
           <AssociationSet Name="FK_COORDENADOR_CURSO" Association="ECModel.FK_COORDENADOR_CURSO">
             <End Role="CURSO" EntitySet="CURSO" />
@@ -1347,6 +1331,10 @@
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
           </AssociationSet>
+          <AssociationSet Name="fk_COMPROMISSO_PESSOA" Association="ECModel.fk_COMPROMISSO_PESSOA">
+            <End Role="PESSOA" EntitySet="PESSOA" />
+            <End Role="REUNIAO_COMPROMISSO" EntitySet="REUNIAO_COMPROMISSO" />
+          </AssociationSet>
           <AssociationSet Name="FK_REUNIAO_PARTICIPANTE_PESSOA" Association="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="REUNIAO_PARTICIPANTE" EntitySet="REUNIAO_PARTICIPANTE" />
@@ -1367,6 +1355,14 @@
             <End Role="TURMA" EntitySet="TURMA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
+          <AssociationSet Name="FK_ASSTRATADOS" Association="ECModel.FK_ASSTRATADOS">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="REUNIAO_ASSUNTO_TRATADO" EntitySet="REUNIAO_ASSUNTO_TRATADO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_REUNIAO_COMPROMISSO" Association="ECModel.fk_REUNIAO_COMPROMISSO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="REUNIAO_COMPROMISSO" EntitySet="REUNIAO_COMPROMISSO" />
+          </AssociationSet>
           <AssociationSet Name="FK_REUNIAO_PARTICIPANTE_REUNIAO" Association="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="REUNIAO_PARTICIPANTE" EntitySet="REUNIAO_PARTICIPANTE" />
@@ -1382,6 +1378,10 @@
           <AssociationSet Name="FK_TIPOREUNIAO" Association="ECModel.FK_TIPOREUNIAO">
             <End Role="TIPO_REUNIAO" EntitySet="TIPO_REUNIAO" />
             <End Role="REUNIAO" EntitySet="REUNIAO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ASSUNTRATADO_TIPOASSTRATADO" Association="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO">
+            <End Role="TIPO_ASSUNTO_TRATADO" EntitySet="TIPO_ASSUNTO_TRATADO" />
+            <End Role="REUNIAO_ASSUNTO_TRATADO" EntitySet="REUNIAO_ASSUNTO_TRATADO" />
           </AssociationSet>
           <AssociationSet Name="FK_TURMA_TIPO" Association="ECModel.FK_TURMA_TIPO">
             <End Role="TIPO_TURMA" EntitySet="TIPO_TURMA" />
@@ -1483,18 +1483,6 @@
           <NavigationProperty Name="SEMESTRE" Relationship="ECModel.FK_AMC_SEMESTRE" FromRole="AMC" ToRole="SEMESTRE" />
           <NavigationProperty Name="QUESTAO" Relationship="ECModel.FK_QUESTAO_AMC" FromRole="AMC" ToRole="QUESTAO" />
         </EntityType>
-        <EntityType Name="ASSUNTO_TRATADO">
-          <Key>
-            <PropertyRef Name="ID_ASSTRAT" />
-          </Key>
-          <Property Name="ID_ASSTRAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_REUNIAO" Type="Int32" />
-          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ITEM" Type="Int32" />
-          <Property Name="ID_TIPOASSTRATADO" Type="Int32" />
-          <NavigationProperty Name="REUNIAO" Relationship="ECModel.FK_ASSTRATADOS" FromRole="ASSUNTO_TRATADO" ToRole="REUNIAO" />
-          <NavigationProperty Name="TIPO_ASSUNTO_TRATADO" Relationship="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO" FromRole="ASSUNTO_TRATADO" ToRole="TIPO_ASSUNTO_TRATADO" />
-        </EntityType>
         <EntityType Name="CARGO">
           <Key>
             <PropertyRef Name="ID_CARGO" />
@@ -1502,19 +1490,6 @@
           <Property Name="ID_CARGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRICAO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.fk_FUNCIONARIO_CARGO" FromRole="CARGO" ToRole="FUNCIONARIO" />
-        </EntityType>
-        <EntityType Name="COMPROMISSO">
-          <Key>
-            <PropertyRef Name="ID_COMPROMISSO" />
-          </Key>
-          <Property Name="ID_COMPROMISSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_REUNIAO" Type="Int32" />
-          <Property Name="ID_PESSOA" Type="Int32" />
-          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ITEM" Type="Int32" />
-          <Property Name="DATA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="PESSOA" Relationship="ECModel.fk_COMPROMISSO_PESSOA" FromRole="COMPROMISSO" ToRole="PESSOA" />
-          <NavigationProperty Name="REUNIAO" Relationship="ECModel.fk_REUNIAO_COMPROMISSO" FromRole="COMPROMISSO" ToRole="REUNIAO" />
         </EntityType>
         <EntityType Name="CURSO">
           <Key>
@@ -1614,9 +1589,9 @@
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ACAO" Relationship="ECModel.fk_ACAO_PESSOA" FromRole="PESSOA" ToRole="ACAO" />
           <NavigationProperty Name="ALUNO" Relationship="ECModel.fk_PESSOA_ALUNO" FromRole="PESSOA" ToRole="ALUNO" />
-          <NavigationProperty Name="COMPROMISSO" Relationship="ECModel.fk_COMPROMISSO_PESSOA" FromRole="PESSOA" ToRole="COMPROMISSO" />
           <NavigationProperty Name="EVENTO" Relationship="ECModel.fk_EVENTO_PESSOA" FromRole="PESSOA" ToRole="EVENTO" />
           <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.fk_FUNCIONARIO_PESSOA" FromRole="PESSOA" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="REUNIAO_COMPROMISSO" Relationship="ECModel.fk_COMPROMISSO_PESSOA" FromRole="PESSOA" ToRole="REUNIAO_COMPROMISSO" />
           <NavigationProperty Name="REUNIAO_PARTICIPANTE" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA" FromRole="PESSOA" ToRole="REUNIAO_PARTICIPANTE" />
         </EntityType>
         <EntityType Name="PRIORIDADE_ACAO">
@@ -1690,12 +1665,37 @@
           <Property Name="DATAHORA" Type="DateTime" Precision="3" />
           <Property Name="ID_SEMESTRE" Type="Int32" />
           <NavigationProperty Name="ACAO_REUNIAO" Relationship="ECModel.fk_ACAO_REUNIAO_REUNIAO" FromRole="REUNIAO" ToRole="ACAO_REUNIAO" />
-          <NavigationProperty Name="ASSUNTO_TRATADO" Relationship="ECModel.FK_ASSTRATADOS" FromRole="REUNIAO" ToRole="ASSUNTO_TRATADO" />
-          <NavigationProperty Name="COMPROMISSO" Relationship="ECModel.fk_REUNIAO_COMPROMISSO" FromRole="REUNIAO" ToRole="COMPROMISSO" />
+          <NavigationProperty Name="REUNIAO_ASSUNTO_TRATADO" Relationship="ECModel.FK_ASSTRATADOS" FromRole="REUNIAO" ToRole="REUNIAO_ASSUNTO_TRATADO" />
+          <NavigationProperty Name="REUNIAO_COMPROMISSO" Relationship="ECModel.fk_REUNIAO_COMPROMISSO" FromRole="REUNIAO" ToRole="REUNIAO_COMPROMISSO" />
           <NavigationProperty Name="REUNIAO_PARTICIPANTE" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO" FromRole="REUNIAO" ToRole="REUNIAO_PARTICIPANTE" />
           <NavigationProperty Name="REUNIAO_PAUTA" Relationship="ECModel.fk_REUNIAO_PAUTA" FromRole="REUNIAO" ToRole="REUNIAO_PAUTA" />
           <NavigationProperty Name="SEMESTRE" Relationship="ECModel.FK_REUNIAO_SEMESTRE" FromRole="REUNIAO" ToRole="SEMESTRE" />
           <NavigationProperty Name="TIPO_REUNIAO" Relationship="ECModel.FK_TIPOREUNIAO" FromRole="REUNIAO" ToRole="TIPO_REUNIAO" />
+        </EntityType>
+        <EntityType Name="REUNIAO_ASSUNTO_TRATADO">
+          <Key>
+            <PropertyRef Name="ID_ASSTRAT" />
+          </Key>
+          <Property Name="ID_ASSTRAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_REUNIAO" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="Int32" />
+          <Property Name="ID_TIPOASSTRATADO" Type="Int32" />
+          <NavigationProperty Name="REUNIAO" Relationship="ECModel.FK_ASSTRATADOS" FromRole="REUNIAO_ASSUNTO_TRATADO" ToRole="REUNIAO" />
+          <NavigationProperty Name="TIPO_ASSUNTO_TRATADO" Relationship="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO" FromRole="REUNIAO_ASSUNTO_TRATADO" ToRole="TIPO_ASSUNTO_TRATADO" />
+        </EntityType>
+        <EntityType Name="REUNIAO_COMPROMISSO">
+          <Key>
+            <PropertyRef Name="ID_COMPROMISSO" />
+          </Key>
+          <Property Name="ID_COMPROMISSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_REUNIAO" Type="Int32" />
+          <Property Name="ID_PESSOA" Type="Int32" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ITEM" Type="Int32" />
+          <Property Name="DATA" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="PESSOA" Relationship="ECModel.fk_COMPROMISSO_PESSOA" FromRole="REUNIAO_COMPROMISSO" ToRole="PESSOA" />
+          <NavigationProperty Name="REUNIAO" Relationship="ECModel.fk_REUNIAO_COMPROMISSO" FromRole="REUNIAO_COMPROMISSO" ToRole="REUNIAO" />
         </EntityType>
         <EntityType Name="REUNIAO_PARTICIPANTE">
           <Key>
@@ -1753,7 +1753,7 @@
           </Key>
           <Property Name="ID_TIPOASSTRATADO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ASSUNTO_TRATADO" Relationship="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO" FromRole="TIPO_ASSUNTO_TRATADO" ToRole="ASSUNTO_TRATADO" />
+          <NavigationProperty Name="REUNIAO_ASSUNTO_TRATADO" Relationship="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO" FromRole="TIPO_ASSUNTO_TRATADO" ToRole="REUNIAO_ASSUNTO_TRATADO" />
         </EntityType>
         <EntityType Name="TIPO_EVENTO">
           <Key>
@@ -2027,30 +2027,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ASSTRATADOS">
-          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="0..1" />
-          <End Type="ECModel.ASSUNTO_TRATADO" Role="ASSUNTO_TRATADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="REUNIAO">
-              <PropertyRef Name="ID_REUNIAO" />
-            </Principal>
-            <Dependent Role="ASSUNTO_TRATADO">
-              <PropertyRef Name="ID_REUNIAO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_ASSUNTRATADO_TIPOASSTRATADO">
-          <End Type="ECModel.TIPO_ASSUNTO_TRATADO" Role="TIPO_ASSUNTO_TRATADO" Multiplicity="0..1" />
-          <End Type="ECModel.ASSUNTO_TRATADO" Role="ASSUNTO_TRATADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPO_ASSUNTO_TRATADO">
-              <PropertyRef Name="ID_TIPOASSTRATADO" />
-            </Principal>
-            <Dependent Role="ASSUNTO_TRATADO">
-              <PropertyRef Name="ID_TIPOASSTRATADO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_FUNCIONARIO_CARGO">
           <End Type="ECModel.CARGO" Role="CARGO" Multiplicity="0..1" />
           <End Type="ECModel.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="*" />
@@ -2060,30 +2036,6 @@
             </Principal>
             <Dependent Role="FUNCIONARIO">
               <PropertyRef Name="ID_CARGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_COMPROMISSO_PESSOA">
-          <End Type="ECModel.PESSOA" Role="PESSOA" Multiplicity="0..1" />
-          <End Type="ECModel.COMPROMISSO" Role="COMPROMISSO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PESSOA">
-              <PropertyRef Name="ID_PESSOA" />
-            </Principal>
-            <Dependent Role="COMPROMISSO">
-              <PropertyRef Name="ID_PESSOA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_REUNIAO_COMPROMISSO">
-          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="0..1" />
-          <End Type="ECModel.COMPROMISSO" Role="COMPROMISSO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="REUNIAO">
-              <PropertyRef Name="ID_REUNIAO" />
-            </Principal>
-            <Dependent Role="COMPROMISSO">
-              <PropertyRef Name="ID_REUNIAO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2279,6 +2231,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_COMPROMISSO_PESSOA">
+          <End Type="ECModel.PESSOA" Role="PESSOA" Multiplicity="0..1" />
+          <End Type="ECModel.REUNIAO_COMPROMISSO" Role="REUNIAO_COMPROMISSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESSOA">
+              <PropertyRef Name="ID_PESSOA" />
+            </Principal>
+            <Dependent Role="REUNIAO_COMPROMISSO">
+              <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_REUNIAO_PARTICIPANTE_PESSOA">
           <End Type="ECModel.PESSOA" Role="PESSOA" Multiplicity="1" />
           <End Type="ECModel.REUNIAO_PARTICIPANTE" Role="REUNIAO_PARTICIPANTE" Multiplicity="*" />
@@ -2339,6 +2303,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ASSTRATADOS">
+          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="0..1" />
+          <End Type="ECModel.REUNIAO_ASSUNTO_TRATADO" Role="REUNIAO_ASSUNTO_TRATADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO_ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_REUNIAO_COMPROMISSO">
+          <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="0..1" />
+          <End Type="ECModel.REUNIAO_COMPROMISSO" Role="REUNIAO_COMPROMISSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO_COMPROMISSO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_REUNIAO_PARTICIPANTE_REUNIAO">
           <End Type="ECModel.REUNIAO" Role="REUNIAO" Multiplicity="1" />
           <End Type="ECModel.REUNIAO_PARTICIPANTE" Role="REUNIAO_PARTICIPANTE" Multiplicity="*" />
@@ -2384,6 +2372,18 @@
             </Principal>
             <Dependent Role="REUNIAO">
               <PropertyRef Name="ID_TIPOREUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ASSUNTRATADO_TIPOASSTRATADO">
+          <End Type="ECModel.TIPO_ASSUNTO_TRATADO" Role="TIPO_ASSUNTO_TRATADO" Multiplicity="0..1" />
+          <End Type="ECModel.REUNIAO_ASSUNTO_TRATADO" Role="REUNIAO_ASSUNTO_TRATADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_TIPOASSTRATADO" />
+            </Principal>
+            <Dependent Role="REUNIAO_ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_TIPOASSTRATADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2484,34 +2484,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ASSUNTO_TRATADO">
-            <EntityTypeMapping TypeName="ECModel.ASSUNTO_TRATADO">
-              <MappingFragment StoreEntitySet="ASSUNTO_TRATADO">
-                <ScalarProperty Name="ID_TIPOASSTRATADO" ColumnName="ID_TIPOASSTRATADO" />
-                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
-                <ScalarProperty Name="ID_ASSTRAT" ColumnName="ID_ASSTRAT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CARGO">
             <EntityTypeMapping TypeName="ECModel.CARGO">
               <MappingFragment StoreEntitySet="CARGO">
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMPROMISSO">
-            <EntityTypeMapping TypeName="ECModel.COMPROMISSO">
-              <MappingFragment StoreEntitySet="COMPROMISSO">
-                <ScalarProperty Name="DATA" ColumnName="DATA" />
-                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
-                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
-                <ScalarProperty Name="ID_COMPROMISSO" ColumnName="ID_COMPROMISSO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2659,6 +2636,29 @@
                 <ScalarProperty Name="TITULO" ColumnName="TITULO" />
                 <ScalarProperty Name="ID_TIPOREUNIAO" ColumnName="ID_TIPOREUNIAO" />
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REUNIAO_ASSUNTO_TRATADO">
+            <EntityTypeMapping TypeName="ECModel.REUNIAO_ASSUNTO_TRATADO">
+              <MappingFragment StoreEntitySet="REUNIAO_ASSUNTO_TRATADO">
+                <ScalarProperty Name="ID_TIPOASSTRATADO" ColumnName="ID_TIPOASSTRATADO" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="ID_ASSTRAT" ColumnName="ID_ASSTRAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REUNIAO_COMPROMISSO">
+            <EntityTypeMapping TypeName="ECModel.REUNIAO_COMPROMISSO">
+              <MappingFragment StoreEntitySet="REUNIAO_COMPROMISSO">
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="ID_COMPROMISSO" ColumnName="ID_COMPROMISSO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
