@@ -15,6 +15,13 @@ namespace UI.Web.EC.Paginas
 {
     public partial class Questao : System.Web.UI.Page
     {
+
+        private int idQuestao
+        {
+            get { return Library.ToInteger(ViewState["idQuestao"]); }
+            set { ViewState["idQuestao"] = value; }
+        }
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             {
@@ -23,9 +30,56 @@ namespace UI.Web.EC.Paginas
 
                 CarregarDisciplina();
                 CarregarAmc();
-            
+
+                if (Request.QueryString["idQuestao"] != null)
+                {
+                    idQuestao = Request.QueryString["idQuestao"].ToInt32();
+                    CarregarEdicao();
+                }
             }
         }
+
+        private void CarregarEdicao()
+        {
+            var questao = NQuestão.ConsultarById(idQuestao);
+
+            ddlAmc.SelectedValue = questao.ID_AMC.ToString();
+            ddlDisciplina.SelectedValue = questao.ID_DISCIPLINA.ToString();
+            ddlFuncionario.SelectedValue = questao.ID_FUNCIONARIO.ToString();
+            TxtDescricao.Text = questao.DESCRICAO;
+
+
+            int i = 0;
+            foreach (var resposta in questao.RESPOSTA) {
+            
+                switch (i)
+                {
+                    case 0:
+                        TxtEscolha1.Text = resposta.TEXTO;
+                        Correta1.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        break;
+                    case 1:
+                        TxtEscolha2.Text = resposta.TEXTO;
+                        Correta2.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        break;
+                    case 2:
+                        TxtEscolha3.Text = resposta.TEXTO;
+                        Correta3.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        break;
+                    case 3:
+                        TxtEscolha4.Text = resposta.TEXTO;
+                        Correta4.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        break;
+                    case 4:
+                        TxtEscolha5.Text = resposta.TEXTO;
+                        Correta5.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        break;
+                }
+
+                i++;
+            }
+        }
+        
         private void CarregarAmc()
         {
             var lista = NAmc.ConsultarAmc();
@@ -70,7 +124,7 @@ namespace UI.Web.EC.Paginas
             }
         }
 
-    
+
         protected void Button1_Click1(object sender, EventArgs e)
         {
             if (ddlAmc.SelectedIndex == 0)
@@ -88,13 +142,14 @@ namespace UI.Web.EC.Paginas
                 messageBox.Show("Selecione um professor", "Erro", MessageBoxType.Error);
                 return;
             }
-            
+
             System.IO.Stream file = upLoad.PostedFile.InputStream;
             Byte[] buffer = new byte[file.Length];
-            file.Read(buffer, 0,(int)file.Length);
+            file.Read(buffer, 0, (int)file.Length);
             file.Close();
-            
+
             QUESTAO questao = new QUESTAO();
+
             questao.ID_AMC = ddlAmc.SelectedValue.ToInt32();
             questao.ID_DISCIPLINA = ddlDisciplina.SelectedValue.ToInt32();
             questao.ID_FUNCIONARIO = ddlFuncionario.SelectedValue.ToInt32();
@@ -102,7 +157,7 @@ namespace UI.Web.EC.Paginas
             questao.IMAGEM = buffer;
 
             EntityCollection<RESPOSTA> listaResposta = new EntityCollection<RESPOSTA>();
-            
+
             RESPOSTA resposta1 = new RESPOSTA();
             resposta1.TEXTO = TxtEscolha1.Text;
             resposta1.RESPOSTA_CORRETA = Correta1.Checked;
@@ -128,11 +183,17 @@ namespace UI.Web.EC.Paginas
             listaResposta.Add(resposta3);
             listaResposta.Add(resposta4);
             listaResposta.Add(resposta5);
-          
+
             questao.RESPOSTA = listaResposta;
-            NQuestão.Salvar(questao);
+
+            if (idQuestao > 0)
+            {
+                questao.ID_QUESTAO = idQuestao;
+            }else
+                NQuestão.Salvar(questao);
+            
             Response.Redirect("BancoQuestao.aspx", true);
-            }
+        }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
         {

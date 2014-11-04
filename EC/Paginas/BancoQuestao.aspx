@@ -43,7 +43,7 @@
     <div class="form-separator"></div>
 
     <h3>Questões</h3>
-    <sgi:GridView ID="grdQuestao" runat="server"  AutoGenerateColumns="False">
+    <sgi:GridView ID="grdQuestao" runat="server"  AutoGenerateColumns="False" OnRowCommand="grdQuestao_RowCommand">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="DESCRICAO" HeaderText="Questão" HeaderStyle-Width="70%"/>
@@ -55,6 +55,13 @@
             <asp:TemplateField HeaderText="Disciplina">
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("DISCIPLINA.DESCRICAO") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Ações">
+                <ItemTemplate>
+                    <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_QUESTAO")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />
+                    |
+                    <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_QUESTAO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

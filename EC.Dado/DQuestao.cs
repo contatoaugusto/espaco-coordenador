@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Objects.DataClasses;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -50,7 +51,49 @@ namespace EC.Dado
                 return ltQuestao;
             }
         }
+
+        public QUESTAO ConsultarById(int idQuestao)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var questao = db.QUESTAO.First(rs => rs.ID_QUESTAO == idQuestao);
+
+                questao.AMC = db.AMC.First(rs => rs.ID_AMC == questao.ID_AMC);
+                //questao.PROVA = tipo.PROVA;
+
+                //questao.FUNCIONARIO = new FUNCIONARIO();
+                //questao.FUNCIONARIO.PESSOA = new PESSOA();
+                //questao.FUNCIONARIO.PESSOA.ID_PESSOA = tipo.FUNCIONARIO.PESSOA.ID_PESSOA;
+                //questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
+                //questao.FUNCIONARIO.PESSOA.TELEFONE = tipo.FUNCIONARIO.PESSOA.TELEFONE;
+                //questao.FUNCIONARIO.PESSOA.EMAIL = tipo.FUNCIONARIO.PESSOA.EMAIL;
+
+                //questao.DISCIPLINA = new DISCIPLINA();
+                //questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
+                //questao.DISCIPLINA.ID_CURSO = tipo.DISCIPLINA.ID_CURSO;
+                //questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
+
+
+                //var respostas = db.RESPOSTA.Where(rs => rs.ID_QUESTAO == idQuestao);
+
+                //EntityCollection<RESPOSTA> listRespostas = new EntityCollection<RESPOSTA>();
+                //foreach (var resposta in respostas)
+                //{
+                //    RESPOSTA resp = new RESPOSTA();
+                //    resp.ID_RESPOSTA = resposta.ID_RESPOSTA;
+                //    resp.ID_QUESTAO = resposta.ID_QUESTAO;
+                //    resp.TEXTO = resposta.TEXTO;
+                //    resp.RESPOSTA_CORRETA = resposta.RESPOSTA_CORRETA;
+
+                //    listRespostas.Add(resp);
+                //}
+
+                //questao.RESPOSTA = listRespostas;
+                return questao;
+            }
+        }
         
+
         public List<QUESTAO> ConsultarQuestao(QUESTAO objquestao)
         {
             using (ECEntities db = new ECEntities())
@@ -182,6 +225,26 @@ namespace EC.Dado
                 //Retorna o id novo gerado na inserção
                 var id = q.ID_QUESTAO;
             }
-        }     
+        }
+
+        public void Atualiza(QUESTAO q)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+
+                db.QUESTAO.ApplyCurrentValues(q);
+
+                //var original = db.QUESTAO.First(rs => rs.ID_USUARIO == q.ID_USUARIO);
+
+                //original.ATIVO = q.ATIVO;
+                //original.SENHA = q.SENHA;
+                //original.FOTO = q.FOTO;
+                //original.ID_FUNCIONARIO = q.ID_FUNCIONARIO;
+
+                ////Salva a questão
+                
+                db.SaveChanges();
+            }
+        }
     }
 }
