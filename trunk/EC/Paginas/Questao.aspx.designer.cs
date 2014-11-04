@@ -85,6 +85,15 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.TextBox TxtEscolha1;
         
         /// <summary>
+        /// hddIdResposta1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddIdResposta1;
+        
+        /// <summary>
         /// Correta2 control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace UI.Web.EC.Paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtEscolha2;
+        
+        /// <summary>
+        /// hddIdResposta2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddIdResposta2;
         
         /// <summary>
         /// Correta3 control.
@@ -121,6 +139,15 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.TextBox TxtEscolha3;
         
         /// <summary>
+        /// hddIdResposta3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddIdResposta3;
+        
+        /// <summary>
         /// Correta4 control.
         /// </summary>
         /// <remarks>
@@ -139,6 +166,15 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.TextBox TxtEscolha4;
         
         /// <summary>
+        /// hddIdResposta4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddIdResposta4;
+        
+        /// <summary>
         /// Correta5 control.
         /// </summary>
         /// <remarks>
@@ -155,6 +191,15 @@ namespace UI.Web.EC.Paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtEscolha5;
+        
+        /// <summary>
+        /// hddIdResposta5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddIdResposta5;
         
         /// <summary>
         /// Button1 control.

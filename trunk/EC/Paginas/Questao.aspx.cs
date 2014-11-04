@@ -41,11 +41,15 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarEdicao()
         {
-            var questao = NQuestão.ConsultarById(idQuestao);
+            var questao = NQuestao.ConsultarById(idQuestao);
 
             ddlAmc.SelectedValue = questao.ID_AMC.ToString();
             ddlDisciplina.SelectedValue = questao.ID_DISCIPLINA.ToString();
+
+            //Funcionário
+            CarregarFuncionario(ddlDisciplina.SelectedValue.ToInt32());
             ddlFuncionario.SelectedValue = questao.ID_FUNCIONARIO.ToString();
+
             TxtDescricao.Text = questao.DESCRICAO;
 
 
@@ -57,22 +61,27 @@ namespace UI.Web.EC.Paginas
                     case 0:
                         TxtEscolha1.Text = resposta.TEXTO;
                         Correta1.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        hddIdResposta1.Value = resposta.ID_RESPOSTA.ToString();
                         break;
                     case 1:
                         TxtEscolha2.Text = resposta.TEXTO;
                         Correta2.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        hddIdResposta2.Value = resposta.ID_RESPOSTA.ToString();
                         break;
                     case 2:
                         TxtEscolha3.Text = resposta.TEXTO;
                         Correta3.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        hddIdResposta3.Value = resposta.ID_RESPOSTA.ToString();
                         break;
                     case 3:
                         TxtEscolha4.Text = resposta.TEXTO;
                         Correta4.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        hddIdResposta4.Value = resposta.ID_RESPOSTA.ToString();
                         break;
                     case 4:
                         TxtEscolha5.Text = resposta.TEXTO;
                         Correta5.Checked = (bool)resposta.RESPOSTA_CORRETA;
+                        hddIdResposta5.Value = resposta.ID_RESPOSTA.ToString();
                         break;
                 }
 
@@ -143,6 +152,7 @@ namespace UI.Web.EC.Paginas
                 return;
             }
 
+            
             System.IO.Stream file = upLoad.PostedFile.InputStream;
             Byte[] buffer = new byte[file.Length];
             file.Read(buffer, 0, (int)file.Length);
@@ -161,22 +171,27 @@ namespace UI.Web.EC.Paginas
             RESPOSTA resposta1 = new RESPOSTA();
             resposta1.TEXTO = TxtEscolha1.Text;
             resposta1.RESPOSTA_CORRETA = Correta1.Checked;
+            resposta1.ID_RESPOSTA = Library.ToInteger(hddIdResposta1.Value);
 
             RESPOSTA resposta2 = new RESPOSTA();
             resposta2.TEXTO = TxtEscolha2.Text;
             resposta2.RESPOSTA_CORRETA = Correta2.Checked;
+            resposta2.ID_RESPOSTA = Library.ToInteger(hddIdResposta2.Value);
 
             RESPOSTA resposta3 = new RESPOSTA();
             resposta3.TEXTO = TxtEscolha3.Text;
             resposta3.RESPOSTA_CORRETA = Correta3.Checked;
+            resposta3.ID_RESPOSTA = Library.ToInteger(hddIdResposta3.Value);
 
             RESPOSTA resposta4 = new RESPOSTA();
             resposta4.TEXTO = TxtEscolha4.Text;
             resposta4.RESPOSTA_CORRETA = Correta4.Checked;
+            resposta4.ID_RESPOSTA = Library.ToInteger(hddIdResposta4.Value);
 
             RESPOSTA resposta5 = new RESPOSTA();
             resposta5.TEXTO = TxtEscolha5.Text;
             resposta5.RESPOSTA_CORRETA = Correta5.Checked;
+            resposta5.ID_RESPOSTA = Library.ToInteger(hddIdResposta5.Value);
 
             listaResposta.Add(resposta1);
             listaResposta.Add(resposta2);
@@ -186,11 +201,11 @@ namespace UI.Web.EC.Paginas
 
             questao.RESPOSTA = listaResposta;
 
-            if (idQuestao > 0)
-            {
+            if (idQuestao > 0){
                 questao.ID_QUESTAO = idQuestao;
+                NQuestao.Atualiza(questao);
             }else
-                NQuestão.Salvar(questao);
+                NQuestao.Salvar(questao);
             
             Response.Redirect("BancoQuestao.aspx", true);
         }

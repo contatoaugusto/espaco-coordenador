@@ -8,7 +8,7 @@ using EC.Modelo;
 
 namespace EC.Negocio
 {
-    public class NQuestão
+    public class NQuestao
     {
 
         public static List<QUESTAO> ConsultarQuestao()
@@ -31,13 +31,15 @@ namespace EC.Negocio
             return (new DQuestao()).ConsultarQuestaoByProva(idProva);
         }
 
-        
+
         public static void Salvar(QUESTAO q)
         {
-            DQuestao dquestao = new DQuestao();
-            dquestao.Salvar(q);
+            (new DQuestao()).Salvar(q);
         }
-
-
-}
+        public static void Atualiza(QUESTAO q)
+        {
+            (new DQuestao()).Atualiza(q);
+        }
+        
+    }
 }

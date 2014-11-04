@@ -46,7 +46,7 @@
     <sgi:GridView ID="grdQuestao" runat="server"  AutoGenerateColumns="False" OnRowCommand="grdQuestao_RowCommand">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="DESCRICAO" HeaderText="Questão" HeaderStyle-Width="70%"/>
+            <asp:BoundField DataField="DESCRICAO" HeaderText="Questão" HeaderStyle-Width="60%"/>
             <asp:TemplateField HeaderText="Funcionario">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("FUNCIONARIO.PESSOA.NOME") %>'></asp:Label>

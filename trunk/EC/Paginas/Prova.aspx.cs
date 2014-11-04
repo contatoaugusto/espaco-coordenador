@@ -60,7 +60,7 @@ namespace UI.Web.EC.Paginas
                 reportViewer.LocalReport.ReportPath = reportPath;
                 reportViewer.LocalReport.EnableExternalImages = true;
 
-                List<QUESTAO> questao = NQuestão.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
+                List<QUESTAO> questao = NQuestao.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
                 
                 // Montar questão e respostas em um campo
                 int i = 0;
@@ -118,7 +118,7 @@ namespace UI.Web.EC.Paginas
                 reportViewer.LocalReport.ReportPath = reportPath;
                 reportViewer.LocalReport.EnableExternalImages = true;
 
-                List<QUESTAO> questao = NQuestão.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
+                List<QUESTAO> questao = NQuestao.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
 
                 // Montar questão e respostas em um campo
                 int i = 0;

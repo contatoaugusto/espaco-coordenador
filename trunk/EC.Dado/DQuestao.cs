@@ -52,47 +52,83 @@ namespace EC.Dado
             }
         }
 
+        //public QUESTAO ConsultarById(int idQuestao)
+        //{
+        //    using (ECEntities db = new ECEntities())
+        //    {
+        //        var questao = db.QUESTAO.First(rs => rs.ID_QUESTAO == idQuestao);
+
+        //        questao.AMC = db.AMC.First(rs => rs.ID_AMC == questao.ID_AMC);
+        //        //questao.PROVA = tipo.PROVA;
+
+        //        //questao.FUNCIONARIO = new FUNCIONARIO();
+        //        //questao.FUNCIONARIO.PESSOA = new PESSOA();
+        //        //questao.FUNCIONARIO.PESSOA.ID_PESSOA = tipo.FUNCIONARIO.PESSOA.ID_PESSOA;
+        //        //questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
+        //        //questao.FUNCIONARIO.PESSOA.TELEFONE = tipo.FUNCIONARIO.PESSOA.TELEFONE;
+        //        //questao.FUNCIONARIO.PESSOA.EMAIL = tipo.FUNCIONARIO.PESSOA.EMAIL;
+
+        //        //questao.DISCIPLINA = new DISCIPLINA();
+        //        //questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
+        //        //questao.DISCIPLINA.ID_CURSO = tipo.DISCIPLINA.ID_CURSO;
+        //        //questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
+
+
+        //        //var respostas = db.RESPOSTA.Where(rs => rs.ID_QUESTAO == idQuestao);
+
+        //        //foreach (var resposta in respostas)
+        //        //{
+        //        //    RESPOSTA resp = new RESPOSTA();
+        //        //    resp.ID_RESPOSTA = resposta.ID_RESPOSTA;
+        //        //    resp.ID_QUESTAO = resposta.ID_QUESTAO;
+        //        //    resp.TEXTO = resposta.TEXTO;
+        //        //    resp.RESPOSTA_CORRETA = resposta.RESPOSTA_CORRETA;
+
+        //        //    questao.RESPOSTA.Add(resp);
+        //        //}
+
+        //        return questao;
+        //    }
+        //}
         public QUESTAO ConsultarById(int idQuestao)
         {
             using (ECEntities db = new ECEntities())
             {
-                var questao = db.QUESTAO.First(rs => rs.ID_QUESTAO == idQuestao);
+                var q = db.QUESTAO.Where(rs => rs.ID_QUESTAO == idQuestao);
 
-                questao.AMC = db.AMC.First(rs => rs.ID_AMC == questao.ID_AMC);
-                //questao.PROVA = tipo.PROVA;
+                QUESTAO questao = new QUESTAO();
 
-                //questao.FUNCIONARIO = new FUNCIONARIO();
-                //questao.FUNCIONARIO.PESSOA = new PESSOA();
-                //questao.FUNCIONARIO.PESSOA.ID_PESSOA = tipo.FUNCIONARIO.PESSOA.ID_PESSOA;
-                //questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
-                //questao.FUNCIONARIO.PESSOA.TELEFONE = tipo.FUNCIONARIO.PESSOA.TELEFONE;
-                //questao.FUNCIONARIO.PESSOA.EMAIL = tipo.FUNCIONARIO.PESSOA.EMAIL;
+                foreach (var tipo in q)
+                {
 
-                //questao.DISCIPLINA = new DISCIPLINA();
-                //questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
-                //questao.DISCIPLINA.ID_CURSO = tipo.DISCIPLINA.ID_CURSO;
-                //questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
+                    questao.ID_QUESTAO = tipo.ID_QUESTAO;
+                    questao.DESCRICAO = tipo.DESCRICAO;
+                    questao.IMAGEM = tipo.IMAGEM;
 
+                    //DDisciplina disciplina = new DDisciplina();
+                    questao.DISCIPLINA = tipo.DISCIPLINA; //disciplina.ConsultarById(tipo.DISCIPLINA.ID_DISCIPLINA);
 
-                //var respostas = db.RESPOSTA.Where(rs => rs.ID_QUESTAO == idQuestao);
+                    //DFuncionario funcionario = new DFuncionario();
+                    questao.FUNCIONARIO = tipo.FUNCIONARIO; //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
 
-                //EntityCollection<RESPOSTA> listRespostas = new EntityCollection<RESPOSTA>();
-                //foreach (var resposta in respostas)
-                //{
-                //    RESPOSTA resp = new RESPOSTA();
-                //    resp.ID_RESPOSTA = resposta.ID_RESPOSTA;
-                //    resp.ID_QUESTAO = resposta.ID_QUESTAO;
-                //    resp.TEXTO = resposta.TEXTO;
-                //    resp.RESPOSTA_CORRETA = resposta.RESPOSTA_CORRETA;
+                    //Respostas dessa questão
+                    DResposta resposta = new DResposta();
+                    var resp = resposta.ConsultarRespostaByQuestao(tipo.ID_QUESTAO);
 
-                //    listRespostas.Add(resp);
-                //}
+                    foreach (var r in resp)
+                    {
+                        RESPOSTA obj = new RESPOSTA();
+                        obj.ID_RESPOSTA = r.ID_RESPOSTA;
+                        obj.ID_QUESTAO = r.ID_QUESTAO;
+                        obj.TEXTO = r.TEXTO;
+                        obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
+                        questao.RESPOSTA.Add(obj);
+                    }
+                }
 
-                //questao.RESPOSTA = listRespostas;
                 return questao;
             }
         }
-        
 
         public List<QUESTAO> ConsultarQuestao(QUESTAO objquestao)
         {
@@ -218,8 +254,9 @@ namespace EC.Dado
         {   
             using (ECEntities db = new ECEntities())
             {
-                //Salva a questão
+                
                 db.QUESTAO.AddObject(q);
+                
                 db.SaveChanges();
 
                 //Retorna o id novo gerado na inserção
@@ -232,16 +269,30 @@ namespace EC.Dado
             using (ECEntities db = new ECEntities())
             {
 
-                db.QUESTAO.ApplyCurrentValues(q);
+                var originalQuestao = db.QUESTAO.First(rs => rs.ID_QUESTAO == q.ID_QUESTAO);
 
-                //var original = db.QUESTAO.First(rs => rs.ID_USUARIO == q.ID_USUARIO);
+                originalQuestao.ID_DISCIPLINA = q.ID_DISCIPLINA;
+                originalQuestao.ID_AMC = q.ID_AMC;
+                originalQuestao.ID_FUNCIONARIO = q.ID_FUNCIONARIO;
+                originalQuestao.DESCRICAO = q.DESCRICAO;
+                originalQuestao.IMAGEM = q.IMAGEM;
 
-                //original.ATIVO = q.ATIVO;
-                //original.SENHA = q.SENHA;
-                //original.FOTO = q.FOTO;
-                //original.ID_FUNCIONARIO = q.ID_FUNCIONARIO;
+                //Respostas dessa questão
+                //originalQuestao.RESPOSTA = new EntityCollection<RESPOSTA>();
+                foreach (var r in q.RESPOSTA)
+                {
+                    RESPOSTA obj = db.RESPOSTA.First(rs => rs.ID_RESPOSTA == r.ID_RESPOSTA);
+                    obj.TEXTO = r.TEXTO;
+                    obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
 
-                ////Salva a questão
+                    //RESPOSTA obj = new RESPOSTA();
+                    //obj.ID_RESPOSTA = r.ID_RESPOSTA;
+                    //obj.ID_QUESTAO = q.ID_QUESTAO;
+                    //obj.TEXTO = r.TEXTO;
+                    //obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
+
+                    //originalQuestao.RESPOSTA.Attach(obj);
+                }
                 
                 db.SaveChanges();
             }
