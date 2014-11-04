@@ -18,7 +18,15 @@
                 <asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>
             </div>
         </div>  
-
+        <div class="row">
+            <div class="column w150">
+                Curso:
+            </div>
+            <div class="column w250">
+                <asp:Label ID="lblCursoUnico" runat="server"></asp:Label>
+                
+            </div>
+        </div>  
         <div class="row">
             <div class="column w150">
                 Data Aplicação da AMC:

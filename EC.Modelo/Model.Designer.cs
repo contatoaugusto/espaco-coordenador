@@ -36,11 +36,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ECModel", "FK_REPRESENTANTE_TURMA_ALUNO_CURSO", "ALUNO_CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.ALUNO_CURSO), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_AMC_SEMESTRE", "SEMESTRE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.SEMESTRE), "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.AMC), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_AMC", "AMC", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.AMC), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
-[assembly: EdmRelationshipAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ASSUNTO_TRATADO), true)]
-[assembly: EdmRelationshipAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_ASSUNTO_TRATADO), "ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.ASSUNTO_TRATADO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "fk_FUNCIONARIO_CARGO", "CARGO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.CARGO), "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.FUNCIONARIO), true)]
-[assembly: EdmRelationshipAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.COMPROMISSO), true)]
-[assembly: EdmRelationshipAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.COMPROMISSO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_COORDENADOR_CURSO", "CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.CURSO), "CURSO_COORDENADOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.CURSO_COORDENADOR), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "Fk_DISCIPLINA_CURSO", "CURSO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.CURSO), "DISCIPLINA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.DISCIPLINA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_CURSO_COORDENADOR_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "CURSO_COORDENADOR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.CURSO_COORDENADOR), true)]
@@ -57,15 +53,19 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ECModel", "FK_USUARIO_FUNCIONARIO", "FUNCIONARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.FUNCIONARIO), "USUARIO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.USUARIO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "Fk_LANCAMENTO_TIPOLANCAM", "TIPO_LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_LANCAMENTO), "LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.LANCAMENTO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "Fk_LANCAMENTO_TURMA", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "LANCAMENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.LANCAMENTO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "REUNIAO_COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_COMPROMISSO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_REUNIAO_PARTICIPANTE_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.PESSOA), "REUNIAO_PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_PARTICIPANTE), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_PROVA", "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PROVA), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_RESPOSTA_QUESTAO", "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.QUESTAO), "RESPOSTA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.RESPOSTA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_REPRESENTANTE), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_REPRESENTANTE_TURMA", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "REUNIAO_ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_ASSUNTO_TRATADO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "REUNIAO_COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_COMPROMISSO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_REUNIAO_PARTICIPANTE_REUNIAO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.REUNIAO), "REUNIAO_PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_PARTICIPANTE), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "fk_REUNIAO_PAUTA", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "REUNIAO_PAUTA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_PAUTA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_REUNIAO_SEMESTRE", "SEMESTRE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.SEMESTRE), "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TIPOREUNIAO", "TIPO_REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EC.Modelo.TIPO_REUNIAO), "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_ASSUNTO_TRATADO), "REUNIAO_ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_ASSUNTO_TRATADO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TURMA_TIPO", "TIPO_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_TURMA), "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.TURMA), true)]
 
 #endregion
@@ -249,22 +249,6 @@ namespace EC.Modelo
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ASSUNTO_TRATADO> ASSUNTO_TRATADO
-        {
-            get
-            {
-                if ((_ASSUNTO_TRATADO == null))
-                {
-                    _ASSUNTO_TRATADO = base.CreateObjectSet<ASSUNTO_TRATADO>("ASSUNTO_TRATADO");
-                }
-                return _ASSUNTO_TRATADO;
-            }
-        }
-        private ObjectSet<ASSUNTO_TRATADO> _ASSUNTO_TRATADO;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<CARGO> CARGO
         {
             get
@@ -277,22 +261,6 @@ namespace EC.Modelo
             }
         }
         private ObjectSet<CARGO> _CARGO;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<COMPROMISSO> COMPROMISSO
-        {
-            get
-            {
-                if ((_COMPROMISSO == null))
-                {
-                    _COMPROMISSO = base.CreateObjectSet<COMPROMISSO>("COMPROMISSO");
-                }
-                return _COMPROMISSO;
-            }
-        }
-        private ObjectSet<COMPROMISSO> _COMPROMISSO;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -517,6 +485,38 @@ namespace EC.Modelo
             }
         }
         private ObjectSet<REUNIAO> _REUNIAO;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<REUNIAO_ASSUNTO_TRATADO> REUNIAO_ASSUNTO_TRATADO
+        {
+            get
+            {
+                if ((_REUNIAO_ASSUNTO_TRATADO == null))
+                {
+                    _REUNIAO_ASSUNTO_TRATADO = base.CreateObjectSet<REUNIAO_ASSUNTO_TRATADO>("REUNIAO_ASSUNTO_TRATADO");
+                }
+                return _REUNIAO_ASSUNTO_TRATADO;
+            }
+        }
+        private ObjectSet<REUNIAO_ASSUNTO_TRATADO> _REUNIAO_ASSUNTO_TRATADO;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<REUNIAO_COMPROMISSO> REUNIAO_COMPROMISSO
+        {
+            get
+            {
+                if ((_REUNIAO_COMPROMISSO == null))
+                {
+                    _REUNIAO_COMPROMISSO = base.CreateObjectSet<REUNIAO_COMPROMISSO>("REUNIAO_COMPROMISSO");
+                }
+                return _REUNIAO_COMPROMISSO;
+            }
+        }
+        private ObjectSet<REUNIAO_COMPROMISSO> _REUNIAO_COMPROMISSO;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -795,27 +795,11 @@ namespace EC.Modelo
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ASSUNTO_TRATADO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToASSUNTO_TRATADO(ASSUNTO_TRATADO aSSUNTO_TRATADO)
-        {
-            base.AddObject("ASSUNTO_TRATADO", aSSUNTO_TRATADO);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the CARGO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToCARGO(CARGO cARGO)
         {
             base.AddObject("CARGO", cARGO);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the COMPROMISSO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToCOMPROMISSO(COMPROMISSO cOMPROMISSO)
-        {
-            base.AddObject("COMPROMISSO", cOMPROMISSO);
         }
     
         /// <summary>
@@ -928,6 +912,22 @@ namespace EC.Modelo
         public void AddToREUNIAO(REUNIAO rEUNIAO)
         {
             base.AddObject("REUNIAO", rEUNIAO);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the REUNIAO_ASSUNTO_TRATADO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToREUNIAO_ASSUNTO_TRATADO(REUNIAO_ASSUNTO_TRATADO rEUNIAO_ASSUNTO_TRATADO)
+        {
+            base.AddObject("REUNIAO_ASSUNTO_TRATADO", rEUNIAO_ASSUNTO_TRATADO);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the REUNIAO_COMPROMISSO EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToREUNIAO_COMPROMISSO(REUNIAO_COMPROMISSO rEUNIAO_COMPROMISSO)
+        {
+            base.AddObject("REUNIAO_COMPROMISSO", rEUNIAO_COMPROMISSO);
         }
     
         /// <summary>
@@ -2863,238 +2863,6 @@ namespace EC.Modelo
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="ASSUNTO_TRATADO")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class ASSUNTO_TRATADO : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new ASSUNTO_TRATADO object.
-        /// </summary>
-        /// <param name="iD_ASSTRAT">Initial value of the ID_ASSTRAT property.</param>
-        public static ASSUNTO_TRATADO CreateASSUNTO_TRATADO(global::System.Int32 iD_ASSTRAT)
-        {
-            ASSUNTO_TRATADO aSSUNTO_TRATADO = new ASSUNTO_TRATADO();
-            aSSUNTO_TRATADO.ID_ASSTRAT = iD_ASSTRAT;
-            return aSSUNTO_TRATADO;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_ASSTRAT
-        {
-            get
-            {
-                return _ID_ASSTRAT;
-            }
-            set
-            {
-                if (_ID_ASSTRAT != value)
-                {
-                    OnID_ASSTRATChanging(value);
-                    ReportPropertyChanging("ID_ASSTRAT");
-                    _ID_ASSTRAT = StructuralObject.SetValidValue(value, "ID_ASSTRAT");
-                    ReportPropertyChanged("ID_ASSTRAT");
-                    OnID_ASSTRATChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID_ASSTRAT;
-        partial void OnID_ASSTRATChanging(global::System.Int32 value);
-        partial void OnID_ASSTRATChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ID_REUNIAO
-        {
-            get
-            {
-                return _ID_REUNIAO;
-            }
-            set
-            {
-                OnID_REUNIAOChanging(value);
-                ReportPropertyChanging("ID_REUNIAO");
-                _ID_REUNIAO = StructuralObject.SetValidValue(value, "ID_REUNIAO");
-                ReportPropertyChanged("ID_REUNIAO");
-                OnID_REUNIAOChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ID_REUNIAO;
-        partial void OnID_REUNIAOChanging(Nullable<global::System.Int32> value);
-        partial void OnID_REUNIAOChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String DESCRICAO
-        {
-            get
-            {
-                return _DESCRICAO;
-            }
-            set
-            {
-                OnDESCRICAOChanging(value);
-                ReportPropertyChanging("DESCRICAO");
-                _DESCRICAO = StructuralObject.SetValidValue(value, true, "DESCRICAO");
-                ReportPropertyChanged("DESCRICAO");
-                OnDESCRICAOChanged();
-            }
-        }
-        private global::System.String _DESCRICAO;
-        partial void OnDESCRICAOChanging(global::System.String value);
-        partial void OnDESCRICAOChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ITEM
-        {
-            get
-            {
-                return _ITEM;
-            }
-            set
-            {
-                OnITEMChanging(value);
-                ReportPropertyChanging("ITEM");
-                _ITEM = StructuralObject.SetValidValue(value, "ITEM");
-                ReportPropertyChanged("ITEM");
-                OnITEMChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ITEM;
-        partial void OnITEMChanging(Nullable<global::System.Int32> value);
-        partial void OnITEMChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ID_TIPOASSTRATADO
-        {
-            get
-            {
-                return _ID_TIPOASSTRATADO;
-            }
-            set
-            {
-                OnID_TIPOASSTRATADOChanging(value);
-                ReportPropertyChanging("ID_TIPOASSTRATADO");
-                _ID_TIPOASSTRATADO = StructuralObject.SetValidValue(value, "ID_TIPOASSTRATADO");
-                ReportPropertyChanged("ID_TIPOASSTRATADO");
-                OnID_TIPOASSTRATADOChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ID_TIPOASSTRATADO;
-        partial void OnID_TIPOASSTRATADOChanging(Nullable<global::System.Int32> value);
-        partial void OnID_TIPOASSTRATADOChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO")]
-        public REUNIAO REUNIAO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<REUNIAO> REUNIAOReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO")]
-        public TIPO_ASSUNTO_TRATADO TIPO_ASSUNTO_TRATADO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TIPO_ASSUNTO_TRATADO> TIPO_ASSUNTO_TRATADOReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="CARGO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -3190,262 +2958,6 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FUNCIONARIO>("ECModel.fk_FUNCIONARIO_CARGO", "FUNCIONARIO", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="COMPROMISSO")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class COMPROMISSO : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new COMPROMISSO object.
-        /// </summary>
-        /// <param name="iD_COMPROMISSO">Initial value of the ID_COMPROMISSO property.</param>
-        public static COMPROMISSO CreateCOMPROMISSO(global::System.Int32 iD_COMPROMISSO)
-        {
-            COMPROMISSO cOMPROMISSO = new COMPROMISSO();
-            cOMPROMISSO.ID_COMPROMISSO = iD_COMPROMISSO;
-            return cOMPROMISSO;
-        }
-
-        #endregion
-
-        #region Simple Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID_COMPROMISSO
-        {
-            get
-            {
-                return _ID_COMPROMISSO;
-            }
-            set
-            {
-                if (_ID_COMPROMISSO != value)
-                {
-                    OnID_COMPROMISSOChanging(value);
-                    ReportPropertyChanging("ID_COMPROMISSO");
-                    _ID_COMPROMISSO = StructuralObject.SetValidValue(value, "ID_COMPROMISSO");
-                    ReportPropertyChanged("ID_COMPROMISSO");
-                    OnID_COMPROMISSOChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID_COMPROMISSO;
-        partial void OnID_COMPROMISSOChanging(global::System.Int32 value);
-        partial void OnID_COMPROMISSOChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ID_REUNIAO
-        {
-            get
-            {
-                return _ID_REUNIAO;
-            }
-            set
-            {
-                OnID_REUNIAOChanging(value);
-                ReportPropertyChanging("ID_REUNIAO");
-                _ID_REUNIAO = StructuralObject.SetValidValue(value, "ID_REUNIAO");
-                ReportPropertyChanged("ID_REUNIAO");
-                OnID_REUNIAOChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ID_REUNIAO;
-        partial void OnID_REUNIAOChanging(Nullable<global::System.Int32> value);
-        partial void OnID_REUNIAOChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ID_PESSOA
-        {
-            get
-            {
-                return _ID_PESSOA;
-            }
-            set
-            {
-                OnID_PESSOAChanging(value);
-                ReportPropertyChanging("ID_PESSOA");
-                _ID_PESSOA = StructuralObject.SetValidValue(value, "ID_PESSOA");
-                ReportPropertyChanged("ID_PESSOA");
-                OnID_PESSOAChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ID_PESSOA;
-        partial void OnID_PESSOAChanging(Nullable<global::System.Int32> value);
-        partial void OnID_PESSOAChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String DESCRICAO
-        {
-            get
-            {
-                return _DESCRICAO;
-            }
-            set
-            {
-                OnDESCRICAOChanging(value);
-                ReportPropertyChanging("DESCRICAO");
-                _DESCRICAO = StructuralObject.SetValidValue(value, true, "DESCRICAO");
-                ReportPropertyChanged("DESCRICAO");
-                OnDESCRICAOChanged();
-            }
-        }
-        private global::System.String _DESCRICAO;
-        partial void OnDESCRICAOChanging(global::System.String value);
-        partial void OnDESCRICAOChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ITEM
-        {
-            get
-            {
-                return _ITEM;
-            }
-            set
-            {
-                OnITEMChanging(value);
-                ReportPropertyChanging("ITEM");
-                _ITEM = StructuralObject.SetValidValue(value, "ITEM");
-                ReportPropertyChanged("ITEM");
-                OnITEMChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ITEM;
-        partial void OnITEMChanging(Nullable<global::System.Int32> value);
-        partial void OnITEMChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> DATA
-        {
-            get
-            {
-                return _DATA;
-            }
-            set
-            {
-                OnDATAChanging(value);
-                ReportPropertyChanging("DATA");
-                _DATA = StructuralObject.SetValidValue(value, "DATA");
-                ReportPropertyChanged("DATA");
-                OnDATAChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _DATA;
-        partial void OnDATAChanging(Nullable<global::System.DateTime> value);
-        partial void OnDATAChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "PESSOA")]
-        public PESSOA PESSOA
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<PESSOA> PESSOAReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO")]
-        public REUNIAO REUNIAO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<REUNIAO> REUNIAOReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO", value);
                 }
             }
         }
@@ -5294,28 +4806,6 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "COMPROMISSO")]
-        public EntityCollection<COMPROMISSO> COMPROMISSO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<COMPROMISSO>("ECModel.fk_COMPROMISSO_PESSOA", "COMPROMISSO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMPROMISSO>("ECModel.fk_COMPROMISSO_PESSOA", "COMPROMISSO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_EVENTO_PESSOA", "EVENTO")]
         public EntityCollection<EVENTO> EVENTO
         {
@@ -5350,6 +4840,28 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<FUNCIONARIO>("ECModel.fk_FUNCIONARIO_PESSOA", "FUNCIONARIO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "REUNIAO_COMPROMISSO")]
+        public EntityCollection<REUNIAO_COMPROMISSO> REUNIAO_COMPROMISSO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REUNIAO_COMPROMISSO>("ECModel.fk_COMPROMISSO_PESSOA", "REUNIAO_COMPROMISSO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REUNIAO_COMPROMISSO>("ECModel.fk_COMPROMISSO_PESSOA", "REUNIAO_COMPROMISSO", value);
                 }
             }
         }
@@ -6730,18 +6242,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ASSTRATADOS", "ASSUNTO_TRATADO")]
-        public EntityCollection<ASSUNTO_TRATADO> ASSUNTO_TRATADO
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO_ASSUNTO_TRATADO")]
+        public EntityCollection<REUNIAO_ASSUNTO_TRATADO> REUNIAO_ASSUNTO_TRATADO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ASSUNTO_TRATADO>("ECModel.FK_ASSTRATADOS", "ASSUNTO_TRATADO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REUNIAO_ASSUNTO_TRATADO>("ECModel.FK_ASSTRATADOS", "REUNIAO_ASSUNTO_TRATADO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ASSUNTO_TRATADO>("ECModel.FK_ASSTRATADOS", "ASSUNTO_TRATADO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REUNIAO_ASSUNTO_TRATADO>("ECModel.FK_ASSTRATADOS", "REUNIAO_ASSUNTO_TRATADO", value);
                 }
             }
         }
@@ -6752,18 +6264,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "COMPROMISSO")]
-        public EntityCollection<COMPROMISSO> COMPROMISSO
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO_COMPROMISSO")]
+        public EntityCollection<REUNIAO_COMPROMISSO> REUNIAO_COMPROMISSO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<COMPROMISSO>("ECModel.fk_REUNIAO_COMPROMISSO", "COMPROMISSO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REUNIAO_COMPROMISSO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO_COMPROMISSO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMPROMISSO>("ECModel.fk_REUNIAO_COMPROMISSO", "COMPROMISSO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REUNIAO_COMPROMISSO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO_COMPROMISSO", value);
                 }
             }
         }
@@ -6884,6 +6396,494 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_REUNIAO>("ECModel.FK_TIPOREUNIAO", "TIPO_REUNIAO", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="REUNIAO_ASSUNTO_TRATADO")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class REUNIAO_ASSUNTO_TRATADO : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new REUNIAO_ASSUNTO_TRATADO object.
+        /// </summary>
+        /// <param name="iD_ASSTRAT">Initial value of the ID_ASSTRAT property.</param>
+        public static REUNIAO_ASSUNTO_TRATADO CreateREUNIAO_ASSUNTO_TRATADO(global::System.Int32 iD_ASSTRAT)
+        {
+            REUNIAO_ASSUNTO_TRATADO rEUNIAO_ASSUNTO_TRATADO = new REUNIAO_ASSUNTO_TRATADO();
+            rEUNIAO_ASSUNTO_TRATADO.ID_ASSTRAT = iD_ASSTRAT;
+            return rEUNIAO_ASSUNTO_TRATADO;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_ASSTRAT
+        {
+            get
+            {
+                return _ID_ASSTRAT;
+            }
+            set
+            {
+                if (_ID_ASSTRAT != value)
+                {
+                    OnID_ASSTRATChanging(value);
+                    ReportPropertyChanging("ID_ASSTRAT");
+                    _ID_ASSTRAT = StructuralObject.SetValidValue(value, "ID_ASSTRAT");
+                    ReportPropertyChanged("ID_ASSTRAT");
+                    OnID_ASSTRATChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_ASSTRAT;
+        partial void OnID_ASSTRATChanging(global::System.Int32 value);
+        partial void OnID_ASSTRATChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ID_REUNIAO
+        {
+            get
+            {
+                return _ID_REUNIAO;
+            }
+            set
+            {
+                OnID_REUNIAOChanging(value);
+                ReportPropertyChanging("ID_REUNIAO");
+                _ID_REUNIAO = StructuralObject.SetValidValue(value, "ID_REUNIAO");
+                ReportPropertyChanged("ID_REUNIAO");
+                OnID_REUNIAOChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ID_REUNIAO;
+        partial void OnID_REUNIAOChanging(Nullable<global::System.Int32> value);
+        partial void OnID_REUNIAOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DESCRICAO
+        {
+            get
+            {
+                return _DESCRICAO;
+            }
+            set
+            {
+                OnDESCRICAOChanging(value);
+                ReportPropertyChanging("DESCRICAO");
+                _DESCRICAO = StructuralObject.SetValidValue(value, true, "DESCRICAO");
+                ReportPropertyChanged("DESCRICAO");
+                OnDESCRICAOChanged();
+            }
+        }
+        private global::System.String _DESCRICAO;
+        partial void OnDESCRICAOChanging(global::System.String value);
+        partial void OnDESCRICAOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ITEM
+        {
+            get
+            {
+                return _ITEM;
+            }
+            set
+            {
+                OnITEMChanging(value);
+                ReportPropertyChanging("ITEM");
+                _ITEM = StructuralObject.SetValidValue(value, "ITEM");
+                ReportPropertyChanged("ITEM");
+                OnITEMChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ITEM;
+        partial void OnITEMChanging(Nullable<global::System.Int32> value);
+        partial void OnITEMChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ID_TIPOASSTRATADO
+        {
+            get
+            {
+                return _ID_TIPOASSTRATADO;
+            }
+            set
+            {
+                OnID_TIPOASSTRATADOChanging(value);
+                ReportPropertyChanging("ID_TIPOASSTRATADO");
+                _ID_TIPOASSTRATADO = StructuralObject.SetValidValue(value, "ID_TIPOASSTRATADO");
+                ReportPropertyChanged("ID_TIPOASSTRATADO");
+                OnID_TIPOASSTRATADOChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ID_TIPOASSTRATADO;
+        partial void OnID_TIPOASSTRATADOChanging(Nullable<global::System.Int32> value);
+        partial void OnID_TIPOASSTRATADOChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO")]
+        public REUNIAO REUNIAO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<REUNIAO> REUNIAOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.FK_ASSTRATADOS", "REUNIAO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO")]
+        public TIPO_ASSUNTO_TRATADO TIPO_ASSUNTO_TRATADO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TIPO_ASSUNTO_TRATADO> TIPO_ASSUNTO_TRATADOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TIPO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "TIPO_ASSUNTO_TRATADO", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ECModel", Name="REUNIAO_COMPROMISSO")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class REUNIAO_COMPROMISSO : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new REUNIAO_COMPROMISSO object.
+        /// </summary>
+        /// <param name="iD_COMPROMISSO">Initial value of the ID_COMPROMISSO property.</param>
+        public static REUNIAO_COMPROMISSO CreateREUNIAO_COMPROMISSO(global::System.Int32 iD_COMPROMISSO)
+        {
+            REUNIAO_COMPROMISSO rEUNIAO_COMPROMISSO = new REUNIAO_COMPROMISSO();
+            rEUNIAO_COMPROMISSO.ID_COMPROMISSO = iD_COMPROMISSO;
+            return rEUNIAO_COMPROMISSO;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_COMPROMISSO
+        {
+            get
+            {
+                return _ID_COMPROMISSO;
+            }
+            set
+            {
+                if (_ID_COMPROMISSO != value)
+                {
+                    OnID_COMPROMISSOChanging(value);
+                    ReportPropertyChanging("ID_COMPROMISSO");
+                    _ID_COMPROMISSO = StructuralObject.SetValidValue(value, "ID_COMPROMISSO");
+                    ReportPropertyChanged("ID_COMPROMISSO");
+                    OnID_COMPROMISSOChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID_COMPROMISSO;
+        partial void OnID_COMPROMISSOChanging(global::System.Int32 value);
+        partial void OnID_COMPROMISSOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ID_REUNIAO
+        {
+            get
+            {
+                return _ID_REUNIAO;
+            }
+            set
+            {
+                OnID_REUNIAOChanging(value);
+                ReportPropertyChanging("ID_REUNIAO");
+                _ID_REUNIAO = StructuralObject.SetValidValue(value, "ID_REUNIAO");
+                ReportPropertyChanged("ID_REUNIAO");
+                OnID_REUNIAOChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ID_REUNIAO;
+        partial void OnID_REUNIAOChanging(Nullable<global::System.Int32> value);
+        partial void OnID_REUNIAOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ID_PESSOA
+        {
+            get
+            {
+                return _ID_PESSOA;
+            }
+            set
+            {
+                OnID_PESSOAChanging(value);
+                ReportPropertyChanging("ID_PESSOA");
+                _ID_PESSOA = StructuralObject.SetValidValue(value, "ID_PESSOA");
+                ReportPropertyChanged("ID_PESSOA");
+                OnID_PESSOAChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ID_PESSOA;
+        partial void OnID_PESSOAChanging(Nullable<global::System.Int32> value);
+        partial void OnID_PESSOAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DESCRICAO
+        {
+            get
+            {
+                return _DESCRICAO;
+            }
+            set
+            {
+                OnDESCRICAOChanging(value);
+                ReportPropertyChanging("DESCRICAO");
+                _DESCRICAO = StructuralObject.SetValidValue(value, true, "DESCRICAO");
+                ReportPropertyChanged("DESCRICAO");
+                OnDESCRICAOChanged();
+            }
+        }
+        private global::System.String _DESCRICAO;
+        partial void OnDESCRICAOChanging(global::System.String value);
+        partial void OnDESCRICAOChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ITEM
+        {
+            get
+            {
+                return _ITEM;
+            }
+            set
+            {
+                OnITEMChanging(value);
+                ReportPropertyChanging("ITEM");
+                _ITEM = StructuralObject.SetValidValue(value, "ITEM");
+                ReportPropertyChanged("ITEM");
+                OnITEMChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ITEM;
+        partial void OnITEMChanging(Nullable<global::System.Int32> value);
+        partial void OnITEMChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DATA
+        {
+            get
+            {
+                return _DATA;
+            }
+            set
+            {
+                OnDATAChanging(value);
+                ReportPropertyChanging("DATA");
+                _DATA = StructuralObject.SetValidValue(value, "DATA");
+                ReportPropertyChanged("DATA");
+                OnDATAChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DATA;
+        partial void OnDATAChanging(Nullable<global::System.DateTime> value);
+        partial void OnDATAChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_COMPROMISSO_PESSOA", "PESSOA")]
+        public PESSOA PESSOA
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PESSOA> PESSOAReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PESSOA>("ECModel.fk_COMPROMISSO_PESSOA", "PESSOA", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO")]
+        public REUNIAO REUNIAO
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<REUNIAO> REUNIAOReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REUNIAO>("ECModel.fk_REUNIAO_COMPROMISSO", "REUNIAO", value);
                 }
             }
         }
@@ -7804,18 +7804,18 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO")]
-        public EntityCollection<ASSUNTO_TRATADO> ASSUNTO_TRATADO
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "fk_ASSUNTRATADO_TIPOASSTRATADO", "REUNIAO_ASSUNTO_TRATADO")]
+        public EntityCollection<REUNIAO_ASSUNTO_TRATADO> REUNIAO_ASSUNTO_TRATADO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REUNIAO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "REUNIAO_ASSUNTO_TRATADO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "ASSUNTO_TRATADO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REUNIAO_ASSUNTO_TRATADO>("ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO", "REUNIAO_ASSUNTO_TRATADO", value);
                 }
             }
         }

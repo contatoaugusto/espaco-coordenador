@@ -53,7 +53,8 @@
         <div class="row">
             <%--<div class="column w250">--%>
                 Pergunta:<br/>
-                <sgi:TextArea ID="TxtDescricao" runat="server" Width="80%" Rows="5" MaxLength="3000" RequiredField="true" ErrorMessage="É obrigatorio informar a pergunta"></sgi:TextArea> 
+                <sgi:TextArea ID="TxtDescricao" runat="server" Width="80%" Rows="5" MaxLength="3000" RequiredField="true"></sgi:TextArea>
+                <asp:RequiredFieldValidator ID="rfv0" runat="server" ControlToValidate="TxtDescricao" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator> 
             <%--</div>--%>
         </div>
 

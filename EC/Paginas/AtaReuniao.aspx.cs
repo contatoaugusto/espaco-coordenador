@@ -12,8 +12,8 @@ namespace UI.Web.EC.Paginas
 {
     public partial class AtaReunião : System.Web.UI.Page
     {
-        public static EntityCollection<ASSUNTO_TRATADO> assuntos;
-        public static EntityCollection<COMPROMISSO> compromissos;
+        public static EntityCollection<REUNIAO_ASSUNTO_TRATADO> assuntos;
+        public static EntityCollection<REUNIAO_COMPROMISSO> compromissos;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,8 +27,8 @@ namespace UI.Web.EC.Paginas
                     CarregarTipoAssunto();
                     CarregarReuniao();
                     CarregarPessoa();
-                    assuntos = new EntityCollection<ASSUNTO_TRATADO>();
-                    compromissos = new EntityCollection<COMPROMISSO>();
+                    assuntos = new EntityCollection<REUNIAO_ASSUNTO_TRATADO>();
+                    compromissos = new EntityCollection<REUNIAO_COMPROMISSO>();
                 }
             }
         }
@@ -103,7 +103,7 @@ namespace UI.Web.EC.Paginas
         protected void btnIncluirAssunto_Click(object sender, ImageClickEventArgs e)
         {
             {
-               ASSUNTO_TRATADO assunto = new ASSUNTO_TRATADO();
+               REUNIAO_ASSUNTO_TRATADO assunto = new REUNIAO_ASSUNTO_TRATADO();
                 assunto.DESCRICAO = TxtAssunto.Text;
               //  assunto.ID_TIPOASSTRATADO = Convert.ToInt32(ddlTipoAssunto.SelectedValue);
                 assunto.ITEM = assuntos.Count + 1;
@@ -118,7 +118,7 @@ namespace UI.Web.EC.Paginas
         protected void btnIncluircompromisso_Click1(object sender, ImageClickEventArgs e)
         {
             {
-                COMPROMISSO compromisso = new COMPROMISSO();
+                REUNIAO_COMPROMISSO compromisso = new REUNIAO_COMPROMISSO();
                 compromisso.DESCRICAO = TxtCompromisso.Text;
                 compromisso.DATA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text));
                // compromisso.ID_PESSOA = Convert.ToInt32(ddlPessoa.SelectedValue);
@@ -132,11 +132,11 @@ namespace UI.Web.EC.Paginas
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
          {
-            REUNIAO reuniao = new REUNIAO();
+            REUNIAO reuniao = new REUNIAO();    
            
             reuniao.ID_REUNIAO = int.Parse(ddlReuniao.SelectedValue);
-            reuniao.ASSUNTO_TRATADO = assuntos;
-            reuniao.COMPROMISSO = compromissos;
+            reuniao.REUNIAO_ASSUNTO_TRATADO = assuntos;
+            reuniao.REUNIAO_COMPROMISSO = compromissos;
             NReuniao.Salvar(reuniao);
             Response.Redirect("ConsultarAta.aspx", true);
             }
