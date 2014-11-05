@@ -53,7 +53,8 @@
             </div>
         </div>
         
-        </div>
+        <div class="form-separator"></div>
+        s
         <div class="form-bottombuttons">
             <asp:Button ID="btnSalvar" runat="server" Text="Gerar Prova" OnClick="btnGerarProva_Click"/>
             <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>

@@ -25,7 +25,7 @@
                 Tipo de Evento:
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlTipoEvento" runat="server"></asp:DropDownList></td>
+                <asp:DropDownList ID="ddlTipoEvento" runat="server"></asp:DropDownList>
             </div>
         </div>
 
@@ -38,9 +38,10 @@
 
             </div>
         </div>
+        <div class="form-separator"></div>
         <div class="form-bottombuttons">
-            <asp:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click" Width="65px" />
-            <asp:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click" Width="65px" />
+            <sgi:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click"/>
+            <sgi:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click"/>
         </div>
     </div>
     <div class="form-separator"></div>

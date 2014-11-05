@@ -48,25 +48,27 @@
           <Property Name="ID_ALUNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RA" Type="int" />
           <Property Name="ID_PESSOA" Type="int" />
+          <Property Name="ATIVO" Type="bit" />
         </EntityType>
         <EntityType Name="ALUNO_AMC">
           <Key>
-            <PropertyRef Name="ID_ALUNOAMC" />
+            <PropertyRef Name="ID_ALUNO_AMC" />
           </Key>
-          <Property Name="ID_ALUNOAMC" Type="money" Nullable="false" />
-          <Property Name="ID_AMC" Type="int" Nullable="false" />
-          <Property Name="ID_ALUNOCURSO" Type="int" Nullable="false" />
+          <Property Name="ID_AMC" Type="int" />
+          <Property Name="ID_ALUNO_MATRICULA" Type="int" />
+          <Property Name="ID_ALUNO_AMC" Type="int" Nullable="false" />
           <Property Name="NOTA" Type="varchar" MaxLength="5" />
-          <Property Name="CLASIFICACAO" Type="int" />
+          <Property Name="CLASSIFICACAO" Type="int" />
         </EntityType>
-        <EntityType Name="ALUNO_CURSO">
+        <EntityType Name="ALUNO_MATRICULA">
           <Key>
-            <PropertyRef Name="ID_ALUNOCURSO" />
+            <PropertyRef Name="ID_ALUNO_MATRICULA" />
           </Key>
-          <Property Name="ID_ALUNOCURSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ALUNO_MATRICULA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_ALUNO" Type="int" Nullable="false" />
           <Property Name="ID_TURMA" Type="int" />
           <Property Name="DATA_MATRICULA" Type="date" />
+          <Property Name="PRESENCA" Type="bit" />
         </EntityType>
         <EntityType Name="AMC">
           <Key>
@@ -105,12 +107,13 @@
           <Property Name="ID_DISCIPLINA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_CURSO" Type="int" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+          <Property Name="ATIVO" Type="bit" />
         </EntityType>
         <EntityType Name="DISCIPLINA_PROFESSOR">
           <Key>
             <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
           </Key>
-          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="int" Nullable="false" />
           <Property Name="ID_DISCIPLINA" Type="int" Nullable="false" />
           <Property Name="ID_FUNCIONARIO" Type="int" Nullable="false" />
         </EntityType>
@@ -126,6 +129,7 @@
           <Property Name="INICIO" Type="datetime" />
           <Property Name="CONCLUSAO" Type="datetime" />
           <Property Name="ID_PESSOA" Type="int" />
+          <Property Name="ID_SEMESTRE" Type="int" />
         </EntityType>
         <EntityType Name="FUNCIONARIO">
           <Key>
@@ -135,6 +139,7 @@
           <Property Name="MATRICULA" Type="int" />
           <Property Name="ID_CARGO" Type="int" />
           <Property Name="ID_PESSOA" Type="int" />
+          <Property Name="ATIVO" Type="bit" />
         </EntityType>
         <EntityType Name="LANCAMENTO">
           <Key>
@@ -144,9 +149,10 @@
           <Property Name="ID_TURMA" Type="int" />
           <Property Name="ID_TIPOLANCAMENTO" Type="int" />
           <Property Name="DATA_LANCAMENTO" Type="date" />
-          <Property Name="SEMESTRE" Type="int" />
+          <Property Name="ID_SEMESTRE" Type="int" />
           <Property Name="JUSTIFICATIVA" Type="varchar(max)" />
           <Property Name="PROVIDENCIA" Type="varchar(max)" />
+          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="int" />
         </EntityType>
         <EntityType Name="PESSOA">
           <Key>
@@ -193,7 +199,7 @@
           </Key>
           <Property Name="ID_REPRESENTANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_TIPOREPRESENTANTE" Type="int" />
-          <Property Name="ID_ALUNOCURSO" Type="int" />
+          <Property Name="ID_ALUNO_MATRICULA" Type="int" />
           <Property Name="ID_TURMA" Type="int" />
         </EntityType>
         <EntityType Name="RESPOSTA">
@@ -242,9 +248,9 @@
             <PropertyRef Name="ID_PARTICIPANTE" />
           </Key>
           <Property Name="ID_PARTICIPANTE" Type="int" Nullable="false" />
-          <Property Name="ID_PESSOA" Type="int" Nullable="false" />
           <Property Name="ID_REUNIAO" Type="int" Nullable="false" />
           <Property Name="PRESENCA" Type="bit" />
+          <Property Name="ID_PESSOA" Type="int" />
         </EntityType>
         <EntityType Name="REUNIAO_PAUTA">
           <Key>
@@ -328,11 +334,8 @@
             <PropertyRef Name="ID_TURMA" />
           </Key>
           <Property Name="ID_TURMA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_DISCIPLINA" Type="int" />
-          <Property Name="ID_FUNCIONARIO" Type="int" />
           <Property Name="ID_TIPOTURMA" Type="int" />
-          <Property Name="SEMESTRE" Type="int" />
-          <Property Name="ANO" Type="int" />
+          <Property Name="ID_SEMESTRE" Type="int" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -428,50 +431,50 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ALUNO_AMC_ALUNO_CURSO">
-          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="1" />
-          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
+        <Association Name="FK_ALUNO_AMC">
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="0..1" />
+          <End Role="ALUNO_AMC1" Type="Self.ALUNO_AMC" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Principal Role="ALUNO_AMC">
+              <PropertyRef Name="ID_ALUNO_AMC" />
             </Principal>
-            <Dependent Role="ALUNO_AMC">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Dependent Role="ALUNO_AMC1">
+              <PropertyRef Name="ID_AMC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ALUNO_AMC_AMC">
-          <End Role="AMC" Type="Self.AMC" Multiplicity="1" />
-          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="*" />
+        <Association Name="FK_ALUNO_AMC_ALUNO_AMC">
+          <End Role="ALUNO_AMC" Type="Self.ALUNO_AMC" Multiplicity="0..1" />
+          <End Role="ALUNO_AMC1" Type="Self.ALUNO_AMC" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AMC">
-              <PropertyRef Name="ID_AMC" />
+            <Principal Role="ALUNO_AMC">
+              <PropertyRef Name="ID_ALUNO_AMC" />
             </Principal>
-            <Dependent Role="ALUNO_AMC">
-              <PropertyRef Name="ID_AMC" />
+            <Dependent Role="ALUNO_AMC1">
+              <PropertyRef Name="ID_ALUNO_MATRICULA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ALUNO_CURSO_ALUNO">
           <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
-          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
+          <End Role="ALUNO_MATRICULA" Type="Self.ALUNO_MATRICULA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ALUNO">
               <PropertyRef Name="ID_ALUNO" />
             </Principal>
-            <Dependent Role="ALUNO_CURSO">
+            <Dependent Role="ALUNO_MATRICULA">
               <PropertyRef Name="ID_ALUNO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ALUNO_CURSO_TURMA">
           <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
-          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="*" />
+          <End Role="ALUNO_MATRICULA" Type="Self.ALUNO_MATRICULA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TURMA">
               <PropertyRef Name="ID_TURMA" />
             </Principal>
-            <Dependent Role="ALUNO_CURSO">
+            <Dependent Role="ALUNO_MATRICULA">
               <PropertyRef Name="ID_TURMA" />
             </Dependent>
           </ReferentialConstraint>
@@ -572,7 +575,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO">
+        <Association Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
           <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
           <End Role="DISCIPLINA_PROFESSOR" Type="Self.DISCIPLINA_PROFESSOR" Multiplicity="*" />
           <ReferentialConstraint>
@@ -605,6 +608,18 @@
             </Principal>
             <Dependent Role="EVENTO">
               <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_SEMESTRE">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="0..1" />
+          <End Role="EVENTO1" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="EVENTO1">
+              <PropertyRef Name="ID_SEMESTRE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -641,6 +656,30 @@
             </Principal>
             <Dependent Role="EVENTO">
               <PropertyRef Name="ID_TIPOEVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LANCAMENTO_DISC_PROF">
+          <End Role="DISCIPLINA_PROFESSOR" Type="Self.DISCIPLINA_PROFESSOR" Multiplicity="0..1" />
+          <End Role="LANCAMENTO" Type="Self.LANCAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA_PROFESSOR">
+              <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
+            </Principal>
+            <Dependent Role="LANCAMENTO">
+              <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LANCAMENTO_SEMESTRE">
+          <End Role="LANCAMENTO" Type="Self.LANCAMENTO" Multiplicity="0..1" />
+          <End Role="LANCAMENTO1" Type="Self.LANCAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LANCAMENTO">
+              <PropertyRef Name="ID_LANCAMENTO" />
+            </Principal>
+            <Dependent Role="LANCAMENTO1">
+              <PropertyRef Name="ID_SEMESTRE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -753,14 +792,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
-          <End Role="ALUNO_CURSO" Type="Self.ALUNO_CURSO" Multiplicity="0..1" />
+          <End Role="ALUNO_MATRICULA" Type="Self.ALUNO_MATRICULA" Multiplicity="0..1" />
           <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Principal Role="ALUNO_MATRICULA">
+              <PropertyRef Name="ID_ALUNO_MATRICULA" />
             </Principal>
             <Dependent Role="REPRESENTANTE_TURMA">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+              <PropertyRef Name="ID_ALUNO_MATRICULA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -789,7 +828,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REUNIAO_PARTICIPANTE_PESSOA">
-          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="1" />
+          <End Role="PESSOA" Type="Self.PESSOA" Multiplicity="0..1" />
           <End Role="REUNIAO_PARTICIPANTE" Type="Self.REUNIAO_PARTICIPANTE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PESSOA">
@@ -860,43 +899,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TURMA_DISCIPLINA">
-          <End Role="DISCIPLINA" Type="Self.DISCIPLINA" Multiplicity="0..1" />
+        <Association Name="FK_TURMA_SEMESTRE">
+          <End Role="SEMESTRE" Type="Self.SEMESTRE" Multiplicity="0..1" />
           <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DISCIPLINA">
-              <PropertyRef Name="ID_DISCIPLINA" />
+            <Principal Role="SEMESTRE">
+              <PropertyRef Name="ID_SEMESTRE" />
             </Principal>
             <Dependent Role="TURMA">
-              <PropertyRef Name="ID_DISCIPLINA" />
+              <PropertyRef Name="ID_SEMESTRE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TURMA_FUNCIONARIO">
-          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
-          <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="TURMA">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TURMA_REPRESENTANTE_TURMA">
-          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
-          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TURMA">
-              <PropertyRef Name="ID_TURMA" />
-            </Principal>
-            <Dependent Role="REPRESENTANTE_TURMA">
-              <PropertyRef Name="ID_TURMA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TURMA_TIPO">
+        <Association Name="FK_TURMA_TIPOTURMA">
           <End Role="TIPO_TURMA" Type="Self.TIPO_TURMA" Multiplicity="0..1" />
           <End Role="TURMA" Type="Self.TURMA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -927,7 +942,7 @@
           <EntitySet Name="ACAO_REUNIAO" EntityType="Self.ACAO_REUNIAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ALUNO" EntityType="Self.ALUNO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ALUNO_AMC" EntityType="Self.ALUNO_AMC" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALUNO_CURSO" EntityType="Self.ALUNO_CURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ALUNO_MATRICULA" EntityType="Self.ALUNO_MATRICULA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AMC" EntityType="Self.AMC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CURSO" EntityType="Self.CURSO" Schema="dbo" store:Type="Tables" />
@@ -987,21 +1002,21 @@
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="ACAO_REUNIAO" EntitySet="ACAO_REUNIAO" />
           </AssociationSet>
-          <AssociationSet Name="FK_ALUNO_AMC_ALUNO_CURSO" Association="Self.FK_ALUNO_AMC_ALUNO_CURSO">
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+          <AssociationSet Name="FK_ALUNO_AMC" Association="Self.FK_ALUNO_AMC">
             <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+            <End Role="ALUNO_AMC1" EntitySet="ALUNO_AMC" />
           </AssociationSet>
-          <AssociationSet Name="FK_ALUNO_AMC_AMC" Association="Self.FK_ALUNO_AMC_AMC">
-            <End Role="AMC" EntitySet="AMC" />
+          <AssociationSet Name="FK_ALUNO_AMC_ALUNO_AMC" Association="Self.FK_ALUNO_AMC_ALUNO_AMC">
             <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+            <End Role="ALUNO_AMC1" EntitySet="ALUNO_AMC" />
           </AssociationSet>
           <AssociationSet Name="FK_ALUNO_CURSO_ALUNO" Association="Self.FK_ALUNO_CURSO_ALUNO">
             <End Role="ALUNO" EntitySet="ALUNO" />
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_MATRICULA" EntitySet="ALUNO_MATRICULA" />
           </AssociationSet>
           <AssociationSet Name="FK_ALUNO_CURSO_TURMA" Association="Self.FK_ALUNO_CURSO_TURMA">
             <End Role="TURMA" EntitySet="TURMA" />
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_MATRICULA" EntitySet="ALUNO_MATRICULA" />
           </AssociationSet>
           <AssociationSet Name="FK_AMC_SEMESTRE" Association="Self.FK_AMC_SEMESTRE">
             <End Role="SEMESTRE" EntitySet="SEMESTRE" />
@@ -1035,7 +1050,7 @@
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
             <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
-          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO" Association="Self.FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO">
+          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" Association="Self.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
           </AssociationSet>
@@ -1046,6 +1061,10 @@
           <AssociationSet Name="fk_EVENTO_PESSOA" Association="Self.fk_EVENTO_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_SEMESTRE" Association="Self.FK_EVENTO_SEMESTRE">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="EVENTO1" EntitySet="EVENTO" />
           </AssociationSet>
           <AssociationSet Name="fk_FUNCIONARIO_CARGO" Association="Self.fk_FUNCIONARIO_CARGO">
             <End Role="CARGO" EntitySet="CARGO" />
@@ -1058,6 +1077,14 @@
           <AssociationSet Name="FK_ID_TIPOEVENTO" Association="Self.FK_ID_TIPOEVENTO">
             <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
             <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LANCAMENTO_DISC_PROF" Association="Self.FK_LANCAMENTO_DISC_PROF">
+            <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LANCAMENTO_SEMESTRE" Association="Self.FK_LANCAMENTO_SEMESTRE">
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
+            <End Role="LANCAMENTO1" EntitySet="LANCAMENTO" />
           </AssociationSet>
           <AssociationSet Name="Fk_LANCAMENTO_TIPOLANCAM" Association="Self.Fk_LANCAMENTO_TIPOLANCAM">
             <End Role="TIPO_LANCAMENTO" EntitySet="TIPO_LANCAMENTO" />
@@ -1096,7 +1123,7 @@
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
           <AssociationSet Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO" Association="Self.FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_MATRICULA" EntitySet="ALUNO_MATRICULA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
           <AssociationSet Name="FK_RESPOSTA_QUESTAO" Association="Self.FK_RESPOSTA_QUESTAO">
@@ -1131,19 +1158,11 @@
             <End Role="TIPO_REUNIAO" EntitySet="TIPO_REUNIAO" />
             <End Role="REUNIAO" EntitySet="REUNIAO" />
           </AssociationSet>
-          <AssociationSet Name="FK_TURMA_DISCIPLINA" Association="Self.FK_TURMA_DISCIPLINA">
-            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
+          <AssociationSet Name="FK_TURMA_SEMESTRE" Association="Self.FK_TURMA_SEMESTRE">
+            <End Role="SEMESTRE" EntitySet="SEMESTRE" />
             <End Role="TURMA" EntitySet="TURMA" />
           </AssociationSet>
-          <AssociationSet Name="FK_TURMA_FUNCIONARIO" Association="Self.FK_TURMA_FUNCIONARIO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="TURMA" EntitySet="TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TURMA_REPRESENTANTE_TURMA" Association="Self.FK_TURMA_REPRESENTANTE_TURMA">
-            <End Role="TURMA" EntitySet="TURMA" />
-            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TURMA_TIPO" Association="Self.FK_TURMA_TIPO">
+          <AssociationSet Name="FK_TURMA_TIPOTURMA" Association="Self.FK_TURMA_TIPOTURMA">
             <End Role="TIPO_TURMA" EntitySet="TIPO_TURMA" />
             <End Role="TURMA" EntitySet="TURMA" />
           </AssociationSet>
@@ -1163,7 +1182,7 @@
           <EntitySet Name="ACAO_REUNIAO" EntityType="ECModel.ACAO_REUNIAO" />
           <EntitySet Name="ALUNO" EntityType="ECModel.ALUNO" />
           <EntitySet Name="ALUNO_AMC" EntityType="ECModel.ALUNO_AMC" />
-          <EntitySet Name="ALUNO_CURSO" EntityType="ECModel.ALUNO_CURSO" />
+          <EntitySet Name="ALUNO_MATRICULA" EntityType="ECModel.ALUNO_MATRICULA" />
           <EntitySet Name="AMC" EntityType="ECModel.AMC" />
           <EntitySet Name="CARGO" EntityType="ECModel.CARGO" />
           <EntitySet Name="CURSO" EntityType="ECModel.CURSO" />
@@ -1233,26 +1252,26 @@
           </AssociationSet>
           <AssociationSet Name="FK_ALUNO_CURSO_ALUNO" Association="ECModel.FK_ALUNO_CURSO_ALUNO">
             <End Role="ALUNO" EntitySet="ALUNO" />
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_MATRICULA" EntitySet="ALUNO_MATRICULA" />
           </AssociationSet>
           <AssociationSet Name="fk_PESSOA_ALUNO" Association="ECModel.fk_PESSOA_ALUNO">
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="ALUNO" EntitySet="ALUNO" />
           </AssociationSet>
-          <AssociationSet Name="FK_ALUNO_AMC_ALUNO_CURSO" Association="ECModel.FK_ALUNO_AMC_ALUNO_CURSO">
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+          <AssociationSet Name="FK_ALUNO_AMC" Association="ECModel.FK_ALUNO_AMC">
             <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+            <End Role="ALUNO_AMC1" EntitySet="ALUNO_AMC" />
           </AssociationSet>
-          <AssociationSet Name="FK_ALUNO_AMC_AMC" Association="ECModel.FK_ALUNO_AMC_AMC">
-            <End Role="AMC" EntitySet="AMC" />
+          <AssociationSet Name="FK_ALUNO_AMC_ALUNO_AMC" Association="ECModel.FK_ALUNO_AMC_ALUNO_AMC">
             <End Role="ALUNO_AMC" EntitySet="ALUNO_AMC" />
+            <End Role="ALUNO_AMC1" EntitySet="ALUNO_AMC" />
           </AssociationSet>
           <AssociationSet Name="FK_ALUNO_CURSO_TURMA" Association="ECModel.FK_ALUNO_CURSO_TURMA">
             <End Role="TURMA" EntitySet="TURMA" />
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_MATRICULA" EntitySet="ALUNO_MATRICULA" />
           </AssociationSet>
           <AssociationSet Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO" Association="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
-            <End Role="ALUNO_CURSO" EntitySet="ALUNO_CURSO" />
+            <End Role="ALUNO_MATRICULA" EntitySet="ALUNO_MATRICULA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
           <AssociationSet Name="FK_AMC_SEMESTRE" Association="ECModel.FK_AMC_SEMESTRE">
@@ -1287,17 +1306,21 @@
             <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
-          <AssociationSet Name="FK_TURMA_DISCIPLINA" Association="ECModel.FK_TURMA_DISCIPLINA">
-            <End Role="DISCIPLINA" EntitySet="DISCIPLINA" />
-            <End Role="TURMA" EntitySet="TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO" Association="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO">
+          <AssociationSet Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" Association="ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LANCAMENTO_DISC_PROF" Association="ECModel.FK_LANCAMENTO_DISC_PROF">
+            <End Role="DISCIPLINA_PROFESSOR" EntitySet="DISCIPLINA_PROFESSOR" />
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
           </AssociationSet>
           <AssociationSet Name="fk_EVENTO_PESSOA" Association="ECModel.fk_EVENTO_PESSOA">
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_SEMESTRE" Association="ECModel.FK_EVENTO_SEMESTRE">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="EVENTO1" EntitySet="EVENTO" />
           </AssociationSet>
           <AssociationSet Name="FK_ID_TIPOEVENTO" Association="ECModel.FK_ID_TIPOEVENTO">
             <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
@@ -1315,13 +1338,13 @@
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="QUESTAO" EntitySet="QUESTAO" />
           </AssociationSet>
-          <AssociationSet Name="FK_TURMA_FUNCIONARIO" Association="ECModel.FK_TURMA_FUNCIONARIO">
-            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
-            <End Role="TURMA" EntitySet="TURMA" />
-          </AssociationSet>
           <AssociationSet Name="FK_USUARIO_FUNCIONARIO" Association="ECModel.FK_USUARIO_FUNCIONARIO">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LANCAMENTO_SEMESTRE" Association="ECModel.FK_LANCAMENTO_SEMESTRE">
+            <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
+            <End Role="LANCAMENTO1" EntitySet="LANCAMENTO" />
           </AssociationSet>
           <AssociationSet Name="Fk_LANCAMENTO_TIPOLANCAM" Association="ECModel.Fk_LANCAMENTO_TIPOLANCAM">
             <End Role="TIPO_LANCAMENTO" EntitySet="TIPO_LANCAMENTO" />
@@ -1349,10 +1372,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" Association="ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA">
             <End Role="TIPO_REPRESENTANTE" EntitySet="TIPO_REPRESENTANTE" />
-            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TURMA_REPRESENTANTE_TURMA" Association="ECModel.FK_TURMA_REPRESENTANTE_TURMA">
-            <End Role="TURMA" EntitySet="TURMA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
           <AssociationSet Name="FK_ASSTRATADOS" Association="ECModel.FK_ASSTRATADOS">
@@ -1383,7 +1402,11 @@
             <End Role="TIPO_ASSUNTO_TRATADO" EntitySet="TIPO_ASSUNTO_TRATADO" />
             <End Role="REUNIAO_ASSUNTO_TRATADO" EntitySet="REUNIAO_ASSUNTO_TRATADO" />
           </AssociationSet>
-          <AssociationSet Name="FK_TURMA_TIPO" Association="ECModel.FK_TURMA_TIPO">
+          <AssociationSet Name="FK_TURMA_SEMESTRE" Association="ECModel.FK_TURMA_SEMESTRE">
+            <End Role="SEMESTRE" EntitySet="SEMESTRE" />
+            <End Role="TURMA" EntitySet="TURMA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURMA_TIPOTURMA" Association="ECModel.FK_TURMA_TIPOTURMA">
             <End Role="TIPO_TURMA" EntitySet="TIPO_TURMA" />
             <End Role="TURMA" EntitySet="TURMA" />
           </AssociationSet>
@@ -1443,33 +1466,36 @@
           <Property Name="ID_ALUNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RA" Type="Int32" />
           <Property Name="ID_PESSOA" Type="Int32" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="ECModel.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO" ToRole="ALUNO_CURSO" />
+          <Property Name="ATIVO" Type="Boolean" />
+          <NavigationProperty Name="ALUNO_MATRICULA" Relationship="ECModel.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO" ToRole="ALUNO_MATRICULA" />
           <NavigationProperty Name="PESSOA" Relationship="ECModel.fk_PESSOA_ALUNO" FromRole="ALUNO" ToRole="PESSOA" />
         </EntityType>
         <EntityType Name="ALUNO_AMC">
           <Key>
-            <PropertyRef Name="ID_ALUNOAMC" />
+            <PropertyRef Name="ID_ALUNO_AMC" />
           </Key>
-          <Property Name="ID_ALUNOAMC" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="ID_AMC" Type="Int32" Nullable="false" />
-          <Property Name="ID_ALUNOCURSO" Type="Int32" Nullable="false" />
+          <Property Name="ID_AMC" Type="Int32" />
+          <Property Name="ID_ALUNO_MATRICULA" Type="Int32" />
+          <Property Name="ID_ALUNO_AMC" Type="Int32" Nullable="false" />
           <Property Name="NOTA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="CLASIFICACAO" Type="Int32" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="ECModel.FK_ALUNO_AMC_ALUNO_CURSO" FromRole="ALUNO_AMC" ToRole="ALUNO_CURSO" />
-          <NavigationProperty Name="AMC" Relationship="ECModel.FK_ALUNO_AMC_AMC" FromRole="ALUNO_AMC" ToRole="AMC" />
+          <Property Name="CLASSIFICACAO" Type="Int32" />
+          <NavigationProperty Name="ALUNO_AMC1" Relationship="ECModel.FK_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_AMC1" />
+          <NavigationProperty Name="ALUNO_AMC2" Relationship="ECModel.FK_ALUNO_AMC" FromRole="ALUNO_AMC1" ToRole="ALUNO_AMC" />
+          <NavigationProperty Name="ALUNO_AMC11" Relationship="ECModel.FK_ALUNO_AMC_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_AMC1" />
+          <NavigationProperty Name="ALUNO_AMC3" Relationship="ECModel.FK_ALUNO_AMC_ALUNO_AMC" FromRole="ALUNO_AMC1" ToRole="ALUNO_AMC" />
         </EntityType>
-        <EntityType Name="ALUNO_CURSO">
+        <EntityType Name="ALUNO_MATRICULA">
           <Key>
-            <PropertyRef Name="ID_ALUNOCURSO" />
+            <PropertyRef Name="ID_ALUNO_MATRICULA" />
           </Key>
-          <Property Name="ID_ALUNOCURSO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ALUNO_MATRICULA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_ALUNO" Type="Int32" Nullable="false" />
           <Property Name="ID_TURMA" Type="Int32" />
           <Property Name="DATA_MATRICULA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="ALUNO" Relationship="ECModel.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO_CURSO" ToRole="ALUNO" />
-          <NavigationProperty Name="ALUNO_AMC" Relationship="ECModel.FK_ALUNO_AMC_ALUNO_CURSO" FromRole="ALUNO_CURSO" ToRole="ALUNO_AMC" />
-          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_ALUNO_CURSO_TURMA" FromRole="ALUNO_CURSO" ToRole="TURMA" />
-          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" FromRole="ALUNO_CURSO" ToRole="REPRESENTANTE_TURMA" />
+          <Property Name="PRESENCA" Type="Boolean" />
+          <NavigationProperty Name="ALUNO" Relationship="ECModel.FK_ALUNO_CURSO_ALUNO" FromRole="ALUNO_MATRICULA" ToRole="ALUNO" />
+          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_ALUNO_CURSO_TURMA" FromRole="ALUNO_MATRICULA" ToRole="TURMA" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" FromRole="ALUNO_MATRICULA" ToRole="REPRESENTANTE_TURMA" />
         </EntityType>
         <EntityType Name="AMC">
           <Key>
@@ -1479,7 +1505,6 @@
           <Property Name="DATA_APLICACAO" Type="DateTime" Precision="3" />
           <Property Name="ID_SEMESTRE" Type="Int32" />
           <NavigationProperty Name="ACAO_AMC" Relationship="ECModel.FK_ACAO_AMC_ACAO" FromRole="AMC" ToRole="ACAO_AMC" />
-          <NavigationProperty Name="ALUNO_AMC" Relationship="ECModel.FK_ALUNO_AMC_AMC" FromRole="AMC" ToRole="ALUNO_AMC" />
           <NavigationProperty Name="SEMESTRE" Relationship="ECModel.FK_AMC_SEMESTRE" FromRole="AMC" ToRole="SEMESTRE" />
           <NavigationProperty Name="QUESTAO" Relationship="ECModel.FK_QUESTAO_AMC" FromRole="AMC" ToRole="QUESTAO" />
         </EntityType>
@@ -1517,20 +1542,21 @@
           <Property Name="ID_DISCIPLINA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_CURSO" Type="Int32" />
           <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ATIVO" Type="Boolean" />
           <NavigationProperty Name="CURSO" Relationship="ECModel.Fk_DISCIPLINA_CURSO" FromRole="DISCIPLINA" ToRole="CURSO" />
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="QUESTAO" Relationship="ECModel.FK_QUESTAO_DISCIPLINA" FromRole="DISCIPLINA" ToRole="QUESTAO" />
-          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_DISCIPLINA" FromRole="DISCIPLINA" ToRole="TURMA" />
         </EntityType>
         <EntityType Name="DISCIPLINA_PROFESSOR">
           <Key>
             <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
           </Key>
-          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="Int32" Nullable="false" />
           <Property Name="ID_DISCIPLINA" Type="Int32" Nullable="false" />
           <Property Name="ID_FUNCIONARIO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DISCIPLINA" Relationship="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA_PROFESSOR" ToRole="DISCIPLINA" />
-          <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO" FromRole="DISCIPLINA_PROFESSOR" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" FromRole="DISCIPLINA_PROFESSOR" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="LANCAMENTO" Relationship="ECModel.FK_LANCAMENTO_DISC_PROF" FromRole="DISCIPLINA_PROFESSOR" ToRole="LANCAMENTO" />
         </EntityType>
         <EntityType Name="EVENTO">
           <Key>
@@ -1544,8 +1570,11 @@
           <Property Name="INICIO" Type="DateTime" Precision="3" />
           <Property Name="CONCLUSAO" Type="DateTime" Precision="3" />
           <Property Name="ID_PESSOA" Type="Int32" />
+          <Property Name="ID_SEMESTRE" Type="Int32" />
           <NavigationProperty Name="ACAO_EVENTO" Relationship="ECModel.fk_acao_evento" FromRole="EVENTO" ToRole="ACAO_EVENTO" />
           <NavigationProperty Name="PESSOA" Relationship="ECModel.fk_EVENTO_PESSOA" FromRole="EVENTO" ToRole="PESSOA" />
+          <NavigationProperty Name="EVENTO1" Relationship="ECModel.FK_EVENTO_SEMESTRE" FromRole="EVENTO" ToRole="EVENTO1" />
+          <NavigationProperty Name="EVENTO2" Relationship="ECModel.FK_EVENTO_SEMESTRE" FromRole="EVENTO1" ToRole="EVENTO" />
           <NavigationProperty Name="TIPO_EVENTO" Relationship="ECModel.FK_ID_TIPOEVENTO" FromRole="EVENTO" ToRole="TIPO_EVENTO" />
         </EntityType>
         <EntityType Name="FUNCIONARIO">
@@ -1556,13 +1585,13 @@
           <Property Name="MATRICULA" Type="Int32" />
           <Property Name="ID_CARGO" Type="Int32" />
           <Property Name="ID_PESSOA" Type="Int32" />
+          <Property Name="ATIVO" Type="Boolean" />
           <NavigationProperty Name="CARGO" Relationship="ECModel.fk_FUNCIONARIO_CARGO" FromRole="FUNCIONARIO" ToRole="CARGO" />
           <NavigationProperty Name="CURSO_COORDENADOR" Relationship="ECModel.FK_CURSO_COORDENADOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="CURSO_COORDENADOR" />
-          <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="DISCIPLINA_PROFESSOR" />
+          <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="PESSOA" Relationship="ECModel.fk_FUNCIONARIO_PESSOA" FromRole="FUNCIONARIO" ToRole="PESSOA" />
           <NavigationProperty Name="PROVA" Relationship="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" FromRole="FUNCIONARIO" ToRole="PROVA" />
           <NavigationProperty Name="QUESTAO" Relationship="ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
-          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="TURMA" />
           <NavigationProperty Name="USUARIO" Relationship="ECModel.FK_USUARIO_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="LANCAMENTO">
@@ -1573,9 +1602,13 @@
           <Property Name="ID_TURMA" Type="Int32" />
           <Property Name="ID_TIPOLANCAMENTO" Type="Int32" />
           <Property Name="DATA_LANCAMENTO" Type="DateTime" Precision="0" />
-          <Property Name="SEMESTRE" Type="Int32" />
+          <Property Name="ID_SEMESTRE" Type="Int32" />
           <Property Name="JUSTIFICATIVA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PROVIDENCIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_DISCIPLINA_PROFESSOR" Type="Int32" />
+          <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="ECModel.FK_LANCAMENTO_DISC_PROF" FromRole="LANCAMENTO" ToRole="DISCIPLINA_PROFESSOR" />
+          <NavigationProperty Name="LANCAMENTO1" Relationship="ECModel.FK_LANCAMENTO_SEMESTRE" FromRole="LANCAMENTO" ToRole="LANCAMENTO1" />
+          <NavigationProperty Name="LANCAMENTO2" Relationship="ECModel.FK_LANCAMENTO_SEMESTRE" FromRole="LANCAMENTO1" ToRole="LANCAMENTO" />
           <NavigationProperty Name="TIPO_LANCAMENTO" Relationship="ECModel.Fk_LANCAMENTO_TIPOLANCAM" FromRole="LANCAMENTO" ToRole="TIPO_LANCAMENTO" />
           <NavigationProperty Name="TURMA" Relationship="ECModel.Fk_LANCAMENTO_TURMA" FromRole="LANCAMENTO" ToRole="TURMA" />
         </EntityType>
@@ -1638,11 +1671,10 @@
           </Key>
           <Property Name="ID_REPRESENTANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_TIPOREPRESENTANTE" Type="Int32" />
-          <Property Name="ID_ALUNOCURSO" Type="Int32" />
+          <Property Name="ID_ALUNO_MATRICULA" Type="Int32" />
           <Property Name="ID_TURMA" Type="Int32" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" FromRole="REPRESENTANTE_TURMA" ToRole="ALUNO_CURSO" />
+          <NavigationProperty Name="ALUNO_MATRICULA" Relationship="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" FromRole="REPRESENTANTE_TURMA" ToRole="ALUNO_MATRICULA" />
           <NavigationProperty Name="TIPO_REPRESENTANTE" Relationship="ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" FromRole="REPRESENTANTE_TURMA" ToRole="TIPO_REPRESENTANTE" />
-          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_REPRESENTANTE_TURMA" FromRole="REPRESENTANTE_TURMA" ToRole="TURMA" />
         </EntityType>
         <EntityType Name="RESPOSTA">
           <Key>
@@ -1702,9 +1734,9 @@
             <PropertyRef Name="ID_PARTICIPANTE" />
           </Key>
           <Property Name="ID_PARTICIPANTE" Type="Int32" Nullable="false" />
-          <Property Name="ID_PESSOA" Type="Int32" Nullable="false" />
           <Property Name="ID_REUNIAO" Type="Int32" Nullable="false" />
           <Property Name="PRESENCA" Type="Boolean" />
+          <Property Name="ID_PESSOA" Type="Int32" />
           <NavigationProperty Name="PESSOA" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA" FromRole="REUNIAO_PARTICIPANTE" ToRole="PESSOA" />
           <NavigationProperty Name="REUNIAO" Relationship="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO" FromRole="REUNIAO_PARTICIPANTE" ToRole="REUNIAO" />
         </EntityType>
@@ -1728,6 +1760,7 @@
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AMC" Relationship="ECModel.FK_AMC_SEMESTRE" FromRole="SEMESTRE" ToRole="AMC" />
           <NavigationProperty Name="REUNIAO" Relationship="ECModel.FK_REUNIAO_SEMESTRE" FromRole="SEMESTRE" ToRole="REUNIAO" />
+          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_SEMESTRE" FromRole="SEMESTRE" ToRole="TURMA" />
         </EntityType>
         <EntityType Name="STATUS_ACAO">
           <Key>
@@ -1793,24 +1826,19 @@
           </Key>
           <Property Name="ID_TIPOTURMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_TIPO" FromRole="TIPO_TURMA" ToRole="TURMA" />
+          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_TURMA_TIPOTURMA" FromRole="TIPO_TURMA" ToRole="TURMA" />
         </EntityType>
         <EntityType Name="TURMA">
           <Key>
             <PropertyRef Name="ID_TURMA" />
           </Key>
           <Property Name="ID_TURMA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_DISCIPLINA" Type="Int32" />
-          <Property Name="ID_FUNCIONARIO" Type="Int32" />
           <Property Name="ID_TIPOTURMA" Type="Int32" />
-          <Property Name="SEMESTRE" Type="Int32" />
-          <Property Name="ANO" Type="Int32" />
-          <NavigationProperty Name="ALUNO_CURSO" Relationship="ECModel.FK_ALUNO_CURSO_TURMA" FromRole="TURMA" ToRole="ALUNO_CURSO" />
-          <NavigationProperty Name="DISCIPLINA" Relationship="ECModel.FK_TURMA_DISCIPLINA" FromRole="TURMA" ToRole="DISCIPLINA" />
-          <NavigationProperty Name="FUNCIONARIO" Relationship="ECModel.FK_TURMA_FUNCIONARIO" FromRole="TURMA" ToRole="FUNCIONARIO" />
+          <Property Name="ID_SEMESTRE" Type="Int32" />
+          <NavigationProperty Name="ALUNO_MATRICULA" Relationship="ECModel.FK_ALUNO_CURSO_TURMA" FromRole="TURMA" ToRole="ALUNO_MATRICULA" />
           <NavigationProperty Name="LANCAMENTO" Relationship="ECModel.Fk_LANCAMENTO_TURMA" FromRole="TURMA" ToRole="LANCAMENTO" />
-          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="ECModel.FK_TURMA_REPRESENTANTE_TURMA" FromRole="TURMA" ToRole="REPRESENTANTE_TURMA" />
-          <NavigationProperty Name="TIPO_TURMA" Relationship="ECModel.FK_TURMA_TIPO" FromRole="TURMA" ToRole="TIPO_TURMA" />
+          <NavigationProperty Name="SEMESTRE" Relationship="ECModel.FK_TURMA_SEMESTRE" FromRole="TURMA" ToRole="SEMESTRE" />
+          <NavigationProperty Name="TIPO_TURMA" Relationship="ECModel.FK_TURMA_TIPOTURMA" FromRole="TURMA" ToRole="TIPO_TURMA" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -1933,12 +1961,12 @@
         </Association>
         <Association Name="FK_ALUNO_CURSO_ALUNO">
           <End Type="ECModel.ALUNO" Role="ALUNO" Multiplicity="1" />
-          <End Type="ECModel.ALUNO_CURSO" Role="ALUNO_CURSO" Multiplicity="*" />
+          <End Type="ECModel.ALUNO_MATRICULA" Role="ALUNO_MATRICULA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ALUNO">
               <PropertyRef Name="ID_ALUNO" />
             </Principal>
-            <Dependent Role="ALUNO_CURSO">
+            <Dependent Role="ALUNO_MATRICULA">
               <PropertyRef Name="ID_ALUNO" />
             </Dependent>
           </ReferentialConstraint>
@@ -1955,51 +1983,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ALUNO_AMC_ALUNO_CURSO">
-          <End Type="ECModel.ALUNO_CURSO" Role="ALUNO_CURSO" Multiplicity="1" />
-          <End Type="ECModel.ALUNO_AMC" Role="ALUNO_AMC" Multiplicity="*" />
+        <Association Name="FK_ALUNO_AMC">
+          <End Type="ECModel.ALUNO_AMC" Role="ALUNO_AMC" Multiplicity="0..1" />
+          <End Type="ECModel.ALUNO_AMC" Role="ALUNO_AMC1" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Principal Role="ALUNO_AMC">
+              <PropertyRef Name="ID_ALUNO_AMC" />
             </Principal>
-            <Dependent Role="ALUNO_AMC">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Dependent Role="ALUNO_AMC1">
+              <PropertyRef Name="ID_AMC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ALUNO_AMC_AMC">
-          <End Type="ECModel.AMC" Role="AMC" Multiplicity="1" />
-          <End Type="ECModel.ALUNO_AMC" Role="ALUNO_AMC" Multiplicity="*" />
+        <Association Name="FK_ALUNO_AMC_ALUNO_AMC">
+          <End Type="ECModel.ALUNO_AMC" Role="ALUNO_AMC" Multiplicity="0..1" />
+          <End Type="ECModel.ALUNO_AMC" Role="ALUNO_AMC1" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AMC">
-              <PropertyRef Name="ID_AMC" />
+            <Principal Role="ALUNO_AMC">
+              <PropertyRef Name="ID_ALUNO_AMC" />
             </Principal>
-            <Dependent Role="ALUNO_AMC">
-              <PropertyRef Name="ID_AMC" />
+            <Dependent Role="ALUNO_AMC1">
+              <PropertyRef Name="ID_ALUNO_MATRICULA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ALUNO_CURSO_TURMA">
           <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="0..1" />
-          <End Type="ECModel.ALUNO_CURSO" Role="ALUNO_CURSO" Multiplicity="*" />
+          <End Type="ECModel.ALUNO_MATRICULA" Role="ALUNO_MATRICULA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TURMA">
               <PropertyRef Name="ID_TURMA" />
             </Principal>
-            <Dependent Role="ALUNO_CURSO">
+            <Dependent Role="ALUNO_MATRICULA">
               <PropertyRef Name="ID_TURMA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REPRESENTANTE_TURMA_ALUNO_CURSO">
-          <End Type="ECModel.ALUNO_CURSO" Role="ALUNO_CURSO" Multiplicity="0..1" />
+          <End Type="ECModel.ALUNO_MATRICULA" Role="ALUNO_MATRICULA" Multiplicity="0..1" />
           <End Type="ECModel.REPRESENTANTE_TURMA" Role="REPRESENTANTE_TURMA" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ALUNO_CURSO">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+            <Principal Role="ALUNO_MATRICULA">
+              <PropertyRef Name="ID_ALUNO_MATRICULA" />
             </Principal>
             <Dependent Role="REPRESENTANTE_TURMA">
-              <PropertyRef Name="ID_ALUNOCURSO" />
+              <PropertyRef Name="ID_ALUNO_MATRICULA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2099,19 +2127,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TURMA_DISCIPLINA">
-          <End Type="ECModel.DISCIPLINA" Role="DISCIPLINA" Multiplicity="0..1" />
-          <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DISCIPLINA">
-              <PropertyRef Name="ID_DISCIPLINA" />
-            </Principal>
-            <Dependent Role="TURMA">
-              <PropertyRef Name="ID_DISCIPLINA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO">
+        <Association Name="FK_DISCIPLINA_PROFESSOR_FUNCIONARIO">
           <End Type="ECModel.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="1" />
           <End Type="ECModel.DISCIPLINA_PROFESSOR" Role="DISCIPLINA_PROFESSOR" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2120,6 +2136,18 @@
             </Principal>
             <Dependent Role="DISCIPLINA_PROFESSOR">
               <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LANCAMENTO_DISC_PROF">
+          <End Type="ECModel.DISCIPLINA_PROFESSOR" Role="DISCIPLINA_PROFESSOR" Multiplicity="0..1" />
+          <End Type="ECModel.LANCAMENTO" Role="LANCAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISCIPLINA_PROFESSOR">
+              <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
+            </Principal>
+            <Dependent Role="LANCAMENTO">
+              <PropertyRef Name="ID_DISCIPLINA_PROFESSOR" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2132,6 +2160,18 @@
             </Principal>
             <Dependent Role="EVENTO">
               <PropertyRef Name="ID_PESSOA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_SEMESTRE">
+          <End Type="ECModel.EVENTO" Role="EVENTO" Multiplicity="0..1" />
+          <End Type="ECModel.EVENTO" Role="EVENTO1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="EVENTO1">
+              <PropertyRef Name="ID_SEMESTRE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2183,18 +2223,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TURMA_FUNCIONARIO">
-          <End Type="ECModel.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="0..1" />
-          <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FUNCIONARIO">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Principal>
-            <Dependent Role="TURMA">
-              <PropertyRef Name="ID_FUNCIONARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_USUARIO_FUNCIONARIO">
           <End Type="ECModel.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="1" />
           <End Type="ECModel.USUARIO" Role="USUARIO" Multiplicity="*" />
@@ -2204,6 +2232,18 @@
             </Principal>
             <Dependent Role="USUARIO">
               <PropertyRef Name="ID_FUNCIONARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LANCAMENTO_SEMESTRE">
+          <End Type="ECModel.LANCAMENTO" Role="LANCAMENTO" Multiplicity="0..1" />
+          <End Type="ECModel.LANCAMENTO" Role="LANCAMENTO1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LANCAMENTO">
+              <PropertyRef Name="ID_LANCAMENTO" />
+            </Principal>
+            <Dependent Role="LANCAMENTO1">
+              <PropertyRef Name="ID_SEMESTRE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2244,7 +2284,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_REUNIAO_PARTICIPANTE_PESSOA">
-          <End Type="ECModel.PESSOA" Role="PESSOA" Multiplicity="1" />
+          <End Type="ECModel.PESSOA" Role="PESSOA" Multiplicity="0..1" />
           <End Type="ECModel.REUNIAO_PARTICIPANTE" Role="REUNIAO_PARTICIPANTE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PESSOA">
@@ -2288,18 +2328,6 @@
             </Principal>
             <Dependent Role="REPRESENTANTE_TURMA">
               <PropertyRef Name="ID_TIPOREPRESENTANTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TURMA_REPRESENTANTE_TURMA">
-          <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="0..1" />
-          <End Type="ECModel.REPRESENTANTE_TURMA" Role="REPRESENTANTE_TURMA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TURMA">
-              <PropertyRef Name="ID_TURMA" />
-            </Principal>
-            <Dependent Role="REPRESENTANTE_TURMA">
-              <PropertyRef Name="ID_TURMA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2387,7 +2415,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TURMA_TIPO">
+        <Association Name="FK_TURMA_SEMESTRE">
+          <End Type="ECModel.SEMESTRE" Role="SEMESTRE" Multiplicity="0..1" />
+          <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMESTRE">
+              <PropertyRef Name="ID_SEMESTRE" />
+            </Principal>
+            <Dependent Role="TURMA">
+              <PropertyRef Name="ID_SEMESTRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURMA_TIPOTURMA">
           <End Type="ECModel.TIPO_TURMA" Role="TIPO_TURMA" Multiplicity="0..1" />
           <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2448,6 +2488,7 @@
           <EntitySetMapping Name="ALUNO">
             <EntityTypeMapping TypeName="ECModel.ALUNO">
               <MappingFragment StoreEntitySet="ALUNO">
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
                 <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
                 <ScalarProperty Name="RA" ColumnName="RA" />
                 <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
@@ -2457,21 +2498,22 @@
           <EntitySetMapping Name="ALUNO_AMC">
             <EntityTypeMapping TypeName="ECModel.ALUNO_AMC">
               <MappingFragment StoreEntitySet="ALUNO_AMC">
-                <ScalarProperty Name="CLASIFICACAO" ColumnName="CLASIFICACAO" />
+                <ScalarProperty Name="CLASSIFICACAO" ColumnName="CLASSIFICACAO" />
                 <ScalarProperty Name="NOTA" ColumnName="NOTA" />
-                <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
+                <ScalarProperty Name="ID_ALUNO_AMC" ColumnName="ID_ALUNO_AMC" />
+                <ScalarProperty Name="ID_ALUNO_MATRICULA" ColumnName="ID_ALUNO_MATRICULA" />
                 <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
-                <ScalarProperty Name="ID_ALUNOAMC" ColumnName="ID_ALUNOAMC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ALUNO_CURSO">
-            <EntityTypeMapping TypeName="ECModel.ALUNO_CURSO">
-              <MappingFragment StoreEntitySet="ALUNO_CURSO">
+          <EntitySetMapping Name="ALUNO_MATRICULA">
+            <EntityTypeMapping TypeName="ECModel.ALUNO_MATRICULA">
+              <MappingFragment StoreEntitySet="ALUNO_MATRICULA">
+                <ScalarProperty Name="PRESENCA" ColumnName="PRESENCA" />
                 <ScalarProperty Name="DATA_MATRICULA" ColumnName="DATA_MATRICULA" />
                 <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
                 <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
-                <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
+                <ScalarProperty Name="ID_ALUNO_MATRICULA" ColumnName="ID_ALUNO_MATRICULA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2512,6 +2554,7 @@
           <EntitySetMapping Name="DISCIPLINA">
             <EntityTypeMapping TypeName="ECModel.DISCIPLINA">
               <MappingFragment StoreEntitySet="DISCIPLINA">
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
                 <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
@@ -2530,6 +2573,7 @@
           <EntitySetMapping Name="EVENTO">
             <EntityTypeMapping TypeName="ECModel.EVENTO">
               <MappingFragment StoreEntitySet="EVENTO">
+                <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
                 <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
                 <ScalarProperty Name="CONCLUSAO" ColumnName="CONCLUSAO" />
                 <ScalarProperty Name="INICIO" ColumnName="INICIO" />
@@ -2544,6 +2588,7 @@
           <EntitySetMapping Name="FUNCIONARIO">
             <EntityTypeMapping TypeName="ECModel.FUNCIONARIO">
               <MappingFragment StoreEntitySet="FUNCIONARIO">
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
                 <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
                 <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
                 <ScalarProperty Name="MATRICULA" ColumnName="MATRICULA" />
@@ -2554,9 +2599,10 @@
           <EntitySetMapping Name="LANCAMENTO">
             <EntityTypeMapping TypeName="ECModel.LANCAMENTO">
               <MappingFragment StoreEntitySet="LANCAMENTO">
+                <ScalarProperty Name="ID_DISCIPLINA_PROFESSOR" ColumnName="ID_DISCIPLINA_PROFESSOR" />
                 <ScalarProperty Name="PROVIDENCIA" ColumnName="PROVIDENCIA" />
                 <ScalarProperty Name="JUSTIFICATIVA" ColumnName="JUSTIFICATIVA" />
-                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+                <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
                 <ScalarProperty Name="DATA_LANCAMENTO" ColumnName="DATA_LANCAMENTO" />
                 <ScalarProperty Name="ID_TIPOLANCAMENTO" ColumnName="ID_TIPOLANCAMENTO" />
                 <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
@@ -2611,7 +2657,7 @@
             <EntityTypeMapping TypeName="ECModel.REPRESENTANTE_TURMA">
               <MappingFragment StoreEntitySet="REPRESENTANTE_TURMA">
                 <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
-                <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
+                <ScalarProperty Name="ID_ALUNO_MATRICULA" ColumnName="ID_ALUNO_MATRICULA" />
                 <ScalarProperty Name="ID_TIPOREPRESENTANTE" ColumnName="ID_TIPOREPRESENTANTE" />
                 <ScalarProperty Name="ID_REPRESENTANTE" ColumnName="ID_REPRESENTANTE" />
               </MappingFragment>
@@ -2665,9 +2711,9 @@
           <EntitySetMapping Name="REUNIAO_PARTICIPANTE">
             <EntityTypeMapping TypeName="ECModel.REUNIAO_PARTICIPANTE">
               <MappingFragment StoreEntitySet="REUNIAO_PARTICIPANTE">
+                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
                 <ScalarProperty Name="PRESENCA" ColumnName="PRESENCA" />
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
-                <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
                 <ScalarProperty Name="ID_PARTICIPANTE" ColumnName="ID_PARTICIPANTE" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2762,11 +2808,8 @@
           <EntitySetMapping Name="TURMA">
             <EntityTypeMapping TypeName="ECModel.TURMA">
               <MappingFragment StoreEntitySet="TURMA">
-                <ScalarProperty Name="ANO" ColumnName="ANO" />
-                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+                <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
                 <ScalarProperty Name="ID_TIPOTURMA" ColumnName="ID_TIPOTURMA" />
-                <ScalarProperty Name="ID_FUNCIONARIO" ColumnName="ID_FUNCIONARIO" />
-                <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
                 <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
               </MappingFragment>
             </EntityTypeMapping>

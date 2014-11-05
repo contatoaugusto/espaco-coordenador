@@ -51,51 +51,8 @@ namespace EC.Dado
             }
 
         }
-         public List<PESSOA> ConsultarPessoa()
-        {
-            using (ECEntities db = new ECEntities())
-            {
-                var p = db.PESSOA.ToList();
-                List<PESSOA> ltPessoa = new List<PESSOA>();
-
-                foreach (var tipo in p)
-                {
-                    PESSOA pessoa = new PESSOA();
-                    pessoa.ID_PESSOA = tipo.ID_PESSOA;
-                    pessoa.NOME = tipo.NOME;
-                    ltPessoa.Add(pessoa);
-                }
-
-                return ltPessoa;
-            }
-
-        }
-
-         public List<TURMA> ConsultarTurma()
-         {
-             using (ECEntities db = new ECEntities())
-             {
-                 var l = db.TURMA.ToList();
-                 List<TURMA> ltTurma = new List<TURMA>();
-
-                 foreach (var tipo in l)
-                 {
-                     TURMA turma = new TURMA();
-                     turma.ID_TURMA = tipo.ID_TURMA;
-                     turma.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
-                     turma.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
-                     turma.ID_TIPOTURMA = tipo.ID_TIPOTURMA;
-                     turma.SEMESTRE = tipo.SEMESTRE;
-                     turma.ANO = tipo.ANO;
-
-
-                     ltTurma.Add(turma);
-                 }
-
-                 return ltTurma;
-             }
-         }
-
+        
+        
         public List<LANCAMENTO> ConsultarLancamento()
         {
             using (ECEntities db = new ECEntities())
