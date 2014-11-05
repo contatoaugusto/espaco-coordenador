@@ -31,7 +31,7 @@ namespace UI.Web.EC.Paginas
 
         public void BindControl()
         {
-            CarregaSemestreCorrente();
+            CarregaSemestreCorrenteAMC();
         }
 
         public void BindDataGrid()
@@ -41,7 +41,7 @@ namespace UI.Web.EC.Paginas
         }
 
 
-        protected void CarregaSemestreCorrente()
+        protected void CarregaSemestreCorrenteAMC()
         {
 
             var semestre = NSemestre.ConsultarAtivo();
