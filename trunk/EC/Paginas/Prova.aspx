@@ -7,24 +7,68 @@
     <div class="form-separator"></div>
 
     <h3>Incluir Questão na prova da AMC</h3>
-    <div class="form-in">
-        <div class="row" id="divInstrucoesGeraProva" runat="server">
-            A partir do banco de questões previamente criado, ao cliclar no botão Gerar Prova, 
-            o sistema irá selecionar, de forma aleatória, 32 dessas questões pertencentes a AMC selecionada e 
-            motar uma prova com seu gabarito correspondente.
-        </div>
+    <asp:Panel ID="pnlProva" runat="server">
+    
+         <div class="form-in">
+            <div class="row" id="divInstrucoesGeraProva" runat="server">
+                A partir do banco de questões previamente criado, ao cliclar no botão Gerar Prova, 
+                o sistema irá selecionar, de forma aleatória, 32 dessas questões pertencentes a AMC selecionada e 
+                motar uma prova com seu gabarito correspondente.
+            </div>
 
 
-        <div class="row">
-            <div class="column w150">
-                AMC:
+            <div class="row">
+                <div class="column w150">
+                    AMC:
+                </div>
+                <div class="column w250">
+                    <sgi:DropDownList ID="ddlAmc" runat="server" equiredField="true"></sgi:DropDownList>
+                    <%--<asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>--%>
+                </div>
             </div>
-            <div class="column w250">
-                <sgi:DropDownList ID="ddlAmc" runat="server" equiredField="true"></sgi:DropDownList>
+            <div class="row">
+                <div class="column w150">
+                    Curso:
+                </div>
+                <div class="column w250">
+                    <asp:Label ID="lblCursoUnico" runat="server"></asp:Label>
+                
+                </div>
             </div>
+<<<<<<< .mine
+             <div class="row">
+                <div class="column w150">
+                    Quantidade de questões:
+                </div>
+                <div class="column w250">
+                    <asp:TextBox ID="txtQuantidadeQuestoes" runat="server" RequiredField="true"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column w150">
+                    Observação
+                </div>
+                <div class="column w250">
+                    <asp:TextBox ID="txtObservacao" runat="server" RequiredField="true"></asp:TextBox>
+                </div>
+            </div>
+=======
         </div>
         
+>>>>>>> .r52
+
         </div>
+<<<<<<< .mine
+        <div class="form-bottombuttons">
+            <asp:Button ID="btnSalvar" runat="server" Text="Gerar Prova" OnClick="btnGerarProva_Click"/>
+            <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
+        </div>
+=======
+>>>>>>> .r52
+<<<<<<< .mine
+    </asp:Panel>
+
+=======
         <%--<div class="row">--%>
         <%--<div class="column w350">
                 <asp:ListBox 
@@ -75,6 +119,7 @@
         <asp:Button ID="btnSalvar" runat="server" Text="Gerar Prova" OnClick="btnGerarProva_Click" />
         <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
     </div>
+>>>>>>> .r52
     <div class="form-separator"></div>
 
     <h3>AMCs Cadastradas</h3>
