@@ -1,8 +1,7 @@
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\bin\Debug\EC.Modelo.dll.config
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\bin\Debug\EC.Modelo.dll
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\bin\Debug\EC.Modelo.pdb
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\bin\Debug\EntityFramework.dll
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\bin\Debug\EntityFramework.xml
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\obj\Debug\EC.Modelo.dll
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\obj\Debug\EC.Modelo.pdb
-C:\Users\alice.guedes\Desktop\Nova pasta\Espaco Coordenador\EC.Modelo\obj\Debug\EC.Modelo.csprojResolveAssemblyReference.cache
+C:\Augusto\Desenvolvimento\Espaco Coordenador\EC.Modelo\bin\Debug\EC.Modelo.dll.config
+C:\Augusto\Desenvolvimento\Espaco Coordenador\EC.Modelo\bin\Debug\EC.Modelo.dll
+C:\Augusto\Desenvolvimento\Espaco Coordenador\EC.Modelo\bin\Debug\EC.Modelo.pdb
+C:\Augusto\Desenvolvimento\Espaco Coordenador\EC.Modelo\bin\Debug\EntityFramework.dll
+C:\Augusto\Desenvolvimento\Espaco Coordenador\EC.Modelo\bin\Debug\EntityFramework.xml
+C:\Augusto\Desenvolvimento\Espaco Coordenador\EC.Modelo\obj\Debug\EC.Modelo.dll
+C:\Augusto\Desenvolvimento\Espaco Coordenador\EC.Modelo\obj\Debug\EC.Modelo.pdb

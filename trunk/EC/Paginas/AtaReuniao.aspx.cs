@@ -103,11 +103,7 @@ namespace UI.Web.EC.Paginas
         protected void btnIncluirAssunto_Click(object sender, ImageClickEventArgs e)
         {
             {
-<<<<<<< .mine
                 REUNIAO_ASSUNTO_TRATADO assunto = new REUNIAO_ASSUNTO_TRATADO();
-=======
-               REUNIAO_ASSUNTO_TRATADO assunto = new REUNIAO_ASSUNTO_TRATADO();
->>>>>>> .r49
                 assunto.DESCRICAO = TxtAssunto.Text;
               //  assunto.ID_TIPOASSTRATADO = Convert.ToInt32(ddlTipoAssunto.SelectedValue);
                 assunto.ITEM = assuntos.Count + 1;

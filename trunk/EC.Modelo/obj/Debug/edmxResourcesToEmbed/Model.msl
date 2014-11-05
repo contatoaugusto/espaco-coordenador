@@ -44,7 +44,6 @@
     <EntitySetMapping Name="ALUNO">
       <EntityTypeMapping TypeName="ECModel.ALUNO">
         <MappingFragment StoreEntitySet="ALUNO">
-          <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
           <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
           <ScalarProperty Name="RA" ColumnName="RA" />
           <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
@@ -54,22 +53,21 @@
     <EntitySetMapping Name="ALUNO_AMC">
       <EntityTypeMapping TypeName="ECModel.ALUNO_AMC">
         <MappingFragment StoreEntitySet="ALUNO_AMC">
-          <ScalarProperty Name="CLASSIFICACAO" ColumnName="CLASSIFICACAO" />
+          <ScalarProperty Name="CLASIFICACAO" ColumnName="CLASIFICACAO" />
           <ScalarProperty Name="NOTA" ColumnName="NOTA" />
-          <ScalarProperty Name="ID_ALUNO_AMC" ColumnName="ID_ALUNO_AMC" />
-          <ScalarProperty Name="ID_ALUNO_MATRICULA" ColumnName="ID_ALUNO_MATRICULA" />
+          <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
           <ScalarProperty Name="ID_AMC" ColumnName="ID_AMC" />
+          <ScalarProperty Name="ID_ALUNOAMC" ColumnName="ID_ALUNOAMC" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ALUNO_MATRICULA">
-      <EntityTypeMapping TypeName="ECModel.ALUNO_MATRICULA">
-        <MappingFragment StoreEntitySet="ALUNO_MATRICULA">
-          <ScalarProperty Name="PRESENCA" ColumnName="PRESENCA" />
+    <EntitySetMapping Name="ALUNO_CURSO">
+      <EntityTypeMapping TypeName="ECModel.ALUNO_CURSO">
+        <MappingFragment StoreEntitySet="ALUNO_CURSO">
           <ScalarProperty Name="DATA_MATRICULA" ColumnName="DATA_MATRICULA" />
           <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
           <ScalarProperty Name="ID_ALUNO" ColumnName="ID_ALUNO" />
-          <ScalarProperty Name="ID_ALUNO_MATRICULA" ColumnName="ID_ALUNO_MATRICULA" />
+          <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -110,7 +108,6 @@
     <EntitySetMapping Name="DISCIPLINA">
       <EntityTypeMapping TypeName="ECModel.DISCIPLINA">
         <MappingFragment StoreEntitySet="DISCIPLINA">
-          <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
           <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
           <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
           <ScalarProperty Name="ID_DISCIPLINA" ColumnName="ID_DISCIPLINA" />
@@ -129,7 +126,6 @@
     <EntitySetMapping Name="EVENTO">
       <EntityTypeMapping TypeName="ECModel.EVENTO">
         <MappingFragment StoreEntitySet="EVENTO">
-          <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
           <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
           <ScalarProperty Name="CONCLUSAO" ColumnName="CONCLUSAO" />
           <ScalarProperty Name="INICIO" ColumnName="INICIO" />
@@ -144,7 +140,6 @@
     <EntitySetMapping Name="FUNCIONARIO">
       <EntityTypeMapping TypeName="ECModel.FUNCIONARIO">
         <MappingFragment StoreEntitySet="FUNCIONARIO">
-          <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
           <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
           <ScalarProperty Name="ID_CARGO" ColumnName="ID_CARGO" />
           <ScalarProperty Name="MATRICULA" ColumnName="MATRICULA" />
@@ -157,7 +152,7 @@
         <MappingFragment StoreEntitySet="LANCAMENTO">
           <ScalarProperty Name="PROVIDENCIA" ColumnName="PROVIDENCIA" />
           <ScalarProperty Name="JUSTIFICATIVA" ColumnName="JUSTIFICATIVA" />
-          <ScalarProperty Name="ID_SEMESTRE" ColumnName="ID_SEMESTRE" />
+          <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
           <ScalarProperty Name="DATA_LANCAMENTO" ColumnName="DATA_LANCAMENTO" />
           <ScalarProperty Name="ID_TIPOLANCAMENTO" ColumnName="ID_TIPOLANCAMENTO" />
           <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
@@ -212,7 +207,7 @@
       <EntityTypeMapping TypeName="ECModel.REPRESENTANTE_TURMA">
         <MappingFragment StoreEntitySet="REPRESENTANTE_TURMA">
           <ScalarProperty Name="ID_TURMA" ColumnName="ID_TURMA" />
-          <ScalarProperty Name="ID_ALUNO_MATRICULA" ColumnName="ID_ALUNO_MATRICULA" />
+          <ScalarProperty Name="ID_ALUNOCURSO" ColumnName="ID_ALUNOCURSO" />
           <ScalarProperty Name="ID_TIPOREPRESENTANTE" ColumnName="ID_TIPOREPRESENTANTE" />
           <ScalarProperty Name="ID_REPRESENTANTE" ColumnName="ID_REPRESENTANTE" />
         </MappingFragment>
@@ -266,9 +261,9 @@
     <EntitySetMapping Name="REUNIAO_PARTICIPANTE">
       <EntityTypeMapping TypeName="ECModel.REUNIAO_PARTICIPANTE">
         <MappingFragment StoreEntitySet="REUNIAO_PARTICIPANTE">
-          <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
           <ScalarProperty Name="PRESENCA" ColumnName="PRESENCA" />
           <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+          <ScalarProperty Name="ID_PESSOA" ColumnName="ID_PESSOA" />
           <ScalarProperty Name="ID_PARTICIPANTE" ColumnName="ID_PARTICIPANTE" />
         </MappingFragment>
       </EntityTypeMapping>
