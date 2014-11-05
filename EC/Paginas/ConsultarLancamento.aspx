@@ -1,53 +1,64 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/ConsultarLancamento.aspx.cs" Inherits="UI.Web.EC.Paginas.ConsultarLancamento" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            width: 270px;
-        }
-
-        .auto-style2 {
-            width: 110px;
-        }
-    </style>
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 1280px; height: 768px;">
 
-        <h2 style="width: 100%; text-align: center; position: relative;">Consultar Lançamentos</h2>
 
-        <table style="width: 90%; margin-left: 20%;">
+    <link href="../EC.UI.WebControls/MessageBox/Styles/Outlook.css" rel="stylesheet" />
+    <link href="../EC.UI.WebControls/MessageBox/Styles/UniCEUB.css" rel="stylesheet" />
 
-            <tr>
-                <td class="auto-style1"></td>
-                <td class="auto-style2">Tipo Lancamento:</td>
-                <td>
-                    <asp:DropDownList ID="ddlTipolancamento" runat="server"></asp:DropDownList></td>
-            </tr>
+    <script src="../Includes/ea.modal.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#closeModalpopup").click(function () {
+                document.location = "../default.aspx";
+            });
+        });
+    </script>
 
-            <tr>
-                <td class="auto-style1"></td>
-                <td class="auto-style2">Professor</td>
-                <td>
-                    <asp:DropDownList ID="ddlPessoa" runat="server"></asp:DropDownList></td>
-            </tr>
 
-            <tr>
-                <td class="auto-style1"></td>
-                <td class="auto-style2">Turma:</td>
-                <td>
-                    <asp:DropDownList ID="ddlTurma" runat="server"></asp:DropDownList></td>
-            </tr>
-            <tr>
-                <td class="auto-style1"></td>
-                <td class="auto-style2">
-                    <asp:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click" Width="65px" />
-                    <td>
-                        <asp:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click" Width="65px" /></td>
-            </tr>
-        </table>
+    <h3>Consultar Lançamento</h3>
 
-        <asp:GridView ID="grdLancamento" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" Style="margin-left: 160px; margin-top: 32px;" Width="734px">
+    <div class="form-in">
+        <div class="row">
+            <div class="column w100">
+                Tipo Lancamento:
+            </div>
+            <div class="column w250">
+                <asp:DropDownList ID="ddlTipolancamento" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column w100">
+                Professor
+            </div>
+            <div class="column w250">
+                <asp:DropDownList ID="ddlPessoa" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column w100">
+                Turma:
+            </div>
+            <div class="column w250">
+                <asp:DropDownList ID="ddlTurma" runat="server"></asp:DropDownList>
+           
+            </div>
+        </div>
+
+        <div class="form-bottombuttons">
+
+            <asp:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click" Width="65px" />
+            <asp:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click" Width="65px" />
+        </div>
+
+        <div class="form-separator"></div>
+
+        <h3>Lançamentos</h3>
+
+        <sgi:GridView ID="grdLancamento" runat="server" AutoGenerateColumns="False">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="ID_TIPOLANCAMENTO" HeaderText="Tipo" />
@@ -64,7 +75,7 @@
             <SortedAscendingHeaderStyle BackColor="#848384" />
             <SortedDescendingCellStyle BackColor="#EAEAD3" />
             <SortedDescendingHeaderStyle BackColor="#575357" />
-        </asp:GridView>
+        </sgi:GridView>
 
     </div>
 

@@ -70,6 +70,7 @@ namespace UI.Web.EC.Paginas
             //r.Value = "0";
             //ddlMes.Items.Insert(0, r);
         }
+
         private void CarregarListaAno()
         {
             List<string> ListaAno = new List<string>();
@@ -148,12 +149,15 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarAmc()
         {
-            ddlAmc.DataSource = NAmc.ConsultarAmc();
-            ddlAmc.DataTextField = "ANO";
-            ddlAmc.DataValueField = "ID_AMC";
-            ddlAmc.DataBind();
+            var lista = NAmc.ConsultarAmc();
+            ddlAmc.Items.Clear();
+            ddlAmc.Items.Add(new ListItem("Selecione", ""));
 
-             ddlAmc.Items.Insert(0, new ListItem("", ""));
+            foreach (AMC obj in lista)
+            {
+                if (obj.SEMESTRE.ATIVO)
+                    ddlAmc.Items.Add(new ListItem(obj.SEMESTRE.SEMESTRE1 + "º sem/" + obj.SEMESTRE.ANO, obj.ID_AMC.ToString()));
+            }
         }
 
         //    ListItem r = new ListItem();
@@ -254,6 +258,8 @@ namespace UI.Web.EC.Paginas
             Response.Redirect("ConsultarAcao.aspx", true);
         }
 
+        
+     
   // protected void Button2_Click(object sender, EventArgs e)
         //   {
   // using (ALICE2Entities contexto = new ALICE2Entities()) 

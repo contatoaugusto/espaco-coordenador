@@ -6,7 +6,7 @@
     <sgi:MessageBox ID="messageBox" runat="server" />
     <div class="form-separator"></div>
 
-    <h3>Manter Semestre</h3>
+    <h3>Abrir Semestre Letivo</h3>
     <div class="form-in">
         <div class="row" id="divInstrucoesGeraProva" runat="server">
             Pode existir apenas um semestre ativo por vez (aberto). <br/>
@@ -55,7 +55,7 @@
     </div>
     <div class="form-separator"></div>
 
-     <h3>Semestres Cadastradas</h3>
+     <h3>Semestres Cadastrados</h3>
     <asp:Panel ID="pnlGridSemestre" runat="server">
         <sgi:GridView ID="gridViewSemestre" 
             runat="server" 

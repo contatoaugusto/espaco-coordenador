@@ -49,7 +49,7 @@ namespace UI.Web.EC.Paginas
         protected void btConsultar_Click(object sender, EventArgs e)
         {
              {
-            if (ddlTipoReuniao.SelectedValue == "" && ddlSemestre.SelectedValue == "")
+                 if (ddlTipoReuniao.SelectedValue == "")
             {
                 //MENSAGEM
             }

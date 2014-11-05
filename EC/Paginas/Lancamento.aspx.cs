@@ -22,7 +22,7 @@ namespace UI.Web.EC.Paginas
             CarregarPessoa();
             CarregarTipolancamento();
             CarregarTurma();
-            CarregarLancamento();
+           // CarregarLancamento();
             
         }
         private void CarregarListaDia()
@@ -84,11 +84,11 @@ namespace UI.Web.EC.Paginas
             ddlTipolancamento.DataBind();
         }
 
-        private void CarregarLancamento()
-        {
-            grdLancamento.DataSource = NLancamento.ConsultarLancamento();
-            grdLancamento.DataBind();
-        }
+       // private void CarregarLancamento()
+        //{
+         //   grdLancamento.DataSource = NLancamento.ConsultarLancamento();
+          //  grdLancamento.DataBind();
+      //  }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -101,5 +101,11 @@ namespace UI.Web.EC.Paginas
             NLancamento.Salvar(lancamento);
             Response.Redirect("Consultarlancamento.aspx", true);
         }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        { 
+            Response.Redirect("ConsultarLancamento.aspx", true);
+        }
+        }
     }
-}
+

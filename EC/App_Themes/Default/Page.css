@@ -645,16 +645,20 @@ div.form-in
 div.form-bottombuttons
 {
     position: relative;
-    padding-top: 8px;
-    clear: both;
-    display: inline;
-}
+ 
 
-div.form-title
+div.form-in
 {
     position: relative;
-    width: auto;
-    font-family: Verdana;
+    background-color: #f9f9f9;
+    padding: 13px;
+    height: 114px;
+    clear: both;
+    top: 9px;
+    left: 0px;
+}
+
+amily: Verdana;
     font-size: 13px;
     font-weight: 800;
     text-transform: none;
@@ -709,8 +713,11 @@ div.column
 {
     float: left;
     display: block;
-    margin: 0px;
     margin-right: 3px;
+    width: 70px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 
