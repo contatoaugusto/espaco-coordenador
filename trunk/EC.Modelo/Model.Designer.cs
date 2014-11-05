@@ -529,7 +529,7 @@ namespace EC.Modelo
         /// <summary>
         /// Nenhuma Documentação de Metadados disponível.
         /// </summary>
-=======
+======
         public ObjectSet<REUNIAO_ASSUNTO_TRATADO> REUNIAO_ASSUNTO_TRATADO
         {
             get
