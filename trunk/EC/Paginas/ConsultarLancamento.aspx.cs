@@ -20,5 +20,10 @@ namespace UI.Web.EC.Paginas
         {
             Response.Redirect("Lancamento.aspx", true);
         }
+
+        protected void btConsultar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

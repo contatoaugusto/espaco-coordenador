@@ -47,11 +47,11 @@
            
             </div>
         </div>
-
+        <div class="form-separator"></div>
         <div class="form-bottombuttons">
 
-            <asp:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click" Width="65px" />
-            <asp:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click" Width="65px" />
+            <ec:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click"/>
+            <ec:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click" />
         </div>
 
         <div class="form-separator"></div>

@@ -16,7 +16,7 @@ namespace EC.Negocio
 
         public static List<TURMA> ConsultarTurma()
         {
-            return (new DLancamento()).ConsultarTurma();
+            return (new DTurma()).Consultar();
         }
 
         public static List<PESSOA> ConsultarPessoa()

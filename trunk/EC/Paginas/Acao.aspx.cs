@@ -258,6 +258,11 @@ namespace UI.Web.EC.Paginas
             Response.Redirect("ConsultarAcao.aspx", true);
         }
 
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
      
   // protected void Button2_Click(object sender, EventArgs e)

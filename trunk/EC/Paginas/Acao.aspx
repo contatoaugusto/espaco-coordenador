@@ -3,11 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <link href="../EC.UI.WebControls/MessageBox/Styles/Outlook.css" rel="stylesheet" />
-    <link href="../EC.UI.WebControls/MessageBox/Styles/UniCEUB.css" rel="stylesheet" />
-
-
     <sgi:MessageBox ID="messageBox" runat="server" />
 
     <div class="form-separator"></div>
@@ -47,7 +42,7 @@
             <div class="column w250">
                 Titulo:
             </div>
-            <sgi:TextArea ID="TxtTitulo" runat="server" Width="80%" Rows="1" MaxLength="3000" RequiredField="true" ErrorMessage="É obrigatorio informar o título"></sgi:TextArea>
+            <sgi:TextArea ID="TxtTitulo" runat="server" Width="80%" Rows="1" MaxLength="1000" RequiredField="true" ErrorMessage="Campo obrigatorio"></sgi:TextArea>
         </div>
 
         <div class="row">

@@ -3,12 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-
-    <link href="../EC.UI.WebControls/MessageBox/Styles/Outlook.css" rel="stylesheet" />
-    <link href="../EC.UI.WebControls/MessageBox/Styles/UniCEUB.css" rel="stylesheet" />
-
-
     <sgi:MessageBox ID="messageBox" runat="server" />
 
     <div class="form-separator"></div>
@@ -86,11 +80,11 @@
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlAno1" runat="server"></asp:DropDownList>
             </div>
-
-            <div class="form-bottombuttons">
-                <asp:Button ID="Button1" runat="server" Text="Salvar" OnClick="Button1_Click" Width="60px" />
-                <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
-                            </div>
+        </div>
+    
+        <div class="form-bottombuttons">
+            <asp:Button ID="Button1" runat="server" Text="Salvar" OnClick="Button1_Click"/>
+            <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
         </div>
     </div>
     

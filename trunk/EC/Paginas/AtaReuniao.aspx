@@ -3,11 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <link href="../EC.UI.WebControls/MessageBox/Styles/Outlook.css" rel="stylesheet" />
-    <link href="../EC.UI.WebControls/MessageBox/Styles/UniCEUB.css" rel="stylesheet" />
-
-
     <sgi:MessageBox ID="messageBox" runat="server" />
 
     <div class="form-separator"></div>
@@ -29,7 +24,7 @@
                 Pendências:
             </div>
             <div class="column w250">
-                <asp:Button ID="btntransferirPendencias" runat="server" Text="Transferir Pendências" Width="143px" />
+                <sgi:Button ID="btntransferirPendencias" runat="server" Text="Transferir Pendências"/>
             </div>
         </div>
 
@@ -128,12 +123,11 @@
             </Columns>
         </sgi:GridView>
 
-
+        <div class="form-separator"></div>
 
         <div class="form-bottombuttons">
-
-            <asp:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" Width="65px" OnClick="btnSalvarReuniao_Click" />
-            <asp:Button ID="btnVoltar" runat="server" Text="Voltar" Width="65px" OnClick="btnVoltar_Click" />
+            <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" OnClick="btnSalvarReuniao_Click" />
+            <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
         </div>
     </div>
 </asp:Content>

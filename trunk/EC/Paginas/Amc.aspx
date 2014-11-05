@@ -7,7 +7,7 @@
     <%--<sgi:UpdatePanel ID="pnlAmc" runat="server">--%>
 
     <div class="form-separator"></div>
-    <h3>Criar AMC</h3>
+    <h3>Incluir AMC</h3>
 
     <asp:Panel ID="pnlAmc" runat="server">
 
