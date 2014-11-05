@@ -47,7 +47,7 @@ namespace UI.Web.EC.Paginas
             var idCurso = ((SessionUsuario)Session[Const.USUARIO]).IdCurso;
             var idFuncionario = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.ID_FUNCIONARIO;
             // Selecionar as questões dessa AMC e do curso do usuario logado (professor ou coordenador)
-            NProva.GerarProvaRandomicamente(Library.ToInteger(ddlAmc.SelectedValue), idCurso, Library.ToInteger(txtQuantidadeQuestoes.Text), idFuncionario);
+            NProva.GerarProvaRandomicamente(Library.ToInteger(ddlAmc.SelectedValue), idCurso, 32, idFuncionario);
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)

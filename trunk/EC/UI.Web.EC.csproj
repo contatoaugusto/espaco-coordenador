@@ -1519,7 +1519,9 @@
     <Content Include="App_Themes\Default\Images\NavegacaoMatricula.psd" />
     <Content Include="App_Themes\Mobile_Default\WebControls.skin" />
     <Content Include="App_Themes\Mobile_Feminino\WebControls.skin" />
-    <Content Include="App.Config" />
+    <Content Include="App.Config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Menu.Master" />
     <Content Include="Coordenador\Avatar.ashx" />
     <Content Include="Coordenador\CEP.ashx" />

@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="Prova.aspx.cs" Inherits="UI.Web.EC.Paginas.Prova" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <sgi:MessageBox ID="messageBox" runat="server" />
     <div class="form-separator"></div>
 
@@ -22,24 +23,10 @@
                 <sgi:DropDownList ID="ddlAmc" runat="server" equiredField="true"></sgi:DropDownList>
             </div>
         </div>
-         <div class="row">
-            <div class="column w150">
-                Quantidade de questões:
-            </div>
-            <div class="column w250">
-                <asp:TextBox ID="txtQuantidadeQuestoes" runat="server" RequiredField="true"></asp:TextBox>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column w150">
-                Observação
-            </div>
-            <div class="column w250">
-                <asp:TextBox ID="txtObservacao" runat="server" RequiredField="true"></asp:TextBox>
-            </div>
+        
         </div>
         <%--<div class="row">--%>
-            <%--<div class="column w350">
+        <%--<div class="column w350">
                 <asp:ListBox 
                     ID="listBoxQuestoes" 
                     runat="server" 
@@ -58,13 +45,13 @@
                 
                 </center>
             </div>--%>
-                <%--<asp:ListBox 
+        <%--<asp:ListBox 
                     ID="ListBox1" 
                     runat="server" 
                     Rows="10"
                     Width="100%"
                     ></asp:ListBox>--%>
-                <%--<asp:CheckBoxList 
+        <%--<asp:CheckBoxList 
                     DataTextField="DESCRICAO" 
                     DataValueField="ID_QUESTAO" 
                     ID="CheckBoxList1" 
@@ -85,23 +72,23 @@
         <%--</div>--%>
     </div>
     <div class="form-bottombuttons">
-        <asp:Button ID="btnSalvar" runat="server" Text="Gerar Prova" OnClick="btnGerarProva_Click"/>
+        <asp:Button ID="btnSalvar" runat="server" Text="Gerar Prova" OnClick="btnGerarProva_Click" />
         <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
     </div>
     <div class="form-separator"></div>
 
-     <h3>AMCs Cadastradas</h3>
-    <sgi:GridView ID="GridView1" 
-        runat="server" 
-        AutoGenerateColumns="False" 
-        DataKeyNames="ID_PROVA" 
-        DataSourceID="SqlDataSource" 
-        BackColor="#BFBFBF" 
-        BorderColor="#BFBFBF" 
-        BorderStyle="Solid" 
-        CssClass="gridview" 
-        GroupFooter="False" 
-        PageSize="50" 
+    <h3>AMCs Cadastradas</h3>
+    <sgi:GridView ID="GridView1"
+        runat="server"
+        AutoGenerateColumns="False"
+        DataKeyNames="ID_PROVA"
+        DataSourceID="SqlDataSource"
+        BackColor="#BFBFBF"
+        BorderColor="#BFBFBF"
+        BorderStyle="Solid"
+        CssClass="gridview"
+        GroupFooter="False"
+        PageSize="50"
         ShowWhenEmpty="False"
         OnRowCommand="GridView1_RowCommand">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
@@ -119,14 +106,14 @@
                     <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_PROVA")%>' CommandName="Gabarito" Text="Gabarito" CausesValidation="false" />
                 </ItemTemplate>
             </asp:TemplateField>
-            
+
         </Columns>
 
-<HeaderStyle CssClass="gridviewrowheader"></HeaderStyle>
+        <HeaderStyle CssClass="gridviewrowheader"></HeaderStyle>
 
-<PagerStyle CssClass="gridviewpaging"></PagerStyle>
+        <PagerStyle CssClass="gridviewpaging"></PagerStyle>
 
-<RowStyle CssClass="gridviewrow"></RowStyle>
+        <RowStyle CssClass="gridviewrow"></RowStyle>
     </sgi:GridView>
-<asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ECConnectionString %>" SelectCommand="SELECT * FROM [PROVA]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ECConnectionString %>" SelectCommand="SELECT * FROM [PROVA]"></asp:SqlDataSource>
 </asp:Content>

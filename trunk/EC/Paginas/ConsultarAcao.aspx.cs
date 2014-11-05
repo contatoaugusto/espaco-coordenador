@@ -110,7 +110,7 @@ namespace UI.Web.EC.Paginas
             {
                 //MENSAGEM
             }
-            else;
+            else
             {
                 ACAO acao = new ACAO();
                 if (ddlPessoa.SelectedValue != "")
