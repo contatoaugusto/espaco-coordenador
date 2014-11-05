@@ -24,21 +24,50 @@ namespace UI.Web.EC.Paginas
                 return;
 
             CarregarAmc();
+            CarregaSemestreCorrente();
         }
 
 
         private void CarregarAmc()
         {
+            var lista = NAmc.ConsultarAmc();
+            ddlAmc.Items.Clear();
+            ddlAmc.Items.Add(new ListItem("Selecione", ""));
 
-            //foreach (var item in NAmc.ConsultarAmc())   
-            //{
-            //    ddlAmc.Items.Add(new ListItem(item.SEMESTRE + "º sem/" + item.ANO, item.ID_AMC.ToString()));
-            //}
+            int idAMCAtivo = 0;
+
+            foreach (AMC obj in lista)
+            {
+                if (obj.SEMESTRE.ATIVO)
+                {
+                    ddlAmc.Items.Add(new ListItem(obj.SEMESTRE.SEMESTRE1 + "º sem/" + obj.SEMESTRE.ANO, obj.ID_AMC.ToString()));
+                    if (obj.SEMESTRE.ID_SEMESTRE == ((SessionUsuario)Session[Const.USUARIO]).IdSemestre )
+                        idAMCAtivo = obj.ID_AMC;
+                }
+            }
+
+            ddlAmc.SelectedValue = idAMCAtivo.ToString();
         }
 
         protected void ddlAmc_SelectedIndexChanged(object sender, EventArgs e)
         {
             //SqlDataSource_Questoes.SelectParameters["ID_AMC"].DefaultValue = ddlAmc.SelectedValue.ToString();
+        }
+
+
+        protected void CarregaSemestreCorrente()
+        {
+
+            var semestre = NSemestre.ConsultarAtivo();
+
+            if (semestre != null && semestre.ID_SEMESTRE > 0)
+            {
+                pnlProva.Visible = true;
+                //lblSemestreCorrente.Text = semestre.SEMESTRE1 + "º sem/" + semestre.ANO;
+                lblCursoUnico.Text = ((SessionUsuario)Session[Const.USUARIO]).NmCurso;
+            }
+            else
+                pnlProva.Visible = false;
         }
 
 

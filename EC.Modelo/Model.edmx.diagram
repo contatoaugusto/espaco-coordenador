@@ -6,44 +6,44 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7bcfa43792a04c4ab858d43b30439af4" Name="Diagram1">
 <<<<<<< .mine
-        <EntityTypeShape EntityType="ECModel.ACAO" Width="1.5" PointX="6" PointY="24" />
-        <EntityTypeShape EntityType="ECModel.ACAO_AMC" Width="1.5" PointX="11.25" PointY="25.75" />
-        <EntityTypeShape EntityType="ECModel.ACAO_EVENTO" Width="1.5" PointX="8.25" PointY="21.625" />
-        <EntityTypeShape EntityType="ECModel.ACAO_REUNIAO" Width="1.5" PointX="11.25" PointY="28.75" />
-        <EntityTypeShape EntityType="ECModel.ALUNO" Width="1.5" PointX="3" PointY="41.875" />
-        <EntityTypeShape EntityType="ECModel.ALUNO_AMC" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ECModel.ALUNO_MATRICULA" Width="1.5" PointX="5.25" PointY="41.625" />
-        <EntityTypeShape EntityType="ECModel.AMC" Width="1.5" PointX="8.25" PointY="31.375" />
-        <EntityTypeShape EntityType="ECModel.CARGO" Width="1.5" PointX="3.75" PointY="13.875" />
-        <EntityTypeShape EntityType="ECModel.CURSO" Width="1.5" PointX="6" PointY="12.875" />
-        <EntityTypeShape EntityType="ECModel.CURSO_COORDENADOR" Width="1.5" PointX="8.25" PointY="13.75" />
-        <EntityTypeShape EntityType="ECModel.DISCIPLINA" Width="1.5" PointX="6" PointY="9.375" />
-        <EntityTypeShape EntityType="ECModel.DISCIPLINA_PROFESSOR" Width="1.5" PointX="8.25" PointY="16.75" />
-        <EntityTypeShape EntityType="ECModel.EVENTO" Width="1.5" PointX="3" PointY="19.875" />
-        <EntityTypeShape EntityType="ECModel.FUNCIONARIO" Width="1.5" PointX="6" PointY="16" />
-        <EntityTypeShape EntityType="ECModel.LANCAMENTO" Width="1.5" PointX="13.5" PointY="16.125" />
-        <EntityTypeShape EntityType="ECModel.PESSOA" Width="1.5" PointX="0.75" PointY="20.25" />
-        <EntityTypeShape EntityType="ECModel.PRIORIDADE_ACAO" Width="1.5" PointX="3.75" PointY="27.125" />
-        <EntityTypeShape EntityType="ECModel.PROVA" Width="1.5" PointX="8.25" PointY="24.5" />
-        <EntityTypeShape EntityType="ECModel.QUESTAO" Width="1.5" PointX="10.5" PointY="20.875" />
-        <EntityTypeShape EntityType="ECModel.REPRESENTANTE_TURMA" Width="1.5" PointX="13.5" PointY="28.875" />
-        <EntityTypeShape EntityType="ECModel.RESPOSTA" Width="1.5" PointX="12.75" PointY="21.5" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO" Width="1.5" PointX="0.75" PointY="16" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_ASSUNTO_TRATADO" Width="1.5" PointX="3" PointY="9.5" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_COMPROMISSO" Width="1.5" PointX="6" PointY="20.375" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_PARTICIPANTE" Width="1.5" PointX="3" PointY="16.625" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_PAUTA" Width="1.5" PointX="3" PointY="29.875" />
-        <EntityTypeShape EntityType="ECModel.SEMESTRE" Width="1.5" PointX="6" PointY="31.375" />
-        <EntityTypeShape EntityType="ECModel.STATUS_ACAO" Width="1.5" PointX="3.75" PointY="24.75" />
-        <EntityTypeShape EntityType="ECModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ECModel.TIPO_ASSUNTO_TRATADO" Width="1.5" PointX="0.75" PointY="9.875" />
-        <EntityTypeShape EntityType="ECModel.TIPO_EVENTO" Width="1.5" PointX="0.75" PointY="24.875" />
-        <EntityTypeShape EntityType="ECModel.TIPO_LANCAMENTO" Width="1.5" PointX="11.25" PointY="12.875" />
-        <EntityTypeShape EntityType="ECModel.TIPO_REPRESENTANTE" Width="1.5" PointX="11.25" PointY="32.375" />
-        <EntityTypeShape EntityType="ECModel.TIPO_REUNIAO" Width="1.5" PointX="1.5" PointY="12.875" />
-        <EntityTypeShape EntityType="ECModel.TIPO_TURMA" Width="1.5" PointX="9" PointY="10.875" />
-        <EntityTypeShape EntityType="ECModel.TURMA" Width="1.5" PointX="11.25" PointY="16" />
-        <EntityTypeShape EntityType="ECModel.USUARIO" Width="1.5" PointX="8.25" PointY="27.875" />
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 =======
         
         
@@ -52,6 +52,91 @@
         
         
         <EntityTypeShape EntityType="ECModel.ALUNO_CURSO" Width="1.5" PointX="5.25" PointY="28.875" />
+        <EntityTypeShape EntityType="ECModel.ACAO" Width="1.5" PointX="7.5178064627190153" PointY="11.57874914052838" />
+        <EntityTypeShape EntityType="ECModel.ACAO_AMC" Width="1.5" PointX="8.4420752210738481" PointY="23.606869291331094" />
+        <EntityTypeShape EntityType="ECModel.ACAO_EVENTO" Width="1.5" PointX="8.929629674614235" PointY="1.783453241821124" />
+        <EntityTypeShape EntityType="ECModel.ACAO_REUNIAO" Width="1.5" PointX="11.22146404498325" PointY="9.2793002767857633" />
+        <EntityTypeShape EntityType="ECModel.ALUNO" Width="1.5" PointX="2.3695697944469609" PointY="27.326193077175969" />
+        <EntityTypeShape EntityType="ECModel.ALUNO_AMC" Width="1.5" PointX="2.2273630119056267" PointY="29.627704470245028" />
+        <EntityTypeShape EntityType="ECModel.AMC" Width="1.5" PointX="11.468850407502078" PointY="1.3546044683803824" />
+        <EntityTypeShape EntityType="ECModel.CARGO" Width="1.5" PointX="6.8695667678814232" PointY="21.22263863180887" />
+        <EntityTypeShape EntityType="ECModel.CURSO" Width="1.5" PointX="10.90651094862563" PointY="17.425949879654659" />
+        <EntityTypeShape EntityType="ECModel.CURSO_COORDENADOR" Width="1.5" PointX="9.54880100747049" PointY="8.9677787613904929" />
+        <EntityTypeShape EntityType="ECModel.DISCIPLINA" Width="1.5" PointX="4.3674467971396851" PointY="3.4257431493260633" />
+        <EntityTypeShape EntityType="ECModel.DISCIPLINA_PROFESSOR" Width="1.5" PointX="7.14263097901951" PointY="9.2518412513899815" />
+        <EntityTypeShape EntityType="ECModel.EVENTO" Width="1.5" PointX="3.5746215803430519" PointY="28.78041133134645" />
+        <EntityTypeShape EntityType="ECModel.FUNCIONARIO" Width="1.5" PointX="11.453272808088583" PointY="17.628414668901087" />
+        <EntityTypeShape EntityType="ECModel.LANCAMENTO" Width="1.5" PointX="9.0516634178588475" PointY="11.105886792347715" />
+        <EntityTypeShape EntityType="ECModel.PESSOA" Width="1.5" PointX="2.8721459037028931" PointY="3.3445646927433854" />
+        <EntityTypeShape EntityType="ECModel.PRIORIDADE_ACAO" Width="1.5" PointX="1.6849569704779226" PointY="31.941369995447513" />
+        <EntityTypeShape EntityType="ECModel.PROVA" Width="1.5" PointX="6.7328365588247951" PointY="25.962668401171765" />
+        <EntityTypeShape EntityType="ECModel.QUESTAO" Width="1.5" PointX="0.27739533049864473" PointY="19.522939825208365" />
+        <EntityTypeShape EntityType="ECModel.REPRESENTANTE_TURMA" Width="1.5" PointX="3.3013683237607445" PointY="9.87476875347773" />
+        <EntityTypeShape EntityType="ECModel.RESPOSTA" Width="1.5" PointX="5.2635494662744691" PointY="23.861390139843053" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO" Width="1.5" PointX="6.3648732557729222" PointY="0.22211693237634234" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_ASSUNTO_TRATADO" Width="1.5" PointX="11.277387052437936" PointY="18.378408485268434" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_COMPROMISSO" Width="1.5" PointX="9.6904225431803717" PointY="7.2258022014171823" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_PARTICIPANTE" Width="1.5" PointX="9.4856372147266" PointY="0.41441607494578514" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_PAUTA" Width="1.5" PointX="5.6841651246343572" PointY="29.807578532866938" />
+        <EntityTypeShape EntityType="ECModel.SEMESTRE" Width="1.5" PointX="11.579816199643451" PointY="28.845717383942436" />
+        <EntityTypeShape EntityType="ECModel.STATUS_ACAO" Width="1.5" PointX="0.38546580652960849" PointY="16.621740751257978" />
+        <EntityTypeShape EntityType="ECModel.sysdiagrams" Width="1.5" PointX="9.19939994867863" PointY="13.260359338140283" />
+        <EntityTypeShape EntityType="ECModel.TIPO_ASSUNTO_TRATADO" Width="1.5" PointX="5.2779544039061079" PointY="27.031934467624843" />
+        <EntityTypeShape EntityType="ECModel.TIPO_EVENTO" Width="1.5" PointX="1.2155221575943389" PointY="12.295489451054246" />
+        <EntityTypeShape EntityType="ECModel.TIPO_LANCAMENTO" Width="1.5" PointX="6.4280741859358148" PointY="27.212965992844182" />
+        <EntityTypeShape EntityType="ECModel.TIPO_REPRESENTANTE" Width="1.5" PointX="7.3751765002380942" PointY="2.5950700056716194" />
+        <EntityTypeShape EntityType="ECModel.TIPO_REUNIAO" Width="1.5" PointX="9.425432205863963" PointY="30.642231091224698" />
+        <EntityTypeShape EntityType="ECModel.TIPO_TURMA" Width="1.5" PointX="5.7751401168178491" PointY="24.356176313178697" />
+        <EntityTypeShape EntityType="ECModel.TURMA" Width="1.5" PointX="7.6810941564296815" PointY="9.561089371126652" />
+        <EntityTypeShape EntityType="ECModel.USUARIO" Width="1.5" PointX="3.2333628811097528" PointY="15.588700599776907" />
+        <AssociationConnector Association="ECModel.ACAO_STATUS" />
+        <AssociationConnector Association="ECModel.FK_ACAO_AMC_AMC" />
+        <AssociationConnector Association="ECModel.fk_ACAO_PESSOA" />
+        <AssociationConnector Association="ECModel.fk_ACAO_REUNIAO_ACAO" />
+        <AssociationConnector Association="ECModel.fk_EVENTO_aCAO" />
+        <AssociationConnector Association="ECModel.fk_PRIORIDADE_ACAO_ACAO" />
+        <AssociationConnector Association="ECModel.FK_ACAO_AMC_ACAO" />
+        <AssociationConnector Association="ECModel.fk_acao_evento" />
+        <AssociationConnector Association="ECModel.fk_ACAO_REUNIAO_REUNIAO" />
+        <AssociationConnector Association="ECModel.FK_ALUNO_CURSO_ALUNO" />
+        <AssociationConnector Association="ECModel.fk_PESSOA_ALUNO" />
+        <AssociationConnector Association="ECModel.FK_ALUNO_AMC_ALUNO_CURSO" />
+        <AssociationConnector Association="ECModel.FK_ALUNO_AMC_AMC" />
+        <AssociationConnector Association="ECModel.FK_ALUNO_CURSO_TURMA" />
+        <AssociationConnector Association="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" />
+        <AssociationConnector Association="ECModel.FK_AMC_SEMESTRE" />
+        <AssociationConnector Association="ECModel.FK_QUESTAO_AMC" />
+        <AssociationConnector Association="ECModel.fk_FUNCIONARIO_CARGO" />
+        <AssociationConnector Association="ECModel.FK_COORDENADOR_CURSO" />
+        <AssociationConnector Association="ECModel.Fk_DISCIPLINA_CURSO" />
+        <AssociationConnector Association="ECModel.FK_CURSO_COORDENADOR_FUNCIONARIO" />
+        <AssociationConnector Association="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" />
+        <AssociationConnector Association="ECModel.FK_QUESTAO_DISCIPLINA" />
+        <AssociationConnector Association="ECModel.FK_TURMA_DISCIPLINA" />
+        <AssociationConnector Association="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA_FUNCIONARIO" />
+        <AssociationConnector Association="ECModel.fk_EVENTO_PESSOA" />
+        <AssociationConnector Association="ECModel.FK_ID_TIPOEVENTO" />
+        <AssociationConnector Association="ECModel.fk_FUNCIONARIO_PESSOA" />
+        <AssociationConnector Association="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" />
+        <AssociationConnector Association="ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO" />
+        <AssociationConnector Association="ECModel.FK_TURMA_FUNCIONARIO" />
+        <AssociationConnector Association="ECModel.FK_USUARIO_FUNCIONARIO" />
+        <AssociationConnector Association="ECModel.Fk_LANCAMENTO_TIPOLANCAM" />
+        <AssociationConnector Association="ECModel.Fk_LANCAMENTO_TURMA" />
+        <AssociationConnector Association="ECModel.fk_COMPROMISSO_PESSOA" />
+        <AssociationConnector Association="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA" />
+        <AssociationConnector Association="ECModel.FK_QUESTAO_PROVA" />
+        <AssociationConnector Association="ECModel.FK_RESPOSTA_QUESTAO" />
+        <AssociationConnector Association="ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" />
+        <AssociationConnector Association="ECModel.FK_TURMA_REPRESENTANTE_TURMA" />
+        <AssociationConnector Association="ECModel.FK_ASSTRATADOS" />
+        <AssociationConnector Association="ECModel.fk_REUNIAO_COMPROMISSO" />
+        <AssociationConnector Association="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO" />
+        <AssociationConnector Association="ECModel.fk_REUNIAO_PAUTA" />
+        <AssociationConnector Association="ECModel.FK_REUNIAO_SEMESTRE" />
+        <AssociationConnector Association="ECModel.FK_TIPOREUNIAO" />
+        <AssociationConnector Association="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO" />
+        <AssociationConnector Association="ECModel.FK_TURMA_TIPO" />
         
         
         
@@ -84,56 +169,56 @@
         
         
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; .r49
-        <AssociationConnector Association="ECModel.ACAO_STATUS" />
-        <AssociationConnector Association="ECModel.FK_ACAO_AMC_AMC" />
-        <AssociationConnector Association="ECModel.fk_ACAO_PESSOA" />
-        <AssociationConnector Association="ECModel.fk_ACAO_REUNIAO_ACAO" />
-        <AssociationConnector Association="ECModel.fk_EVENTO_aCAO" />
-        <AssociationConnector Association="ECModel.fk_PRIORIDADE_ACAO_ACAO" />
-        <AssociationConnector Association="ECModel.FK_ACAO_AMC_ACAO" />
-        <AssociationConnector Association="ECModel.fk_acao_evento" />
-        <AssociationConnector Association="ECModel.fk_ACAO_REUNIAO_REUNIAO" />
-        <AssociationConnector Association="ECModel.FK_ALUNO_CURSO_ALUNO" />
-        <AssociationConnector Association="ECModel.fk_PESSOA_ALUNO" />
-        <AssociationConnector Association="ECModel.FK_ALUNO_AMC" />
-        <AssociationConnector Association="ECModel.FK_ALUNO_AMC_ALUNO_AMC" />
-        <AssociationConnector Association="ECModel.FK_ALUNO_CURSO_TURMA" />
-        <AssociationConnector Association="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" />
-        <AssociationConnector Association="ECModel.FK_AMC_SEMESTRE" />
-        <AssociationConnector Association="ECModel.FK_QUESTAO_AMC" />
-        <AssociationConnector Association="ECModel.fk_FUNCIONARIO_CARGO" />
-        <AssociationConnector Association="ECModel.FK_COORDENADOR_CURSO" />
-        <AssociationConnector Association="ECModel.Fk_DISCIPLINA_CURSO" />
-        <AssociationConnector Association="ECModel.FK_CURSO_COORDENADOR_FUNCIONARIO" />
-        <AssociationConnector Association="ECModel.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" />
-        <AssociationConnector Association="ECModel.FK_QUESTAO_DISCIPLINA" />
-        <AssociationConnector Association="ECModel.FK_TURMA_DISCIPLINA" />
-        <AssociationConnector Association="ECModel.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" />
-        <AssociationConnector Association="ECModel.fk_EVENTO_PESSOA" />
-        <AssociationConnector Association="ECModel.FK_EVENTO_SEMESTRE" />
-        <AssociationConnector Association="ECModel.FK_ID_TIPOEVENTO" />
-        <AssociationConnector Association="ECModel.fk_FUNCIONARIO_PESSOA" />
-        <AssociationConnector Association="ECModel.FK_PROVA_FUNCIONARIO_CADASTRO" />
-        <AssociationConnector Association="ECModel.FK_QUESTAO_FUNCIONARIO_CADASTRO" />
-        <AssociationConnector Association="ECModel.FK_TURMA_FUNCIONARIO" />
-        <AssociationConnector Association="ECModel.FK_USUARIO_FUNCIONARIO" />
-        <AssociationConnector Association="ECModel.FK_LANCAMENTO_SEMESTRE" />
-        <AssociationConnector Association="ECModel.Fk_LANCAMENTO_TIPOLANCAM" />
-        <AssociationConnector Association="ECModel.Fk_LANCAMENTO_TURMA" />
-        <AssociationConnector Association="ECModel.fk_COMPROMISSO_PESSOA" />
-        <AssociationConnector Association="ECModel.FK_REUNIAO_PARTICIPANTE_PESSOA" />
-        <AssociationConnector Association="ECModel.FK_QUESTAO_PROVA" />
-        <AssociationConnector Association="ECModel.FK_RESPOSTA_QUESTAO" />
-        <AssociationConnector Association="ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" />
-        <AssociationConnector Association="ECModel.FK_TURMA_REPRESENTANTE_TURMA" />
-        <AssociationConnector Association="ECModel.FK_ASSTRATADOS" />
-        <AssociationConnector Association="ECModel.fk_REUNIAO_COMPROMISSO" />
-        <AssociationConnector Association="ECModel.FK_REUNIAO_PARTICIPANTE_REUNIAO" />
-        <AssociationConnector Association="ECModel.fk_REUNIAO_PAUTA" />
-        <AssociationConnector Association="ECModel.FK_REUNIAO_SEMESTRE" />
-        <AssociationConnector Association="ECModel.FK_TIPOREUNIAO" />
-        <AssociationConnector Association="ECModel.fk_ASSUNTRATADO_TIPOASSTRATADO" />
-        <AssociationConnector Association="ECModel.FK_TURMA_TIPO" />
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -49,16 +49,11 @@
         </div>
 
         <div class="row">
-            <%--<div class="column w250">--%>
-<<<<<<< .mine
-                Pergunta:<br />
-            <sgi:TextArea ID="TxtDescricao" runat="server" Width="80%" Rows="5" MaxLength="3000" RequiredField="true" ErrorMessage="É obrigatorio informar a pergunta"></sgi:TextArea>
-=======
+            <div >
                 Pergunta:<br/>
                 <sgi:TextArea ID="TxtDescricao" runat="server" Width="80%" Rows="5" MaxLength="3000" RequiredField="true"></sgi:TextArea>
                 <asp:RequiredFieldValidator ID="rfv0" runat="server" ControlToValidate="TxtDescricao" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator> 
->>>>>>> .r49
-            <%--</div>--%>
+            </div>
         </div>
 
         <div class="row">
@@ -113,7 +108,7 @@
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha5" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
-                <asp:HiddenField ID="hddIdResposta5" runat="server" OnValueChanged="hddIdResposta5_ValueChanged" />
+                <asp:HiddenField ID="hddIdResposta5" runat="server"/>
             </div>
         </div>
 

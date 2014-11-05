@@ -58,9 +58,7 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.TextArea TxtDescricao;
         
         /// <summary>
-<<<<<<< .mine
         /// Controle upLoad.
-=======
         /// rfv0 control.
         /// </summary>
         /// <remarks>
@@ -71,7 +69,6 @@ namespace UI.Web.EC.Paginas {
         
         /// <summary>
         /// upLoad control.
->>>>>>> .r49
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.

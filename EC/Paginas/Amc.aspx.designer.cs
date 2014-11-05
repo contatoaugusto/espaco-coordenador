@@ -40,9 +40,7 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.Label lblSemestreCorrente;
         
         /// <summary>
-<<<<<<< .mine
         /// Controle dtAplicacao.
-=======
         /// lblCursoUnico control.
         /// </summary>
         /// <remarks>
@@ -53,7 +51,6 @@ namespace UI.Web.EC.Paginas {
         
         /// <summary>
         /// dtAplicacao control.
->>>>>>> .r49
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
