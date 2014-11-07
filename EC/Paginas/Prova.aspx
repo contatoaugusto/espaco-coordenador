@@ -11,7 +11,7 @@
     
          <div class="form-in">
             <div class="row" id="divInstrucoesGeraProva" runat="server">
-                A partir do banco de questões previamente criado, ao cliclar no botão Gerar Prova, 
+                A partir do banco de questões previamente criado, ao clicar no botão Gerar Prova, 
                 o sistema irá selecionar, de forma aleatória, 32 dessas questões pertencentes a AMC selecionada e 
                 motar uma prova com seu gabarito correspondente.
             </div>
@@ -54,7 +54,7 @@
         </div>
         
         <div class="form-separator"></div>
-        s
+        
         <div class="form-bottombuttons">
             <asp:Button ID="btnSalvar" runat="server" Text="Gerar Prova" OnClick="btnGerarProva_Click"/>
             <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
@@ -63,11 +63,11 @@
     <div class="form-separator"></div>
 
     <h3>AMCs Cadastradas</h3>
-    <sgi:GridView ID="GridView1"
+    <sgi:GridView ID="grvProva"
         runat="server"
         AutoGenerateColumns="False"
         DataKeyNames="ID_PROVA"
-        DataSourceID="SqlDataSource"
+        
         BackColor="#BFBFBF"
         BorderColor="#BFBFBF"
         BorderStyle="Solid"
@@ -91,11 +91,6 @@
 
         </Columns>
 
-        <HeaderStyle CssClass="gridviewrowheader"></HeaderStyle>
-
-        <PagerStyle CssClass="gridviewpaging"></PagerStyle>
-
-        <RowStyle CssClass="gridviewrow"></RowStyle>
-    </sgi:GridView>
-    <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ECEntities %>" SelectCommand="SELECT * FROM [PROVA]"></asp:SqlDataSource>
+     </sgi:GridView>
+    <%--<asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ECEntities %>" SelectCommand="SELECT * FROM [PROVA]"></asp:SqlDataSource>--%>
 </asp:Content>

@@ -53,10 +53,16 @@
         <div class="form-separator"></div>
 
         <h3>Questões</h3>
-        <sgi:GridView ID="grdQuestao" runat="server" AutoGenerateColumns="False" OnRowCommand="grdQuestao_RowCommand">
+        <sgi:GridView 
+            ID="grdQuestao" 
+            runat="server" 
+            AutoGenerateColumns="False" 
+            OnRowCommand="grdQuestao_RowCommand"
+            AllowPaging="true" PageSize="10"
+            OnPageIndexChanging="grdItens_PageIndexChanging">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="DESCRICAO" HeaderText="Questão" HeaderStyle-Width="60%" />
+                <asp:BoundField DataField="DESCRICAO" HeaderText="Questão" HeaderStyle-Width="55%" />
                 <asp:TemplateField HeaderText="Funcionario">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("FUNCIONARIO.PESSOA.NOME") %>'></asp:Label>
@@ -75,7 +81,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
-                    </sgi:GridView>
+        </sgi:GridView>
     </div>
    
 </asp:Content>

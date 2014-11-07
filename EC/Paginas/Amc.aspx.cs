@@ -68,8 +68,10 @@ namespace UI.Web.EC.Paginas
             {
                 AMC amc = new AMC();
 
+                string horaMinuto = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":00";
+
                 amc.ID_SEMESTRE = ((SessionUsuario)Session[Const.USUARIO]).IdSemestre;
-                amc.DATA_APLICACAO = Library.ToDate(dtAplicacao.Text);
+                amc.DATA_APLICACAO = Library.ToDate(dtAplicacao.Text + " " + horaMinuto);
 
                 if (NAmc.Salvar(amc))
                     ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");

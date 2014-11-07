@@ -10,7 +10,7 @@
 namespace UI.Web.EC.Paginas {
     
     
-    public partial class Prova {
+    public partial class RepresentanteTurma {
         
         /// <summary>
         /// messageBox control.
@@ -22,75 +22,120 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.MessageBox messageBox;
         
         /// <summary>
-        /// pnlProva control.
+        /// txtRA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlProva;
+        protected global::System.Web.UI.WebControls.TextBox txtRA;
         
         /// <summary>
-        /// divInstrucoesGeraProva control.
+        /// rfv0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstrucoesGeraProva;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv0;
         
         /// <summary>
-        /// ddlAmc control.
+        /// btnConsultar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EC.UI.WebControls.DropDownList ddlAmc;
+        protected global::EC.UI.WebControls.Button btnConsultar;
         
         /// <summary>
-        /// lblCursoUnico control.
+        /// pnlRepresentante control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCursoUnico;
+        protected global::System.Web.UI.WebControls.Panel pnlRepresentante;
         
         /// <summary>
-        /// txtQuantidadeQuestoes control.
+        /// lblRA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantidadeQuestoes;
+        protected global::System.Web.UI.WebControls.Label lblRA;
         
         /// <summary>
-        /// txtObservacao control.
+        /// lblNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtObservacao;
+        protected global::System.Web.UI.WebControls.Label lblNome;
         
         /// <summary>
-        /// btnSalvar control.
+        /// lblEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalvar;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// grvProva control.
+        /// lblTelefone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EC.UI.WebControls.GridView grvProva;
+        protected global::System.Web.UI.WebControls.Label lblTelefone;
+        
+        /// <summary>
+        /// chkTitular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.CheckBox chkTitular;
+        
+        /// <summary>
+        /// chkSuplente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.CheckBox chkSuplente;
+        
+        /// <summary>
+        /// btnConfirmar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.Button btnConfirmar;
+        
+        /// <summary>
+        /// messageBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.MessageBox messageBox1;
+        
+        /// <summary>
+        /// alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.AlertBox alert;
     }
 }
