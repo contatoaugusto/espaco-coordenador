@@ -110,5 +110,12 @@ namespace UI.Web.EC.Paginas
                 Context.Response.Redirect("~/Paginas/Questao.aspx?idQuestao=" + Library.ToInteger(e.CommandArgument));
             }
         }
+
+        protected void grdItens_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdQuestao.PageIndex = e.NewPageIndex;
+            CarregarQuestao();
+        }
+
     }
 }

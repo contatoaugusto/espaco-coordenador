@@ -334,7 +334,7 @@ div#content div#menu
                     padding: 10px;
                     position: relative;
                     float: left;
-                    width: 160px;
+                    width: 180px;
                 }
 
                     div#content div#menu div#items > ul > li.mega > div > ul > li
@@ -645,20 +645,16 @@ div.form-in
 div.form-bottombuttons
 {
     position: relative;
- 
-
-div.form-in
-{
-    position: relative;
-    background-color: #f9f9f9;
-    padding: 13px;
-    height: 114px;
+    padding-top: 8px;
     clear: both;
-    top: 9px;
-    left: 0px;
+    display: inline;
 }
 
-amily: Verdana;
+div.form-title
+{
+    position: relative;
+    width: auto;
+    font-family: Verdana;
     font-size: 13px;
     font-weight: 800;
     text-transform: none;
@@ -713,11 +709,8 @@ div.column
 {
     float: left;
     display: block;
+    margin: 0px;
     margin-right: 3px;
-    width: 70px;
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
 

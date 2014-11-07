@@ -62,10 +62,18 @@ namespace EC.Dado
             return true;
         }
 
+        public List<PROVA> Consultar()
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                return db.PROVA.ToList();
+            }
+        }
 
+        
         public void Salvar(PROVA obj)
         {
-           using (ECEntities db = new ECEntities())
+            using (ECEntities db = new ECEntities())
             {
                 db.AddToPROVA(obj);
                 db.SaveChanges();

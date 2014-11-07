@@ -16,6 +16,15 @@ namespace EC.Negocio
             return (new DProva()).GerarProvaRandomicamente(idAmc, idCurso, qtdeQuestoes, idFuncionario);
         }
 
+        public static List<PROVA> Consultar()
+        {
+            return (new DProva()).Consultar();
+        }
+
+        //public static List<PROVA> ConsultarBySemestre(int idSemestre)
+        //{
+        //    return (new DProva()).ConsultarBySemestre(idSemestre);
+        //}
 
         public static void Salvar(PROVA obj)
         {

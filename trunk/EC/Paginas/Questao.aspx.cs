@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 using EC.Common;
 using EC.Negocio;
 using EC.Modelo;
-using EC.Modelo;
 using EC.UI.WebControls;
 
 namespace UI.Web.EC.Paginas

@@ -25,8 +25,15 @@ namespace UI.Web.EC.Paginas
 
             CarregarAmc();
             CarregaSemestreCorrente();
+            CarregarProva();
         }
 
+
+        private void CarregarProva()
+        {
+            grvProva.DataSource = NProva.Consultar();
+            grvProva.DataBind();
+        }
 
         private void CarregarAmc()
         {
