@@ -84,7 +84,7 @@
     
         <div class="form-bottombuttons">
             <asp:Button ID="Button1" runat="server" Text="Salvar" OnClick="Button1_Click"/>
-            <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+            <%--<sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />--%>
         </div>
     </div>
     

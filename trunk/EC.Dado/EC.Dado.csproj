@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAcao.cs" />
+    <Compile Include="DAluno.cs" />
     <Compile Include="DTurma.cs" />
     <Compile Include="DAmc.cs" />
     <Compile Include="DCargo.cs" />
