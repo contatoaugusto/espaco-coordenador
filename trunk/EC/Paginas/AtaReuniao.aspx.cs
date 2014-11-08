@@ -161,7 +161,19 @@ namespace UI.Web.EC.Paginas
             lblHoraReuniao.Text = reuniao.DATAHORA.ToDate().Hour.ToString() + ":" + reuniao.DATAHORA.ToDate().Minute.ToString();
             lblLocalReuniao.Text = reuniao.LOCAL;
 
-            grdParticipantesReuniao.DataSource = NReuniao.ConsultarParticipante(reuniao.ID_REUNIAO);
+            var participantes = NReuniao.ConsultarParticipante(reuniao.ID_REUNIAO);
+            List<PESSOA> pessoas = new List<PESSOA>();
+            foreach (var participante in participantes)
+            {
+                PESSOA p = new PESSOA();
+                p.ID_PESSOA = participante.PESSOA.ID_PESSOA;
+                p.NOME = participante.PESSOA.NOME;
+                p.TELEFONE = participante.PESSOA.TELEFONE;
+                p.EMAIL = participante.PESSOA.EMAIL;
+                pessoas.Add(p);
+            }
+
+            grdParticipantesReuniao.DataSource = pessoas;
             grdParticipantesReuniao.DataBind();
 
             var pautas = NReuniaoPauta.ConsultarByReuniao(reuniao.ID_REUNIAO);
