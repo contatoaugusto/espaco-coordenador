@@ -247,7 +247,7 @@
           <Key>
             <PropertyRef Name="ID_PARTICIPANTE" />
           </Key>
-          <Property Name="ID_PARTICIPANTE" Type="int" Nullable="false" />
+          <Property Name="ID_PARTICIPANTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_REUNIAO" Type="int" Nullable="false" />
           <Property Name="PRESENCA" Type="bit" />
           <Property Name="ID_PESSOA" Type="int" />
@@ -1754,7 +1754,7 @@
           <Key>
             <PropertyRef Name="ID_PARTICIPANTE" />
           </Key>
-          <Property Name="ID_PARTICIPANTE" Type="Int32" Nullable="false" />
+          <Property Name="ID_PARTICIPANTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_REUNIAO" Type="Int32" Nullable="false" />
           <Property Name="PRESENCA" Type="Boolean" />
           <Property Name="ID_PESSOA" Type="Int32" />

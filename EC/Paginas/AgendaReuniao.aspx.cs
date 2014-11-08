@@ -13,8 +13,14 @@ namespace UI.Web.EC.Reuniao
 {
     public partial class AgendaReuniao : System.Web.UI.Page
     {
-        public static EntityCollection<REUNIAO_PAUTA> pautas;
+        public static List<REUNIAO_PAUTA> pautas;
         public static List<PESSOA> participantes;
+
+        private int idReuniao
+        {
+            get { return Library.ToInteger(ViewState["idReuniao"]); }
+            set { ViewState["idReuniao"] = value; }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,10 +34,58 @@ namespace UI.Web.EC.Reuniao
                 CarregarTipoReuniao();
                 CarregarSemestre();
                 CarregarPessoaParticipante();
-                pautas = new EntityCollection<REUNIAO_PAUTA>();
+                pautas = new List<REUNIAO_PAUTA>();
                 participantes = new List<PESSOA>();
+
+
+                if (Request.QueryString["idReuniao"] != null)
+                {
+                    idReuniao = Request.QueryString["idReuniao"].ToInt32();
+                    CarregarEdicao();
+                }
+
             }   
          }
+
+
+        private void CarregarEdicao()
+        {
+            var reuniao = NReuniao.ConsultarById(idReuniao);
+
+            txtTitulo.Text = reuniao.TITULO;
+            CarregarTipoReuniao();
+            ddlTipoReuniao.SelectedValue = reuniao.ID_TIPOREUNIAO.ToString();
+            txtLocal.Text = reuniao.LOCAL;
+            hddSemestreCorrente.Value = reuniao.ID_SEMESTRE.ToString();
+            CarregarListaAno();
+            ddlAno.SelectedValue = reuniao.DATAHORA.ToDate().Year.ToString();
+            CarregarListaMes();
+            ddlMes.SelectedValue = reuniao.DATAHORA.ToDate().Month.ToString();
+            CarregarListaDia();
+            ddlDia.SelectedValue = reuniao.DATAHORA.ToDate().Day.ToString();
+            CarregarListaHora();
+            ddlHora.SelectedValue = reuniao.DATAHORA.ToDate().Hour.ToString();
+            CarregarListaMinuto();
+            ddlMinuto.SelectedValue = reuniao.DATAHORA.ToDate().Minute.ToString();
+
+            grdPauta.DataSource = NReuniaoPauta.ConsultarByReuniao(idReuniao);
+            grdPauta.DataBind();
+
+            var participantes = NReuniao.ConsultarParticipante(idReuniao);
+            List<PESSOA> pessoas = new List<PESSOA>();
+            foreach (var participante in participantes)
+            {
+                PESSOA p = new PESSOA();
+                p.ID_PESSOA = participante.PESSOA.ID_PESSOA;
+                p.NOME = participante.PESSOA.NOME;
+                p.TELEFONE = participante.PESSOA.TELEFONE;
+                p.EMAIL = participante.PESSOA.EMAIL;
+                pessoas.Add(p);
+            }
+            grdParticipante.DataSource = pessoas;
+            grdParticipante.DataBind();
+
+        }
 
         private void CarregarListaDia()
         {
@@ -134,7 +188,18 @@ namespace UI.Web.EC.Reuniao
             reuniao.LOCAL = txtLocal.Text;
             reuniao.ID_SEMESTRE = int.Parse(hddSemestreCorrente.Value);
             reuniao.DATAHORA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
-            reuniao.REUNIAO_PAUTA = pautas;
+
+            EntityCollection<REUNIAO_PAUTA> reuniao_pautas = new EntityCollection<REUNIAO_PAUTA>();
+            foreach (var obj in pautas)
+            {
+                REUNIAO_PAUTA reuniao_pauta = new REUNIAO_PAUTA();
+                reuniao_pauta.DESCRICAO = obj.DESCRICAO;
+                reuniao_pauta.ITEM = obj.ITEM;
+
+                reuniao_pautas.Add(reuniao_pauta);
+            }
+            reuniao.REUNIAO_PAUTA = reuniao_pautas;
+
 
             EntityCollection<REUNIAO_PARTICIPANTE> reuniao_participantes = new EntityCollection<REUNIAO_PARTICIPANTE>();
             foreach (var obj in participantes)
@@ -145,9 +210,16 @@ namespace UI.Web.EC.Reuniao
             }
             reuniao.REUNIAO_PARTICIPANTE = reuniao_participantes;
 
-            NReuniao.Salvar(reuniao);
-
-            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
+            if (idReuniao > 0)
+            {
+                reuniao.ID_REUNIAO = idReuniao;
+                NReuniao.Atualiza(reuniao);
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "');</script>");
+            }
+            else {
+                NReuniao.Salvar(reuniao);
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
+            }
             Response.Redirect("ConsultarReuniao.aspx", true);
         }
 
@@ -184,16 +256,7 @@ namespace UI.Web.EC.Reuniao
             grdParticipante.DataBind();
 
         }
-        public static string GetCargos(int idPessoa){
-            string cargo = "";
-            var cargoList = NCargo.ConsultarByPessoa(idPessoa);
-
-            foreach (var obj in cargoList) {
-                cargo += obj.DESCRICAO + "\n";
-            }
-
-            return cargo;
-        }
+        
         //http://www.ajaxtutorials.com/general/using-autocomplete-in-the-ajax-toolkit/
         //public static string[] GetNames(string prefixText, int count)
         //{

@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EC.Modelo;
 using EC.Negocio;
+using EC.Common;
 
 namespace UI.Web.EC.Paginas
 {
@@ -145,6 +146,31 @@ namespace UI.Web.EC.Paginas
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
             Response.Redirect("ConsultarAta.aspx", true);
+        }
+
+        protected void ddlReuniao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarDadosReuniao();
+        }
+
+        protected void CarregarDadosReuniao()
+        {
+            var reuniao = NReuniao.ConsultarById(Library.ToInteger(ddlReuniao.SelectedValue));
+            lblNumeroReunião.Text = reuniao.ID_REUNIAO.ToString();
+            lblDataTeuniao.Text = reuniao.DATAHORA.ToDate().Day.ToString() + "/" + reuniao.DATAHORA.ToDate().Month.ToString() + "/" + reuniao.DATAHORA.ToDate().Year.ToString();
+            lblHoraReuniao.Text = reuniao.DATAHORA.ToDate().Hour.ToString() + ":" + reuniao.DATAHORA.ToDate().Minute.ToString();
+            lblLocalReuniao.Text = reuniao.LOCAL;
+
+            grdParticipantesReuniao.DataSource = NReuniao.ConsultarParticipante(reuniao.ID_REUNIAO);
+            grdParticipantesReuniao.DataBind();
+
+            var pautas = NReuniaoPauta.ConsultarByReuniao(reuniao.ID_REUNIAO);
+            foreach (var pauta in pautas)
+            {
+                lblPauta.Text += pauta.DESCRICAO + "\n";
+            }
+
+            pnlAta.Visible = true;
         }
     }
 }

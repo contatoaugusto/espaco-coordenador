@@ -99,6 +99,8 @@ namespace UI.Web.EC.Paginas
         {
             var turmas = NTurma.ConsultarTurmaByAlunoSemestre(hddAluno.Value.ToInt32(), hddSemestre.Value.ToInt32());
 
+            ddlTurma.Items.Clear();
+
             ddlTurma.Items.Add(new ListItem("Selecione", "0"));
 
             if (turmas != null && turmas.Count > 0)

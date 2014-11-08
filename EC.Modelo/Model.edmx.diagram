@@ -392,44 +392,133 @@
         
         
       
-        <EntityTypeShape EntityType="ECModel.ACAO" Width="1.5" PointX="5.6950015619839549" PointY="12.762410810572286" />
-        <EntityTypeShape EntityType="ECModel.ACAO_AMC" Width="1.5" PointX="7.5172443275885854" PointY="26.817951632113175" />
-        <EntityTypeShape EntityType="ECModel.ACAO_EVENTO" Width="1.5" PointX="9.79387839594571" PointY="14.743189475845169" />
-        <EntityTypeShape EntityType="ECModel.ACAO_REUNIAO" Width="1.5" PointX="10.71183539121963" PointY="9.2171638352876357" />
-        <EntityTypeShape EntityType="ECModel.ALUNO" Width="1.5" PointX="11.592732690085068" PointY="16.58863682327263" />
-        <EntityTypeShape EntityType="ECModel.ALUNO_AMC" Width="1.5" PointX="0.025425016891874846" PointY="31.844718724416904" />
-        <EntityTypeShape EntityType="ECModel.ALUNO_MATRICULA" Width="1.5" PointX="11.989928601304968" PointY="26.201515701693257" />
-        <EntityTypeShape EntityType="ECModel.AMC" Width="1.5" PointX="0.033089015648276085" PointY="24.615789499420575" />
-        <EntityTypeShape EntityType="ECModel.CARGO" Width="1.5" PointX="8.227777835087748" PointY="29.960722683910618" />
-        <EntityTypeShape EntityType="ECModel.CURSO" Width="1.5" PointX="9.8061267313575975" PointY="30.858220204179279" />
-        <EntityTypeShape EntityType="ECModel.CURSO_COORDENADOR" Width="1.5" PointX="8.5800474549550785" PointY="30.568435623575205" />
-        <EntityTypeShape EntityType="ECModel.DISCIPLINA" Width="1.5" PointX="2.078143264203399" PointY="8.96837871194276" />
-        <EntityTypeShape EntityType="ECModel.DISCIPLINA_PROFESSOR" Width="1.5" PointX="1.9381275167400611" PointY="22.750357295735906" />
-        <EntityTypeShape EntityType="ECModel.EVENTO" Width="1.5" PointX="11.887412879563595" PointY="17.079284854735846" />
-        <EntityTypeShape EntityType="ECModel.FUNCIONARIO" Width="1.5" PointX="2.40318377427905" PointY="0.3808714153156017" />
-        <EntityTypeShape EntityType="ECModel.LANCAMENTO" Width="1.5" PointX="11.620989315035281" PointY="18.659548157201868" />
-        <EntityTypeShape EntityType="ECModel.PESSOA" Width="1.5" PointX="0.46680204033237044" PointY="23.572920139680114" />
-        <EntityTypeShape EntityType="ECModel.PRIORIDADE_ACAO" Width="1.5" PointX="0.75910603290382117" PointY="18.912946635351027" />
-        <EntityTypeShape EntityType="ECModel.PROVA" Width="1.5" PointX="9.5759128432608733" PointY="18.771907412806481" />
-        <EntityTypeShape EntityType="ECModel.QUESTAO" Width="1.5" PointX="9.8531881057904975" PointY="13.260194441890434" />
-        <EntityTypeShape EntityType="ECModel.REPRESENTANTE_TURMA" Width="1.5" PointX="6.317680687791519" PointY="21.635994697751475" />
-        <EntityTypeShape EntityType="ECModel.RESPOSTA" Width="1.5" PointX="5.9619454582975919" PointY="10.733560403219219" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO" Width="1.5" PointX="4.436722651327365" PointY="21.318450028690719" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_ASSUNTO_TRATADO" Width="1.5" PointX="9.0432226234316921" PointY="3.1090811505490361" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_COMPROMISSO" Width="1.5" PointX="0.12212486012006404" PointY="2.6629430515053416" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_PARTICIPANTE" Width="1.5" PointX="2.2370902273045341" PointY="2.0670805434077422" />
-        <EntityTypeShape EntityType="ECModel.REUNIAO_PAUTA" Width="1.5" PointX="3.2654661514169843" PointY="5.2237777734286048" />
-        <EntityTypeShape EntityType="ECModel.SEMESTRE" Width="1.5" PointX="11.932834541393833" PointY="16.618235208382007" />
-        <EntityTypeShape EntityType="ECModel.STATUS_ACAO" Width="1.5" PointX="2.7077607897612084" PointY="11.077606161626804" />
-        <EntityTypeShape EntityType="ECModel.sysdiagrams" Width="1.5" PointX="8.11860434530238" PointY="3.3666517601193169" />
-        <EntityTypeShape EntityType="ECModel.TIPO_ASSUNTO_TRATADO" Width="1.5" PointX="5.6412831738783433" PointY="11.485609521849831" />
-        <EntityTypeShape EntityType="ECModel.TIPO_EVENTO" Width="1.5" PointX="1.0532526639538131" PointY="30.533082424911242" />
-        <EntityTypeShape EntityType="ECModel.TIPO_LANCAMENTO" Width="1.5" PointX="6.5997494936919541" PointY="13.408251887843131" />
-        <EntityTypeShape EntityType="ECModel.TIPO_REPRESENTANTE" Width="1.5" PointX="11.474967481323969" PointY="8.4002227971331322" />
-        <EntityTypeShape EntityType="ECModel.TIPO_REUNIAO" Width="1.5" PointX="9.066462355231149" PointY="13.175290739711043" />
-        <EntityTypeShape EntityType="ECModel.TIPO_TURMA" Width="1.5" PointX="11.655008219021843" PointY="3.1688334807608434" />
-        <EntityTypeShape EntityType="ECModel.TURMA" Width="1.5" PointX="1.3820829006759836" PointY="12.889476841729822" />
-        <EntityTypeShape EntityType="ECModel.USUARIO" Width="1.5" PointX="5.2541518887757093" PointY="1.244131848795401" />
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        <EntityTypeShape EntityType="ECModel.ACAO" Width="1.5" PointX="3.157185054923028" PointY="28.637963338120823" />
+        <EntityTypeShape EntityType="ECModel.ACAO_AMC" Width="1.5" PointX="6.7297177699998567" PointY="16.951879539038931" />
+        <EntityTypeShape EntityType="ECModel.ACAO_EVENTO" Width="1.5" PointX="1.0870768339778654" PointY="28.94081640101076" />
+        <EntityTypeShape EntityType="ECModel.ACAO_REUNIAO" Width="1.5" PointX="2.1018829765272713" PointY="18.033295729213066" />
+        <EntityTypeShape EntityType="ECModel.ALUNO" Width="1.5" PointX="9.1580221248595155" PointY="11.22797723637334" />
+        <EntityTypeShape EntityType="ECModel.ALUNO_AMC" Width="1.5" PointX="7.8092126528775383" PointY="0.50261659943620518" />
+        <EntityTypeShape EntityType="ECModel.ALUNO_MATRICULA" Width="1.5" PointX="10.853054187657802" PointY="12.771106219278233" />
+        <EntityTypeShape EntityType="ECModel.AMC" Width="1.5" PointX="6.2930307175466007" PointY="1.1649056678474441" />
+        <EntityTypeShape EntityType="ECModel.CARGO" Width="1.5" PointX="9.9313174346142059" PointY="12.024745544430216" />
+        <EntityTypeShape EntityType="ECModel.CURSO" Width="1.5" PointX="2.1180694541512382" PointY="22.457823391285643" />
+        <EntityTypeShape EntityType="ECModel.CURSO_COORDENADOR" Width="1.5" PointX="8.37279113585725" PointY="17.834384673197931" />
+        <EntityTypeShape EntityType="ECModel.DISCIPLINA" Width="1.5" PointX="0.81311347373440557" PointY="22.715181614605328" />
+        <EntityTypeShape EntityType="ECModel.DISCIPLINA_PROFESSOR" Width="1.5" PointX="4.1488486510463281" PointY="17.389791228524313" />
+        <EntityTypeShape EntityType="ECModel.EVENTO" Width="1.5" PointX="9.86192002047874" PointY="5.683113711738546" />
+        <EntityTypeShape EntityType="ECModel.FUNCIONARIO" Width="1.5" PointX="5.3287146619189141" PointY="16.470570661346695" />
+        <EntityTypeShape EntityType="ECModel.LANCAMENTO" Width="1.5" PointX="3.4021700524735126" PointY="22.654259781657839" />
+        <EntityTypeShape EntityType="ECModel.PESSOA" Width="1.5" PointX="6.29208170170527" PointY="17.858242117733809" />
+        <EntityTypeShape EntityType="ECModel.PRIORIDADE_ACAO" Width="1.5" PointX="2.8235868508106039" PointY="12.508164843780996" />
+        <EntityTypeShape EntityType="ECModel.PROVA" Width="1.5" PointX="10.453339050735039" PointY="28.700895203603849" />
+        <EntityTypeShape EntityType="ECModel.QUESTAO" Width="1.5" PointX="9.2483159365357448" PointY="16.087603874545358" />
+        <EntityTypeShape EntityType="ECModel.REPRESENTANTE_TURMA" Width="1.5" PointX="10.846634705945213" PointY="8.8592663597591539" />
+        <EntityTypeShape EntityType="ECModel.RESPOSTA" Width="1.5" PointX="8.0478577297403753" PointY="11.04787518598506" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO" Width="1.5" PointX="9.0598516934830009" PointY="13.550619534007563" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_ASSUNTO_TRATADO" Width="1.5" PointX="5.2171294694846164" PointY="6.6391675503175556" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_COMPROMISSO" Width="1.5" PointX="5.3474389451311151" PointY="25.13206931628849" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_PARTICIPANTE" Width="1.5" PointX="6.0656806854837022" PointY="7.6765170729144092" />
+        <EntityTypeShape EntityType="ECModel.REUNIAO_PAUTA" Width="1.5" PointX="5.1912568366114318" PointY="25.8675212384516" />
+        <EntityTypeShape EntityType="ECModel.SEMESTRE" Width="1.5" PointX="6.0764768449945734" PointY="22.584775473263477" />
+        <EntityTypeShape EntityType="ECModel.STATUS_ACAO" Width="1.5" PointX="9.9261227780609023" PointY="27.230732438727625" />
+        <EntityTypeShape EntityType="ECModel.sysdiagrams" Width="1.5" PointX="2.20810617609327" PointY="17.509080328749995" />
+        <EntityTypeShape EntityType="ECModel.TIPO_ASSUNTO_TRATADO" Width="1.5" PointX="0.99088612990029434" PointY="31.921907559000843" />
+        <EntityTypeShape EntityType="ECModel.TIPO_EVENTO" Width="1.5" PointX="1.4337712365359865" PointY="7.9508216716120117" />
+        <EntityTypeShape EntityType="ECModel.TIPO_LANCAMENTO" Width="1.5" PointX="0.8083214111664897" PointY="30.170307292682264" />
+        <EntityTypeShape EntityType="ECModel.TIPO_REPRESENTANTE" Width="1.5" PointX="5.8963995230833071" PointY="11.083235716020333" />
+        <EntityTypeShape EntityType="ECModel.TIPO_REUNIAO" Width="1.5" PointX="1.9655779814187335" PointY="4.2732504030099374" />
+        <EntityTypeShape EntityType="ECModel.TIPO_TURMA" Width="1.5" PointX="1.9835005747077523" PointY="29.782617955367368" />
+        <EntityTypeShape EntityType="ECModel.TURMA" Width="1.5" PointX="7.2609636426255868" PointY="21.56058133652461" />
+        <EntityTypeShape EntityType="ECModel.USUARIO" Width="1.5" PointX="9.575049065786903" PointY="13.468176669193515" />
         <AssociationConnector Association="ECModel.ACAO_STATUS" />
         <AssociationConnector Association="ECModel.FK_ACAO_AMC_AMC" />
         <AssociationConnector Association="ECModel.fk_ACAO_PESSOA" />

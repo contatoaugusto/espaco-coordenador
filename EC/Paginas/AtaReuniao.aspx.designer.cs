@@ -85,6 +85,15 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.GridView grdParticipantesReuniao;
         
         /// <summary>
+        /// lblPauta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPauta;
+        
+        /// <summary>
         /// btntransferirPendencias control.
         /// </summary>
         /// <remarks>

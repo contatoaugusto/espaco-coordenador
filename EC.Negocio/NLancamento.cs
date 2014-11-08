@@ -21,7 +21,7 @@ namespace EC.Negocio
 
         public static List<PESSOA> ConsultarPessoa()
         {
-            return (new DEvento()).ConsultarPessoa();
+            return (new DPessoa()).Consultar();
         }
         public static List<LANCAMENTO> ConsultarLancamento()
         {
