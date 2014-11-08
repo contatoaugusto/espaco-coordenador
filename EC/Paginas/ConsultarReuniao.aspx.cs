@@ -48,23 +48,34 @@ namespace UI.Web.EC.Paginas
 
         protected void btConsultar_Click(object sender, EventArgs e)
         {
-             {
-                 if (ddlTipoReuniao.SelectedValue == "")
             {
-                //MENSAGEM
+                if (ddlTipoReuniao.SelectedValue == "")
+                {
+                    //MENSAGEM
+                }
+                else
+                {
+                    CarregarReunioes();
+                }
             }
-            else
-            {
-               REUNIAO reuniao = new REUNIAO();
-                if (ddlTipoReuniao.SelectedValue != "")
-                    reuniao.ID_TIPOREUNIAO = Convert.ToInt32(ddlTipoReuniao.SelectedValue);
-        
-                var lista = NReuniao.ConsultarReuniao(reuniao);
-
-                grdReuniao.DataSource = lista;
-                grdReuniao.DataBind();
-            }            
         }
+
+        private void CarregarReunioes()
+        {
+            REUNIAO reuniao = new REUNIAO();
+            if (ddlTipoReuniao.SelectedValue != "")
+                reuniao.ID_TIPOREUNIAO = Convert.ToInt32(ddlTipoReuniao.SelectedValue);
+
+            var lista = NReuniao.ConsultarReuniao(reuniao);
+
+            grdReuniao.DataSource = lista;
+            grdReuniao.DataBind();
+        }
+
+        protected void grdItens_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdReuniao.PageIndex = e.NewPageIndex;
+            CarregarReunioes();
         }
     }
 }

@@ -71,10 +71,15 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarTurma()
         {
-            ddlTurma.DataSource = NLancamento.ConsultarTurma();
-            ddlTurma.DataTextField = "ANO";
-            ddlTurma.DataValueField = "ID_TURMA";
-            ddlTurma.DataBind();
+            var turmas = NLancamento.ConsultarTurma();
+
+            ddlTurma.Items.Add(new ListItem("Selecione", "0"));
+            foreach (var turma in turmas)
+            {
+                ddlTurma.Items.Add(new ListItem(turma.SEMESTRE.SEMESTRE1 + "º sem/" + turma.SEMESTRE.ANO, turma.ID_TURMA.ToString()));
+
+            }
+          
         }
         private void CarregarTipolancamento()
         {

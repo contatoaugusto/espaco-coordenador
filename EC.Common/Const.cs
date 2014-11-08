@@ -555,6 +555,8 @@ namespace EC.Common
         public static readonly string MENSAGEM_INCLUSAO_SUCESSO = "Registro Cadastrado com sucesso!";
         public static readonly string MENSAGEM_ALTERACAO_SUCESSO = "Registro Alterado com sucesso!";
         public static readonly string MENSAGEM_CADASTRO_NAO_LOCALIZADO = "Cadastro não localizado no sistema";
+        public static readonly string MENSAGEM_CADASTRO_ALUNO_NAO_MATRICULADO = "Aluno não matriculado.";
+        public static readonly string MENSAGEM_CADASTRO_ALUNO_SEM_TURMA = "Aluno sem turma cadastrada.";
         
         public static readonly string APP_TYPE_PDF = "application/pdf";
     }

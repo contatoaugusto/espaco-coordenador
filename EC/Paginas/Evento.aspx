@@ -61,11 +61,11 @@
                 Inicio:
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlDia" runat="server">
-                </asp:DropDownList>
-                <asp:DropDownList ID="ddlMes" runat="server">
-                </asp:DropDownList>
+                <asp:DropDownList ID="ddlDia" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMes" runat="server"></asp:DropDownList>
                 <asp:DropDownList ID="ddlAno" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlHora" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMinuto" runat="server"></asp:DropDownList>
             </div>
         </div>
 
@@ -74,11 +74,11 @@
                 Conclusão:
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlDia1" runat="server">
-                </asp:DropDownList>
-                <asp:DropDownList ID="ddlMes1" runat="server">
-                </asp:DropDownList>
+                <asp:DropDownList ID="ddlDia1" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMes1" runat="server"></asp:DropDownList>
                 <asp:DropDownList ID="ddlAno1" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlHora1" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMinuto1" runat="server"></asp:DropDownList>
             </div>
         </div>
     

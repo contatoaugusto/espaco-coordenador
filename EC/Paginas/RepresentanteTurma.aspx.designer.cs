@@ -58,6 +58,15 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.Panel pnlRepresentante;
         
         /// <summary>
+        /// hddAluno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddAluno;
+        
+        /// <summary>
         /// lblRA control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,42 @@ namespace UI.Web.EC.Paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNome;
+        
+        /// <summary>
+        /// hddSemestre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddSemestre;
+        
+        /// <summary>
+        /// lblSemestreCorrente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSemestreCorrente;
+        
+        /// <summary>
+        /// ddlTurma control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTurma;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// lblEmail control.
@@ -94,22 +139,22 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.Label lblTelefone;
         
         /// <summary>
-        /// chkTitular control.
+        /// rdTitular control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EC.UI.WebControls.CheckBox chkTitular;
+        protected global::System.Web.UI.WebControls.RadioButton rdTitular;
         
         /// <summary>
-        /// chkSuplente control.
+        /// rdSuplente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::EC.UI.WebControls.CheckBox chkSuplente;
+        protected global::System.Web.UI.WebControls.RadioButton rdSuplente;
         
         /// <summary>
         /// btnConfirmar control.
