@@ -58,6 +58,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ECModel", "FK_REUNIAO_PARTICIPANTE_PESSOA", "PESSOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PESSOA), "REUNIAO_PARTICIPANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_PARTICIPANTE), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_QUESTAO_PROVA", "PROVA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.PROVA), "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.QUESTAO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_RESPOSTA_QUESTAO", "QUESTAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.QUESTAO), "RESPOSTA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.RESPOSTA), true)]
+[assembly: EdmRelationshipAttribute("ECModel", "FK_REPRESENTANTE_TURMA_TURMA", "TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TURMA), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.TIPO_REPRESENTANTE), "REPRESENTANTE_TURMA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REPRESENTANTE_TURMA), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "FK_ASSTRATADOS", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "REUNIAO_ASSUNTO_TRATADO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_ASSUNTO_TRATADO), true)]
 [assembly: EdmRelationshipAttribute("ECModel", "fk_REUNIAO_COMPROMISSO", "REUNIAO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EC.Modelo.REUNIAO), "REUNIAO_COMPROMISSO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EC.Modelo.REUNIAO_COMPROMISSO), true)]
@@ -6069,6 +6070,44 @@ namespace EC.Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_REPRESENTANTE_TURMA_TURMA", "TURMA")]
+        public TURMA TURMA
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_REPRESENTANTE_TURMA_TURMA", "TURMA").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_REPRESENTANTE_TURMA_TURMA", "TURMA").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TURMA> TURMAReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TURMA>("ECModel.FK_REPRESENTANTE_TURMA_TURMA", "TURMA");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TURMA>("ECModel.FK_REPRESENTANTE_TURMA_TURMA", "TURMA", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA", "TIPO_REPRESENTANTE")]
         public TIPO_REPRESENTANTE TIPO_REPRESENTANTE
         {
@@ -8757,6 +8796,28 @@ namespace EC.Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LANCAMENTO>("ECModel.Fk_LANCAMENTO_TURMA", "LANCAMENTO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ECModel", "FK_REPRESENTANTE_TURMA_TURMA", "REPRESENTANTE_TURMA")]
+        public EntityCollection<REPRESENTANTE_TURMA> REPRESENTANTE_TURMA
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_REPRESENTANTE_TURMA_TURMA", "REPRESENTANTE_TURMA");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<REPRESENTANTE_TURMA>("ECModel.FK_REPRESENTANTE_TURMA_TURMA", "REPRESENTANTE_TURMA", value);
                 }
             }
         }

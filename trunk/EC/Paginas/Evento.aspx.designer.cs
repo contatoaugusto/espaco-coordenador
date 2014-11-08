@@ -94,6 +94,24 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.DropDownList ddlAno;
         
         /// <summary>
+        /// ddlHora control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHora;
+        
+        /// <summary>
+        /// ddlMinuto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMinuto;
+        
+        /// <summary>
         /// ddlDia1 control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,24 @@ namespace UI.Web.EC.Paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAno1;
+        
+        /// <summary>
+        /// ddlHora1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHora1;
+        
+        /// <summary>
+        /// ddlMinuto1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMinuto1;
         
         /// <summary>
         /// Button1 control.

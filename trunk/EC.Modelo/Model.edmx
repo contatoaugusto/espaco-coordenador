@@ -803,6 +803,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_REPRESENTANTE_TURMA_TURMA">
+          <End Role="TURMA" Type="Self.TURMA" Multiplicity="0..1" />
+          <End Role="REPRESENTANTE_TURMA" Type="Self.REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RESPOSTA_QUESTAO">
           <End Role="QUESTAO" Type="Self.QUESTAO" Multiplicity="0..1" />
           <End Role="RESPOSTA" Type="Self.RESPOSTA" Multiplicity="*" />
@@ -1126,6 +1138,10 @@
             <End Role="ALUNO_MATRICULA" EntitySet="ALUNO_MATRICULA" />
             <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
+          <AssociationSet Name="FK_REPRESENTANTE_TURMA_TURMA" Association="Self.FK_REPRESENTANTE_TURMA_TURMA">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
+          </AssociationSet>
           <AssociationSet Name="FK_RESPOSTA_QUESTAO" Association="Self.FK_RESPOSTA_QUESTAO">
             <End Role="QUESTAO" EntitySet="QUESTAO" />
             <End Role="RESPOSTA" EntitySet="RESPOSTA" />
@@ -1369,6 +1385,10 @@
           <AssociationSet Name="FK_RESPOSTA_QUESTAO" Association="ECModel.FK_RESPOSTA_QUESTAO">
             <End Role="QUESTAO" EntitySet="QUESTAO" />
             <End Role="RESPOSTA" EntitySet="RESPOSTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPRESENTANTE_TURMA_TURMA" Association="ECModel.FK_REPRESENTANTE_TURMA_TURMA">
+            <End Role="TURMA" EntitySet="TURMA" />
+            <End Role="REPRESENTANTE_TURMA" EntitySet="REPRESENTANTE_TURMA" />
           </AssociationSet>
           <AssociationSet Name="FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" Association="ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA">
             <End Role="TIPO_REPRESENTANTE" EntitySet="TIPO_REPRESENTANTE" />
@@ -1674,6 +1694,7 @@
           <Property Name="ID_ALUNO_MATRICULA" Type="Int32" />
           <Property Name="ID_TURMA" Type="Int32" />
           <NavigationProperty Name="ALUNO_MATRICULA" Relationship="ECModel.FK_REPRESENTANTE_TURMA_ALUNO_CURSO" FromRole="REPRESENTANTE_TURMA" ToRole="ALUNO_MATRICULA" />
+          <NavigationProperty Name="TURMA" Relationship="ECModel.FK_REPRESENTANTE_TURMA_TURMA" FromRole="REPRESENTANTE_TURMA" ToRole="TURMA" />
           <NavigationProperty Name="TIPO_REPRESENTANTE" Relationship="ECModel.FK_TIPO_REPRESENTANTE_REPRESENTANTE_TURMA" FromRole="REPRESENTANTE_TURMA" ToRole="TIPO_REPRESENTANTE" />
         </EntityType>
         <EntityType Name="RESPOSTA">
@@ -1837,6 +1858,7 @@
           <Property Name="ID_SEMESTRE" Type="Int32" />
           <NavigationProperty Name="ALUNO_MATRICULA" Relationship="ECModel.FK_ALUNO_CURSO_TURMA" FromRole="TURMA" ToRole="ALUNO_MATRICULA" />
           <NavigationProperty Name="LANCAMENTO" Relationship="ECModel.Fk_LANCAMENTO_TURMA" FromRole="TURMA" ToRole="LANCAMENTO" />
+          <NavigationProperty Name="REPRESENTANTE_TURMA" Relationship="ECModel.FK_REPRESENTANTE_TURMA_TURMA" FromRole="TURMA" ToRole="REPRESENTANTE_TURMA" />
           <NavigationProperty Name="SEMESTRE" Relationship="ECModel.FK_TURMA_SEMESTRE" FromRole="TURMA" ToRole="SEMESTRE" />
           <NavigationProperty Name="TIPO_TURMA" Relationship="ECModel.FK_TURMA_TIPOTURMA" FromRole="TURMA" ToRole="TIPO_TURMA" />
         </EntityType>
@@ -2316,6 +2338,18 @@
             </Principal>
             <Dependent Role="RESPOSTA">
               <PropertyRef Name="ID_QUESTAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPRESENTANTE_TURMA_TURMA">
+          <End Type="ECModel.TURMA" Role="TURMA" Multiplicity="0..1" />
+          <End Type="ECModel.REPRESENTANTE_TURMA" Role="REPRESENTANTE_TURMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TURMA">
+              <PropertyRef Name="ID_TURMA" />
+            </Principal>
+            <Dependent Role="REPRESENTANTE_TURMA">
+              <PropertyRef Name="ID_TURMA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

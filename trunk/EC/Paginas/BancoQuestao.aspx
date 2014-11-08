@@ -77,7 +77,7 @@
                     <ItemTemplate>
                         <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_QUESTAO")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />
                         |
-                    <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_QUESTAO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                        <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_QUESTAO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

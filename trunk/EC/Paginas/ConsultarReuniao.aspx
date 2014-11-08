@@ -36,12 +36,24 @@
 
         <h3>Reuniões Cadastradas</h3>
 
-        <sgi:GridView ID="grdReuniao" runat="server" AutoGenerateColumns="False">
+        <sgi:GridView 
+            ID="grdReuniao" 
+            runat="server" 
+            AutoGenerateColumns="False"
+            AllowPaging="true" PageSize="10"
+            OnPageIndexChanging="grdItens_PageIndexChanging">
+            
             <Columns>
-
                 <asp:BoundField DataField="TITULO" HeaderText="Titulo" />
                 <asp:BoundField DataField="DATAHORA" HeaderText="Data" />
                 <asp:BoundField DataField="LOCAL" HeaderText="Local" />
+                <asp:TemplateField HeaderText="Ações">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_REUNIAO")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />
+                        |
+                        <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_REUNIAO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
        </sgi:GridView>
     </div>

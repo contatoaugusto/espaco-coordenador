@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="column w80">
-                <sgi:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" CausesValidation="true"></sgi:Button>
+                <sgi:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" CausesValidation="false"></sgi:Button>
             </div>
         </div>
 
@@ -34,6 +34,7 @@
                     RA:
                 </div>
                 <div class="column w200">
+                    <asp:HiddenField ID="hddAluno" runat="server" />
                     <asp:Label ID="lblRA" runat="server"></asp:Label>
                 </div>
                 <div class="column w50">
@@ -41,6 +42,23 @@
                 </div>
                 <div class="column w200">
                     <asp:Label ID="lblNome" runat="server"></asp:Label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column w100">
+                    Semestre:
+                </div>
+                <div class="column w200">
+                    <asp:HiddenField ID="hddSemestre" runat="server" />
+                    <asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>
+                </div>
+                <div class="column w50">
+                    Turma:
+                </div>
+                <div class="column w200">
+                    <asp:DropDownList ID="ddlTurma" runat="server"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlTurma" ErrorMessage="<br />Campo obrigatório" InitialValue="0"></asp:RequiredFieldValidator>
                 </div>
             </div>
 
@@ -64,16 +82,16 @@
                     Representante:
                 </div>
                 <div class="column w100">
-                    <sgi:CheckBox ID="chkTitular" runat="server" Text="Titular"></sgi:CheckBox>
+                    <asp:RadioButton ID="rdTitular" runat="server" Text="Titular" GroupName="tipoRepresentante" Checked="true"></asp:RadioButton>
                 </div>
                 <div class="column w100">
-                    <sgi:CheckBox ID="chkSuplente" runat="server" Text="Suplente"></sgi:CheckBox>
+                    <asp:RadioButton ID="rdSuplente" runat="server" Text="Suplente" GroupName="tipoRepresentante"></asp:RadioButton>
                 </div>
                
             </div>
             <div class="row">
             <div class="column w80">
-                <sgi:Button ID="btnConfirmar" runat="server" Text="Confirmar" OnClick="btnConfirmar_Click" CausesValidation="false"></sgi:Button>
+                <sgi:Button ID="btnConfirmar" runat="server" Text="Confirmar" OnClick="Salvar_Click1" CausesValidation="true"></sgi:Button>
             </div>
         </div>
         </div>  

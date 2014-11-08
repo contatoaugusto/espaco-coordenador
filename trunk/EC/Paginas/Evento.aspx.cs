@@ -19,9 +19,11 @@ namespace UI.Web.EC.Paginas
             CarregarListaDia();
             CarregarListaMes();
             CarregarListaAno();
-            CarregarListaDia1();
-            CarregarListaMes1();
-            CarregarListaAno1();
+            //CarregarListaDia1();
+            //CarregarListaMes1();
+            //CarregarListaAno1();
+            CarregarListaHora();
+            CarregarListaMinuto();
             CarregarTipoEvento();
             CarregarPessoa();
          
@@ -31,74 +33,128 @@ namespace UI.Web.EC.Paginas
         private void CarregarListaDia()
         {
             List<string> ListaDia = new List<string>();
+            List<string> ListaDia1 = new List<string>();
             for (int i = 1; i <= 31; i++)
             {
                 ListaDia.Add(i.ToString());
+                ListaDia1.Add(i.ToString());
             }
 
             ddlDia.DataSource = ListaDia;
             ddlDia.DataBind();
+
+            ddlDia1.DataSource = ListaDia1;
+            ddlDia1.DataBind();
+
         }
 
 
         private void CarregarListaMes()
         {
             List<string> ListaMes = new List<string>();
+            List<string> ListaMes1 = new List<string>();
             for (int i = 1; i <= 12; i++)
             {
                 ListaMes.Add(i.ToString());
+                ListaMes1.Add(i.ToString());
             }
 
             ddlMes.DataSource = ListaMes;
             ddlMes.DataBind();
+
+            ddlMes1.DataSource = ListaMes1;
+            ddlMes1.DataBind();
+
         }
         private void CarregarListaAno()
         {
             List<string> ListaAno = new List<string>();
+            List<string> ListaAno1 = new List<string>();
             for (int i = 2014; i <= DateTime.Now.Year; i++)
             {
                 ListaAno.Add(i.ToString());
+                ListaAno1.Add(i.ToString());
             }
 
             ddlAno.DataSource = ListaAno;
             ddlAno.DataBind();
-        }
-
-        private void CarregarListaDia1()
-        {
-            List<string> ListaDia1 = new List<string>();
-            for (int i = 1; i <= 31; i++)
-            {
-                ListaDia1.Add(i.ToString());
-            }
-
-            ddlDia1.DataSource = ListaDia1;
-            ddlDia1.DataBind();
-        }
-
-
-        private void CarregarListaMes1()
-        {
-            List<string> ListaMes1 = new List<string>();
-            for (int i = 1; i <= 12; i++)
-            {
-                ListaMes1.Add(i.ToString());
-            }
-
-            ddlMes1.DataSource = ListaMes1;
-            ddlMes1.DataBind();
-        }
-        private void CarregarListaAno1()
-        {
-            List<string> ListaAno1 = new List<string>();
-            for (int i = 2014; i <= DateTime.Now.Year; i++)
-            {
-                ListaAno1.Add(i.ToString());
-            }
 
             ddlAno1.DataSource = ListaAno1;
             ddlAno1.DataBind();
         }
+
+        private void CarregarListaHora()
+        {
+            List<string> ListaHora = new List<string>();
+            List<string> ListaHora1 = new List<string>();
+            for (int i = 0; i <= 24; i++)
+            {
+                ListaHora.Add(i.ToString());
+                ListaHora1.Add(i.ToString());
+            }
+
+            ddlHora.DataSource = ListaHora;
+            ddlHora.DataBind();
+
+            ddlHora1.DataSource = ListaHora;
+            ddlHora1.DataBind();
+
+        }
+
+        private void CarregarListaMinuto()
+        {
+            List<string> ListaMinuto = new List<string>();
+            List<string> ListaMinuto1 = new List<string>();
+            
+            for (int i = 0; i <= 60; i++)
+            {
+                ListaMinuto.Add(i.ToString());
+                ListaMinuto1.Add(i.ToString());
+            }
+
+            ddlMinuto.DataSource = ListaMinuto;
+            ddlMinuto.DataBind();
+
+            ddlMinuto1.DataSource = ListaMinuto1;
+            ddlMinuto1.DataBind();
+            
+        }
+
+        //private void CarregarListaDia1()
+        //{
+        //    List<string> ListaDia1 = new List<string>();
+        //    for (int i = 1; i <= 31; i++)
+        //    {
+        //        ListaDia1.Add(i.ToString());
+        //    }
+
+        //    ddlDia1.DataSource = ListaDia1;
+        //    ddlDia1.DataBind();
+        //}
+
+
+        //private void CarregarListaMes1()
+        //{
+        //    List<string> ListaMes1 = new List<string>();
+        //    for (int i = 1; i <= 12; i++)
+        //    {
+        //        ListaMes1.Add(i.ToString());
+        //    }
+
+        //    ddlMes1.DataSource = ListaMes1;
+        //    ddlMes1.DataBind();
+        //}
+        //private void CarregarListaAno1()
+        //{
+        //    List<string> ListaAno1 = new List<string>();
+        //    for (int i = 2014; i <= DateTime.Now.Year; i++)
+        //    {
+        //        ListaAno1.Add(i.ToString());
+        //    }
+
+        //    ddlAno1.DataSource = ListaAno1;
+        //    ddlAno1.DataBind();
+        //}
 
         private void CarregarTipoEvento()
         {
@@ -124,8 +180,8 @@ namespace UI.Web.EC.Paginas
             evento.ID_TIPOEVENTO = int.Parse(ddlTipoEvento.SelectedValue);
             evento.DESCRICAO = TxtDescricao.TemplateSourceDirectory;
             evento.LOCAL = TxtLocal.Text;
-            evento.INICIO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text));
-            evento.CONCLUSAO = new DateTime(int.Parse(ddlAno1.Text), int.Parse(ddlMes1.Text), int.Parse(ddlDia1.Text));
+            evento.INICIO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text),int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text),0);
+            evento.CONCLUSAO = new DateTime(int.Parse(ddlAno1.Text), int.Parse(ddlMes1.Text), int.Parse(ddlDia1.Text), int.Parse(ddlHora1.Text), int.Parse(ddlMinuto1.Text),0);
            // grdEvento.DataSource = NQuestão.ConsultarAmc(); ;
            // grdEvento.DataBind();
             

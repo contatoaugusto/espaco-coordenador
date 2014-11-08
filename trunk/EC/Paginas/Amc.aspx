@@ -51,11 +51,6 @@
             <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
         </div>
 
-        <%-- <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
-                <uwc:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#BFBFBF" BorderColor="#BFBFBF" BorderStyle="Solid" CssClass="gridview" DataSourceID="EntityDataSource1" GroupFooter="False" PageSize="50" ShowWhenEmpty="False">
-                </uwc:GridView>
-                <asp:EntityDataSource ID="EntityDataSource1" runat="server">
-                </asp:EntityDataSource>--%>
         <br />
         <br />
     </asp:Panel>
@@ -67,9 +62,7 @@
         BorderStyle="Solid" CssClass="gridview" GroupFooter="False" PageSize="50" ShowWhenEmpty="False">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>
-            <%--<asp:BoundField DataField="ID_AMC" HeaderText="ID" ReadOnly="True" SortExpression="ID_AMC" />--%>
-            <%--<asp:BoundField DataField="SEMESTRE" HeaderText="Semestre" SortExpression="SEMESTRE" />--%>
-
+     
             <asp:TemplateField HeaderText="Semestre/Ano">
                 <ItemTemplate>
                     <asp:Label ID="lblSemestereAno" runat="server" Text='<%# Bind("SEMESTRE.SEMESTRE1") %>'></asp:Label>º sem/
@@ -78,11 +71,12 @@
                 <ItemStyle HorizontalAlign="Center" />
             </asp:TemplateField>
 
-            <%--<asp:BoundField DataField="ANO" HeaderText="Ano" SortExpression="ANO" />--%>
             <asp:BoundField DataField="DATA_APLICACAO" HeaderText="Data Aplicação da prova" SortExpression="DATA_APLICACAO" />
-
-            <asp:CommandField DeleteImageUrl="~/Imagens/close.png" ShowDeleteButton="True" DeleteText="Excluir" />
-
+            <asp:TemplateField HeaderText="Ações">
+                <ItemTemplate>
+                    <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_AMC")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
 
         <HeaderStyle CssClass="gridviewrowheader"></HeaderStyle>

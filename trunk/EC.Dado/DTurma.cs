@@ -55,7 +55,34 @@ namespace EC.Dado
                 return ltTurma;
             }
         }
-       
+
+
+        public List<TURMA> ConsultarTurmaByAlunoSemestre(int idAluno, int idSemestre)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var alunoMatricula = db.ALUNO_MATRICULA.Where(rs => rs.ID_ALUNO == idAluno);
+
+                List<TURMA> ltTurma = new List<TURMA>();
+
+                foreach (var alunoMat in alunoMatricula)
+                {
+                    var turma = db.TURMA.First(rs => rs.ID_TURMA == alunoMat.ID_TURMA && rs.ID_SEMESTRE == idSemestre);
+                    turma.TIPO_TURMA = db.TIPO_TURMA.First(rs => rs.ID_TIPOTURMA == turma.ID_TIPOTURMA);
+                    //TURMA turma = new TURMA();
+                    //turma.ID_TURMA = tipo.ID_TURMA;
+                    //turma.ID_TIPOTURMA = tipo.ID_TIPOTURMA;
+                    //turma.ID_SEMESTRE = tipo.ID_SEMESTRE;
+
+                    //turma.SEMESTRE = db.SEMESTRE.First(rs => rs.ID_SEMESTRE == tipo.ID_SEMESTRE);
+
+                    ltTurma.Add(turma);
+                }
+
+                return ltTurma;
+            }
+        }
+
         public void Salvar(TURMA q)
         {
             using (ECEntities db = new ECEntities())

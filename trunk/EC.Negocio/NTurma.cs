@@ -9,12 +9,12 @@ namespace EC.Negocio
 {
     public class NTurma
     {
-        public static List<TURMA> ConsultarAmc()
+        public static List<TURMA> Consultar()
         {
             return (new DTurma()).Consultar();
         }
 
-        public static List<AMC> ConsultarAmc(AMC obj)
+        public static List<AMC> Consultar(AMC obj)
         {
             return (new DAmc()).ConsultarAmc(obj);
         }
@@ -31,6 +31,11 @@ namespace EC.Negocio
          public static List<TURMA> ConsultarTurmaBySemestre(int idSemestre)
          {
              return (new DTurma()).ConsultarTurmaBySemestre(idSemestre);
+         }
+
+         public static List<TURMA> ConsultarTurmaByAlunoSemestre(int idAluno, int idSemestre)
+         {
+             return (new DTurma()).ConsultarTurmaByAlunoSemestre(idAluno, idSemestre);
          }
     }
 }
