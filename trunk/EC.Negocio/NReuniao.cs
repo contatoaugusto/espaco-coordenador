@@ -22,10 +22,16 @@ namespace EC.Negocio
             return (new DReuniao()).ConsultarReuniao(reuniao);
         }
 
-        public static List<PESSOA> ConsultarPessoa()
+        public static REUNIAO ConsultarById(int idReuniao)
         {
-            return (new DEvento()).ConsultarPessoa();
+            return (new DReuniao()).ConsultarById(idReuniao);
         }
+
+        public static List<REUNIAO_PARTICIPANTE> ConsultarParticipante(int idReuniao)
+        {
+            return (new DReuniao()).ConsultarParticipante(idReuniao);
+        }
+
 
         public static List<TIPO_ASSUNTO_TRATADO> ConsultarTipoAssunto()
         {
@@ -36,6 +42,11 @@ namespace EC.Negocio
         {
             DReuniao dreuniao = new DReuniao();
             dreuniao.Salvar(r);
+        }
+
+        public static void Atualiza(REUNIAO q)
+        {
+            (new DReuniao()).Atualiza(q);
         }
     }
 }

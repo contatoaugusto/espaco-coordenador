@@ -41,7 +41,8 @@
             runat="server" 
             AutoGenerateColumns="False"
             AllowPaging="true" PageSize="10"
-            OnPageIndexChanging="grdItens_PageIndexChanging">
+            OnPageIndexChanging="grdItens_PageIndexChanging"
+            OnRowCommand="grdReuniao_RowCommand">
             
             <Columns>
                 <asp:BoundField DataField="TITULO" HeaderText="Titulo" />

@@ -100,9 +100,9 @@
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Semestre.aspx")%>'><span>Abrir Semestre</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Amc.aspx")%>'><span>Abrir AMC</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Questao.aspx")%>'><span>Cadastrar Questão</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Banco de Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Prova.aspx")%>'><span>Gerar Prova</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Banco de Questão</span></a></li>
-                                        
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Relatório</span></a></li>
                                     </ul>
                                 </div>
                             </li>

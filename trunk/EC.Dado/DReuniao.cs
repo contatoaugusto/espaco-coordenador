@@ -46,26 +46,7 @@ namespace EC.Dado
             }
         }
 
-        public List<PESSOA> ConsultarPessoa()
-        {
-            using (ECEntities db = new ECEntities())
-            {
-                var p = db.PESSOA.ToList();
-                List<PESSOA> ltPessoa = new List<PESSOA>();
-
-                foreach (var tipo in p)
-                {
-                    PESSOA pessoa = new PESSOA();
-                    pessoa.ID_PESSOA = tipo.ID_PESSOA;
-                    pessoa.NOME = tipo.NOME;
-                    ltPessoa.Add(pessoa);
-                }
-
-                return ltPessoa;
-            }
-
-        }
-
+       
         public List<REUNIAO> ConsultarReuniao(REUNIAO objreuniao)
         {
             using (ECEntities db = new ECEntities())
@@ -82,12 +63,72 @@ namespace EC.Dado
                     reuniao.LOCAL = tipo.LOCAL;
                     reuniao.DATAHORA = tipo.DATAHORA;
                     reuniao.TITULO = tipo.TITULO;
+                    reuniao.ID_SEMESTRE = tipo.ID_SEMESTRE;
+
+                    reuniao.SEMESTRE = db.SEMESTRE.First(rs => rs.ID_SEMESTRE == tipo.ID_SEMESTRE);
+                    reuniao.TIPO_REUNIAO = db.TIPO_REUNIAO.First(rs => rs.ID_TIPOREUNIAO == tipo.ID_TIPOREUNIAO);
+
                     ltReuniao.Add(reuniao);
                 }
 
                 return ltReuniao;
             }
         }
+
+        public List<REUNIAO_PARTICIPANTE> ConsultarParticipante(int idReuniao)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var participantes = db.REUNIAO_PARTICIPANTE.Where(rs => rs.ID_REUNIAO == idReuniao);
+
+                List<REUNIAO_PARTICIPANTE> ltParticipante = new List<REUNIAO_PARTICIPANTE>();
+
+                foreach (var tipo in participantes)
+                {
+                    REUNIAO_PARTICIPANTE participante = new REUNIAO_PARTICIPANTE();
+                    participante.ID_PARTICIPANTE = tipo.ID_PARTICIPANTE;
+                    participante.ID_REUNIAO = tipo.ID_REUNIAO;
+                    participante.ID_PESSOA = tipo.ID_PESSOA;
+                    participante.PRESENCA = tipo.PRESENCA;
+
+                    participante.PESSOA = db.PESSOA.First(rs => rs.ID_PESSOA == tipo.ID_PESSOA);
+
+                    ltParticipante.Add(participante);
+                }
+
+                return ltParticipante;
+            }
+        }
+
+        
+        public REUNIAO ConsultarById(int idReuniao)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                return db.REUNIAO.First(rs => rs.ID_REUNIAO == idReuniao);
+
+                //List<REUNIAO> ltReuniao = new List<REUNIAO>();
+
+                //foreach (var tipo in r)
+                //{
+                //    REUNIAO reuniao = new REUNIAO();
+                //    reuniao.ID_REUNIAO = tipo.ID_REUNIAO;
+                //    reuniao.ID_TIPOREUNIAO = tipo.ID_TIPOREUNIAO;
+                //    reuniao.LOCAL = tipo.LOCAL;
+                //    reuniao.DATAHORA = tipo.DATAHORA;
+                //    reuniao.TITULO = tipo.TITULO;
+                //    reuniao.ID_SEMESTRE = tipo.ID_SEMESTRE;
+
+                //    reuniao.SEMESTRE = db.SEMESTRE.First(rs => rs.ID_SEMESTRE == tipo.ID_SEMESTRE);
+                //    reuniao.TIPO_REUNIAO = db.TIPO_REUNIAO.First(rs => rs.ID_TIPOREUNIAO == tipo.ID_TIPOREUNIAO);
+
+                //    ltReuniao.Add(reuniao);
+                //}
+
+                //return ltReuniao;
+            }
+        }
+
 
         public void Salvar(REUNIAO r)
         {
@@ -106,8 +147,51 @@ namespace EC.Dado
             {
 
             }
-
         }
 
+        public void Atualiza(REUNIAO q)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+
+                var originalReniao = db.REUNIAO.First(rs => rs.ID_REUNIAO == q.ID_REUNIAO);
+
+                originalReniao.ID_TIPOREUNIAO   = q.ID_TIPOREUNIAO;
+                originalReniao.LOCAL            = q.LOCAL;
+                originalReniao.DATAHORA         = q.DATAHORA;
+                originalReniao.TITULO           = q.TITULO;
+                originalReniao.ID_SEMESTRE      = q.ID_SEMESTRE;
+
+                //Pautas dessa questão
+                foreach (var pauta in q.REUNIAO_PAUTA)
+                {
+                    REUNIAO_PAUTA obj = new REUNIAO_PAUTA(); 
+                    
+                    if (pauta.ID_PAUTA > 0)
+                        obj = db.REUNIAO_PAUTA.First(rs => rs.ID_PAUTA == pauta.ID_PAUTA);
+
+                    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
+                    obj.DESCRICAO = pauta.DESCRICAO;
+                    obj.ITEM = pauta.ITEM;
+                    originalReniao.REUNIAO_PAUTA.Add(obj);
+                }
+
+                //Participantes
+                foreach (var participante in q.REUNIAO_PARTICIPANTE)
+                {
+                    REUNIAO_PARTICIPANTE obj = new REUNIAO_PARTICIPANTE();
+
+                    if (participante.ID_PARTICIPANTE > 0)
+                        obj = db.REUNIAO_PARTICIPANTE.First(rs => rs.ID_PARTICIPANTE == participante.ID_PARTICIPANTE);
+
+                    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
+                    obj.PRESENCA  = participante.PRESENCA;
+                    obj.ID_PESSOA = participante.ID_PESSOA;
+                    originalReniao.REUNIAO_PARTICIPANTE.Add(obj);
+                }
+
+                db.SaveChanges();
+            }
+        }
     }
 }

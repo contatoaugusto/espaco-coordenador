@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/AgendaReuniao.aspx.cs" Inherits="UI.Web.EC.Reuniao.AgendaReuniao" %>
 
 <%@ Import Namespace="EC.Negocio" %>
-
+<%@ Import Namespace="UI.Web.EC" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -24,10 +24,6 @@
             <div class="column w200">
                 <asp:HiddenField ID="hddSemestreCorrente" runat="server"></asp:HiddenField>
                 <asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>
-                <%-- <sgi:DropDownList ID="ddlSemestre" runat="server">
-                    <asp:ListItem Value="1">01</asp:ListItem>
-                    <asp:ListItem Value="2">02</asp:ListItem>
-                </sgi:DropDownList>--%>
             </div>
         </div>
 
@@ -88,26 +84,14 @@
             </div>
         </div>
 
-        <asp:GridView ID="grdParticipante" runat="server">
-            <Columns>
-                <asp:BoundField HeaderText="Nome" DataField="NOME" />
-                <asp:BoundField HeaderText="E-Mail" DataField="EMAIL" />
-                <asp:BoundField HeaderText="Telefone" DataField="TELEFONE" />
-                <asp:TemplateField HeaderText="Cargo/Função">
-                    <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# GetCargos(Eval("ID_PESSOA").ToInt32()) %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-
-            <%--<asp:GridView
-            ID="grdParticipante" 
-            runat="server" 
-            AutoGenerateColumns="False" 
-            BackColor="#BFBFBF" 
-            BorderColor="#BFBFBF" BorderStyle="Solid" CssClass="gridview"
-            GroupFooter="False" PageSize="50"ShowWhenEmpty="False">
+        <asp:GridView ID="grdParticipante" runat="server" AutoGenerateColumns="False"
+            BackColor="#BFBFBF"
+            BorderColor="#BFBFBF"
+            BorderStyle="Solid"
+            CssClass="gridview"
+            GroupFooter="False"
+            PageSize="10"
+            ShowWhenEmpty="False">
             <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
             <Columns>
                 <asp:BoundField HeaderText="Nome" DataField="NOME" />
@@ -115,11 +99,11 @@
                 <asp:BoundField HeaderText="Telefone" DataField="TELEFONE" />
                 <asp:TemplateField HeaderText="Cargo/Função">
                     <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# GetCargos(Eval("ID_PESSOA").ToInt32()) %>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Utils.GetCargos(Eval("ID_PESSOA").ToInt32()) %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
-        </asp:GridView>--%>
+        </asp:GridView>
 
         <div class="form-separator"></div>
 
@@ -142,7 +126,7 @@
         BorderStyle="Solid"
         CssClass="gridview"
         GroupFooter="False"
-        PageSize="50"
+        PageSize="10"
         ShowWhenEmpty="False">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>

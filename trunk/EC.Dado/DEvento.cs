@@ -26,26 +26,6 @@ namespace EC.Dado
             }
         }
 
-        public List<PESSOA> ConsultarPessoa()
-        {
-            using (ECEntities db = new ECEntities())
-            {
-                var p = db.PESSOA.ToList();
-                List<PESSOA> ltPessoa = new List<PESSOA>();
-
-                foreach (var tipo in p)
-                {
-                    PESSOA pessoa = new PESSOA();
-                    pessoa.ID_PESSOA = tipo.ID_PESSOA;
-                    pessoa.NOME = tipo.NOME;
-                    ltPessoa.Add(pessoa);
-                }
-
-                return ltPessoa;
-            }
-
-        }
-
         public List<EVENTO> ConsultarEvento(EVENTO objevento)
         {
             using (ECEntities db = new ECEntities())

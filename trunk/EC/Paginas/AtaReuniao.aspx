@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/AtaReuniao.aspx.cs" Inherits="UI.Web.EC.Paginas.AtaReunião" %>
+<%@ Import Namespace="UI.Web.EC" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -17,18 +18,18 @@
                 Reuniao: 
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlReuniao" runat="server" OnSelectedIndexChanged="ddlReuniao_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList ID="ddlReuniao" runat="server" OnSelectedIndexChanged="ddlReuniao_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
             </div>
         </div>
         <div class="form-separator"></div>
     
         <asp:Panel ID="pnlAta" runat="server" Visible="false">
 
-            <h2>Identificação da Reunião</h2>
+            <h4>Identificação da Reunião</h4>
 
             <div class="row">
                 <div class="column w100">
-                    Paunta nº:
+                    Pauta nº:
                 </div>
                 <div class="column w250">
                     <asp:Label ID="lblNumeroReunião" runat="server"/>
@@ -60,13 +61,23 @@
                 runat="server" 
                 AutoGenerateColumns="False">
                 <Columns>
-                    <asp:BoundField HeaderText="Nome" DataField="ITEM" />
-                    <asp:BoundField HeaderText="E-mail" DataField="DESCRICAO" />
-                    <asp:BoundField HeaderText="Telefone" />
-                    <asp:BoundField HeaderText="Cargo/Função" DataField="ID_PESSOA"/>
-                    <asp:BoundField HeaderText="Cargo/Função" DataField="ID_PESSOA"/>
+                    <asp:BoundField HeaderText="Nome" DataField="NOME" />
+                    <asp:BoundField HeaderText="E-mail" DataField="EMAIL" />
+                    <asp:BoundField HeaderText="Telefone" DataField="TELEFONE"/>
+                    <asp:TemplateField HeaderText="Cargo/Função">
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Utils.GetCargos(Eval("ID_PESSOA").ToInt32()) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField HeaderText="Presente" DataField="ID_PESSOA"/>
                 </Columns>
             </sgi:GridView>
+
+            <div class="row">
+                <div class="column">
+                    <asp:Label ID="lblPauta" runat="server"/>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="column w100">
@@ -76,8 +87,6 @@
                     <sgi:Button ID="btntransferirPendencias" runat="server" Text="Transferir Pendências"/>
                 </div>
             </div>
-
-
             <sgi:GridView ID="grdPendencias" runat="server" AutoGenerateColumns="False">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>

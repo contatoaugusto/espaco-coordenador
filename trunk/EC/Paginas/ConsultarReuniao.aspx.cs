@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EC.Negocio;
 using EC.Modelo;
+using EC.Common;
 
 namespace UI.Web.EC.Paginas
 {
@@ -76,6 +77,14 @@ namespace UI.Web.EC.Paginas
         {
             grdReuniao.PageIndex = e.NewPageIndex;
             CarregarReunioes();
+        }
+
+        protected void grdReuniao_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Editar")
+            {
+                Context.Response.Redirect("~/Paginas/AgendaReuniao.aspx?idReuniao=" + Library.ToInteger(e.CommandArgument));
+            }
         }
     }
 }
