@@ -31,6 +31,60 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.DropDownList ddlReuniao;
         
         /// <summary>
+        /// pnlAta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAta;
+        
+        /// <summary>
+        /// lblNumeroReunião control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumeroReunião;
+        
+        /// <summary>
+        /// lblDataTeuniao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDataTeuniao;
+        
+        /// <summary>
+        /// lblHoraReuniao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHoraReuniao;
+        
+        /// <summary>
+        /// lblLocalReuniao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLocalReuniao;
+        
+        /// <summary>
+        /// grdParticipantesReuniao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.GridView grdParticipantesReuniao;
+        
+        /// <summary>
         /// btntransferirPendencias control.
         /// </summary>
         /// <remarks>
