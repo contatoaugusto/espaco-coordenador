@@ -28,7 +28,7 @@
             <h4>Identificação da Reunião</h4>
 
             <div class="row">
-                <div class="column w100">
+                <div class="column w80">
                     Pauta nº:
                 </div>
                 <div class="column w250">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="column w80">
+                <div class="column w90">
                     Data:
                 </div>
                 <div class="column w100">
@@ -55,7 +55,7 @@
                     <asp:Label ID="lblLocalReuniao" runat="server"/>
                 </div>
             </div>
-
+            <div class="form-separator"></div>
             <sgi:GridView 
                 ID="grdParticipantesReuniao" 
                 runat="server" 
@@ -72,13 +72,15 @@
                     <asp:BoundField HeaderText="Presente" DataField="ID_PESSOA"/>
                 </Columns>
             </sgi:GridView>
-
+            <br/>
+            <div class="form-separator"></div>
+            <h4>Pauta de Reunião</h4>
             <div class="row">
                 <div class="column">
                     <asp:Label ID="lblPauta" runat="server"/>
                 </div>
             </div>
-
+            <div class="form-separator"></div>
             <div class="row">
                 <div class="column w100">
                     Pendências:
