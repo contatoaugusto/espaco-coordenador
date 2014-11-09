@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>18.95708cm</Width>
+              <Width>15.96729cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -66,7 +66,6 @@
                         </Border>
                       </Style>
                     </Image>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -127,10 +126,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Questoes</DataSetName>
-        <Top>0.36724cm</Top>
-        <Left>0.44662cm</Left>
+        <Top>0.04974cm</Top>
+        <Left>0.16087cm</Left>
         <Height>1.8cm</Height>
-        <Width>18.95708cm</Width>
+        <Width>15.96729cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -141,10 +140,10 @@
     <Height>4.18322in</Height>
     <Style />
   </Body>
-  <Width>7.90128in</Width>
+  <Width>6.4117in</Width>
   <Page>
     <PageHeader>
-      <Height>1.84078cm</Height>
+      <Height>1.54974cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
