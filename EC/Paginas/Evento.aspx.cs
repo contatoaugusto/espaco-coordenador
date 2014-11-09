@@ -173,7 +173,7 @@ namespace UI.Web.EC.Paginas
             ddlTipoEvento.DataTextField = "DESCRICAO";
             ddlTipoEvento.DataValueField = "ID_TIPOEVENTO";
             ddlTipoEvento.DataBind();
-            ddlTipoEvento.Items.Insert(0, new ListItem("", ""));
+            ddlTipoEvento.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         private void CarregarPessoa()
@@ -182,7 +182,7 @@ namespace UI.Web.EC.Paginas
             ddlPessoa.DataTextField = "NOME";
             ddlPessoa.DataValueField = "ID_PESSOA";
             ddlPessoa.DataBind();
-            ddlPessoa.Items.Insert(0, new ListItem("", ""));
+            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
         
         }
 

@@ -31,7 +31,7 @@ namespace UI.Web.EC.Paginas
             ddlTipoEvento.DataValueField = "ID_TIPOEVENTO";
             ddlTipoEvento.DataBind();
 
-            ddlTipoEvento.Items.Insert(0, new ListItem("", ""));
+            ddlTipoEvento.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
 
@@ -44,7 +44,7 @@ namespace UI.Web.EC.Paginas
             ListItem r = new ListItem();
             r.Text = "";
             r.Value = "";
-            ddlPessoa.Items.Insert(0, r);
+            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         private void CarregarEvento()

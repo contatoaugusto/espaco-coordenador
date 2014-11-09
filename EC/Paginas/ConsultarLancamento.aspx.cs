@@ -13,8 +13,37 @@ namespace UI.Web.EC.Paginas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            {
+                if (IsPostBack)
+                    return;
 
+                CarregarPessoa();
+                CarregarTipolancamento();
+               
+
+            }
         }
+
+        private void CarregarPessoa()
+        {
+            ddlPessoa.DataSource = NAcao.ConsultarPessoa();
+            ddlPessoa.DataTextField = "NOME";
+            ddlPessoa.DataValueField = "ID_PESSOA";
+            ddlPessoa.DataBind();
+            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
+        }
+
+      
+        private void CarregarTipolancamento()
+        {
+            ddlTipolancamento.DataSource = NLancamento.ConsultarTipolancamento();
+            ddlTipolancamento.DataTextField = "DESCRICAO";
+            ddlTipolancamento.DataValueField = "ID_TIPOLANCAMENTO";
+            ddlTipolancamento.DataBind();
+            ddlTipolancamento.Items.Insert(0, new ListItem("Selecione", ""));
+        }
+
+
 
         protected void btnovo_Click(object sender, EventArgs e)
         {

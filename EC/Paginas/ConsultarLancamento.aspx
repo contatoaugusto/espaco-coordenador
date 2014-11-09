@@ -38,19 +38,11 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="column w100">
-                Turma:
-            </div>
-            <div class="column w250">
-                <asp:DropDownList ID="ddlTurma" runat="server"></asp:DropDownList>
-           
-            </div>
-        </div>
+      
         <div class="form-separator"></div>
         <div class="form-bottombuttons">
 
-            <ec:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click"/>
+            <ec:Button ID="btConsultar" runat="server" Text="Pesquisar" OnClick="btConsultar_Click"/>
             <ec:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click" />
         </div>
 

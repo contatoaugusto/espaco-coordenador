@@ -173,7 +173,7 @@ namespace UI.Web.EC.Paginas
             ddlEvento.DataValueField = "ID_EVENTO";
             ddlEvento.DataBind();
 
-             ddlEvento.Items.Insert(0, new ListItem("", ""));
+            ddlEvento.Items.Insert(0, new ListItem("Selecione", ""));
 
             //ListItem r = new ListItem();
             //r.Text = "";
@@ -187,7 +187,7 @@ namespace UI.Web.EC.Paginas
             ddlReuniao.DataValueField = "ID_REUNIAO";
             ddlReuniao.DataBind();
 
-            ddlReuniao.Items.Insert(0, new ListItem("", ""));
+            ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         //    ListItem r = new ListItem();
@@ -202,7 +202,7 @@ namespace UI.Web.EC.Paginas
             ddlPessoa.DataValueField = "ID_PESSOA";
             ddlPessoa.DataBind();
 
-            ddlPessoa.Items.Insert(0, new ListItem("", ""));
+            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
 
             //ListItem r = new ListItem();
             //r.Text = "";
@@ -216,7 +216,7 @@ namespace UI.Web.EC.Paginas
             ddlStatus.DataValueField = "ID_STATUS";
             ddlStatus.DataBind();
 
-             ddlStatus.Items.Insert(0, new ListItem("", ""));
+             ddlStatus.Items.Insert(0, new ListItem("Selecione", ""));
 
             //ListItem r = new ListItem();
             //r.Text = "";
@@ -230,7 +230,7 @@ namespace UI.Web.EC.Paginas
             ddlPrioridade.DataValueField = "ID_PRIORIDADE";
             ddlPrioridade.DataBind();
 
-            ddlPrioridade.Items.Insert(0, new ListItem("", ""));
+            ddlPrioridade.Items.Insert(0, new ListItem("Selecione", ""));
 
             //ListItem r = new ListItem();
             //r.Text = "";
