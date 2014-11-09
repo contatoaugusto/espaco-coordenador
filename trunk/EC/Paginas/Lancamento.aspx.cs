@@ -35,6 +35,7 @@ namespace UI.Web.EC.Paginas
 
             ddlDia.DataSource = ListaDia;
             ddlDia.DataBind();
+            ddlDia.Items.Insert(0, new ListItem("", ""));
         }
 
 
@@ -48,6 +49,7 @@ namespace UI.Web.EC.Paginas
 
             ddlMes.DataSource = ListaMes;
             ddlMes.DataBind();
+            ddlMes.Items.Insert(0, new ListItem("", ""));
         }
         private void CarregarListaAno()
         {
@@ -59,6 +61,7 @@ namespace UI.Web.EC.Paginas
 
             ddlAno.DataSource = ListaAno;
             ddlAno.DataBind();
+            ddlAno.Items.Insert(0, new ListItem("", ""));
         }
 
         private void CarregarPessoa()
@@ -67,6 +70,7 @@ namespace UI.Web.EC.Paginas
             ddlPessoa.DataTextField = "NOME";
             ddlPessoa.DataValueField = "ID_PESSOA";
             ddlPessoa.DataBind();
+            ddlPessoa.Items.Insert(0, new ListItem("", ""));
         }
 
         private void CarregarTurma()
@@ -76,8 +80,8 @@ namespace UI.Web.EC.Paginas
             ddlTurma.Items.Add(new ListItem("Selecione", "0"));
             foreach (var turma in turmas)
             {
-                ddlTurma.Items.Add(new ListItem(turma.SEMESTRE.SEMESTRE1 + "º sem/" + turma.SEMESTRE.ANO, turma.ID_TURMA.ToString()));
-
+               // ddlTurma.Items.Add(new ListItem(turma.SEMESTRE.SEMESTRE1 + "º sem/" + turma.SEMESTRE.ANO, turma.ID_TURMA.ToString()));
+                ddlTurma.Items.Insert(0, new ListItem("", ""));
             }
           
         }
@@ -87,6 +91,7 @@ namespace UI.Web.EC.Paginas
             ddlTipolancamento.DataTextField = "DESCRICAO";
             ddlTipolancamento.DataValueField = "ID_TIPOLANCAMENTO";
             ddlTipolancamento.DataBind();
+            ddlTipolancamento.Items.Insert(0, new ListItem("", ""));
         }
 
        // private void CarregarLancamento()
