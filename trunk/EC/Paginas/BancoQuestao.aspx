@@ -63,7 +63,7 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="DESCRICAO" HeaderText="Questão" HeaderStyle-Width="55%" />
-                <asp:TemplateField HeaderText="Funcionario">
+                <asp:TemplateField HeaderText="Funcionário">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("FUNCIONARIO.PESSOA.NOME") %>'></asp:Label>
                     </ItemTemplate>

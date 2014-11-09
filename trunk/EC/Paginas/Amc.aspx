@@ -7,7 +7,7 @@
     <%--<sgi:UpdatePanel ID="pnlAmc" runat="server">--%>
 
     <div class="form-separator"></div>
-    <h3>Incluir AMC</h3>
+    <h3>Abrir AMC</h3>
 
     <asp:Panel ID="pnlAmc" runat="server">
 
@@ -27,28 +27,38 @@
                 <asp:Label ID="lblCursoUnico" runat="server"></asp:Label>
                 
             </div>
-        </div>  
+        </div>
         <div class="row">
-            <div class="column w150">
-                Data Aplicação da AMC:
+            <div class="column w100">
+                Data da Aplicação:
             </div>
-            <div class="column w250">
-                <asp:DropDownList ID="ddlDia" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlMes" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlAno" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlHora" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlMinuto" runat="server"></asp:DropDownList>
+            <div class="column w200">
+                <sgi:DropDownList ID="ddlDia" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlMes" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlAno" runat="server"></sgi:DropDownList>
+
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlAno" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlDia" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlMes" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+
             </div>
 
+            <div class="column w100">
+                Hora:
+            </div>
+            <div class="column w200">
+                <sgi:DropDownList ID="ddlHora" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlMinuto" runat="server"></sgi:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlMinuto" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlHora" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+
+            </div>
         </div>
-        <br />
         <div class="form-bottombuttons">
             <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="Salvar_Click1" />
-            <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
+         
+               <%--<asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click"  />--%>
         </div>
-
-        <br />
-        <br />
     </asp:Panel>
     <div class="form-separator"></div>
     <hr class="line" />
@@ -68,7 +78,7 @@
                 <ItemStyle HorizontalAlign="Center" />
             </asp:TemplateField>
 
-            <asp:BoundField DataField="DATA_APLICACAO" HeaderText="Data Aplicação da prova" SortExpression="DATA_APLICACAO" />
+            <asp:BoundField DataField="DATA_APLICACAO" HeaderText="Data e hora da Aplicação" SortExpression="DATA_APLICACAO" />
             <asp:TemplateField HeaderText="Ações">
                 <ItemTemplate>
                     <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_AMC")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />

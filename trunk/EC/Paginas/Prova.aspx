@@ -1,12 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="Prova.aspx.cs" Inherits="UI.Web.EC.Paginas.Prova" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .gridview {}
+    </style>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <sgi:MessageBox ID="messageBox" runat="server" />
     <div class="form-separator"></div>
 
-    <h3>Incluir Questão na prova da AMC</h3>
+    <h3>Gerar Prova da AMC</h3>
     <asp:Panel ID="pnlProva" runat="server">
     
          <div class="form-in">
@@ -35,23 +39,7 @@
                 
                 </div>
             </div>
-             <div class="row">
-                <div class="column w150">
-                    Quantidade de questões:
-                </div>
-                <div class="column w250">
-                    <asp:TextBox ID="txtQuantidadeQuestoes" runat="server" RequiredField="true"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column w150">
-                    Observação
-                </div>
-                <div class="column w250">
-                    <asp:TextBox ID="txtObservacao" runat="server" RequiredField="true"></asp:TextBox>
-                </div>
-            </div>
-        </div>
+            
         
         <div class="form-separator"></div>
         
@@ -62,7 +50,7 @@
     </asp:Panel>
     <div class="form-separator"></div>
 
-    <h3>AMCs Cadastradas</h3>
+    <h3>Provas Geradas</h3>
     <sgi:GridView ID="grvProva"
         runat="server"
         AutoGenerateColumns="False"
@@ -75,12 +63,11 @@
         GroupFooter="False"
         PageSize="50"
         ShowWhenEmpty="False"
-        OnRowCommand="GridView1_RowCommand">
+        OnRowCommand="GridView1_RowCommand" Width="332px">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>
             <asp:BoundField DataField="DATA_CRIACAO" HeaderText="Data Criação" SortExpression="DATA_CRIACAO" />
             <asp:BoundField DataField="OBSERVACAO" HeaderText="Observação" SortExpression="OBSERVACAO" />
-            <asp:BoundField DataField="QTDE_QUESTOES" HeaderText="Qtde Questões" SortExpression="QTDE_QUESTOES" />
             <asp:TemplateField HeaderText="Ações">
                 <ItemTemplate>
                     <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_PROVA")%>' CommandName="Imprimir" Text="Imprimir" CausesValidation="false" />

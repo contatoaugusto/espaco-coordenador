@@ -1199,6 +1199,10 @@
     <Content Include="Paginas\Acao.aspx" />
     <Content Include="Paginas\AgendaReuniao.aspx" />
     <Content Include="Paginas\ConsultarRepresentanteTurma.aspx" />
+    <Content Include="Paginas\Relatorios\RelatorioAcademico.aspx" />
+    <Content Include="Paginas\Relatorios\RelatorioAcao.aspx" />
+    <Content Include="Paginas\Relatorios\RelatorioAMC.aspx" />
+    <Content Include="Paginas\Relatorios\RelatorioReuniao.aspx" />
     <Content Include="Paginas\Relatorios\AMCRelatorios.aspx" />
     <Content Include="Paginas\Relatorios\ProfessorQuestoes.aspx" />
     <Content Include="Paginas\RepresentanteTurma.aspx" />
@@ -1365,6 +1369,34 @@
     <Compile Include="Paginas\ConsultarRepresentanteTurma.aspx.designer.cs">
       <DependentUpon>ConsultarRepresentanteTurma.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioAcademico.aspx.cs">
+      <DependentUpon>RelatorioAcademico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioAcademico.aspx.designer.cs">
+      <DependentUpon>RelatorioAcademico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioAcao.aspx.cs">
+      <DependentUpon>RelatorioAcao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioAcao.aspx.designer.cs">
+      <DependentUpon>RelatorioAcao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioAMC.aspx.cs">
+      <DependentUpon>RelatorioAMC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioAMC.aspx.designer.cs">
+      <DependentUpon>RelatorioAMC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioReuniao.aspx.cs">
+      <DependentUpon>RelatorioReuniao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\RelatorioReuniao.aspx.designer.cs">
+      <DependentUpon>RelatorioReuniao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Relatorios\AMCRelatorios.aspx.cs">
       <DependentUpon>AMCRelatorios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1379,6 +1411,7 @@
     <Compile Include="Paginas\Relatorios\ProfessorQuestoes.aspx.designer.cs">
       <DependentUpon>ProfessorQuestoes.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="Paginas\RepresentanteTurma.aspx.cs">
       <DependentUpon>RepresentanteTurma.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

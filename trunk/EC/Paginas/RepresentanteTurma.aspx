@@ -6,7 +6,7 @@
     <sgi:MessageBox ID="messageBox" runat="server" />
 
     <div class="form-separator"></div>
-    <h3>Incluir Representante de Turma</h3>
+    <h3>Cadastrar Representante de Turma</h3>
 
     <div class="form-in">
         <div class="row">

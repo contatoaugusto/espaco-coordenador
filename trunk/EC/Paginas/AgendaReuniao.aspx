@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="form-separator"></div>
-    <h3>Agendar Reunião</h3>
+    <h3>Cadastrar Reunião</h3>
 
     <div class="form-in">
         <div class="row">
