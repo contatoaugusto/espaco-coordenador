@@ -64,7 +64,7 @@
 
         <div class="row">
             <div class="column w15p">
-                Resposta Correta:<asp:CheckBox ID="Correta1" runat="server" Checked="False" />
+                Resposta Correta:<asp:RadioButton ID="Correta1" runat="server" Checked="False" GroupName="repostas"/>
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha1" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
@@ -74,7 +74,7 @@
 
         <div class="row">
             <div class="column w15p">
-                Resposta Correta:<asp:CheckBox ID="Correta2" runat="server" Checked="False" />
+                Resposta Correta:<asp:RadioButton ID="Correta2" runat="server" Checked="False" GroupName="repostas"/>
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha2" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
@@ -84,7 +84,7 @@
 
         <div class="row">
             <div class="column w15p">
-                Resposta Correta:<asp:CheckBox ID="Correta3" runat="server" Checked="False" />
+                Resposta Correta:<asp:RadioButton ID="Correta3" runat="server" Checked="False" GroupName="repostas"/>
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha3" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
@@ -94,7 +94,7 @@
 
         <div class="row">
             <div class="column w15p">
-                Resposta Correta:<asp:CheckBox ID="Correta4" runat="server" Checked="False" />
+                Resposta Correta:<asp:RadioButton ID="Correta4" runat="server" Checked="False" GroupName="repostas"/>
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha4" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>
@@ -104,7 +104,7 @@
 
         <div class="row">
             <div class="column w15p">
-                Resposta Correta:<asp:CheckBox ID="Correta5" runat="server" Checked="False" />
+                Resposta Correta:<asp:RadioButton ID="Correta5" runat="server" Checked="False" GroupName="repostas"/>
             </div>
             <div class="column w500">
                 <asp:TextBox ID="TxtEscolha5" runat="server" Width="600px" TextMode="MultiLine" Rows="2"></asp:TextBox>

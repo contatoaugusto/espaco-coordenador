@@ -52,6 +52,17 @@ namespace EC.Dado
             }
         }
 
+        public AMC ConsultarById(int idAmc)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var amc = db.AMC.First(rs => rs.ID_AMC == idAmc);
+                amc.SEMESTRE = db.SEMESTRE.First(rs => rs.ID_SEMESTRE == amc.ID_SEMESTRE);
+                
+                return amc;
+            }
+        }
+
 
         public List<AMC> ConsultarAmcBySemestre(int idSemestre)
         {
@@ -86,6 +97,20 @@ namespace EC.Dado
 
                 db.Dispose();
             }
-        }     
+        }
+
+        public void Atualiza(AMC q)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+
+                var originalAmc = db.AMC.First(rs => rs.ID_AMC == q.ID_AMC);
+
+                originalAmc.DATA_APLICACAO = q.DATA_APLICACAO;
+                originalAmc.ID_SEMESTRE = q.ID_SEMESTRE;
+                
+                db.SaveChanges();
+            }
+        }
     }
 }

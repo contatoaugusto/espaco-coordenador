@@ -18,6 +18,11 @@ namespace EC.Negocio
         {
             return (new DAmc()).ConsultarAmc(obj);
         }
+
+        public static AMC ConsultarById(int idAmc)
+        {
+            return (new DAmc()).ConsultarById(idAmc);
+        }
          public static bool Salvar(AMC obj)
          {
              bool retorno = true;
@@ -29,6 +34,11 @@ namespace EC.Negocio
              dObj.Salvar(obj);
 
              return retorno;
+         }
+
+         public static void Atualiza(AMC obj)
+         {
+             (new DAmc()).Atualiza(obj);
          }
 
          public static List<AMC> ConsultarAmcBySemestre(int idSemestre)

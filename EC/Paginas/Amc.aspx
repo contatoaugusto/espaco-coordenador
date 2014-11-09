@@ -33,15 +33,11 @@
                 Data Aplicação da AMC:
             </div>
             <div class="column w250">
-                <asp:TextBox ID="dtAplicacao" runat="server"></asp:TextBox>
-                <actk:CalendarExtender
-                    runat="server"
-                    ID="dtAplicacaoExtender"
-                    TargetControlID="dtAplicacao"
-                    Format="MMMM/dd/yyyy"
-                    CssClass="MyCalendar"
-                    PopupPosition="Left">
-                </actk:CalendarExtender>
+                <asp:DropDownList ID="ddlDia" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMes" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlAno" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlHora" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMinuto" runat="server"></asp:DropDownList>
             </div>
 
         </div>
@@ -59,7 +55,8 @@
     <h3>AMCs Cadastradas</h3>
 
     <sgi:GridView ID="GridView_AMC" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_AMC" Width="474px" BackColor="#BFBFBF" BorderColor="#BFBFBF"
-        BorderStyle="Solid" CssClass="gridview" GroupFooter="False" PageSize="50" ShowWhenEmpty="False">
+        BorderStyle="Solid" CssClass="gridview" GroupFooter="False" PageSize="50" ShowWhenEmpty="False"
+        OnRowCommand="GridView_AMC_RowCommand">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>
      
