@@ -102,7 +102,7 @@
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Questao.aspx")%>'><span>Cadastrar Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Consultar Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Prova.aspx")%>'><span>Gerar Prova</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Relatório</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/AMCRelatorios.aspx")%>'><span>Relatório</span></a></li>
                                     </ul>
                                 </div>
                             </li>

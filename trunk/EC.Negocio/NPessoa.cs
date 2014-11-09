@@ -24,6 +24,5 @@ namespace EC.Negocio
         {
             return (new DPessoa()).ConsultarById(id);
         }
-
     } 
 }

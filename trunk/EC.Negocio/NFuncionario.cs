@@ -20,5 +20,10 @@ namespace EC.Negocio
         {
             return (new DFuncionario()).ConsultarById(idFuncionario);
         }
+
+        public static List<FUNCIONARIO> ConsultarProfessor()
+        {
+            return (new DFuncionario()).ConsultarProfessor();
+        }
     }
 }

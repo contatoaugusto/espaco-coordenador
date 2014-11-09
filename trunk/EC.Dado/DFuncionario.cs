@@ -38,5 +38,33 @@ namespace EC.Dado
                 return ltFuncionario;
             }
         }
+
+        public List<FUNCIONARIO> ConsultarProfessor()
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var funcionarios = db.PESSOA.Join(db.FUNCIONARIO,
+                    p => p.ID_PESSOA,
+                    f => f.ID_PESSOA,
+                    (p, f) =>
+                    new { f.ID_FUNCIONARIO, f.MATRICULA, f.ID_CARGO, f.PESSOA, f.ID_PESSOA, f.ATIVO }).Where(rs => rs.ID_CARGO == 1).ToList();
+
+                List<FUNCIONARIO> list = new List<FUNCIONARIO>();
+                foreach (var tipo in funcionarios)
+                {
+                    FUNCIONARIO obj = new FUNCIONARIO();
+                    obj.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
+                    obj.MATRICULA = tipo.MATRICULA;
+                    obj.ID_CARGO = tipo.ID_CARGO;
+                    obj.ID_PESSOA = tipo.ID_PESSOA;
+                    obj.PESSOA = tipo.PESSOA;
+
+                    list.Add(obj);
+                }
+
+                return list;
+            }
+        }
+
     }
 }

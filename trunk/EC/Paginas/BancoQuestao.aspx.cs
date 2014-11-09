@@ -21,7 +21,7 @@ namespace UI.Web.EC.Paginas
                 CarregarDisciplina();
                 CarregarFuncionario();
                 CarregarAmc();
-                CarregarQuestao();
+                //CarregarQuestao();
 
             }
         }

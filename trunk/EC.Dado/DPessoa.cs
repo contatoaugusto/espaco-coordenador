@@ -52,7 +52,7 @@ namespace EC.Dado
                 return list;
             }
         }
-
+        
         public PESSOA ConsultarById(int id)
         {
             using (ECEntities db = new ECEntities())
