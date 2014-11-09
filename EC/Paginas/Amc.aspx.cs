@@ -195,7 +195,7 @@ namespace UI.Web.EC.Paginas
 
         protected void GridView_AMC_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Editar")
+            if (e.CommandName == "Alterar")
             {
 
                 Context.Response.Redirect("~/Paginas/Amc.aspx?idAmc=" + Library.ToInteger(e.CommandArgument));

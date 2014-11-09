@@ -7,7 +7,7 @@
     <sgi:MessageBox ID="messageBox" runat="server" />
 
     <div class="form-separator"></div>
-    <h3>Incluir Ata de Reunião</h3>
+    <h3>Cadastrar Ata de Reunião</h3>
 
 
     <div class="form-in">
@@ -18,7 +18,7 @@
                 Reuniao: 
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlReuniao" runat="server" OnSelectedIndexChanged="ddlReuniao_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                <asp:DropDownList ID="ddlReuniao" runat="server" ></asp:DropDownList>
             </div>
         </div>
         <div class="form-separator"></div>

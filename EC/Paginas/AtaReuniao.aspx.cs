@@ -76,7 +76,7 @@ namespace UI.Web.EC.Paginas
             ddlTipoAssunto.DataValueField = "ID_TIPOASSTRATADO";
             ddlTipoAssunto.DataBind();
 
-            ddlTipoAssunto.Items.Insert(0, new ListItem("", ""));
+            ddlTipoAssunto.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         private void CarregarPessoa()
@@ -98,7 +98,7 @@ namespace UI.Web.EC.Paginas
             ddlReuniao.DataValueField = "ID_REUNIAO";
             ddlReuniao.DataBind();
 
-            ddlReuniao.Items.Insert(0, new ListItem("", ""));
+            ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         protected void btnIncluirAssunto_Click(object sender, ImageClickEventArgs e)

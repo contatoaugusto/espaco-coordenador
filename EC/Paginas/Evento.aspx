@@ -6,7 +6,7 @@
     <sgi:MessageBox ID="messageBox" runat="server" />
 
     <div class="form-separator"></div>
-    <h3>Incluir Evento</h3>
+    <h3>Cadastrar Evento</h3>
 
 
     <div class="form-in">

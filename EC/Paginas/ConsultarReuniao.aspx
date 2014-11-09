@@ -9,7 +9,8 @@
             $("#closeModalpopup").click(function () {
                 document.location = "../default.aspx";
             });
-        });<a href="ConsultarReuniao.aspx">ConsultarReuniao.aspx</a>
+        });
+        <a href="ConsultarReuniao.aspx">ConsultarReuniao.aspx</a>
     </script>
 
 

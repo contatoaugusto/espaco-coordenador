@@ -10,7 +10,16 @@
 namespace UI.Web.EC.Paginas {
     
     
-    public partial class ConsultarAta {
+    public partial class RelatorioReuniao {
+        
+        /// <summary>
+        /// Controle ddlSemestre.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSemestre;
         
         /// <summary>
         /// Controle ddlReuniao.
@@ -22,6 +31,15 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.DropDownList ddlReuniao;
         
         /// <summary>
+        /// Controle ddlTipoRelatorio.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoRelatorio;
+        
+        /// <summary>
         /// Controle btConsultar.
         /// </summary>
         /// <remarks>
@@ -29,14 +47,5 @@ namespace UI.Web.EC.Paginas {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btConsultar;
-        
-        /// <summary>
-        /// Controle btNovo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btNovo;
     }
 }

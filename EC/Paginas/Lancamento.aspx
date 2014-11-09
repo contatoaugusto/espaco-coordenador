@@ -16,7 +16,7 @@
     <sgi:MessageBox ID="messageBox" runat="server" />
     
     <div class="form-separator"></div>
-    <h3>Incluir Lançamento</h3>
+    <h3>Cadastrar Lançamento</h3>
 
     <div class="form-in">
         <div class="row">

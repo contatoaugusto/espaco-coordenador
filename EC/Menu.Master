@@ -65,7 +65,7 @@
                                     </div>
                                 </li>
                                 <li>|</li>
-                                <li><a href="logout.ashx">Sair</a></li>
+                                <li><a href="Login.aspx">Sair</a></li>
                             </ul>
                         </div>
                         <%--<div id="pesquisa">
@@ -102,6 +102,8 @@
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Questao.aspx")%>'><span>Cadastrar Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Consultar Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Prova.aspx")%>'><span>Gerar Prova</span></a></li>
+
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/RelatorioAMC.aspx")%>'><span>Relatórios AMC</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/AMCRelatorios.aspx")%>'><span>Relatório</span></a></li>
                                     </ul>
                                 </div>
@@ -113,6 +115,9 @@
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarReuniao.aspx")%>'><span>Consultar Reunião</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/AtaReuniao.aspx")%>'><span>Cadastrar Ata</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarAta.aspx")%>'><span>Consultar Ata</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/RelatorioReuniao.aspx")%>'><span>Relatórios Reuniões</span></a></li>
+
+
                                         
                                     </ul>
                                 </div>
@@ -122,6 +127,7 @@
                                     <ul>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Acao.aspx")%>'><span>Cadastrar Ação</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarAcao.aspx")%>'><span>Consultar Ação</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/RelatorioAcao.aspx")%>'><span>Relatórios Ações</span></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -129,7 +135,7 @@
                                 <div style="width:auto">
                                     <ul>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Evento.aspx")%>'><span>Cadastar Evento</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarEvento.aspx")%>'><span>Consultar Evento</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/ConsultarEvento.aspx")%>'><span>Consultar Evento</span></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -140,6 +146,7 @@
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarLancamento.aspx")%>'><span>Consultar Lançamento</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/RepresentanteTurma.aspx")%>'><span>Cadastro Representante Turma</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarRepresentanteTurma.aspx")%>'><span>Consultar Representante Turma</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/RelatorioAcademico.aspx")%>'><span>Relatórios Acadêmicos</span></a></li>
                                     </ul>
                                 </div>
                             </li>
