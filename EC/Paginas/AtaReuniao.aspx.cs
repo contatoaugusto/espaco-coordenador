@@ -177,11 +177,12 @@ namespace UI.Web.EC.Paginas
             grdParticipantesReuniao.DataBind();
 
             var pautas = NReuniaoPauta.ConsultarByReuniao(reuniao.ID_REUNIAO);
+            string strpauta = "<ul>";
             foreach (var pauta in pautas)
             {
-                lblPauta.Text += pauta.DESCRICAO + "\n";
+                strpauta += "<li>" + pauta.ITEM + " - " + pauta.DESCRICAO + "</li>";
             }
-
+            lblPauta.Text = strpauta + "</ul>"; 
             pnlAta.Visible = true;
         }
     }
