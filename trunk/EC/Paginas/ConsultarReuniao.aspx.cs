@@ -31,7 +31,7 @@ namespace UI.Web.EC.Paginas
             ddlTipoReuniao.DataValueField = "ID_TIPOREUNIAO";
             ddlTipoReuniao.DataBind();
 
-            ddlTipoReuniao.Items.Insert(0, new ListItem("", ""));
+            ddlTipoReuniao.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         private void CarregarReuniao()

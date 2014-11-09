@@ -165,7 +165,7 @@ namespace UI.Web.EC.Reuniao
             ddlTipoReuniao.DataTextField = "DESCRICAO";
             ddlTipoReuniao.DataValueField = "ID_TIPOREUNIAO";
             ddlTipoReuniao.DataBind();
-
+     
             ddlTipoReuniao.Items.Insert(0, new ListItem("Selecione", "0"));
         }
 

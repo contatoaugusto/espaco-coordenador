@@ -70,7 +70,7 @@ namespace UI.Web.EC.Paginas
             ddlPessoa.DataTextField = "NOME";
             ddlPessoa.DataValueField = "ID_PESSOA";
             ddlPessoa.DataBind();
-            ddlPessoa.Items.Insert(0, new ListItem("", ""));
+            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         private void CarregarTurma()
@@ -81,7 +81,7 @@ namespace UI.Web.EC.Paginas
             foreach (var turma in turmas)
             {
                // ddlTurma.Items.Add(new ListItem(turma.SEMESTRE.SEMESTRE1 + "º sem/" + turma.SEMESTRE.ANO, turma.ID_TURMA.ToString()));
-                ddlTurma.Items.Insert(0, new ListItem("", ""));
+                ddlTurma.Items.Insert(0, new ListItem("Selecione", ""));
             }
           
         }
@@ -91,7 +91,7 @@ namespace UI.Web.EC.Paginas
             ddlTipolancamento.DataTextField = "DESCRICAO";
             ddlTipolancamento.DataValueField = "ID_TIPOLANCAMENTO";
             ddlTipolancamento.DataBind();
-            ddlTipolancamento.Items.Insert(0, new ListItem("", ""));
+            ddlTipolancamento.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
        // private void CarregarLancamento()
