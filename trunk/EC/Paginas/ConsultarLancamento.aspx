@@ -42,7 +42,7 @@
         <div class="form-separator"></div>
         <div class="form-bottombuttons">
 
-            <ec:Button ID="btConsultar" runat="server" Text="Pesquisar" OnClick="btConsultar_Click"/>
+            <ec:Button ID="btConsultar" runat="server" Text="Consultar" OnClick="btConsultar_Click"/>
             <ec:Button ID="btNovo" runat="server" Text="Novo" OnClick="btnovo_Click" />
         </div>
 

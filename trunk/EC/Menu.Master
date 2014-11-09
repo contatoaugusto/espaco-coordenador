@@ -100,7 +100,7 @@
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Semestre.aspx")%>'><span>Abrir Semestre</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Amc.aspx")%>'><span>Abrir AMC</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Questao.aspx")%>'><span>Cadastrar Questão</span></a></li>
-                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Banco de Questão</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Consultar Questão</span></a></li>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Prova.aspx")%>'><span>Gerar Prova</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/BancoQuestao.aspx")%>'><span>Relatório</span></a></li>
                                     </ul>
@@ -114,6 +114,14 @@
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/AtaReuniao.aspx")%>'><span>Cadastrar Ata</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarAta.aspx")%>'><span>Consultar Ata</span></a></li>
                                         
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class='mega'><a href='#'><span>Ações</span></a>
+                                <div style="width: auto">
+                                    <ul>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Acao.aspx")%>'><span>Cadastrar Ação</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarAcao.aspx")%>'><span>Consultar Ação</span></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -135,14 +143,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class='mega'><a href='#'><span>Ações</span></a>
-                                <div style="width:auto">
-                                    <ul>
-                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Acao.aspx")%>'><span>Cadastrar Ação</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarAcao.aspx")%>'><span>Consultar Ação</span></a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                            
                         </ul>
                        
                     </div>
