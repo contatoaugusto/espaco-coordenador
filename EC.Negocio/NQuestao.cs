@@ -31,6 +31,10 @@ namespace EC.Negocio
             return (new DQuestao()).ConsultarQuestaoByProva(idProva);
         }
 
+        //public static List<QUESTAO> ConsultarQuestaoByProfessor(List<FUNCIONARIO> funcionarios)
+        //{
+        //    return (new DQuestao()).ConsultarQuestaoByProfessor(funcionarios);
+        //}
 
         public static void Salvar(QUESTAO q)
         {
