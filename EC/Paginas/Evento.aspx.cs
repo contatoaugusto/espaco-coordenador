@@ -42,10 +42,11 @@ namespace UI.Web.EC.Paginas
 
             ddlDia.DataSource = ListaDia;
             ddlDia.DataBind();
+            ddlDia.Items.Insert(0, new ListItem("", ""));
 
             ddlDia1.DataSource = ListaDia1;
             ddlDia1.DataBind();
-
+            ddlDia1.Items.Insert(0, new ListItem("", ""));
         }
 
 
@@ -61,10 +62,11 @@ namespace UI.Web.EC.Paginas
 
             ddlMes.DataSource = ListaMes;
             ddlMes.DataBind();
+            ddlMes.Items.Insert(0, new ListItem("", ""));
 
             ddlMes1.DataSource = ListaMes1;
             ddlMes1.DataBind();
-
+            ddlMes1.Items.Insert(0, new ListItem("", ""));
         }
         private void CarregarListaAno()
         {
@@ -78,9 +80,11 @@ namespace UI.Web.EC.Paginas
 
             ddlAno.DataSource = ListaAno;
             ddlAno.DataBind();
+            ddlAno.Items.Insert(0, new ListItem("", ""));
 
             ddlAno1.DataSource = ListaAno1;
             ddlAno1.DataBind();
+            ddlAno1.Items.Insert(0, new ListItem("", ""));
         }
 
         private void CarregarListaHora()
@@ -96,8 +100,11 @@ namespace UI.Web.EC.Paginas
             ddlHora.DataSource = ListaHora;
             ddlHora.DataBind();
 
+            ddlHora.Items.Insert(0, new ListItem("", ""));
+
             ddlHora1.DataSource = ListaHora;
             ddlHora1.DataBind();
+            ddlHora1.Items.Insert(0, new ListItem("", ""));
 
         }
 
@@ -110,13 +117,17 @@ namespace UI.Web.EC.Paginas
             {
                 ListaMinuto.Add(i.ToString());
                 ListaMinuto1.Add(i.ToString());
+                ddlMinuto.Items.Insert(0, new ListItem("", ""));
             }
 
             ddlMinuto.DataSource = ListaMinuto;
             ddlMinuto.DataBind();
+            ddlMinuto.Items.Insert(0, new ListItem("", ""));
+
 
             ddlMinuto1.DataSource = ListaMinuto1;
             ddlMinuto1.DataBind();
+            ddlMinuto1.Items.Insert(0, new ListItem("", ""));
             
         }
 
@@ -162,6 +173,7 @@ namespace UI.Web.EC.Paginas
             ddlTipoEvento.DataTextField = "DESCRICAO";
             ddlTipoEvento.DataValueField = "ID_TIPOEVENTO";
             ddlTipoEvento.DataBind();
+            ddlTipoEvento.Items.Insert(0, new ListItem("", ""));
         }
 
         private void CarregarPessoa()
@@ -170,6 +182,8 @@ namespace UI.Web.EC.Paginas
             ddlPessoa.DataTextField = "NOME";
             ddlPessoa.DataValueField = "ID_PESSOA";
             ddlPessoa.DataBind();
+            ddlPessoa.Items.Insert(0, new ListItem("", ""));
+        
         }
 
       
