@@ -18,7 +18,7 @@
                 Reuniao: 
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlReuniao" runat="server" ></asp:DropDownList>
+                <asp:DropDownList ID="ddlReuniao" runat="server" OnSelectedIndexChanged="ddlReuniao_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
             </div>
         </div>
         <div class="form-separator"></div>
@@ -80,12 +80,12 @@
                     <asp:Label ID="lblPauta" runat="server"/>
                 </div>
             </div>
+            
             <div class="form-separator"></div>
+            
+            <h4>Pendências Anteriores</h4>
             <div class="row">
-                <div class="column w100">
-                    Pendências:
-                </div>
-                <div class="column w250">
+                <div class="column w150">
                     <sgi:Button ID="btntransferirPendencias" runat="server" Text="Transferir Pendências"/>
                 </div>
             </div>
@@ -99,26 +99,24 @@
             </sgi:GridView>
 
             <div class="form-separator"></div>
-
+            <h4>Assuntos Tratados</h4>
             <div class="row">
-                <div class="column w100">
-                    Assuntos Tratados:
+                <div class="column w450">
+                    Descrição:
                 </div>
-                <div class="column w250">
-                    <asp:TextBox ID="TxtAssunto" runat="server" Width="500px" TextMode="MultiLine" Rows="2" Style="margin-left: 0px"></asp:TextBox>
+                <div class="column w150">
+                    Tipo
                 </div>
             </div>
-
             <div class="row">
-                <div class="column w100">
-                    Tipo:
+                <div class="column w450">
+                    <asp:TextBox ID="TxtAssunto" runat="server" Width="440px" TextMode="MultiLine" Rows="2"></asp:TextBox>
                 </div>
-                <div class="column w250">
+                <div class="column w150">
                     <asp:DropDownList ID="ddlTipoAssunto" runat="server"></asp:DropDownList>
-                    <asp:ImageButton ID="btnIncluirAssunto" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluirAssunto_Click" /></td>
+                    <asp:ImageButton ID="btnIncluirAssunto" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluirAssunto_Click" ToolTip="Adiciona novo assunto tratado" />
                 </div>
             </div>
-
             <sgi:GridView ID="grdAssunto" runat="server" AutoGenerateColumns="False">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -126,7 +124,7 @@
                     <asp:BoundField HeaderText="Descricão" DataField="DESCRICAO" />
                     <asp:TemplateField HeaderText="Tipo">
                         <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("ID_TIPOASSTRATADO") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("TIPO_ASSUNTO_TRATADO.DESCRICAO") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:ButtonField Text="Alterar" />
@@ -135,58 +133,71 @@
             </sgi:GridView>
 
             <div class="form-separator"></div>
-
+            <h4>Ações Futuras</h4>
             <div class="row">
-                <div class="column w100">
-                    Compromissos:
+                <div class="column w450">
+                    Descrição:
                 </div>
-                <div class="column w250">
-
-                    <asp:TextBox ID="TxtCompromisso" runat="server" Width="500px" TextMode="MultiLine" Rows="2" Style="margin-left: 0px"></asp:TextBox>
+                <div class="column w200">
+                    Responsável
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="column w100">
-                    Responsável:
-                </div>
-                <div class="column w250">
-
-                    <asp:DropDownList ID="ddlPessoa" runat="server"></asp:DropDownList>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="column w100">
+                 <div class="column w200">
                     Data
                 </div>
-                <div class="column w250">
-                    <asp:DropDownList ID="ddlDia" runat="server">
-                    </asp:DropDownList>
-                    <asp:DropDownList ID="ddlMes" runat="server">
-                    </asp:DropDownList>
+            </div>
+            <div class="row">
+                <div class="column w450">
+                    <asp:TextBox ID="TxtCompromisso" runat="server" Width="440px" TextMode="MultiLine" Rows="2" ></asp:TextBox>
+                </div>
+                <div class="column w200">
+                    <asp:DropDownList ID="ddlPessoa" runat="server"></asp:DropDownList>
+                </div>
+                 <div class="column w200">
+                    <asp:DropDownList ID="ddlDia" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlMes" runat="server"></asp:DropDownList>
                     <asp:DropDownList ID="ddlAno" runat="server"></asp:DropDownList>
 
-                    <asp:ImageButton ID="btnIncluircompromisso" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluircompromisso_Click1" />
+                    <asp:ImageButton ID="btnIncluircompromisso" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluircompromisso_Click1" ToolTip="Adiciona nova ação futura" />
                 </div>
             </div>
-
             <sgi:GridView ID="grdCompromisso" runat="server" AutoGenerateColumns="False">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField HeaderText="Nº" DataField="ITEM" />
                     <asp:BoundField HeaderText="Descricão" DataField="DESCRICAO" />
-
-                    <asp:BoundField HeaderText="Data " />
-                    <asp:BoundField DataField="ID_PESSOA" HeaderText="Responsável" />
-
+                    <asp:BoundField HeaderText="Data" DataField="DATA"/>
+                    <asp:TemplateField HeaderText="Responsável">
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("PESSOA.NOME") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </sgi:GridView>
 
             <div class="form-separator"></div>
+            <h4>Identificação do Registro</h4>
+            <div class="row">
+                <div class="column w150">
+                    Ata elaborada por:
+                </div>
+                <div class="column w200">
+                    <asp:Label ID="lblAtaElaboradaPor" runat="server"></asp:Label>
+                </div>
+                <div class="column w150">
+                    Data do fechamento
+                </div>
+                <div class="column w200">
+                    <asp:DropDownList ID="ddlDiaFechamento" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlMesFechamento" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlAnoFechamento" runat="server"></asp:DropDownList>
+                </div>
+            </div>
 
+            <div class="form-separator"></div>
+            
             <div class="form-bottombuttons">
                 <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" OnClick="btnSalvarReuniao_Click" />
+                <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail" OnClick="btnSalvarReuniao_Click" />
                 <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
             </div>
         </asp:Panel>

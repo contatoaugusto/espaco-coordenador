@@ -35,5 +35,32 @@ namespace UI.Web.EC.Paginas
                     ddlAmc.Items.Add(new ListItem(obj.SEMESTRE.SEMESTRE1 + "º sem/" + obj.SEMESTRE.ANO, obj.ID_AMC.ToString()));
             }
         }
+
+        protected void ddlTipoRelatorio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btConsultar_Click(object sender, EventArgs e)
+        {
+            int valorSelecionado = ddlTipoRelatorio.SelectedValue.ToInt32();
+            string pagina = "";
+
+            switch (valorSelecionado)
+            {
+                case 1:
+                    pagina = "ProfessorQuestoes.aspx";
+                    break;
+                case 2:
+                    pagina = "ProfessorQuestoes.aspx";
+                    break;
+                case 3:
+                    pagina = "ProfessorQuestoes.aspx";
+                    break;
+            }
+
+            Context.Response.Redirect("~/Paginas/Relatorios/" + pagina);
+
+        }
     }
 }

@@ -13,8 +13,8 @@ namespace UI.Web.EC.Paginas
 {
     public partial class AtaReunião : System.Web.UI.Page
     {
-        public static EntityCollection<REUNIAO_ASSUNTO_TRATADO> assuntos;
-        public static EntityCollection<REUNIAO_COMPROMISSO> compromissos;
+        public static List<REUNIAO_ASSUNTO_TRATADO> assuntos;
+        public static List<REUNIAO_COMPROMISSO> compromissos;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,8 +28,8 @@ namespace UI.Web.EC.Paginas
                     CarregarTipoAssunto();
                     CarregarReuniao();
                     CarregarPessoa();
-                    assuntos = new EntityCollection<REUNIAO_ASSUNTO_TRATADO>();
-                    compromissos = new EntityCollection<REUNIAO_COMPROMISSO>();
+                    assuntos = new List<REUNIAO_ASSUNTO_TRATADO>();
+                    compromissos = new List<REUNIAO_COMPROMISSO>();
                 }
             }
         }
@@ -44,6 +44,9 @@ namespace UI.Web.EC.Paginas
 
             ddlDia.DataSource = ListaDia;
             ddlDia.DataBind();
+
+            ddlDiaFechamento.DataSource = ListaDia;
+            ddlDiaFechamento.DataBind();
         }
 
 
@@ -57,6 +60,8 @@ namespace UI.Web.EC.Paginas
 
             ddlMes.DataSource = ListaMes;
             ddlMes.DataBind();
+            ddlMesFechamento.DataSource = ListaMes;
+            ddlMesFechamento.DataBind();
         }
         private void CarregarListaAno()
         {
@@ -68,6 +73,8 @@ namespace UI.Web.EC.Paginas
 
             ddlAno.DataSource = ListaAno;
             ddlAno.DataBind();
+            ddlAnoFechamento.DataSource = ListaAno;
+            ddlAnoFechamento.DataBind();
         }
         private void CarregarTipoAssunto()
         {
@@ -106,7 +113,8 @@ namespace UI.Web.EC.Paginas
             {
                 REUNIAO_ASSUNTO_TRATADO assunto = new REUNIAO_ASSUNTO_TRATADO();
                 assunto.DESCRICAO = TxtAssunto.Text;
-              //  assunto.ID_TIPOASSTRATADO = Convert.ToInt32(ddlTipoAssunto.SelectedValue);
+                assunto.ID_TIPOASSTRATADO = Library.ToInteger(ddlTipoAssunto.SelectedValue);
+                assunto.TIPO_ASSUNTO_TRATADO = NReuniao.ConsultarTipoAssuntoById( Library.ToInteger(ddlTipoAssunto.SelectedValue));
                 assunto.ITEM = assuntos.Count + 1;
                 assuntos.Add(assunto);
                 grdAssunto.DataSource = assuntos;
@@ -122,7 +130,8 @@ namespace UI.Web.EC.Paginas
                 REUNIAO_COMPROMISSO compromisso = new REUNIAO_COMPROMISSO();
                 compromisso.DESCRICAO = TxtCompromisso.Text;
                 compromisso.DATA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text));
-               // compromisso.ID_PESSOA = Convert.ToInt32(ddlPessoa.SelectedValue);
+                compromisso.ID_PESSOA = Library.ToInteger(ddlPessoa.SelectedValue);
+                compromisso.PESSOA = NPessoa.ConsultarById( Library.ToInteger(ddlPessoa.SelectedValue));
                 compromisso.ITEM = compromissos.Count + 1;
                 compromissos.Add(compromisso);
                 grdCompromisso.DataSource = compromissos;
@@ -132,15 +141,38 @@ namespace UI.Web.EC.Paginas
 
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
-         {
+         
             REUNIAO reuniao = new REUNIAO();    
            
             reuniao.ID_REUNIAO = int.Parse(ddlReuniao.SelectedValue);
-            reuniao.REUNIAO_ASSUNTO_TRATADO = assuntos;
-            reuniao.REUNIAO_COMPROMISSO = compromissos;
+
+            EntityCollection<REUNIAO_ASSUNTO_TRATADO> reuniao_assuntos = new EntityCollection<REUNIAO_ASSUNTO_TRATADO>();
+            foreach (var obj in assuntos)
+            {
+                REUNIAO_ASSUNTO_TRATADO reuniao_assunto_tratado = new REUNIAO_ASSUNTO_TRATADO();
+                reuniao_assunto_tratado.DESCRICAO = obj.DESCRICAO;
+                reuniao_assunto_tratado.ITEM = obj.ITEM;
+                reuniao_assunto_tratado.ID_TIPOASSTRATADO = obj.ID_TIPOASSTRATADO;
+                reuniao_assuntos.Add(reuniao_assunto_tratado);
+            }
+            reuniao.REUNIAO_ASSUNTO_TRATADO = reuniao_assuntos;
+
+            EntityCollection<REUNIAO_COMPROMISSO> reuniao_compromissos = new EntityCollection<REUNIAO_COMPROMISSO>();
+            foreach (var obj in compromissos)
+            {
+                REUNIAO_COMPROMISSO reuniao_compromisso = new REUNIAO_COMPROMISSO();
+                reuniao_compromisso.ID_PESSOA = obj.ID_PESSOA;
+                reuniao_compromisso.DESCRICAO = obj.DESCRICAO;
+                reuniao_compromisso.ITEM = obj.ITEM;
+                reuniao_compromisso.DATA = obj.DATA;
+
+                reuniao_compromissos.Add(reuniao_compromisso);
+            }
+            reuniao.REUNIAO_COMPROMISSO = reuniao_compromissos;
+            
             NReuniao.Salvar(reuniao);
             Response.Redirect("ConsultarAta.aspx", true);
-            }
+            
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
@@ -182,9 +214,14 @@ namespace UI.Web.EC.Paginas
             {
                 strpauta += "<li>" + pauta.ITEM + " - " + pauta.DESCRICAO + "</li>";
             }
-            lblPauta.Text = strpauta + "</ul>"; 
+            lblPauta.Text = strpauta + "</ul>";
+
+            lblAtaElaboradaPor.Text = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.PESSOA.NOME;
+            
+            
             pnlAta.Visible = true;
         }
+      
     }
 }
 
