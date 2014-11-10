@@ -22,18 +22,20 @@
                 Tipo de Relatório:
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlTipoRelatorio" runat="server">
-                    <asp:ListItem Value="01">Selecione</asp:ListItem>
-                    <asp:ListItem Value="02">Participação de professores na AMC</asp:ListItem>
-                    <asp:ListItem Value="03">Desempenho de Alunos por questão</asp:ListItem>
+                <asp:DropDownList ID="ddlTipoRelatorio" runat="server" OnSelectedIndexChanged="ddlTipoRelatorio_SelectedIndexChanged">
+                    <asp:ListItem Value="0">Selecione</asp:ListItem>
+                    <asp:ListItem Value="1">Participação de professores na AMC</asp:ListItem>
+                    <asp:ListItem Value="2">Desempenho de Alunos por questão</asp:ListItem>
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlTipoRelatorio" InitialValue="0" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+                
             </div>
         </div>
 
         <div class="form-separator"></div>
 
         <div class="form-bottombuttons">
-            <asp:Button ID="btConsultar" runat="server" Text="Gerar Relatório" />
+            <asp:Button ID="btConsultar" runat="server" Text="Gerar Relatório" OnClick="btConsultar_Click"/>
             
         </div>
         

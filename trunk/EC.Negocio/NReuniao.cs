@@ -38,6 +38,11 @@ namespace EC.Negocio
             return (new DReuniao()).ConsultarTipoAssunto();
         }
 
+        public static TIPO_ASSUNTO_TRATADO ConsultarTipoAssuntoById(int idTipoAssuntoTratado)
+        {
+            return (new DReuniao()).ConsultarTipoAssuntoById(idTipoAssuntoTratado);
+        }
+
         public static void Salvar(REUNIAO r)
         {
             DReuniao dreuniao = new DReuniao();

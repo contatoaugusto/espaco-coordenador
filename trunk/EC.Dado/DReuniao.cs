@@ -46,6 +46,13 @@ namespace EC.Dado
             }
         }
 
+        public TIPO_ASSUNTO_TRATADO ConsultarTipoAssuntoById(int idTipoAssuntoTratado)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                return db.TIPO_ASSUNTO_TRATADO.First(rs => rs.ID_TIPOASSTRATADO == idTipoAssuntoTratado);
+            }
+        }
        
         public List<REUNIAO> ConsultarReuniao(REUNIAO objreuniao)
         {
