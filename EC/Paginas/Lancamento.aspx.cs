@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EC.Common;
 using EC.Negocio;
 using EC.Modelo;
+using EC.UI.WebControls;
 
 namespace UI.Web.EC.Paginas
 {
@@ -19,12 +21,15 @@ namespace UI.Web.EC.Paginas
             CarregarListaAno();
             CarregarListaMes();
             CarregarListaDia();
-            CarregarPessoa();
+            CarregarDisciplina();
             CarregarTipolancamento();
             CarregarTurma();
+            //CarregarFuncionario();
            // CarregarLancamento();
+           
             
         }
+
         private void CarregarListaDia()
         {
             List<string> ListaDia = new List<string>();
@@ -38,7 +43,6 @@ namespace UI.Web.EC.Paginas
             ddlDia.Items.Insert(0, new ListItem("", ""));
         }
 
-
         private void CarregarListaMes()
         {
             List<string> ListaMes = new List<string>();
@@ -51,6 +55,7 @@ namespace UI.Web.EC.Paginas
             ddlMes.DataBind();
             ddlMes.Items.Insert(0, new ListItem("", ""));
         }
+
         private void CarregarListaAno()
         {
             List<string> ListaAno = new List<string>();
@@ -64,14 +69,7 @@ namespace UI.Web.EC.Paginas
             ddlAno.Items.Insert(0, new ListItem("", ""));
         }
 
-        private void CarregarPessoa()
-        {
-            ddlPessoa.DataSource = NAcao.ConsultarPessoa();
-            ddlPessoa.DataTextField = "NOME";
-            ddlPessoa.DataValueField = "ID_PESSOA";
-            ddlPessoa.DataBind();
-            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
-        }
+       
 
         private void CarregarTurma()
         {
@@ -85,6 +83,38 @@ namespace UI.Web.EC.Paginas
             }
           
         }
+
+        private void CarregarDisciplina()
+        {
+
+            var disciplina = NDisciplina.ConsultarByCurso(Utils.GetUsuarioLogado().IdCurso);
+            ddlDisciplina.Items.Clear();
+
+            ddlDisciplina.Items.Add(new ListItem("Selecione", "0"));
+
+            foreach (DISCIPLINA dis in disciplina)
+            {
+                ddlDisciplina.Items.Add(new ListItem(dis.DESCRICAO, dis.ID_DISCIPLINA.ToString()));
+            }
+
+            CarregarFuncionario(ddlDisciplina.SelectedValue.ToInt32());
+        }
+
+
+        private void CarregarFuncionario(int idDisciplina)
+        {
+            var lista = NDisciplina.ConsultarProfessorByDisciplina(idDisciplina); //NQuestão.ConsultarFuncionario();
+
+            ddlFuncionario.Items.Clear();
+
+            ddlFuncionario.Items.Add(new ListItem("Selecione", "0"));
+
+            foreach (FUNCIONARIO func in lista)
+            {
+                ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
+            }
+        }
+
         private void CarregarTipolancamento()
         {
             ddlTipolancamento.DataSource = NLancamento.ConsultarTipolancamento();
@@ -109,7 +139,9 @@ namespace UI.Web.EC.Paginas
             lancamento.PROVIDENCIA = TxtProvidencias.Text;
             lancamento.DATA_LANCAMENTO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text));
             NLancamento.Salvar(lancamento);
-            Response.Redirect("Consultarlancamento.aspx", true);
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
+            }
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)

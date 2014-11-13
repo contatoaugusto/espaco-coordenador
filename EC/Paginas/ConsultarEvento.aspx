@@ -48,9 +48,8 @@
 
     <h3>Eventos</h3>
 
-    <sgi:GridView ID="grdEvento" runat="server" AutoGenerateColumns="False">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
+    <sgi:GridView ID="grdEvento" runat="server" AutoGenerateColumns="False" >
+           <Columns>
             <asp:BoundField DataField="NOME" HeaderText="Nome">
                 <ControlStyle BackColor="#CCCCCC" BorderColor="Silver" />
             </asp:BoundField>
@@ -60,16 +59,17 @@
             <asp:BoundField DataField="INICIO" HeaderText="Inicio">
                 <ControlStyle BackColor="#CCCCCC" />
             </asp:BoundField>
+            <asp:TemplateField HeaderText="Ações">
+                <ItemTemplate>
+                    <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_EVENTO")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />
+                    |
+                        <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_EVENTO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            
         </Columns>
-        <FooterStyle BackColor="#CCCC99" />
-        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-        <RowStyle BackColor="#F7F7DE" />
-        <SelectedRowStyle BackColor="#CE5D5A" ForeColor="White" Font-Bold="True" />
-        <SortedAscendingCellStyle BackColor="#FBFBF2" />
-        <SortedAscendingHeaderStyle BackColor="#848384" />
-        <SortedDescendingCellStyle BackColor="#EAEAD3" />
-        <SortedDescendingHeaderStyle BackColor="#575357" />
+
+       
     </sgi:GridView>
  
     

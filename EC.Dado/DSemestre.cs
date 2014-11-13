@@ -65,7 +65,7 @@ namespace EC.Dado
 
                 AtualizarStatus(false);
                 
-                db.SEMESTRE.AddObject(se);
+                db.SEMESTRE.Add(se);
                 db.SaveChanges();
                 db.Dispose();
             }

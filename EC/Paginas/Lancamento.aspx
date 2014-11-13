@@ -26,6 +26,13 @@
             <div class="column w200">
                 <asp:DropDownList ID="ddlTipolancamento" runat="server"></asp:DropDownList>
             </div>
+            <div class="column w100">
+                Semestre:
+            </div>
+            <div class="column w200">
+                <asp:HiddenField ID="hddSemestreCorrente" runat="server"></asp:HiddenField>
+                <asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>
+            </div>
         </div>
 
         <div class="row">
@@ -33,10 +40,18 @@
                 Professor
             </div>
             <div class="column w200">
-                <asp:DropDownList ID="ddlPessoa" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlFuncionario" runat="server"></asp:DropDownList>
             </div>
         </div>
 
+        <div class="row">
+            <div class="column w100">
+                Disciplina:
+            </div>
+            <div class="column w250">
+                <sgi:DropDownList ID="ddlDisciplina" runat="server"></sgi:DropDownList>
+            </div>
+        </div>
         <div class="row">
             <div class="column w100">
                 Turma:

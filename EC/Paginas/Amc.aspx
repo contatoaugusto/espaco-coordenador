@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
+
     <sgi:MessageBox ID="messageBox" runat="server" />
     <%--<sgi:UpdatePanel ID="pnlAmc" runat="server">--%>
 
@@ -36,11 +38,6 @@
                 <sgi:DropDownList ID="ddlDia" runat="server"></sgi:DropDownList>
                 <sgi:DropDownList ID="ddlMes" runat="server"></sgi:DropDownList>
                 <sgi:DropDownList ID="ddlAno" runat="server"></sgi:DropDownList>
-
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlAno" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlDia" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlMes" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-
             </div>
 
             <div class="column w100">
@@ -64,7 +61,7 @@
     <hr class="line" />
     <h3>AMCs Cadastradas</h3>
 
-    <sgi:GridView ID="GridView_AMC" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_AMC" Width="474px" BackColor="#BFBFBF" BorderColor="#BFBFBF"
+    <sgi:GridView ID="GridView_AMC" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_AMC" Width="980px" BackColor="#BFBFBF" BorderColor="#BFBFBF"
         BorderStyle="Solid" CssClass="gridview" GroupFooter="False" PageSize="50" ShowWhenEmpty="False"
         OnRowCommand="GridView_AMC_RowCommand">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>

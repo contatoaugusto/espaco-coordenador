@@ -84,7 +84,9 @@ namespace UI.Web.EC.Paginas
             var idFuncionario = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.ID_FUNCIONARIO;
             // Selecionar as questões dessa AMC e do curso do usuario logado (professor ou coordenador)
             NProva.GerarProvaRandomicamente(Library.ToInteger(ddlAmc.SelectedValue), idCurso, 32, idFuncionario);
+            Response.Redirect("Prova.aspx", true);
         }
+        
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -138,6 +140,7 @@ namespace UI.Web.EC.Paginas
 
                     i++;
                 }
+
 
                 reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Questoes", table));//questao));
 

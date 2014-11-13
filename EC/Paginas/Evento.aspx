@@ -17,6 +17,13 @@
             <div class="column w250">
                 <asp:DropDownList ID="ddlTipoEvento" runat="server"></asp:DropDownList>
             </div>
+            <div class="column w100">
+                Semestre:
+            </div>
+            <div class="column w200">
+                <asp:HiddenField ID="hddSemestreCorrente" runat="server"></asp:HiddenField>
+                <asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>
+            </div>
         </div>
 
         <div class="row">
@@ -58,33 +65,50 @@
 
         <div class="row">
             <div class="column w100">
-                Inicio:
+                Data Inicio:
             </div>
-            <div class="column w250">
-                <asp:DropDownList ID="ddlDia" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlMes" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlAno" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlHora" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlMinuto" runat="server"></asp:DropDownList>
+            <div class="column w200">
+                <sgi:DropDownList ID="ddlDia" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlMes" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlAno" runat="server"></sgi:DropDownList>
+
+                           </div>
+
+            <div class="column w100">
+                Hora Inicio:
+            </div>
+            <div class="column w200">
+                <sgi:DropDownList ID="ddlHora" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlMinuto" runat="server"></sgi:DropDownList>
+               
             </div>
         </div>
-
+        
         <div class="row">
             <div class="column w100">
-                Conclusão:
+                Data Fim:
             </div>
-            <div class="column w250">
-                <asp:DropDownList ID="ddlDia1" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlMes1" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlAno1" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlHora1" runat="server"></asp:DropDownList>
-                <asp:DropDownList ID="ddlMinuto1" runat="server"></asp:DropDownList>
+            <div class="column w200">
+                <sgi:DropDownList ID="ddlDia1" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlMes1" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlAno1" runat="server"></sgi:DropDownList>
+
+           
+            </div>
+
+            <div class="column w100">
+                Hora Fim:
+            </div>
+            <div class="column w200">
+                <sgi:DropDownList ID="ddlHora1" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlMinuto1" runat="server"></sgi:DropDownList>
+                
             </div>
         </div>
-    
         <div class="form-bottombuttons">
-            <asp:Button ID="Button1" runat="server" Text="Salvar" OnClick="Button1_Click"/>
-            <%--<sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />--%>
+            <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" />
+            <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail"  />
+            <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" />
         </div>
     </div>
     

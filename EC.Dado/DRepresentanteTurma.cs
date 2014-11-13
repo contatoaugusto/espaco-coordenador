@@ -78,7 +78,7 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                db.REPRESENTANTE_TURMA.AddObject(q);
+                db.REPRESENTANTE_TURMA.Add(q);
                 db.SaveChanges();
 
                 var id = q.ID_REPRESENTANTE;

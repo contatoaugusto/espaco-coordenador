@@ -53,6 +53,11 @@ namespace EC.Negocio
         {
             (new DReuniao()).Atualiza(q);
         }
+
+        public static void Excluir(REUNIAO q)
+        {
+            (new DReuniao()).Excluir(q);
+        }
     }
 }
  

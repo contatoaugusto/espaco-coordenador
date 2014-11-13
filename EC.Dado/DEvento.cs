@@ -51,14 +51,44 @@ namespace EC.Dado
             }
         }
 
-           public void Salvar(EVENTO a)
-        {
 
+        public void Salvar(EVENTO e)
+        {
+            try
+            {
+                using (ECEntities db = new ECEntities())
+                {
+                    //Salva o evento
+                    db.EVENTO.Add(e);
+                    db.SaveChanges();
+                    db.Dispose();
+                }
+
+            }
+            catch (Exception )
+            {
+
+            }
+        }
+
+               public void Atualiza(EVENTO e)
+        {
             using (ECEntities db = new ECEntities())
             {
-                db.EVENTO.AddObject(a);
+
+                var evento = db.EVENTO.First(rs => rs.ID_EVENTO == e.ID_EVENTO);
+              
+                evento.ID_TIPOEVENTO = e.ID_TIPOEVENTO;
+                evento.NOME = e.NOME;
+                evento.DESCRICAO = e.DESCRICAO;
+                evento.LOCAL = e.LOCAL;
+                evento.INICIO = e.INICIO;
+                evento.CONCLUSAO = e.CONCLUSAO;
+                evento.ID_PESSOA = e.ID_PESSOA;
+                evento.ID_SEMESTRE = e.ID_SEMESTRE;
+              
                 db.SaveChanges();
-    }
+            }
             }
         }
 }

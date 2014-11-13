@@ -31,11 +31,13 @@
                 </asp:DropDownList>
             </div>
 
-           <div class="form-separator"></div>
+                 <div class="form-separator"></div>
 
-        <div class="form-bottombuttons">
-            <asp:Button ID="btRelatorio" runat="server" Text="Gerar Relatório" />
+                 <div class="form-bottombuttons">
+                     <asp:Button ID="btConsultar" runat="server" Text="Gerar Relatório" />
 
+                 </div>
+             </div>
         </div>
 
     </div>

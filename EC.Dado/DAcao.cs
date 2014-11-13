@@ -131,7 +131,7 @@ namespace EC.Dado
 
             using (ECEntities db = new ECEntities())
             {
-                db.ACAO.AddObject(a);
+                db.ACAO.Add(a);
                 db.SaveChanges();
             }
         }
@@ -140,7 +140,7 @@ namespace EC.Dado
 
             using (ECEntities db = new ECEntities())
             {
-                db.ACAO.AddObject(a);
+                db.ACAO.Add(a);
                 db.SaveChanges();
             }
         }

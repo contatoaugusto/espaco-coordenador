@@ -48,7 +48,7 @@
         <div class="form-separator"></div>
 
         <div class="form-bottombuttons">
-            <ec:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click"/>
+            <ec:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
             <ec:Button ID="btnNovo" runat="server" Text="Novo" OnClick="btnNovo_Click" />
         </div>
     </div>
@@ -56,13 +56,21 @@
     <div class="form-separator"></div>
 
     <h3>Ações Cadastradas</h3>
-    <sgi:GridView ID="grdAcao" runat="server" AutoGenerateColumns="False">
+    <sgi:GridView ID="grdAcao" runat="server" AutoGenerateColumns="False" BackColor="#BFBFBF" BorderColor="#BFBFBF" BorderStyle="Solid" CssClass="gridview" GroupFooter="False" PageSize="50" ShowWhenEmpty="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="ID_ACAO" HeaderText="Nº"></asp:BoundField>
             <asp:BoundField DataField="TITULO" HeaderText="Titulo"></asp:BoundField>
             <asp:BoundField DataField="INICIO" HeaderText="Data" />
             <asp:BoundField DataField="ID_PESSOA" HeaderText="Responsável" />
+
+            <asp:TemplateField HeaderText="Ações">
+                <ItemTemplate>
+                    <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_ACAO")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />
+                    |
+                        <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_ACAO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                </ItemTemplate>
+            </asp:TemplateField>
 
         </Columns>
 

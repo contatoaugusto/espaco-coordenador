@@ -85,6 +85,15 @@ namespace UI.Web.EC.Paginas
             {
                 Context.Response.Redirect("~/Paginas/AgendaReuniao.aspx?idReuniao=" + Library.ToInteger(e.CommandArgument));
             }
+
+            if (e.CommandName == "Excluir")
+            {
+                REUNIAO r = new REUNIAO();
+                r.ID_REUNIAO = Convert.ToInt32(e.CommandArgument);
+
+                NReuniao.Excluir(r);
+                CarregarReunioes();
+            }            
         }
     }
 }

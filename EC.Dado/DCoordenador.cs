@@ -69,7 +69,7 @@ namespace EC.Dado
             using (ECEntities db = new ECEntities())
             {
                 //Salva a questão
-                db.CURSO_COORDENADOR.AddObject(q);
+                db.CURSO_COORDENADOR.Add(q);
                 db.SaveChanges();
 
                 //Retorna o id novo gerado na inserção

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using EC.Modelo;
+using System.Transactions;
 
 namespace EC.Dado
 {
@@ -144,7 +145,7 @@ namespace EC.Dado
                 using (ECEntities db = new ECEntities())
                 {
                     //Salva a questão
-                    db.REUNIAO.AddObject(r);
+                    db.REUNIAO.Add(r);
                     db.SaveChanges();
                     db.Dispose();
                 }
@@ -153,6 +154,33 @@ namespace EC.Dado
             catch (Exception e)
             {
 
+            }
+        }
+
+        public void Excluir(REUNIAO q)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    var originalPauta = db.REUNIAO_PAUTA.Where(rs => rs.ID_REUNIAO == q.ID_REUNIAO);
+                    foreach (var i in originalPauta)
+                    {
+                        db.REUNIAO_PAUTA.Remove(i);
+                    }
+
+                    var originalParticipante = db.REUNIAO_PARTICIPANTE.Where(rs => rs.ID_REUNIAO == q.ID_REUNIAO);
+                    foreach (var p in originalParticipante)
+                    {
+                        db.REUNIAO_PARTICIPANTE.Remove(p);
+                    }
+
+                    var originalReniao = db.REUNIAO.First(rs => rs.ID_REUNIAO == q.ID_REUNIAO);
+                    db.REUNIAO.Remove(originalReniao);
+                    db.SaveChanges();
+
+                    scope.Complete();
+                }
             }
         }
 

@@ -87,7 +87,7 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                db.TURMA.AddObject(q);
+                db.TURMA.Add(q);
                 db.SaveChanges();
 
                 var id = q.ID_TURMA;

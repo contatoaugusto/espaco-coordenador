@@ -30,5 +30,9 @@ namespace EC.Negocio
             devento.Salvar(e);
         }
 
+        public static void Atualiza(EVENTO e)
+        {
+            (new DEvento()).Atualiza(e);
+        }
         }
     }

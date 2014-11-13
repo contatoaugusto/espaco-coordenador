@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EC.Common;
 using EC.Negocio;
 using EC.Modelo;
+using EC.UI.WebControls;
 
 namespace UI.Web.EC.Paginas
 {
@@ -250,7 +252,9 @@ namespace UI.Web.EC.Paginas
             acao.CONCLUSAO = new DateTime(int.Parse(ddlAno1.Text), int.Parse(ddlMes1.Text), int.Parse(ddlDia1.Text));
           
             NAcao.Salvar(acao);
-            Response.Redirect("ConsultarAcao.aspx", true);
+            {
+             ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
+            }
         }
 
         protected void btVoltar_Click(object sender, EventArgs e)
@@ -258,8 +262,8 @@ namespace UI.Web.EC.Paginas
             Response.Redirect("ConsultarAcao.aspx", true);
         }
 
-        protected void btnVoltar_Click(object sender, EventArgs e)
-        {
+       // protected void btnVoltar_Click(object sender, EventArgs e)
+       // {
 
         }
 
@@ -291,4 +295,4 @@ namespace UI.Web.EC.Paginas
 
         }
 
-      }
+   

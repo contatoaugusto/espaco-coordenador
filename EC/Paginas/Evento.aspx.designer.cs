@@ -31,6 +31,24 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoEvento;
         
         /// <summary>
+        /// Controle hddSemestreCorrente.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddSemestreCorrente;
+        
+        /// <summary>
+        /// Controle lblSemestreCorrente.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSemestreCorrente;
+        
+        /// <summary>
         /// Controle TxtNome.
         /// </summary>
         /// <remarks>
@@ -73,7 +91,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDia;
+        protected global::EC.UI.WebControls.DropDownList ddlDia;
         
         /// <summary>
         /// Controle ddlMes.
@@ -82,7 +100,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMes;
+        protected global::EC.UI.WebControls.DropDownList ddlMes;
         
         /// <summary>
         /// Controle ddlAno.
@@ -91,7 +109,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAno;
+        protected global::EC.UI.WebControls.DropDownList ddlAno;
         
         /// <summary>
         /// Controle ddlHora.
@@ -100,7 +118,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHora;
+        protected global::EC.UI.WebControls.DropDownList ddlHora;
         
         /// <summary>
         /// Controle ddlMinuto.
@@ -109,7 +127,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMinuto;
+        protected global::EC.UI.WebControls.DropDownList ddlMinuto;
         
         /// <summary>
         /// Controle ddlDia1.
@@ -118,7 +136,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDia1;
+        protected global::EC.UI.WebControls.DropDownList ddlDia1;
         
         /// <summary>
         /// Controle ddlMes1.
@@ -127,7 +145,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMes1;
+        protected global::EC.UI.WebControls.DropDownList ddlMes1;
         
         /// <summary>
         /// Controle ddlAno1.
@@ -136,7 +154,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAno1;
+        protected global::EC.UI.WebControls.DropDownList ddlAno1;
         
         /// <summary>
         /// Controle ddlHora1.
@@ -145,7 +163,7 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHora1;
+        protected global::EC.UI.WebControls.DropDownList ddlHora1;
         
         /// <summary>
         /// Controle ddlMinuto1.
@@ -154,15 +172,33 @@ namespace UI.Web.EC.Paginas {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMinuto1;
+        protected global::EC.UI.WebControls.DropDownList ddlMinuto1;
         
         /// <summary>
-        /// Controle Button1.
+        /// Controle btnSalvarReuniao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::EC.UI.WebControls.Button btnSalvarReuniao;
+        
+        /// <summary>
+        /// Controle btnEnviaEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::EC.UI.WebControls.Button btnEnviaEmail;
+        
+        /// <summary>
+        /// Controle btnVoltar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::EC.UI.WebControls.Button btnVoltar;
     }
 }

@@ -548,15 +548,16 @@ namespace EC.Common
         public static readonly int FILTRO_AVANÇADO = 4;
 
         // Mensagems
-        public static readonly string MENSAGEM_CADASTRO_REPETIDO = "Cadastro já existe no sistema";
-        public static readonly string MENSAGEM_PREENCHER_CAMPOS = "Todos os campos da tela devem ser preenchidos";
+        public static readonly string MENSAGEM_CADASTRO_REPETIDO = "Cadastro já existe no sistema!";
+        public static readonly string MENSAGEM_PREENCHER_CAMPOS = "Todos os campos da tela devem ser preenchidos!";
         public static readonly string MENSAGEM_EXCLUSAO_CONFIRMA = "Deseja excluir registro? ";
         public static readonly string MENSAGEM_EXCLUSAO_SUCESSO = "Registro Excluído com Sucesso!";
         public static readonly string MENSAGEM_INCLUSAO_SUCESSO = "Registro Cadastrado com sucesso!";
         public static readonly string MENSAGEM_ALTERACAO_SUCESSO = "Registro Alterado com sucesso!";
-        public static readonly string MENSAGEM_CADASTRO_NAO_LOCALIZADO = "Cadastro não localizado no sistema";
-        public static readonly string MENSAGEM_CADASTRO_ALUNO_NAO_MATRICULADO = "Aluno não matriculado.";
-        public static readonly string MENSAGEM_CADASTRO_ALUNO_SEM_TURMA = "Aluno sem turma cadastrada.";
+        public static readonly string MENSAGEM_CADASTRO_NAO_LOCALIZADO = "Registro não localizado no sistema!";
+        public static readonly string MENSAGEM_CADASTRO_ALUNO_NAO_MATRICULADO = "Registro nao localizado no sistema!";
+        public static readonly string MENSAGEM_CADASTRO_ALUNO_SEM_TURMA = "Registro nao localizado no sistema!.";
+        public static readonly string MENSAGEM_EXCLUIR_QUESTAO = "Não foi possível excluir a questão";
         
         public static readonly string APP_TYPE_PDF = "application/pdf";
     }

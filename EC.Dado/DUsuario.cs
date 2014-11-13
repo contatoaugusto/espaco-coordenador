@@ -78,7 +78,7 @@ namespace EC.Dado
             using (ECEntities db = new ECEntities())
             {
                 //Salva a questão
-                db.USUARIO.AddObject(q);
+                db.USUARIO.Add(q);
                 db.SaveChanges();
 
                 //Retorna o id novo gerado na inserção
