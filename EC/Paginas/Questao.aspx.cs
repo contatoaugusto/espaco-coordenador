@@ -137,17 +137,17 @@ namespace UI.Web.EC.Paginas
         {
             if (ddlAmc.SelectedIndex == 0)
             {
-                messageBox.Show("Selecione a AMC", "Erro", MessageBoxType.Error);
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
                 return;
             }
             if (ddlDisciplina.SelectedIndex == 0)
             {
-                messageBox.Show("Selecione uma disciplina", "Erro", MessageBoxType.Error);
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
                 return;
             }
             if (ddlFuncionario.SelectedIndex == 0)
             {
-                messageBox.Show("Selecione um professor", "Erro", MessageBoxType.Error);
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
                 return;
             }
 
