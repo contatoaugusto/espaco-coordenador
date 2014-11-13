@@ -134,7 +134,7 @@
                                 <div style="width:auto">
                                     <ul>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Evento.aspx")%>'><span>Cadastar Evento</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/ConsultarEvento.aspx")%>'><span>Consultar Evento</span></a></li>
+                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarEvento.aspx")%>'><span>Consultar Evento</span></a></li>
                                     </ul>
                                 </div>
                             </li>

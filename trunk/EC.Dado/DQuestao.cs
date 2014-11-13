@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using EC.Modelo;
+using System.Transactions;
 
 namespace EC.Dado
 {
@@ -257,12 +258,34 @@ namespace EC.Dado
             using (ECEntities db = new ECEntities())
             {
                 
-                db.QUESTAO.AddObject(q);
+                db.QUESTAO.Add(q);
                 
                 db.SaveChanges();
 
                 //Retorna o id novo gerado na inserção
                 var id = q.ID_QUESTAO;
+            }
+        }
+
+        public void Excluir(int id)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    var resp = db.RESPOSTA.Where(rs => rs.ID_QUESTAO == id);
+                    foreach (var i in resp)
+                    {
+                        db.RESPOSTA.Remove(i);
+                    }
+
+                    var dis = db.QUESTAO.FirstOrDefault(rs => rs.ID_QUESTAO == id);
+                    db.QUESTAO.Remove(dis);
+
+                    db.SaveChanges();
+
+                    scope.Complete();
+                }
             }
         }
 
@@ -299,5 +322,6 @@ namespace EC.Dado
                 db.SaveChanges();
             }
         }
+
     }
 }

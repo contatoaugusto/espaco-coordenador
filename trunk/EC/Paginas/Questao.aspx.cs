@@ -200,13 +200,19 @@ namespace UI.Web.EC.Paginas
 
             questao.RESPOSTA = listaResposta;
 
-            if (idQuestao > 0){
+            if (idQuestao > 0)
+            {
                 questao.ID_QUESTAO = idQuestao;
                 NQuestao.Atualiza(questao);
-            }else
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "'); history.go(-1);</script>");
+            }
+            else
+            {
                 NQuestao.Salvar(questao);
-            
-            Response.Redirect("BancoQuestao.aspx", true);
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
+            }   
+           
+            //Response.Redirect("Questao.aspx", true);
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)

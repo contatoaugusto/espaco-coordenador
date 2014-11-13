@@ -42,7 +42,7 @@
             <div class="column w250">
                 Titulo:
             </div>
-            <sgi:TextArea ID="TxtTitulo" runat="server" Width="80%" Rows="1" MaxLength="1000" RequiredField="true" ErrorMessage="Campo obrigatorio"></sgi:TextArea>
+                <asp:TextBox ID="TxtTitulo" runat="server" Width="500px" TextMode="MultiLine" Rows="1"></asp:TextBox>
         </div>
 
         <div class="row">
@@ -94,7 +94,7 @@
 
         <div class="form-bottombuttons">
             <sgi:Button ID="btSalvar" runat="server" Text="Salvar" OnClick="Button1_Click" Width="65px" />
-            <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+            <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" />
         </div>
     </div>
      

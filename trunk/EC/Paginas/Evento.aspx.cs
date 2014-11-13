@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EC.Common;
 using EC.Negocio;
 using EC.Modelo;
+using EC.UI.WebControls;
 
 namespace UI.Web.EC.Paginas
 {
@@ -186,7 +188,13 @@ namespace UI.Web.EC.Paginas
         
         }
 
-      
+        private void CarregarSemestre()
+        {
+            var semestre = NSemestre.ConsultarAtivo();
+            lblSemestreCorrente.Text = semestre.SEMESTRE1 + "º sem/" + semestre.ANO;
+            hddSemestreCorrente.Value = semestre.ID_SEMESTRE.ToString();
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             EVENTO evento = new EVENTO();
@@ -200,6 +208,9 @@ namespace UI.Web.EC.Paginas
            // grdEvento.DataBind();
             
             NEvento.Salvar(evento);
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
+            }
     
         }
     }

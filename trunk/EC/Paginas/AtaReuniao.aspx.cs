@@ -171,7 +171,9 @@ namespace UI.Web.EC.Paginas
             reuniao.REUNIAO_COMPROMISSO = reuniao_compromissos;
             
             NReuniao.Salvar(reuniao);
-            Response.Redirect("ConsultarAta.aspx", true);
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
+            }
             
         }
 

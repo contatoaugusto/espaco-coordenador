@@ -106,8 +106,29 @@ namespace UI.Web.EC.Paginas
         {
             if (e.CommandName == "Editar")
             {
-
                 Context.Response.Redirect("~/Paginas/Questao.aspx?idQuestao=" + Library.ToInteger(e.CommandArgument));
+            }
+
+            if (e.CommandName == "Excluir")
+            {
+                try
+                {
+                    int id = Convert.ToInt32(e.CommandArgument);
+                    NQuestao.Excluir(id);
+                    {
+                        ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_CONFIRMA + "');</script>");
+                    }
+
+                    {
+                             ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_SUCESSO + "');</script>");
+                    }
+                     
+                    }
+
+                catch (Exception ex)
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUIR_QUESTAO + "');</script>");
+                }
             }
         }
 

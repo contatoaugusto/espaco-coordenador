@@ -50,7 +50,7 @@ namespace EC.Dado
                     questao.ID_PROVA = prova.ID_PROVA;
                     
                     ECEntities db = new ECEntities();
-                    db.QUESTAO.AddObject(questao);
+                    db.QUESTAO.Add(questao);
                     //result.Add(questao);
 
                     db.SaveChanges();
@@ -75,7 +75,7 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                db.AddToPROVA(obj);
+                db.PROVA.Add(obj);
                 db.SaveChanges();
 
                 db.SaveChanges();

@@ -44,6 +44,11 @@ namespace EC.Negocio
         {
             (new DQuestao()).Atualiza(q);
         }
+
+        public static void Excluir(int id)
+        {
+            (new DQuestao()).Excluir(id);
+        }
         
     }
 }

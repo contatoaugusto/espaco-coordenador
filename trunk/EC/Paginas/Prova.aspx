@@ -63,7 +63,7 @@
         GroupFooter="False"
         PageSize="50"
         ShowWhenEmpty="False"
-        OnRowCommand="GridView1_RowCommand" Width="332px">
+        OnRowCommand="GridView1_RowCommand" Width="980px">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>
             <asp:BoundField DataField="DATA_CRIACAO" HeaderText="Data Criação" SortExpression="DATA_CRIACAO" />

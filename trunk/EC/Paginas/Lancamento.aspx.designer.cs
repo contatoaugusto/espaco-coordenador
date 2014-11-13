@@ -31,13 +31,40 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipolancamento;
         
         /// <summary>
-        /// Controle ddlPessoa.
+        /// Controle hddSemestreCorrente.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPessoa;
+        protected global::System.Web.UI.WebControls.HiddenField hddSemestreCorrente;
+        
+        /// <summary>
+        /// Controle lblSemestreCorrente.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSemestreCorrente;
+        
+        /// <summary>
+        /// Controle ddlFuncionario.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
+        
+        /// <summary>
+        /// Controle ddlDisciplina.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::EC.UI.WebControls.DropDownList ddlDisciplina;
         
         /// <summary>
         /// Controle ddlTurma.

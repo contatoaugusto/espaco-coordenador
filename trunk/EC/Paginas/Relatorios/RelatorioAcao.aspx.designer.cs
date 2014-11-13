@@ -31,12 +31,12 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoRelatorio;
         
         /// <summary>
-        /// Controle btRelatorio.
+        /// Controle btConsultar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btRelatorio;
+        protected global::System.Web.UI.WebControls.Button btConsultar;
     }
 }

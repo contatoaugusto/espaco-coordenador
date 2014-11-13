@@ -121,7 +121,7 @@ namespace EC.Dado
             using (ECEntities db = new ECEntities())
             {
                 //Salva a questão
-                db.CURSO.AddObject(q);
+                db.CURSO.Add(q);
                 db.SaveChanges();
 
                 //Retorna o id novo gerado na inserção
