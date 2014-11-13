@@ -39,12 +39,13 @@
         </div>
 
         <div class="row">
-            <div class="column w250">
+            <div class="column w100">
                 Titulo:
             </div>
+            <div class="column w250">
                 <asp:TextBox ID="TxtTitulo" runat="server" Width="500px" TextMode="MultiLine" Rows="1"></asp:TextBox>
+            </div>
         </div>
-
         <div class="row">
             <div class="column w100">
                 Inicio: 

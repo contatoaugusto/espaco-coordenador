@@ -208,9 +208,6 @@ namespace UI.Web.EC.Paginas
            // grdEvento.DataBind();
             
             NEvento.Salvar(evento);
-            {
-                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
-            }
     
         }
     }

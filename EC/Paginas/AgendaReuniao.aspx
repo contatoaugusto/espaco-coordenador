@@ -36,10 +36,6 @@
                 <sgi:DropDownList ID="ddlMes" runat="server"></sgi:DropDownList>
                 <sgi:DropDownList ID="ddlAno" runat="server"></sgi:DropDownList>
 
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlAno" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlDia" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlMes" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-
             </div>
 
             <div class="column w100">
@@ -48,9 +44,7 @@
             <div class="column w200">
                 <sgi:DropDownList ID="ddlHora" runat="server"></sgi:DropDownList>
                 <sgi:DropDownList ID="ddlMinuto" runat="server"></sgi:DropDownList>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlMinuto" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlHora" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-
+               
             </div>
         </div>
 
@@ -84,7 +78,7 @@
             </div>
         </div>
 
-        <asp:GridView ID="grdParticipante" runat="server" AutoGenerateColumns="False"
+        <sgi:GridView ID="grdParticipante" runat="server" AutoGenerateColumns="False"
             BackColor="#BFBFBF"
             BorderColor="#BFBFBF"
             BorderStyle="Solid"
@@ -103,7 +97,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
-        </asp:GridView>
+        </sgi:GridView>
 
         <div class="form-separator"></div>
 

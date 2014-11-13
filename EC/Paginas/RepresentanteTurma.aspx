@@ -18,6 +18,7 @@
                 <asp:RequiredFieldValidator ID="rfv0" runat="server" ControlToValidate="txtRA" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
             </div>
         </div>
+        </div>
 
         <div class="row">
             <div class="column w80">

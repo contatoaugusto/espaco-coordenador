@@ -94,24 +94,6 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.DropDownList ddlMinuto;
         
         /// <summary>
-        /// Controle RequiredFieldValidator5.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
-        /// <summary>
-        /// Controle RequiredFieldValidator4.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
-        /// <summary>
         /// Controle btnSalvar.
         /// </summary>
         /// <remarks>
