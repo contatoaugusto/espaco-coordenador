@@ -38,24 +38,24 @@ namespace EC.Dado
 
             Salvar(prova);
 
+            ECEntities db = new ECEntities();
             var result = new List<QUESTAO>();
+            int []questoesControle = new int [32];
             for (int i = 0; i < qtdeQuestoes; i++)
             {
                 var questao = FindRandomQuestao(idAmc, idCurso);
                 // Não armazenar questão repetida
-                if (result.Contains(questao))
+                if (questao != null && questoesControle.Contains(questao.ID_QUESTAO))
                     i--;
                 else
                 {
-                    questao.ID_PROVA = prova.ID_PROVA;
-                    
-                    ECEntities db = new ECEntities();
-                    db.QUESTAO.Add(questao);
-                    //result.Add(questao);
-
+                    var q = db.QUESTAO.First(rs => rs.ID_QUESTAO == questao.ID_QUESTAO);
+                    q.ID_PROVA = prova.ID_PROVA;
+                    //db.QUESTAO.Attach(questao);
+                    //db.Entry(questao).State = System.Data.EntityState.Modified;
                     db.SaveChanges();
-                    db.Dispose();
 
+                    questoesControle[i] = questao.ID_QUESTAO;
                 }
             }
 

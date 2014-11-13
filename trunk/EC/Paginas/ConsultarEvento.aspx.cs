@@ -22,8 +22,8 @@ namespace UI.Web.EC.Paginas
                 CarregarTipoEvento();
             }
         }
-          
-        
+
+
         private void CarregarTipoEvento()
         {
             ddlTipoEvento.DataSource = NEvento.ConsultarTipoEvento();
@@ -55,7 +55,7 @@ namespace UI.Web.EC.Paginas
 
         }
 
-     
+
         protected void btnNovo_Click(object sender, EventArgs e)
         {
             Response.Redirect("Evento.aspx", true);
@@ -63,11 +63,12 @@ namespace UI.Web.EC.Paginas
 
         protected void btConsultar_Click(object sender, EventArgs e)
         {
-           
-            if (ddlPessoa.SelectedValue == "" && ddlTipoEvento.SelectedValue == "")
+
+            if (ddlPessoa.SelectedValue == "" && string.IsNullOrEmpty (ddlTipoEvento.SelectedValue))
             {
                 //MENSAGEM
             }
+
             else
             {
                EVENTO evento = new EVENTO();
@@ -93,9 +94,9 @@ namespace UI.Web.EC.Paginas
             grdEvento.PageIndex = e.NewPageIndex;
             CarregarEvento();
         }
-                             
-          }
-     }
+
+    }
+}
 
 
 

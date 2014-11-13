@@ -46,9 +46,7 @@
             <div class="column w200">
                 <sgi:DropDownList ID="ddlHora" runat="server"></sgi:DropDownList>
                 <sgi:DropDownList ID="ddlMinuto" runat="server"></sgi:DropDownList>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlMinuto" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlHora" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
-
+                
             </div>
         </div>
         <div class="form-bottombuttons">

@@ -19,7 +19,7 @@
                 o sistema irá selecionar, de forma aleatória, 32 dessas questões pertencentes a AMC selecionada e 
                 motar uma prova com seu gabarito correspondente.
             </div>
-
+         </div>
 
             <div class="row">
                 <div class="column w150">
