@@ -242,6 +242,22 @@ namespace UI.Web.EC.Paginas
        
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (ddlStatus.SelectedIndex == 0)
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
+                return;
+            }
+            if (ddlPrioridade.SelectedIndex == 0)
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
+                return;
+            }
+            if (ddlPessoa.SelectedIndex == 0)
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
+                return;
+            }
+
             ACAO acao = new ACAO();
            
             acao.ID_STATUS= int.Parse(ddlStatus.SelectedValue);
