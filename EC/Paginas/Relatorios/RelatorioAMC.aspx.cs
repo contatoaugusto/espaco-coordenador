@@ -43,6 +43,7 @@ namespace UI.Web.EC.Paginas
 
         protected void btConsultar_Click(object sender, EventArgs e)
         {
+            int idAmc = ddlAmc.SelectedValue.ToInt32();
             int valorSelecionado = ddlTipoRelatorio.SelectedValue.ToInt32();
             string pagina = "";
 
@@ -52,7 +53,7 @@ namespace UI.Web.EC.Paginas
                     pagina = "ProfessorQuestoes.aspx";
                     break;
                 case 2:
-                    pagina = "ProfessorQuestoes.aspx";
+                    pagina = "QuestaoNota.aspx?idAmc=" + idAmc;
                     break;
                 case 3:
                     pagina = "ProfessorQuestoes.aspx";

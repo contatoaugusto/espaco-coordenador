@@ -15,6 +15,7 @@
             </div>
             <div class="column w250">
                 <asp:DropDownList ID="ddlAmc" runat="server"></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlAmc" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="row">
@@ -35,7 +36,7 @@
         <div class="form-separator"></div>
 
         <div class="form-bottombuttons">
-            <asp:Button ID="btConsultar" runat="server" Text="Gerar Relatório" OnClick="btConsultar_Click"/>
+            <asp:Button ID="btConsultar" runat="server" Text="Gerar Relatório" OnClick="btConsultar_Click" CausesValidation="true"/>
             
         </div>
         

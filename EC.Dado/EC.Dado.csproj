@@ -47,6 +47,7 @@
     <Compile Include="DAcao.cs" />
     <Compile Include="DAluno.cs" />
     <Compile Include="DAlunoMatricula.cs" />
+    <Compile Include="DAlunoAmc.cs" />
     <Compile Include="DRepresentanteTurma.cs" />
     <Compile Include="DReuniaoPauta.cs" />
     <Compile Include="DTurma.cs" />
