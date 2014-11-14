@@ -93,15 +93,18 @@ namespace EC.Dado
 
                 foreach (var tipo in participantes)
                 {
-                    REUNIAO_PARTICIPANTE participante = new REUNIAO_PARTICIPANTE();
-                    participante.ID_PARTICIPANTE = tipo.ID_PARTICIPANTE;
-                    participante.ID_REUNIAO = tipo.ID_REUNIAO;
-                    participante.ID_PESSOA = tipo.ID_PESSOA;
-                    participante.PRESENCA = tipo.PRESENCA;
+                    if (tipo.ID_PARTICIPANTE != null && tipo.ID_PARTICIPANTE != 0)
+                    {
+                        REUNIAO_PARTICIPANTE participante = new REUNIAO_PARTICIPANTE();
+                        participante.ID_PARTICIPANTE = tipo.ID_PARTICIPANTE;
+                        participante.ID_REUNIAO = tipo.ID_REUNIAO;
+                        participante.ID_PESSOA = tipo.ID_PESSOA;
+                        participante.PRESENCA = tipo.PRESENCA;
 
-                    participante.PESSOA = db.PESSOA.First(rs => rs.ID_PESSOA == tipo.ID_PESSOA);
+                        participante.PESSOA = db.PESSOA.First(rs => rs.ID_PESSOA == tipo.ID_PESSOA);
 
-                    ltParticipante.Add(participante);
+                        ltParticipante.Add(participante);
+                    }
                 }
 
                 return ltParticipante;

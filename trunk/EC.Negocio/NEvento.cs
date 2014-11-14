@@ -9,12 +9,12 @@ namespace EC.Negocio
 {
     public class NEvento
     {
-      public static List<Modelo.TIPO_EVENTO> ConsultarTipoEvento()
+      public static List<TIPO_EVENTO> ConsultarTipoEvento()
         {
             return (new DEvento()).ConsultarTipoEvento();
         }
 
-      public static List<Modelo.PESSOA> ConsultarPessoa()
+      public static List<PESSOA> ConsultarPessoa()
       {
           return (new DPessoa()).Consultar();
       }
