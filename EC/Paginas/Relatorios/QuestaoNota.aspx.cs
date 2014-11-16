@@ -40,11 +40,12 @@ namespace UI.Web.EC.Paginas.Relatorios
             var alunosMatrcicula = NAlunoAmc.ConsultarByAmc(idAmc);
 
 
-            int[] yValues = new int[4];
-            string[] xValues = new string[4];
-
             string[] mencoes = ConfigurationManager.AppSettings["Mencoes"].Replace(" ", string.Empty).Split(',');//"SS", "MS", "MM", "MI" };
-            
+
+            int qtdeMencoes = mencoes.Length;
+            int[] yValues = new int[qtdeMencoes];
+            string[] xValues = new string[qtdeMencoes];
+
             int contador = 0;
             foreach (var mencao in mencoes)
             {
@@ -64,6 +65,13 @@ namespace UI.Web.EC.Paginas.Relatorios
 
             chart1.Series["serie1"].IsValueShownAsLabel = true;
             chart1.Series["serie1"].Points.DataBindXY(xValues, yValues);
+
+            Random random = new Random();
+            foreach (var item in chart1.Series[0].Points)
+            {
+                Color c = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255));
+                item.Color = c;
+            }
         }
 
         protected void chart1_DataBound(object sender, EventArgs e)

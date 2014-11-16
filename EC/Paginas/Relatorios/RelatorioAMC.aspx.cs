@@ -60,7 +60,7 @@ namespace UI.Web.EC.Paginas
                     break;
             }
 
-            Context.Response.Redirect("~/Paginas/Relatorios/" + pagina);
+            Response.Redirect("~/Paginas/Relatorios/" + pagina);
 
         }
     }

@@ -142,9 +142,9 @@
                                 <div style="width:auto">
                                     <ul>
                                         <li><a href='<%= Library.ResolveClientUrl("~/Paginas/Lancamento.aspx")%>'><span>Cadastrar Lançamento</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarLancamento.aspx")%>'><span>Consultar Lançamento</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/RepresentanteTurma.aspx")%>'><span>Cadastro Representante Turma</span></a></li>
-                                        <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarRepresentanteTurma.aspx")%>'><span>Consultar Representante Turma</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarLancamento.aspx")%>'><span>Consultar Lançamento</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/RepresentanteTurma.aspx")%>'><span>Cadastro Representante Turma</span></a></li>
+                                        <li><a href='<%= Library.ResolveClientUrl("~/Paginas/ConsultarRepresentanteTurma.aspx")%>'><span>Consultar Representante Turma</span></a></li>
                                         <li class='last'><a href='<%= Library.ResolveClientUrl("~/Paginas/Relatorios/RelatorioAcademico.aspx")%>'><span>Relatórios Acadêmicos</span></a></li>
                                     </ul>
                                 </div>
