@@ -196,18 +196,7 @@ namespace UI.Web.EC.Paginas
             lblLocalReuniao.Text = reuniao.LOCAL;
 
             var participantes = NReuniao.ConsultarParticipante(reuniao.ID_REUNIAO);
-            List<PESSOA> pessoas = new List<PESSOA>();
-            foreach (var participante in participantes)
-            {
-                PESSOA p = new PESSOA();
-                p.ID_PESSOA = participante.PESSOA.ID_PESSOA;
-                p.NOME = participante.PESSOA.NOME;
-                p.TELEFONE = participante.PESSOA.TELEFONE;
-                p.EMAIL = participante.PESSOA.EMAIL;
-                pessoas.Add(p);
-            }
-
-            grdParticipantesReuniao.DataSource = pessoas;
+            grdParticipantesReuniao.DataSource = participantes;
             grdParticipantesReuniao.DataBind();
 
             var pautas = NReuniaoPauta.ConsultarByReuniao(reuniao.ID_REUNIAO);
@@ -222,6 +211,86 @@ namespace UI.Web.EC.Paginas
             
             
             pnlAta.Visible = true;
+        }
+
+        protected void grdAssunto_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Excluir")
+            {
+                try
+                {
+                    int id = Convert.ToInt32(e.CommandArgument);
+
+                    // Remove o item da lista
+                    foreach (var assunto in assuntos)
+                    {
+                        if (assunto.ITEM == id)
+                        {
+                            assuntos.Remove(assunto);
+                            // O item existe no banco, precisa ser deletado
+                            if (assunto.ID_ASSTRAT > 0)
+                                NReuniao.ExcluiAssuntoTratado(assunto.ID_ASSTRAT);
+
+                            break;
+                        }
+                    }
+                    // Reordena número dos titems
+                    for (int i = 1; i <= assuntos.Count; i++)
+                    {
+                        assuntos[i].ITEM = i;
+                    }
+
+                    grdAssunto.DataSource = assuntos;
+                    grdAssunto.DataBind();
+
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_SUCESSO + "');</script>");
+                }
+
+                catch (Exception ex)
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_ERRO + "');</script>");
+                }
+            }
+        }
+
+        protected void grdCompromisso_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Excluir")
+            {
+                try
+                {
+                    int id = Convert.ToInt32(e.CommandArgument);
+
+                    // Remove o item da lista
+                    foreach (var compromisso in compromissos)
+                    {
+                        if (compromisso.ITEM == id)
+                        {
+                            compromissos.Remove(compromisso);
+                            // O item existe no banco, precisa ser deletado
+                            if (compromisso.ID_COMPROMISSO > 0)
+                                NReuniao.ExcluiCompromisso(compromisso.ID_COMPROMISSO);
+
+                            break;
+                        }
+                    }
+                    // Reordena número dos titems
+                    for (int i = 1; i <= compromissos.Count; i++)
+                    {
+                        compromissos[i].ITEM = i;
+                    }
+
+                    grdCompromisso.DataSource = compromissos;
+                    grdCompromisso.DataBind();
+
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_SUCESSO + "');</script>");
+                }
+
+                catch (Exception ex)
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_ERRO + "');</script>");
+                }
+            }
         }
       
     }

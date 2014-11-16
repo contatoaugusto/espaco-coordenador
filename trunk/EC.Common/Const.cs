@@ -558,7 +558,7 @@ namespace EC.Common
         public static readonly string MENSAGEM_CADASTRO_ALUNO_NAO_MATRICULADO = "Registro nao localizado no sistema!";
         public static readonly string MENSAGEM_CADASTRO_ALUNO_SEM_TURMA = "Registro nao localizado no sistema!.";
         public static readonly string MENSAGEM_EXCLUIR_QUESTAO = "Não foi possível excluir a questão";
-        
+        public static readonly string MENSAGEM_EXCLUSAO_ERRO = "Erro ao Excluir Registro!";
         public static readonly string APP_TYPE_PDF = "application/pdf";
     }
 }

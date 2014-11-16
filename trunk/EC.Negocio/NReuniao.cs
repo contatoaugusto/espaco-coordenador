@@ -58,6 +58,15 @@ namespace EC.Negocio
         {
             (new DReuniao()).Excluir(q);
         }
+
+        public static void ExcluiAssuntoTratado(int idAssuntoTratado)
+        {
+            (new DReuniao()).ExcluiAssuntoTratado(idAssuntoTratado);
+        }
+        public static void ExcluiCompromisso(int idCompromisso)
+        {
+            (new DReuniao()).ExcluiCompromisso(idCompromisso);
+        }
     }
 }
  
