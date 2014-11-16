@@ -261,7 +261,96 @@ namespace EC.Dado
                 return ltQuestao;
             }
         }
-        
+
+        public List<QUESTAO> ConsultarQuestaoByNomeProfessor(string nomeProfessor)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var q = 
+                    (from questao in db.QUESTAO
+                     join func in db.FUNCIONARIO on questao.ID_FUNCIONARIO equals func.ID_FUNCIONARIO
+                     join pessoa in db.PESSOA on func.ID_PESSOA equals pessoa.ID_PESSOA
+                     where pessoa.NOME == nomeProfessor
+                     select new
+                     {
+                         questao.ID_QUESTAO,
+                         questao.DESCRICAO,
+                         questao.IMAGEM,
+                         questao.DISCIPLINA,
+                         questao.FUNCIONARIO 
+                     });
+
+                List<QUESTAO> ltQuestao = new List<QUESTAO>();
+
+                foreach (var tipo in q)
+                {
+                    QUESTAO questao = new QUESTAO();
+                    questao.ID_QUESTAO = tipo.ID_QUESTAO;
+                    questao.DESCRICAO = tipo.DESCRICAO;
+                    questao.IMAGEM = tipo.IMAGEM;
+
+                    questao.DISCIPLINA = tipo.DISCIPLINA;
+                    questao.FUNCIONARIO = tipo.FUNCIONARIO;
+
+                    //Respostas dessa questão
+                    DResposta resposta = new DResposta();
+                    var resp = resposta.ConsultarRespostaByQuestao(tipo.ID_QUESTAO);
+
+                    foreach (var r in resp)
+                    {
+                        RESPOSTA obj = new RESPOSTA();
+                        obj.ID_RESPOSTA = r.ID_RESPOSTA;
+                        obj.ID_QUESTAO = r.ID_QUESTAO;
+                        obj.TEXTO = r.TEXTO;
+                        obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
+                        questao.RESPOSTA.Add(obj);
+                    }
+
+                    ltQuestao.Add(questao);
+                }
+
+                return ltQuestao;
+            }
+        }
+
+        public List<QUESTAO> ConsultarQuestaoByAmc(int idAmc)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var q = db.QUESTAO.Where(rs => rs.ID_AMC == idAmc);
+
+                List<QUESTAO> ltQuestao = new List<QUESTAO>();
+
+                foreach (var tipo in q)
+                {
+                    QUESTAO questao = new QUESTAO();
+                    questao.ID_QUESTAO = tipo.ID_QUESTAO;
+                    questao.DESCRICAO = tipo.DESCRICAO;
+                    questao.IMAGEM = tipo.IMAGEM;
+
+                    questao.DISCIPLINA = tipo.DISCIPLINA;
+                    questao.FUNCIONARIO = tipo.FUNCIONARIO;
+
+                    //Respostas dessa questão
+                    DResposta resposta = new DResposta();
+                    var resp = resposta.ConsultarRespostaByQuestao(tipo.ID_QUESTAO);
+
+                    foreach (var r in resp)
+                    {
+                        RESPOSTA obj = new RESPOSTA();
+                        obj.ID_RESPOSTA = r.ID_RESPOSTA;
+                        obj.ID_QUESTAO = r.ID_QUESTAO;
+                        obj.TEXTO = r.TEXTO;
+                        obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
+                        questao.RESPOSTA.Add(obj);
+                    }
+
+                    ltQuestao.Add(questao);
+                }
+
+                return ltQuestao;
+            }
+        }
 
         public List<QUESTAO> ConsultarQuestaoProvaByAmcCurso(int idAmc, int idCurso)
         {

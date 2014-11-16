@@ -28,43 +28,41 @@ namespace UI.Web.EC.Paginas.Relatorios
                     idAmc = Request.QueryString["idAmc"].ToInt32();
             }
 
-            GeraRelatorio();
+            if (idAmc > 0)
+                GeraRelatorio();
         }
 
         private void GeraRelatorio()
         {
-            if (idAmc > 0)
+            var notas = NFuncionario.ConsultarProfessor();
+            var questoes = NQuestao.ConsultarQuestaoProvaByAmc(idAmc);
+            var alunosMatrcicula = NAlunoAmc.ConsultarByAmc(idAmc);
+
+
+            int[] yValues = new int[4];
+            string[] xValues = new string[4];
+
+            string[] mencoes = { "SS", "MS", "MM", "MI" };
+
+            int contador = 0;
+            foreach (var mencao in mencoes)
             {
-                var notas = NFuncionario.ConsultarProfessor();
-                var questoes = NQuestao.ConsultarQuestaoProvaByAmc(idAmc);
-                var alunosMatrcicula = NAlunoAmc.ConsultarByAmc(idAmc);
 
-
-                int[] yValues = new int[4];
-                string[] xValues = new string[4];
-
-                string []mencoes = {"SS","MS","MM","MI"};
-
-                int contador = 0;
-                foreach (var mencao in mencoes)
+                // Quantidade de perguntas por professor em prova
+                int qtdePorMencao = 0;
+                foreach (var alunoMatr in alunosMatrcicula)
                 {
-
-                    // Quantidade de perguntas por professor em prova
-                    int qtdePorMencao = 0;
-                    foreach (var alunoMatr in alunosMatrcicula)
-                    {
-                        if (alunoMatr.NOTA.Equals(mencao))
-                            qtdePorMencao++;
-                    }
-                    yValues[contador] = qtdePorMencao;
-                    xValues[contador] = mencao;
-
-                    contador++;
+                    if (alunoMatr.NOTA.Equals(mencao))
+                        qtdePorMencao++;
                 }
+                yValues[contador] = qtdePorMencao;
+                xValues[contador] = mencao;
 
-                chart1.Series["serie1"].IsValueShownAsLabel = true;
-                chart1.Series["serie1"].Points.DataBindXY(xValues, yValues);
+                contador++;
             }
+
+            chart1.Series["serie1"].IsValueShownAsLabel = true;
+            chart1.Series["serie1"].Points.DataBindXY(xValues, yValues);
         }
 
     }

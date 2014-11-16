@@ -14,9 +14,9 @@ namespace EC.Modelo
     
     public partial class ALUNO_AMC
     {
+        public int ID_ALUNO_AMC { get; set; }
         public int ID_AMC { get; set; }
         public int ID_ALUNO_MATRICULA { get; set; }
-        public int ID_ALUNO_AMC { get; set; }
         public string NOTA { get; set; }
         public Nullable<int> CLASSIFICACAO { get; set; }
     

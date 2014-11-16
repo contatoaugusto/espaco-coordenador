@@ -50,7 +50,7 @@ namespace UI.Web.EC.Paginas
             switch (valorSelecionado)
             {
                 case 1:
-                    pagina = "ProfessorQuestoes.aspx";
+                    pagina = "ProfessorQuestoes.aspx?idAmc=" + idAmc;
                     break;
                 case 2:
                     pagina = "QuestaoNota.aspx?idAmc=" + idAmc;
