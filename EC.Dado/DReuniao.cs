@@ -231,5 +231,31 @@ namespace EC.Dado
                 db.SaveChanges();
             }
         }
+
+        public void ExcluiAssuntoTratado(int idAssuntoTratado)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var originalAssuntoTratado = db.REUNIAO_ASSUNTO_TRATADO.First(rs => rs.ID_ASSTRAT == idAssuntoTratado);
+                if (originalAssuntoTratado != null)
+                {
+                    db.REUNIAO_ASSUNTO_TRATADO.Remove(originalAssuntoTratado);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public void ExcluiCompromisso(int idCompromisso)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var originalCompromisso = db.REUNIAO_COMPROMISSO.First(rs => rs.ID_COMPROMISSO == idCompromisso);
+                if (originalCompromisso != null)
+                {
+                    db.REUNIAO_COMPROMISSO.Remove(originalCompromisso);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

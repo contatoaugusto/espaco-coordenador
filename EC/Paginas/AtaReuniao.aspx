@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/AtaReuniao.aspx.cs" Inherits="UI.Web.EC.Paginas.AtaReunião" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/AtaReuniao.aspx.cs" Inherits="UI.Web.EC.Paginas.AtaReunião" MaintainScrollPositionOnPostback="true"%>
 <%@ Import Namespace="UI.Web.EC" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -24,8 +24,9 @@
         <div class="form-separator"></div>
     
         <asp:Panel ID="pnlAta" runat="server" Visible="false">
-
-            <h4>Identificação da Reunião</h4>
+            <div class="form-subtitle">
+                Identificação da Reunião
+            </div>
 
             <div class="row">
                 <div class="column w80">
@@ -59,37 +60,53 @@
             <sgi:GridView 
                 ID="grdParticipantesReuniao" 
                 runat="server" 
-                AutoGenerateColumns="False">
+                AutoGenerateColumns="False"
+                EmptyDataText="Nenhum registro encontrado">
                 <Columns>
-                    <asp:BoundField HeaderText="Nome" DataField="NOME" />
-                    <asp:BoundField HeaderText="E-mail" DataField="EMAIL" />
-                    <asp:BoundField HeaderText="Telefone" DataField="TELEFONE"/>
-                    <asp:TemplateField HeaderText="Cargo/Função">
+                    <asp:TemplateField HeaderText="Nome">
                         <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Utils.GetCargos(Eval("ID_PESSOA").ToInt32()) %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("PESSOA.NOME") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField HeaderText="Presente" DataField="ID_PESSOA"/>
+                    <asp:TemplateField HeaderText="E-mail">
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("PESSOA.EMAIL") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Telefone">
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("PESSOA.TELEFONE") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Cargo/Função">
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Utils.GetCargos(Eval("ID_PESSOA").ToInt32()) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField HeaderText="Presente" DataField="PRESENCA"/>
                 </Columns>
             </sgi:GridView>
             <br/>
-            <div class="form-separator"></div>
-            <h4>Pauta de Reunião</h4>
+            
+            <div class="form-subtitle">
+                Pauta de Reunião
+            </div>
+
             <div class="row">
                 <div class="column">
                     <asp:Label ID="lblPauta" runat="server"/>
                 </div>
             </div>
             
-            <div class="form-separator"></div>
-            
-            <h4>Pendências Anteriores</h4>
+            <div class="form-subtitle">
+                Pendências Anteriores
+            </div>
             <div class="row">
                 <div class="column w150">
                     <sgi:Button ID="btntransferirPendencias" runat="server" Text="Transferir Pendências"/>
                 </div>
             </div>
-            <sgi:GridView ID="grdPendencias" runat="server" AutoGenerateColumns="False">
+            <sgi:GridView ID="grdPendencias" runat="server" AutoGenerateColumns="False" EmptyDataText="Nenhum registro encontrado">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField HeaderText="Nº" DataField="ITEM" />
@@ -98,8 +115,10 @@
                 </Columns>
             </sgi:GridView>
 
-            <div class="form-separator"></div>
-            <h4>Assuntos Tratados</h4>
+            <br />
+            <div class="form-subtitle">
+                Assuntos Tratados
+            </div>
             <div class="row">
                 <div class="column w450">
                     Descrição:
@@ -114,10 +133,11 @@
                 </div>
                 <div class="column w150">
                     <asp:DropDownList ID="ddlTipoAssunto" runat="server"></asp:DropDownList>
-                    <asp:ImageButton ID="btnIncluirAssunto" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluirAssunto_Click" ToolTip="Adiciona novo assunto tratado" />
+                     <asp:RequiredFieldValidator ID="rfv0" runat="server" ControlToValidate="ddlTipoAssunto" Font-Bold="true" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+                    <asp:ImageButton ID="btnIncluirAssunto" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluirAssunto_Click" ToolTip="Adiciona novo assunto tratado" CausesValidation="true"/>
                 </div>
             </div>
-            <sgi:GridView ID="grdAssunto" runat="server" AutoGenerateColumns="False">
+            <sgi:GridView ID="grdAssunto" runat="server" AutoGenerateColumns="False" EmptyDataText="Nenhum registro encontrado" OnRowCommand="grdAssunto_RowCommand">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField HeaderText="Nº" DataField="ITEM" />
@@ -127,13 +147,22 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("TIPO_ASSUNTO_TRATADO.DESCRICAO") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:ButtonField Text="Alterar" />
-                    <asp:ButtonField Text="Excluir" />
+                    <asp:TemplateField HeaderText="Ações">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ITEM")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                            <%--|
+                            <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ITEM")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />--%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    
                 </Columns>
             </sgi:GridView>
 
-            <div class="form-separator"></div>
-            <h4>Ações Futuras</h4>
+            <br />
+            <div class="form-subtitle">
+                Ações Futuras
+            </div>
+            
             <div class="row">
                 <div class="column w450">
                     Descrição:
@@ -160,7 +189,7 @@
                     <asp:ImageButton ID="btnIncluircompromisso" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluircompromisso_Click1" ToolTip="Adiciona nova ação futura" />
                 </div>
             </div>
-            <sgi:GridView ID="grdCompromisso" runat="server" AutoGenerateColumns="False">
+            <sgi:GridView ID="grdCompromisso" runat="server" AutoGenerateColumns="False" OnRowCommand="grdCompromisso_RowCommand" EmptyDataText="Nenhum registro encontrado">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField HeaderText="Nº" DataField="ITEM" />
@@ -171,11 +200,20 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("PESSOA.NOME") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Ações">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ITEM")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                            <%--|
+                            <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ITEM")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />--%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </sgi:GridView>
 
-            <div class="form-separator"></div>
-            <h4>Identificação do Registro</h4>
+           <br />
+            <div class="form-subtitle">
+                Identificação do Registro
+            </div>
             <div class="row">
                 <div class="column w150">
                     Ata elaborada por:
