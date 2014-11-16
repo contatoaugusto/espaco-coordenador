@@ -12,6 +12,12 @@ namespace UI.Web.EC.Paginas
 {
     public partial class BancoQuestao : System.Web.UI.Page
     {
+        private string nomeProfessor
+        {
+            get { return Library.ToString(ViewState["nomeProfessor"]); }
+            set { ViewState["nomeProfessor"] = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             {
@@ -23,6 +29,12 @@ namespace UI.Web.EC.Paginas
                 CarregarAmc();
                 //CarregarQuestao();
 
+                if (Request.QueryString["nomeProfessor"] != null)
+                {
+                    nomeProfessor = Request.QueryString["nomeProfessor"].ToString();
+                    ddlFuncionario.SelectedValue = nomeProfessor;
+                    btnConsultar_Click(null, null);
+                }
             }
         }
         private void CarregarAmc()
