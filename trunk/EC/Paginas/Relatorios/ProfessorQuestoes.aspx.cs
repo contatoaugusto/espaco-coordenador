@@ -20,6 +20,8 @@ namespace UI.Web.EC.Paginas.Relatorios
             set { ViewState["idAmc"] = value; }
         }
 
+        private int[] idFuncionarioProfessorArray;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -39,11 +41,14 @@ namespace UI.Web.EC.Paginas.Relatorios
         {
             var funcrionarioProfessor = NFuncionario.ConsultarProfessor();
             var questoes = NQuestao.ConsultarQuestaoByAmc(idAmc);
-
+            
             int qtdeQuestoes = questoes.Count;
+            int dtdeProfessor = funcrionarioProfessor.Count;
 
-            double[] yValues = new double[funcrionarioProfessor.Count];
-            string[] xValues = new string[funcrionarioProfessor.Count];
+            double[] yValues = new double[dtdeProfessor];
+            string[] xValues = new string[dtdeProfessor];
+            idFuncionarioProfessorArray = new int[dtdeProfessor];
+            
 
             int contador = 0;
             foreach (var funcionario in funcrionarioProfessor)
@@ -59,6 +64,7 @@ namespace UI.Web.EC.Paginas.Relatorios
 
                 yValues[contador] = qtdeQuestaoProfessor == 0 ? 0.00 : Math.Round((qtdeQuestaoProfessor * 100) / qtdeQuestoes, 2);
                 xValues[contador] = funcionario.PESSOA.NOME;
+                idFuncionarioProfessorArray[contador] = funcionario.ID_FUNCIONARIO;
 
                 contador++;
             }
@@ -147,8 +153,6 @@ namespace UI.Web.EC.Paginas.Relatorios
                 System.Drawing.PointF position = System.Drawing.PointF.Empty;
                 //Attach a href attribute to series and this will show the hand symbol
                 series.MapAreaAttributes = string.Format("onclick=\"#\" href=\"www.bing.com\"\"alt=\"Show Report\"", "");
-
-
             }
         }
 
@@ -157,8 +161,18 @@ namespace UI.Web.EC.Paginas.Relatorios
             int points = chartProfessorQuestao.Series[0].Points.Count;
             for (int i = 0; i < points; i++ )
             {
-                string nomeProfessor = chartProfessorQuestao.Series[0].Points[i].AxisLabel;
-                chartProfessorQuestao.Series[0].Points[i].Url = "~/Paginas/BancoQuestao.aspx?nomeProfessor=" + nomeProfessor;
+                int idFuncionarioProfessor = idFuncionarioProfessorArray[i]; //chartProfessorQuestao.Series[0].Points[i].AxisLabel;
+                chartProfessorQuestao.Series[0].Points[i].Url = "~/Paginas/BancoQuestao.aspx?idFuncionarioProfessor=" + idFuncionarioProfessor + "&idAmc=" + idAmc;
+            }
+        }
+
+        protected void chartProfessorQuestao2_DataBound(object sender, EventArgs e)
+        {
+            int points = chartProfessorQuestao2.Series[0].Points.Count;
+            for (int i = 0; i < points; i++)
+            {
+                int idFuncionarioProfessor = idFuncionarioProfessorArray[i]; //chartProfessorQuestao.Series[0].Points[i].AxisLabel;
+                chartProfessorQuestao2.Series[0].Points[i].Url = "~/Paginas/BancoQuestao.aspx?idFuncionarioProfessor=" + idFuncionarioProfessor + "&idAmc=" + idAmc;
             }
         }
 

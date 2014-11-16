@@ -12,10 +12,16 @@ namespace UI.Web.EC.Paginas
 {
     public partial class BancoQuestao : System.Web.UI.Page
     {
-        private string nomeProfessor
+        private int idFuncionarioProfessor
         {
-            get { return Library.ToString(ViewState["nomeProfessor"]); }
-            set { ViewState["nomeProfessor"] = value; }
+            get { return Library.ToInteger(ViewState["idFuncionarioProfessor"]); }
+            set { ViewState["idFuncionarioProfessor"] = value; }
+        }
+
+        private int idAmc
+        {
+            get { return Library.ToInteger(ViewState["idAmc"]); }
+            set { ViewState["idAmc"] = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,10 +35,13 @@ namespace UI.Web.EC.Paginas
                 CarregarAmc();
                 //CarregarQuestao();
 
-                if (Request.QueryString["nomeProfessor"] != null)
+                if (Request.QueryString["idFuncionarioProfessor"] != null && Request.QueryString["idAmc"] != null)
                 {
-                    nomeProfessor = Request.QueryString["nomeProfessor"].ToString();
-                    ddlFuncionario.SelectedValue = nomeProfessor;
+                    idFuncionarioProfessor = Request.QueryString["idFuncionarioProfessor"].ToInt32();
+                    idAmc = Request.QueryString["idAmc"].ToInt32();
+                    
+                    ddlFuncionario.SelectedValue = idFuncionarioProfessor.ToString();
+                    ddlAmc.SelectedValue = idAmc.ToString();
                     btnConsultar_Click(null, null);
                 }
             }

@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using EC.Negocio;
 using System.Web.UI.DataVisualization.Charting;
 using EC.Common;
+using System.Configuration;
 
 namespace UI.Web.EC.Paginas.Relatorios
 {
@@ -42,8 +43,8 @@ namespace UI.Web.EC.Paginas.Relatorios
             int[] yValues = new int[4];
             string[] xValues = new string[4];
 
-            string[] mencoes = { "SS", "MS", "MM", "MI" };
-
+            string[] mencoes = ConfigurationManager.AppSettings["Mencoes"].Replace(" ", string.Empty).Split(',');//"SS", "MS", "MM", "MI" };
+            
             int contador = 0;
             foreach (var mencao in mencoes)
             {
@@ -63,6 +64,16 @@ namespace UI.Web.EC.Paginas.Relatorios
 
             chart1.Series["serie1"].IsValueShownAsLabel = true;
             chart1.Series["serie1"].Points.DataBindXY(xValues, yValues);
+        }
+
+        protected void chart1_DataBound(object sender, EventArgs e)
+        {
+            int points = chart1.Series[0].Points.Count;
+            for (int i = 0; i < points; i++)
+            {
+                string mencao = chart1.Series[0].Points[i].AxisLabel;
+                chart1.Series[0].Points[i].Url = "~/Paginas/QuestaoNotaAluno.aspx?mencao=" + mencao + "&idAmc=" + idAmc;
+            }
         }
 
     }

@@ -22,6 +22,10 @@ namespace EC.Negocio
         {
             return (new DAlunoAmc()).ConsultarByAmc(idAmc);
         }
-        
+
+        public static List<ALUNO_AMC> ConsultarByAmcMencao(int idAmc, string mencao)
+        {
+            return (new DAlunoAmc()).ConsultarByAmcMencao(idAmc, mencao);
+        }
     }
 }

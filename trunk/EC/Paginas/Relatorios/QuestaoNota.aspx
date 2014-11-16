@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <asp:Chart ID="chart1" runat="server" Width="924px" Height="409px" >
+    <asp:Chart ID="chart1" runat="server" Width="924px" Height="409px" OnDataBound="chart1_DataBound">
         <Titles>
             <asp:Title Text="Quantidade Menções" Font="Arial, 12pt, style=Bold" />
         </Titles>
