@@ -13,16 +13,24 @@ namespace UI.Web.EC.Paginas
 {
     public partial class ConsultarAta : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)    
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            // Controle Acesso
+            int[] cargoComAcesso = { 2 };
+            string mensagem = ControleAcesso.verificaAcesso(cargoComAcesso);
+            if (!mensagem.IsNullOrEmpty())
             {
-                {
-                    if (IsPostBack)
-                        return;
-                   
-                    CarregarReuniao();
-                   
-                }
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + mensagem + "');location.replace('../default.aspx')</script>");
             }
+            {
+                if (IsPostBack)
+                    return;
+
+                CarregarReuniao();
+
+            }
+        }
         
         
         private void CarregarReuniao()
