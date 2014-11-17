@@ -22,6 +22,13 @@ namespace UI.Web.EC.Paginas.Relatorios
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Controle Acesso
+            int[] cargoComAcesso = { 2 };
+            string mensagem = ControleAcesso.verificaAcesso(cargoComAcesso);
+            if (!mensagem.IsNullOrEmpty())
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + mensagem + "');location.replace('../default.aspx')</script>");
+            }
 
             if (!IsPostBack)
             {
