@@ -67,6 +67,16 @@ namespace EC.Negocio
         {
             (new DReuniao()).ExcluiCompromisso(idCompromisso);
         }
+
+        public static void ExcluiPauta(int idPauta)
+        {
+            (new DReuniao()).ExcluiPauta(idPauta);
+        }
+
+        public static void ExcluiParticipante(int idParticipante)
+        {
+            (new DReuniao()).ExcluiParticipante(idParticipante);
+        }
     }
 }
  

@@ -15,7 +15,7 @@ namespace UI.Web.EC.Reuniao
     public partial class AgendaReuniao : System.Web.UI.Page
     {
         public static List<REUNIAO_PAUTA> pautas;
-        public static List<PESSOA> participantes;
+        public static List<REUNIAO_PARTICIPANTE> participantes;
 
         private int idReuniao
         {
@@ -36,7 +36,7 @@ namespace UI.Web.EC.Reuniao
                 CarregarSemestre();
                 CarregarPessoaParticipante();
                 pautas = new List<REUNIAO_PAUTA>();
-                participantes = new List<PESSOA>();
+                participantes = new List<REUNIAO_PARTICIPANTE>();
 
 
                 if (Request.QueryString["idReuniao"] != null)
@@ -69,21 +69,24 @@ namespace UI.Web.EC.Reuniao
             CarregarListaMinuto();
             ddlMinuto.SelectedValue = reuniao.DATAHORA.ToDate().Minute.ToString();
 
-            grdPauta.DataSource = NReuniaoPauta.ConsultarByReuniao(idReuniao);
+            pautas = NReuniaoPauta.ConsultarByReuniao(idReuniao);
+
+            grdPauta.DataSource = pautas;
             grdPauta.DataBind();
 
-            var participantes = NReuniao.ConsultarParticipante(idReuniao);
-            List<PESSOA> pessoas = new List<PESSOA>();
-            foreach (var participante in participantes)
-            {
-                PESSOA p = new PESSOA();
-                p.ID_PESSOA = participante.PESSOA.ID_PESSOA;
-                p.NOME = participante.PESSOA.NOME;
-                p.TELEFONE = participante.PESSOA.TELEFONE;
-                p.EMAIL = participante.PESSOA.EMAIL;
-                pessoas.Add(p);
-            }
-            grdParticipante.DataSource = pessoas;
+            participantes = NReuniao.ConsultarParticipante(idReuniao);
+            //List<PESSOA> pessoas = new List<PESSOA>();
+            //foreach (var participante in participantes)
+            //{
+            //    PESSOA p = new PESSOA();
+            //    p.ID_PESSOA = participante.PESSOA.ID_PESSOA;
+            //    p.NOME = participante.PESSOA.NOME;
+            //    p.TELEFONE = participante.PESSOA.TELEFONE;
+            //    p.EMAIL = participante.PESSOA.EMAIL;
+            //    pessoas.Add(p);
+            //}
+
+            grdParticipante.DataSource = participantes;
             grdParticipante.DataBind();
 
         }
@@ -172,6 +175,7 @@ namespace UI.Web.EC.Reuniao
 
         private void CarregarPessoaParticipante()
         {
+            //participantes = NPessoa.Consultar();
             ddlParticipante.DataSource = NPessoa.Consultar();
             ddlParticipante.DataTextField = "NOME";
             ddlParticipante.DataValueField = "ID_PESSOA";
@@ -190,26 +194,25 @@ namespace UI.Web.EC.Reuniao
             reuniao.ID_SEMESTRE = int.Parse(hddSemestreCorrente.Value);
             reuniao.DATAHORA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
 
-            EntityCollection<REUNIAO_PAUTA> reuniao_pautas = new EntityCollection<REUNIAO_PAUTA>();
-            foreach (var obj in pautas)
-            {
-                REUNIAO_PAUTA reuniao_pauta = new REUNIAO_PAUTA();
-                reuniao_pauta.DESCRICAO = obj.DESCRICAO;
-                reuniao_pauta.ITEM = obj.ITEM;
+            //EntityCollection<REUNIAO_PAUTA> reuniao_pautas = new EntityCollection<REUNIAO_PAUTA>();
+            //foreach (var obj in pautas)
+            //{
+            //    REUNIAO_PAUTA reuniao_pauta = new REUNIAO_PAUTA();
+            //    reuniao_pauta.DESCRICAO = obj.DESCRICAO;
+            //    reuniao_pauta.ITEM = obj.ITEM;
 
-                reuniao_pautas.Add(reuniao_pauta);
-            }
-            reuniao.REUNIAO_PAUTA = reuniao_pautas;
+            //    reuniao_pautas.Add(reuniao_pauta);
+            //}
+            reuniao.REUNIAO_PAUTA = pautas;
 
-
-            EntityCollection<REUNIAO_PARTICIPANTE> reuniao_participantes = new EntityCollection<REUNIAO_PARTICIPANTE>();
-            foreach (var obj in participantes)
-            {
-                REUNIAO_PARTICIPANTE reuniao_part = new REUNIAO_PARTICIPANTE();
-                reuniao_part.ID_PESSOA =  obj.ID_PESSOA;
-                reuniao_participantes.Add(reuniao_part);
-            }
-            reuniao.REUNIAO_PARTICIPANTE = reuniao_participantes;
+            //EntityCollection<REUNIAO_PARTICIPANTE> reuniao_participantes = new EntityCollection<REUNIAO_PARTICIPANTE>();
+            //foreach (var obj in participantes)
+            //{
+            //    REUNIAO_PARTICIPANTE reuniao_part = new REUNIAO_PARTICIPANTE();
+            //    reuniao_part.ID_PESSOA =  obj.ID_PESSOA;
+            //    reuniao_participantes.Add(reuniao_part);
+            //}
+            reuniao.REUNIAO_PARTICIPANTE = participantes;
 
             if (idReuniao > 0)
             {
@@ -249,10 +252,11 @@ namespace UI.Web.EC.Reuniao
 
         protected void imgAdicionaParticipante_Click(object sender, ImageClickEventArgs e)
         {
-            PESSOA pessoa = new PESSOA();
-            pessoa = NPessoa.ConsultarById(Library.ToInteger(ddlParticipante.SelectedValue));
+            //PESSOA pessoa = new PESSOA();
+            REUNIAO_PARTICIPANTE reuniaoParitcipante = new REUNIAO_PARTICIPANTE();
+            reuniaoParitcipante.PESSOA = NPessoa.ConsultarById(Library.ToInteger(ddlParticipante.SelectedValue));
 
-            participantes.Add(pessoa);
+            participantes.Add(reuniaoParitcipante);
             grdParticipante.DataSource = participantes;
             grdParticipante.DataBind();
 
@@ -265,5 +269,79 @@ namespace UI.Web.EC.Reuniao
             
         //    return .Select(n => n.NOME).Take(count)
         //}
+
+
+        protected void grdPauta_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Excluir")
+            {
+                try
+                {
+                    int id = Convert.ToInt32(e.CommandArgument);
+
+                    // Remove o item da lista
+                    foreach (var pauta in pautas)
+                    {
+                        if (pauta.ITEM == id)
+                        {
+                            pautas.Remove(pauta);
+                            // O item existe no banco, precisa ser deletado
+                            if (pauta.ID_PAUTA > 0)
+                                NReuniao.ExcluiPauta(pauta.ID_PAUTA);
+
+                            break;
+                        }
+                    }
+
+                    pautas = NReuniaoPauta.ConsultarByReuniao(idReuniao);
+                    grdPauta.DataSource = pautas;
+                    grdPauta.DataBind();
+
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_SUCESSO + "');</script>");
+                }
+
+                catch (Exception ex)
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_ERRO + "');</script>");
+                }
+            }
+        }
+
+        protected void grdParticipante_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Excluir")
+            {
+                try
+                {
+                    int idPessoa = Convert.ToInt32(e.CommandArgument);
+
+                    // Remove o item da lista
+                    foreach (var participante in participantes)
+                    {
+                        if (participante.ID_PESSOA == idPessoa)
+                        {
+                            participantes.Remove(participante);
+                            // O item existe no banco, precisa ser deletado
+                            if (participante.ID_PESSOA > 0)
+                                NReuniao.ExcluiParticipante(participante.ID_PARTICIPANTE);
+
+                            break;
+                        }
+                    }
+
+                    participantes = NReuniao.ConsultarParticipante(idReuniao);
+                    grdParticipante.DataSource = participantes;
+                    grdParticipante.DataBind();
+
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_SUCESSO + "');</script>");
+                }
+
+                catch (Exception ex)
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_EXCLUSAO_ERRO + "');</script>");
+                }
+            }
+
+        }
     }
 }

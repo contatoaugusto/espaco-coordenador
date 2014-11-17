@@ -136,6 +136,9 @@
     <Compile Include="REUNIAO_ASSUNTO_TRATADO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="REUNIAO_ATA.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="REUNIAO_COMPROMISSO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

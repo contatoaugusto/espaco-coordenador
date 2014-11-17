@@ -16,6 +16,12 @@ namespace UI.Web.EC.Paginas
         public static List<REUNIAO_ASSUNTO_TRATADO> assuntos;
         public static List<REUNIAO_COMPROMISSO> compromissos;
 
+        private int idAta
+        {
+            get { return Library.ToInteger(ViewState["idAta"]); }
+            set { ViewState["idAta"] = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             {
@@ -235,9 +241,9 @@ namespace UI.Web.EC.Paginas
                         }
                     }
                     // Reordena número dos titems
-                    for (int i = 1; i <= assuntos.Count; i++)
+                    for (int i = 0; i <= assuntos.Count; i++)
                     {
-                        assuntos[i].ITEM = i;
+                        assuntos[i].ITEM = i + 1;
                     }
 
                     grdAssunto.DataSource = assuntos;
@@ -275,9 +281,9 @@ namespace UI.Web.EC.Paginas
                         }
                     }
                     // Reordena número dos titems
-                    for (int i = 1; i <= compromissos.Count; i++)
+                    for (int i = 0; i <= compromissos.Count; i++)
                     {
-                        compromissos[i].ITEM = i;
+                        compromissos[i].ITEM = i + 1;
                     }
 
                     grdCompromisso.DataSource = compromissos;

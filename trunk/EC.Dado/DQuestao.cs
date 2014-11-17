@@ -29,20 +29,20 @@ namespace EC.Dado
                     questao.AMC = tipo.AMC;
                     questao.PROVA = tipo.PROVA;
 
-                    questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.FUNCIONARIO.ID_FUNCIONARIO);
-                    questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.DISCIPLINA.ID_DISCIPLINA);
+                    //questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.FUNCIONARIO.ID_FUNCIONARIO);
+                    //questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.DISCIPLINA.ID_DISCIPLINA);
 
-                    //questao.FUNCIONARIO = new FUNCIONARIO();
-                    //questao.FUNCIONARIO.PESSOA = new PESSOA();
-                    //questao.FUNCIONARIO.PESSOA.ID_PESSOA = tipo.FUNCIONARIO.PESSOA.ID_PESSOA;
-                    //questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
-                    //questao.FUNCIONARIO.PESSOA.TELEFONE = tipo.FUNCIONARIO.PESSOA.TELEFONE;
-                    //questao.FUNCIONARIO.PESSOA.EMAIL = tipo.FUNCIONARIO.PESSOA.EMAIL;
+                    questao.FUNCIONARIO = new FUNCIONARIO();
+                    questao.FUNCIONARIO.PESSOA = new PESSOA();
+                    questao.FUNCIONARIO.PESSOA.ID_PESSOA = tipo.FUNCIONARIO.PESSOA.ID_PESSOA;
+                    questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
+                    questao.FUNCIONARIO.PESSOA.TELEFONE = tipo.FUNCIONARIO.PESSOA.TELEFONE;
+                    questao.FUNCIONARIO.PESSOA.EMAIL = tipo.FUNCIONARIO.PESSOA.EMAIL;
 
-                    //questao.DISCIPLINA = new DISCIPLINA();
-                    //questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
-                    //questao.DISCIPLINA.ID_CURSO = tipo.DISCIPLINA.ID_CURSO;
-                    //questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
+                    questao.DISCIPLINA = new DISCIPLINA();
+                    questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
+                    questao.DISCIPLINA.ID_CURSO = tipo.DISCIPLINA.ID_CURSO;
+                    questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
                     
 
                     ltQuestao.Add(questao);

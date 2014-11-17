@@ -49,6 +49,7 @@ namespace EC.Modelo
         public DbSet<RESPOSTA> RESPOSTA { get; set; }
         public DbSet<REUNIAO> REUNIAO { get; set; }
         public DbSet<REUNIAO_ASSUNTO_TRATADO> REUNIAO_ASSUNTO_TRATADO { get; set; }
+        public DbSet<REUNIAO_ATA> REUNIAO_ATA { get; set; }
         public DbSet<REUNIAO_COMPROMISSO> REUNIAO_COMPROMISSO { get; set; }
         public DbSet<REUNIAO_PARTICIPANTE> REUNIAO_PARTICIPANTE { get; set; }
         public DbSet<REUNIAO_PAUTA> REUNIAO_PAUTA { get; set; }

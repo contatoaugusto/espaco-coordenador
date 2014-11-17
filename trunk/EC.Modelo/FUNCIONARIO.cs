@@ -18,6 +18,7 @@ namespace EC.Modelo
         {
             this.CURSO_COORDENADOR = new HashSet<CURSO_COORDENADOR>();
             this.DISCIPLINA_PROFESSOR = new HashSet<DISCIPLINA_PROFESSOR>();
+            this.REUNIAO_ATA = new HashSet<REUNIAO_ATA>();
             this.LANCAMENTO = new HashSet<LANCAMENTO>();
             this.PROVA = new HashSet<PROVA>();
             this.QUESTAO = new HashSet<QUESTAO>();
@@ -34,6 +35,7 @@ namespace EC.Modelo
         public virtual ICollection<CURSO_COORDENADOR> CURSO_COORDENADOR { get; set; }
         public virtual ICollection<DISCIPLINA_PROFESSOR> DISCIPLINA_PROFESSOR { get; set; }
         public virtual PESSOA PESSOA { get; set; }
+        public virtual ICollection<REUNIAO_ATA> REUNIAO_ATA { get; set; }
         public virtual ICollection<LANCAMENTO> LANCAMENTO { get; set; }
         public virtual ICollection<PROVA> PROVA { get; set; }
         public virtual ICollection<QUESTAO> QUESTAO { get; set; }

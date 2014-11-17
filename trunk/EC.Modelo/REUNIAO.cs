@@ -18,6 +18,7 @@ namespace EC.Modelo
         {
             this.ACAO_REUNIAO = new HashSet<ACAO_REUNIAO>();
             this.REUNIAO_ASSUNTO_TRATADO = new HashSet<REUNIAO_ASSUNTO_TRATADO>();
+            this.REUNIAO_ATA = new HashSet<REUNIAO_ATA>();
             this.REUNIAO_COMPROMISSO = new HashSet<REUNIAO_COMPROMISSO>();
             this.REUNIAO_PARTICIPANTE = new HashSet<REUNIAO_PARTICIPANTE>();
             this.REUNIAO_PAUTA = new HashSet<REUNIAO_PAUTA>();
@@ -33,6 +34,7 @@ namespace EC.Modelo
     
         public virtual ICollection<ACAO_REUNIAO> ACAO_REUNIAO { get; set; }
         public virtual ICollection<REUNIAO_ASSUNTO_TRATADO> REUNIAO_ASSUNTO_TRATADO { get; set; }
+        public virtual ICollection<REUNIAO_ATA> REUNIAO_ATA { get; set; }
         public virtual ICollection<REUNIAO_COMPROMISSO> REUNIAO_COMPROMISSO { get; set; }
         public virtual ICollection<REUNIAO_PARTICIPANTE> REUNIAO_PARTICIPANTE { get; set; }
         public virtual ICollection<REUNIAO_PAUTA> REUNIAO_PAUTA { get; set; }
