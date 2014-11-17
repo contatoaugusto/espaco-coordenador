@@ -234,6 +234,15 @@
           <Property Name="ITEM" Type="int" />
           <Property Name="ID_TIPOASSTRATADO" Type="int" />
         </EntityType>
+        <EntityType Name="REUNIAO_ATA">
+          <Key>
+            <PropertyRef Name="ID_ATA" />
+          </Key>
+          <Property Name="ID_ATA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_REUNIAO" Type="int" Nullable="false" />
+          <Property Name="ID_FUNCIONARIO_RESPOSAVEL" Type="int" Nullable="false" />
+          <Property Name="DATA_FECHAMENTO" Type="datetime" />
+        </EntityType>
         <EntityType Name="REUNIAO_COMPROMISSO">
           <Key>
             <PropertyRef Name="ID_COMPROMISSO" />
@@ -652,6 +661,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO">
+          <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+          <End Role="REUNIAO_ATA" Type="Self.REUNIAO_ATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="REUNIAO_ATA">
+              <PropertyRef Name="ID_FUNCIONARIO_RESPOSAVEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ID_TIPOEVENTO">
           <End Role="TIPO_EVENTO" Type="Self.TIPO_EVENTO" Multiplicity="0..1" />
           <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
@@ -844,6 +865,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_REUNIAO_ATA_REUNIAO">
+          <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="1" />
+          <End Role="REUNIAO_ATA" Type="Self.REUNIAO_ATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO_ATA">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_REUNIAO_COMPROMISSO">
           <End Role="REUNIAO" Type="Self.REUNIAO" Multiplicity="0..1" />
           <End Role="REUNIAO_COMPROMISSO" Type="Self.REUNIAO_COMPROMISSO" Multiplicity="*" />
@@ -989,6 +1022,7 @@
           <EntitySet Name="RESPOSTA" EntityType="Self.RESPOSTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO" EntityType="Self.REUNIAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO_ASSUNTO_TRATADO" EntityType="Self.REUNIAO_ASSUNTO_TRATADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REUNIAO_ATA" EntityType="Self.REUNIAO_ATA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO_COMPROMISSO" EntityType="Self.REUNIAO_COMPROMISSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO_PARTICIPANTE" EntityType="Self.REUNIAO_PARTICIPANTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIAO_PAUTA" EntityType="Self.REUNIAO_PAUTA" Schema="dbo" store:Type="Tables" />
@@ -1103,6 +1137,10 @@
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
           </AssociationSet>
+          <AssociationSet Name="FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO" Association="Self.FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="REUNIAO_ATA" EntitySet="REUNIAO_ATA" />
+          </AssociationSet>
           <AssociationSet Name="FK_ID_TIPOEVENTO" Association="Self.FK_ID_TIPOEVENTO">
             <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
             <End Role="EVENTO" EntitySet="EVENTO" />
@@ -1166,6 +1204,10 @@
           <AssociationSet Name="FK_RESPOSTA_QUESTAO" Association="Self.FK_RESPOSTA_QUESTAO">
             <End Role="QUESTAO" EntitySet="QUESTAO" />
             <End Role="RESPOSTA" EntitySet="RESPOSTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REUNIAO_ATA_REUNIAO" Association="Self.FK_REUNIAO_ATA_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="REUNIAO_ATA" EntitySet="REUNIAO_ATA" />
           </AssociationSet>
           <AssociationSet Name="fk_REUNIAO_COMPROMISSO" Association="Self.fk_REUNIAO_COMPROMISSO">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
@@ -1237,6 +1279,7 @@
           <EntitySet Name="RESPOSTA" EntityType="EC.Model.RESPOSTA" />
           <EntitySet Name="REUNIAO" EntityType="EC.Model.REUNIAO" />
           <EntitySet Name="REUNIAO_ASSUNTO_TRATADO" EntityType="EC.Model.REUNIAO_ASSUNTO_TRATADO" />
+          <EntitySet Name="REUNIAO_ATA" EntityType="EC.Model.REUNIAO_ATA" />
           <EntitySet Name="REUNIAO_COMPROMISSO" EntityType="EC.Model.REUNIAO_COMPROMISSO" />
           <EntitySet Name="REUNIAO_PARTICIPANTE" EntityType="EC.Model.REUNIAO_PARTICIPANTE" />
           <EntitySet Name="REUNIAO_PAUTA" EntityType="EC.Model.REUNIAO_PAUTA" />
@@ -1367,6 +1410,10 @@
             <End Role="PESSOA" EntitySet="PESSOA" />
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
           </AssociationSet>
+          <AssociationSet Name="FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO" Association="EC.Model.FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO">
+            <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+            <End Role="REUNIAO_ATA" EntitySet="REUNIAO_ATA" />
+          </AssociationSet>
           <AssociationSet Name="FK_LANCAMENTO_PROFESSOR" Association="EC.Model.FK_LANCAMENTO_PROFESSOR">
             <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
             <End Role="LANCAMENTO" EntitySet="LANCAMENTO" />
@@ -1422,6 +1469,10 @@
           <AssociationSet Name="FK_ASSTRATADOS" Association="EC.Model.FK_ASSTRATADOS">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
             <End Role="REUNIAO_ASSUNTO_TRATADO" EntitySet="REUNIAO_ASSUNTO_TRATADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REUNIAO_ATA_REUNIAO" Association="EC.Model.FK_REUNIAO_ATA_REUNIAO">
+            <End Role="REUNIAO" EntitySet="REUNIAO" />
+            <End Role="REUNIAO_ATA" EntitySet="REUNIAO_ATA" />
           </AssociationSet>
           <AssociationSet Name="fk_REUNIAO_COMPROMISSO" Association="EC.Model.fk_REUNIAO_COMPROMISSO">
             <End Role="REUNIAO" EntitySet="REUNIAO" />
@@ -1635,6 +1686,7 @@
           <NavigationProperty Name="CURSO_COORDENADOR" Relationship="EC.Model.FK_CURSO_COORDENADOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="CURSO_COORDENADOR" />
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="EC.Model.FK_DISCIPLINA_PROFESSOR_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="PESSOA" Relationship="EC.Model.fk_FUNCIONARIO_PESSOA" FromRole="FUNCIONARIO" ToRole="PESSOA" />
+          <NavigationProperty Name="REUNIAO_ATA" Relationship="EC.Model.FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO" FromRole="FUNCIONARIO" ToRole="REUNIAO_ATA" />
           <NavigationProperty Name="LANCAMENTO" Relationship="EC.Model.FK_LANCAMENTO_PROFESSOR" FromRole="FUNCIONARIO" ToRole="LANCAMENTO" />
           <NavigationProperty Name="PROVA" Relationship="EC.Model.FK_PROVA_FUNCIONARIO_CADASTRO" FromRole="FUNCIONARIO" ToRole="PROVA" />
           <NavigationProperty Name="QUESTAO" Relationship="EC.Model.FK_QUESTAO_FUNCIONARIO_CADASTRO" FromRole="FUNCIONARIO" ToRole="QUESTAO" />
@@ -1748,6 +1800,7 @@
           <Property Name="SEQUENCIA" Type="Int32" />
           <NavigationProperty Name="ACAO_REUNIAO" Relationship="EC.Model.fk_ACAO_REUNIAO_REUNIAO" FromRole="REUNIAO" ToRole="ACAO_REUNIAO" />
           <NavigationProperty Name="REUNIAO_ASSUNTO_TRATADO" Relationship="EC.Model.FK_ASSTRATADOS" FromRole="REUNIAO" ToRole="REUNIAO_ASSUNTO_TRATADO" />
+          <NavigationProperty Name="REUNIAO_ATA" Relationship="EC.Model.FK_REUNIAO_ATA_REUNIAO" FromRole="REUNIAO" ToRole="REUNIAO_ATA" />
           <NavigationProperty Name="REUNIAO_COMPROMISSO" Relationship="EC.Model.fk_REUNIAO_COMPROMISSO" FromRole="REUNIAO" ToRole="REUNIAO_COMPROMISSO" />
           <NavigationProperty Name="REUNIAO_PARTICIPANTE" Relationship="EC.Model.FK_REUNIAO_PARTICIPANTE_REUNIAO" FromRole="REUNIAO" ToRole="REUNIAO_PARTICIPANTE" />
           <NavigationProperty Name="REUNIAO_PAUTA" Relationship="EC.Model.fk_REUNIAO_PAUTA" FromRole="REUNIAO" ToRole="REUNIAO_PAUTA" />
@@ -1765,6 +1818,17 @@
           <Property Name="ID_TIPOASSTRATADO" Type="Int32" />
           <NavigationProperty Name="REUNIAO" Relationship="EC.Model.FK_ASSTRATADOS" FromRole="REUNIAO_ASSUNTO_TRATADO" ToRole="REUNIAO" />
           <NavigationProperty Name="TIPO_ASSUNTO_TRATADO" Relationship="EC.Model.fk_ASSUNTRATADO_TIPOASSTRATADO" FromRole="REUNIAO_ASSUNTO_TRATADO" ToRole="TIPO_ASSUNTO_TRATADO" />
+        </EntityType>
+        <EntityType Name="REUNIAO_ATA">
+          <Key>
+            <PropertyRef Name="ID_ATA" />
+          </Key>
+          <Property Name="ID_ATA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_REUNIAO" Type="Int32" Nullable="false" />
+          <Property Name="ID_FUNCIONARIO_RESPOSAVEL" Type="Int32" Nullable="false" />
+          <Property Name="DATA_FECHAMENTO" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="FUNCIONARIO" Relationship="EC.Model.FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO" FromRole="REUNIAO_ATA" ToRole="FUNCIONARIO" />
+          <NavigationProperty Name="REUNIAO" Relationship="EC.Model.FK_REUNIAO_ATA_REUNIAO" FromRole="REUNIAO_ATA" ToRole="REUNIAO" />
         </EntityType>
         <EntityType Name="REUNIAO_COMPROMISSO">
           <Key>
@@ -2253,6 +2317,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FUNCIONARIO_RESPONSAVEL_FUNCIONARIO">
+          <End Type="EC.Model.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="1" />
+          <End Type="EC.Model.REUNIAO_ATA" Role="REUNIAO_ATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FUNCIONARIO">
+              <PropertyRef Name="ID_FUNCIONARIO" />
+            </Principal>
+            <Dependent Role="REUNIAO_ATA">
+              <PropertyRef Name="ID_FUNCIONARIO_RESPOSAVEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LANCAMENTO_PROFESSOR">
           <End Type="EC.Model.FUNCIONARIO" Role="FUNCIONARIO" Multiplicity="0..1" />
           <End Type="EC.Model.LANCAMENTO" Role="LANCAMENTO" Multiplicity="*" />
@@ -2417,6 +2493,18 @@
               <PropertyRef Name="ID_REUNIAO" />
             </Principal>
             <Dependent Role="REUNIAO_ASSUNTO_TRATADO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REUNIAO_ATA_REUNIAO">
+          <End Type="EC.Model.REUNIAO" Role="REUNIAO" Multiplicity="1" />
+          <End Type="EC.Model.REUNIAO_ATA" Role="REUNIAO_ATA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REUNIAO">
+              <PropertyRef Name="ID_REUNIAO" />
+            </Principal>
+            <Dependent Role="REUNIAO_ATA">
               <PropertyRef Name="ID_REUNIAO" />
             </Dependent>
           </ReferentialConstraint>
@@ -2773,6 +2861,16 @@
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
                 <ScalarProperty Name="ID_ASSTRAT" ColumnName="ID_ASSTRAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REUNIAO_ATA">
+            <EntityTypeMapping TypeName="EC.Model.REUNIAO_ATA">
+              <MappingFragment StoreEntitySet="REUNIAO_ATA">
+                <ScalarProperty Name="DATA_FECHAMENTO" ColumnName="DATA_FECHAMENTO" />
+                <ScalarProperty Name="ID_FUNCIONARIO_RESPOSAVEL" ColumnName="ID_FUNCIONARIO_RESPOSAVEL" />
+                <ScalarProperty Name="ID_REUNIAO" ColumnName="ID_REUNIAO" />
+                <ScalarProperty Name="ID_ATA" ColumnName="ID_ATA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" CodeBehind="~/Paginas/AgendaReuniao.aspx.cs" Inherits="UI.Web.EC.Reuniao.AgendaReuniao" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Menu.Master" AutoEventWireup="true" 
+    CodeBehind="~/Paginas/AgendaReuniao.aspx.cs" Inherits="UI.Web.EC.Reuniao.AgendaReuniao" MaintainScrollPositionOnPostback="true"%>
 
 <%@ Import Namespace="EC.Negocio" %>
 <%@ Import Namespace="UI.Web.EC" %>
@@ -85,17 +86,25 @@
             CssClass="gridview"
             GroupFooter="False"
             PageSize="10"
-            ShowWhenEmpty="False">
+            ShowWhenEmpty="False"
+            OnRowCommand="grdParticipante_RowCommand">
             <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
             <Columns>
-                <asp:BoundField HeaderText="Nome" DataField="NOME" />
-                <asp:BoundField HeaderText="E-Mail" DataField="EMAIL" />
-                <asp:BoundField HeaderText="Telefone" DataField="TELEFONE" />
+                <asp:BoundField HeaderText="Nome" DataField="PESSOA.NOME" />
+                <asp:BoundField HeaderText="E-Mail" DataField="PESSOA.EMAIL" />
+                <asp:BoundField HeaderText="Telefone" DataField="PESSOA.TELEFONE" />
                 <asp:TemplateField HeaderText="Cargo/Função">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Utils.GetCargos(Eval("ID_PESSOA").ToInt32()) %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Ações">
+                <ItemTemplate>
+                    <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("PESSOA.ID_PESSOA")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                    <%--|
+                    <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ITEM")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />--%>
+                </ItemTemplate>
+            </asp:TemplateField>
             </Columns>
         </sgi:GridView>
 
@@ -121,11 +130,19 @@
         CssClass="gridview"
         GroupFooter="False"
         PageSize="10"
-        ShowWhenEmpty="False">
+        ShowWhenEmpty="False"
+        OnRowCommand="grdPauta_RowCommand">
         <AlternatingRowStyle CssClass="gridviewrowalternating"></AlternatingRowStyle>
         <Columns>
             <asp:BoundField HeaderText="Nº" DataField="ITEM" />
             <asp:BoundField HeaderText="Descricão" DataField="DESCRICAO" />
+            <asp:TemplateField HeaderText="Ações">
+                <ItemTemplate>
+                    <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ITEM")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                    <%--|
+                    <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ITEM")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />--%>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </sgi:GridView>
 

@@ -223,8 +223,8 @@ namespace EC.Dado
                         obj = db.REUNIAO_PARTICIPANTE.First(rs => rs.ID_PARTICIPANTE == participante.ID_PARTICIPANTE);
 
                     obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
-                    obj.PRESENCA  = participante.PRESENCA;
-                    obj.ID_PESSOA = participante.ID_PESSOA;
+                    obj.PRESENCA = participante.PRESENCA;
+                    obj.ID_PESSOA = participante.PESSOA.ID_PESSOA;
                     originalReniao.REUNIAO_PARTICIPANTE.Add(obj);
                 }
 
@@ -253,6 +253,46 @@ namespace EC.Dado
                 if (originalCompromisso != null)
                 {
                     db.REUNIAO_COMPROMISSO.Remove(originalCompromisso);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public void ExcluiPauta(int idPauta)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var originalPauta = db.REUNIAO_PAUTA.First(rs => rs.ID_PAUTA == idPauta);
+                if (originalPauta != null)
+                {
+
+                    var idReuniao = originalPauta.ID_REUNIAO;
+                    db.REUNIAO_PAUTA.Remove(originalPauta);
+
+                    // Reordena número dos titems
+                    var pautas = db.REUNIAO_PAUTA.Where(rs => rs.ID_REUNIAO == idReuniao).ToList();
+                    int contador = 0;
+                    foreach (var pauta in pautas)
+                    {
+                        pauta.ITEM = contador + 1;
+                        contador++;
+                    }
+
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public void ExcluiParticipante(int idParticipante)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var originalParticipante = db.REUNIAO_PARTICIPANTE.First(rs => rs.ID_PARTICIPANTE == idParticipante);
+                if (originalParticipante != null)
+                {
+                    var idReuniao = originalParticipante.ID_REUNIAO;
+                    db.REUNIAO_PARTICIPANTE.Remove(originalParticipante);
+
                     db.SaveChanges();
                 }
             }

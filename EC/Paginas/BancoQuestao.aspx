@@ -59,7 +59,8 @@
             AutoGenerateColumns="False" 
             OnRowCommand="grdQuestao_RowCommand"
             AllowPaging="true" PageSize="10"
-            OnPageIndexChanging="grdItens_PageIndexChanging">
+            OnPageIndexChanging="grdItens_PageIndexChanging"
+            EmptyDataText="Nenhum registro encontrado">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="DESCRICAO" HeaderText="Questão" HeaderStyle-Width="55%" />
