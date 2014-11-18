@@ -160,32 +160,41 @@ namespace UI.Web.EC.Paginas
            
             reuniao.ID_REUNIAO = int.Parse(ddlReuniao.SelectedValue);
 
-            EntityCollection<REUNIAO_ASSUNTO_TRATADO> reuniao_assuntos = new EntityCollection<REUNIAO_ASSUNTO_TRATADO>();
-            foreach (var obj in assuntos)
-            {
-                REUNIAO_ASSUNTO_TRATADO reuniao_assunto_tratado = new REUNIAO_ASSUNTO_TRATADO();
-                reuniao_assunto_tratado.DESCRICAO = obj.DESCRICAO;
-                reuniao_assunto_tratado.ITEM = obj.ITEM;
-                reuniao_assunto_tratado.ID_TIPOASSTRATADO = obj.ID_TIPOASSTRATADO;
-                reuniao_assuntos.Add(reuniao_assunto_tratado);
-            }
-            reuniao.REUNIAO_ASSUNTO_TRATADO = reuniao_assuntos;
+            //EntityCollection<REUNIAO_ASSUNTO_TRATADO> reuniao_assuntos = new EntityCollection<REUNIAO_ASSUNTO_TRATADO>();
+            //foreach (var obj in assuntos)
+            //{
+            //    REUNIAO_ASSUNTO_TRATADO reuniao_assunto_tratado = new REUNIAO_ASSUNTO_TRATADO();
+            //    reuniao_assunto_tratado.DESCRICAO = obj.DESCRICAO;
+            //    reuniao_assunto_tratado.ITEM = obj.ITEM;
+            //    reuniao_assunto_tratado.ID_TIPOASSTRATADO = obj.ID_TIPOASSTRATADO;
+            //    reuniao_assuntos.Add(reuniao_assunto_tratado);
+            //}
+            reuniao.REUNIAO_ASSUNTO_TRATADO = assuntos;// reuniao_assuntos;
 
-            EntityCollection<REUNIAO_COMPROMISSO> reuniao_compromissos = new EntityCollection<REUNIAO_COMPROMISSO>();
-            foreach (var obj in compromissos)
-            {
-                REUNIAO_COMPROMISSO reuniao_compromisso = new REUNIAO_COMPROMISSO();
-                reuniao_compromisso.ID_PESSOA = obj.ID_PESSOA;
-                reuniao_compromisso.DESCRICAO = obj.DESCRICAO;
-                reuniao_compromisso.ITEM = obj.ITEM;
-                reuniao_compromisso.DATA = obj.DATA;
+            //EntityCollection<REUNIAO_COMPROMISSO> reuniao_compromissos = new EntityCollection<REUNIAO_COMPROMISSO>();
+            //foreach (var obj in compromissos)
+            //{
+            //    REUNIAO_COMPROMISSO reuniao_compromisso = new REUNIAO_COMPROMISSO();
+            //    reuniao_compromisso.ID_PESSOA = obj.ID_PESSOA;
+            //    reuniao_compromisso.DESCRICAO = obj.DESCRICAO;
+            //    reuniao_compromisso.ITEM = obj.ITEM;
+            //    reuniao_compromisso.DATA = obj.DATA;
 
-                reuniao_compromissos.Add(reuniao_compromisso);
-            }
-            reuniao.REUNIAO_COMPROMISSO = reuniao_compromissos;
+            //    reuniao_compromissos.Add(reuniao_compromisso);
+            //}
+            reuniao.REUNIAO_COMPROMISSO = compromissos;// reuniao_compromissos;
             
-            NReuniao.Salvar(reuniao);
+
+            NReuniao.Atualiza(reuniao);
             {
+                REUNIAO_ATA reuniaoAta = new REUNIAO_ATA();
+                reuniaoAta.ID_REUNIAO = reuniao.ID_REUNIAO;
+                reuniaoAta.ID_FUNCIONARIO_RESPOSAVEL = hddResponsavelAta.Value.ToInt32();
+                lblDataTeuniao.Text = reuniao.DATAHORA.ToDate().Day.ToString() + "/" + reuniao.DATAHORA.ToDate().Month.ToString() + "/" + reuniao.DATAHORA.ToDate().Year.ToString();
+                reuniaoAta.DATA_FECHAMENTO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), 0, 0, 0);
+
+                NReuniaoAta.Salvar(reuniaoAta);
+
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
             }
             
@@ -221,9 +230,9 @@ namespace UI.Web.EC.Paginas
             }
             lblPauta.Text = strpauta + "</ul>";
 
-            lblAtaElaboradaPor.Text = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.PESSOA.NOME;
-            
-            
+            lblResponsavelAta.Text = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.PESSOA.NOME;
+            hddResponsavelAta.Value = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.ID_FUNCIONARIO.ToString();
+                        
             pnlAta.Visible = true;
         }
 

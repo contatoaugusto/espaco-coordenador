@@ -220,13 +220,22 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.GridView grdCompromisso;
         
         /// <summary>
-        /// lblAtaElaboradaPor control.
+        /// lblResponsavelAta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAtaElaboradaPor;
+        protected global::System.Web.UI.WebControls.Label lblResponsavelAta;
+        
+        /// <summary>
+        /// hddResponsavelAta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddResponsavelAta;
         
         /// <summary>
         /// ddlDiaFechamento control.

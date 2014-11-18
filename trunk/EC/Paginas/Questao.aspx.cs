@@ -20,22 +20,29 @@ namespace UI.Web.EC.Paginas
             get { return Library.ToInteger(ViewState["idQuestao"]); }
             set { ViewState["idQuestao"] = value; }
         }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Controle Acesso
+            int[] cargoComAcesso = { 1 };
+            string mensagem = ControleAcesso.verificaAcesso(cargoComAcesso);
+            if (!mensagem.IsNullOrEmpty())
             {
-                if (IsPostBack)
-                    return;
-
-                CarregarDisciplina();
-                CarregarAmc();
-
-                if (Request.QueryString["idQuestao"] != null)
-                {
-                    idQuestao = Request.QueryString["idQuestao"].ToInt32();
-                    CarregarEdicao();
-                }
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + mensagem + "');location.replace('../default.aspx')</script>");
             }
+
+            if (IsPostBack)
+                return;
+
+            CarregarDisciplina();
+            CarregarAmc();
+
+            if (Request.QueryString["idQuestao"] != null)
+            {
+                idQuestao = Request.QueryString["idQuestao"].ToInt32();
+                CarregarEdicao();
+            }
+
         }
 
         private void CarregarEdicao()
