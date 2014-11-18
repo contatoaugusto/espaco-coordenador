@@ -26,24 +26,30 @@ namespace UI.Web.EC.Paginas
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Controle Acesso
+            int[] cargoComAcesso = { 1 };
+            string mensagem = ControleAcesso.verificaAcesso(cargoComAcesso);
+            if (!mensagem.IsNullOrEmpty())
             {
-                if (IsPostBack)
-                    return;
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + mensagem + "');location.replace('../default.aspx')</script>");
+            }
 
-                CarregarDisciplina();
-                CarregarFuncionario();
-                CarregarAmc();
-                //CarregarQuestao();
+            if (IsPostBack)
+                return;
 
-                if (Request.QueryString["idFuncionarioProfessor"] != null && Request.QueryString["idAmc"] != null)
-                {
-                    idFuncionarioProfessor = Request.QueryString["idFuncionarioProfessor"].ToInt32();
-                    idAmc = Request.QueryString["idAmc"].ToInt32();
-                    
-                    ddlFuncionario.SelectedValue = idFuncionarioProfessor.ToString();
-                    ddlAmc.SelectedValue = idAmc.ToString();
-                    btnConsultar_Click(null, null);
-                }
+            CarregarDisciplina();
+            CarregarFuncionario();
+            CarregarAmc();
+            //CarregarQuestao();
+
+            if (Request.QueryString["idFuncionarioProfessor"] != null && Request.QueryString["idAmc"] != null)
+            {
+                idFuncionarioProfessor = Request.QueryString["idFuncionarioProfessor"].ToInt32();
+                idAmc = Request.QueryString["idAmc"].ToInt32();
+
+                ddlFuncionario.SelectedValue = idFuncionarioProfessor.ToString();
+                ddlAmc.SelectedValue = idAmc.ToString();
+                btnConsultar_Click(null, null);
             }
         }
         private void CarregarAmc()

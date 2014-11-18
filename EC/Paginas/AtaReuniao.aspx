@@ -219,7 +219,8 @@
                     Ata elaborada por:
                 </div>
                 <div class="column w200">
-                    <asp:Label ID="lblAtaElaboradaPor" runat="server"></asp:Label>
+                    <asp:Label ID="lblResponsavelAta" runat="server"></asp:Label>
+                    <asp:HiddenField ID="hddResponsavelAta" runat="server" />
                 </div>
                 <div class="column w150">
                     Data do fechamento

@@ -228,6 +228,36 @@ namespace EC.Dado
                     originalReniao.REUNIAO_PARTICIPANTE.Add(obj);
                 }
 
+                //Assuntos
+                foreach (var assunto in q.REUNIAO_ASSUNTO_TRATADO)
+                {
+                    REUNIAO_ASSUNTO_TRATADO obj = new REUNIAO_ASSUNTO_TRATADO();
+
+                    if (assunto.ID_ASSTRAT > 0)
+                        obj = db.REUNIAO_ASSUNTO_TRATADO.First(rs => rs.ID_ASSTRAT == assunto.ID_ASSTRAT);
+
+                    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
+                    obj.DESCRICAO = assunto.DESCRICAO;
+                    obj.ITEM = assunto.ITEM;
+                    obj.ID_TIPOASSTRATADO = assunto.ID_TIPOASSTRATADO;
+                    originalReniao.REUNIAO_ASSUNTO_TRATADO.Add(obj);
+                }
+
+                //Compromissos
+                foreach (var compromisso in q.REUNIAO_COMPROMISSO)
+                {
+                    REUNIAO_COMPROMISSO obj = new REUNIAO_COMPROMISSO();
+
+                    if (compromisso.ID_COMPROMISSO > 0)
+                        obj = db.REUNIAO_COMPROMISSO.First(rs => rs.ID_COMPROMISSO == compromisso.ID_COMPROMISSO);
+
+                    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
+                    obj.ID_PESSOA = compromisso.ID_PESSOA;
+                    obj.DESCRICAO = compromisso.DESCRICAO;
+                    obj.ITEM = compromisso.ITEM;
+                    obj.DATA = compromisso.DATA;
+                    originalReniao.REUNIAO_COMPROMISSO.Add(obj);
+                }
                 db.SaveChanges();
             }
         }
