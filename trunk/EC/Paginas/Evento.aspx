@@ -107,7 +107,7 @@
         </div>
         <div class="form-bottombuttons">
             <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" />
-            <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail"  />
+            <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail"/>
             <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" />
         </div>
     </div>
