@@ -126,6 +126,7 @@ namespace UI.Web.EC.Paginas
         {
             {
                 REUNIAO_ASSUNTO_TRATADO assunto = new REUNIAO_ASSUNTO_TRATADO();
+                assunto.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
                 assunto.DESCRICAO = TxtAssunto.Text;
                 assunto.ID_TIPOASSTRATADO = Library.ToInteger(ddlTipoAssunto.SelectedValue);
                 assunto.TIPO_ASSUNTO_TRATADO = NReuniao.ConsultarTipoAssuntoById( Library.ToInteger(ddlTipoAssunto.SelectedValue));
@@ -142,6 +143,7 @@ namespace UI.Web.EC.Paginas
         {
             {
                 REUNIAO_COMPROMISSO compromisso = new REUNIAO_COMPROMISSO();
+                compromisso.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
                 compromisso.DESCRICAO = TxtCompromisso.Text;
                 compromisso.DATA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text));
                 compromisso.ID_PESSOA = Library.ToInteger(ddlPessoa.SelectedValue);
@@ -155,48 +157,40 @@ namespace UI.Web.EC.Paginas
 
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
-         
-            REUNIAO reuniao = new REUNIAO();    
-           
-            reuniao.ID_REUNIAO = int.Parse(ddlReuniao.SelectedValue);
 
-            //EntityCollection<REUNIAO_ASSUNTO_TRATADO> reuniao_assuntos = new EntityCollection<REUNIAO_ASSUNTO_TRATADO>();
-            //foreach (var obj in assuntos)
+            //var reuniao = NReuniao.ConsultarById(Library.ToInteger(ddlReuniao.SelectedValue));
+
+            //List<REUNIAO_ASSUNTO_TRATADO> listAssunto = new List<REUNIAO_ASSUNTO_TRATADO>();
+            //foreach (var assunto in assuntos)
             //{
-            //    REUNIAO_ASSUNTO_TRATADO reuniao_assunto_tratado = new REUNIAO_ASSUNTO_TRATADO();
-            //    reuniao_assunto_tratado.DESCRICAO = obj.DESCRICAO;
-            //    reuniao_assunto_tratado.ITEM = obj.ITEM;
-            //    reuniao_assunto_tratado.ID_TIPOASSTRATADO = obj.ID_TIPOASSTRATADO;
-            //    reuniao_assuntos.Add(reuniao_assunto_tratado);
-            //}
-            reuniao.REUNIAO_ASSUNTO_TRATADO = assuntos;// reuniao_assuntos;
+            //    REUNIAO_ASSUNTO_TRATADO obj = new REUNIAO_ASSUNTO_TRATADO();
 
-            //EntityCollection<REUNIAO_COMPROMISSO> reuniao_compromissos = new EntityCollection<REUNIAO_COMPROMISSO>();
-            //foreach (var obj in compromissos)
-            //{
-            //    REUNIAO_COMPROMISSO reuniao_compromisso = new REUNIAO_COMPROMISSO();
-            //    reuniao_compromisso.ID_PESSOA = obj.ID_PESSOA;
-            //    reuniao_compromisso.DESCRICAO = obj.DESCRICAO;
-            //    reuniao_compromisso.ITEM = obj.ITEM;
-            //    reuniao_compromisso.DATA = obj.DATA;
-
-            //    reuniao_compromissos.Add(reuniao_compromisso);
+            //    obj.ID_REUNIAO = reuniao.ID_REUNIAO;
+            //    obj.DESCRICAO = assunto.DESCRICAO;
+            //    obj.ITEM = assunto.ITEM;
+            //    obj.ID_TIPOASSTRATADO = assunto.ID_TIPOASSTRATADO;
+            //    listAssunto.Add(obj);
             //}
-            reuniao.REUNIAO_COMPROMISSO = compromissos;// reuniao_compromissos;
+            //reuniao.REUNIAO_ASSUNTO_TRATADO = listAssunto; 
             
+            // Salvar Assunto
+            NReuniaoAssuntoTratado.Salvar(assuntos);
 
-            NReuniao.Atualiza(reuniao);
-            {
+            // Salvar Compromisso
+            //reuniao.REUNIAO_COMPROMISSO = compromissos;// reuniao_compromissos;
+            NReuniaoCompromisso.Salvar(compromissos);
+
+            //NReuniao.Atualiza(reuniao);
+            //{
                 REUNIAO_ATA reuniaoAta = new REUNIAO_ATA();
-                reuniaoAta.ID_REUNIAO = reuniao.ID_REUNIAO;
+                reuniaoAta.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
                 reuniaoAta.ID_FUNCIONARIO_RESPOSAVEL = hddResponsavelAta.Value.ToInt32();
-                lblDataTeuniao.Text = reuniao.DATAHORA.ToDate().Day.ToString() + "/" + reuniao.DATAHORA.ToDate().Month.ToString() + "/" + reuniao.DATAHORA.ToDate().Year.ToString();
                 reuniaoAta.DATA_FECHAMENTO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), 0, 0, 0);
 
                 NReuniaoAta.Salvar(reuniaoAta);
 
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
-            }
+            //}
             
         }
 
@@ -218,9 +212,15 @@ namespace UI.Web.EC.Paginas
             lblHoraReuniao.Text = reuniao.DATAHORA.ToDate().Hour.ToString() + ":" + reuniao.DATAHORA.ToDate().Minute.ToString();
             lblLocalReuniao.Text = reuniao.LOCAL;
 
-            var participantes = NReuniao.ConsultarParticipante(reuniao.ID_REUNIAO);
+            var participantes = NReuniaoParticipante.ConsultarByReuniao(reuniao.ID_REUNIAO);
             grdParticipantesReuniao.DataSource = participantes;
             grdParticipantesReuniao.DataBind();
+
+            grdAssunto.DataSource = NReuniaoAssuntoTratado.ConsultarByReuniao(reuniao.ID_REUNIAO);
+            grdAssunto.DataBind();
+
+            grdCompromisso.DataSource = NReuniaoCompromisso.ConsultarByReuniao(reuniao.ID_REUNIAO);
+            grdCompromisso.DataBind();
 
             var pautas = NReuniaoPauta.ConsultarByReuniao(reuniao.ID_REUNIAO);
             string strpauta = "<ul>";
@@ -252,13 +252,13 @@ namespace UI.Web.EC.Paginas
                             assuntos.Remove(assunto);
                             // O item existe no banco, precisa ser deletado
                             if (assunto.ID_ASSTRAT > 0)
-                                NReuniao.ExcluiAssuntoTratado(assunto.ID_ASSTRAT);
+                                NReuniaoAssuntoTratado.ExcluiAssuntoTratado(assunto.ID_ASSTRAT);
 
                             break;
                         }
                     }
                     // Reordena número dos titems
-                    for (int i = 0; i <= assuntos.Count; i++)
+                    for (int i = 0; i < assuntos.Count; i++)
                     {
                         assuntos[i].ITEM = i + 1;
                     }
@@ -292,13 +292,13 @@ namespace UI.Web.EC.Paginas
                             compromissos.Remove(compromisso);
                             // O item existe no banco, precisa ser deletado
                             if (compromisso.ID_COMPROMISSO > 0)
-                                NReuniao.ExcluiCompromisso(compromisso.ID_COMPROMISSO);
+                                NReuniaoCompromisso.Exclui(compromisso.ID_COMPROMISSO);
 
                             break;
                         }
                     }
                     // Reordena número dos titems
-                    for (int i = 0; i <= compromissos.Count; i++)
+                    for (int i = 0; i < compromissos.Count; i++)
                     {
                         compromissos[i].ITEM = i + 1;
                     }

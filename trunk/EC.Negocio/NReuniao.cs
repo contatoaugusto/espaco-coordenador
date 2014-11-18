@@ -27,20 +27,15 @@ namespace EC.Negocio
             return (new DReuniao()).ConsultarById(idReuniao);
         }
 
-        public static List<REUNIAO_PARTICIPANTE> ConsultarParticipante(int idReuniao)
-        {
-            return (new DReuniao()).ConsultarParticipante(idReuniao);
-        }
-
-
+        
         public static List<TIPO_ASSUNTO_TRATADO> ConsultarTipoAssunto()
         {
-            return (new DReuniao()).ConsultarTipoAssunto();
+            return (new DReuniaoAssuntoTratado()).ConsultarTipoAssunto();
         }
 
         public static TIPO_ASSUNTO_TRATADO ConsultarTipoAssuntoById(int idTipoAssuntoTratado)
         {
-            return (new DReuniao()).ConsultarTipoAssuntoById(idTipoAssuntoTratado);
+            return (new DReuniaoAssuntoTratado()).ConsultarTipoAssuntoById(idTipoAssuntoTratado);
         }
 
         public static void Salvar(REUNIAO r)
@@ -58,25 +53,7 @@ namespace EC.Negocio
         {
             (new DReuniao()).Excluir(q);
         }
-
-        public static void ExcluiAssuntoTratado(int idAssuntoTratado)
-        {
-            (new DReuniao()).ExcluiAssuntoTratado(idAssuntoTratado);
-        }
-        public static void ExcluiCompromisso(int idCompromisso)
-        {
-            (new DReuniao()).ExcluiCompromisso(idCompromisso);
-        }
-
-        public static void ExcluiPauta(int idPauta)
-        {
-            (new DReuniao()).ExcluiPauta(idPauta);
-        }
-
-        public static void ExcluiParticipante(int idParticipante)
-        {
-            (new DReuniao()).ExcluiParticipante(idParticipante);
-        }
+        
     }
 }
  

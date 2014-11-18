@@ -24,7 +24,20 @@ namespace EC.Negocio
         {
             return (new DReuniaoPauta()).ConsultarByReuniao(idReuniao);
         }
-      
+
+        public static void Salvar(REUNIAO_PAUTA r)
+        {
+            (new DReuniaoPauta()).Salvar(r);
+        }
+        public static void Salvar(List<REUNIAO_PAUTA> r)
+        {
+            (new DReuniaoPauta()).Salvar(r);
+        }
+
+        public static void ExcluiPauta(int idPauta)
+        {
+            (new DReuniaoPauta()).ExcluiPauta(idPauta);
+        }
     }
 }
  

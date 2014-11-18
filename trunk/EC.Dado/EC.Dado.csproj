@@ -49,7 +49,10 @@
     <Compile Include="DAlunoMatricula.cs" />
     <Compile Include="DAlunoAmc.cs" />
     <Compile Include="DRepresentanteTurma.cs" />
+    <Compile Include="DReuniaoCompromissos.cs" />
+    <Compile Include="DReuniaoParticipante.cs" />
     <Compile Include="DReuniaoAta.cs" />
+    <Compile Include="DReuniaoAssuntoTratado.cs" />
     <Compile Include="DReuniaoPauta.cs" />
     <Compile Include="DTurma.cs" />
     <Compile Include="DAmc.cs" />

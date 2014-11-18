@@ -82,7 +82,7 @@ namespace UI.Web.EC.Reuniao
             grdPauta.DataSource = pautas;
             grdPauta.DataBind();
 
-            participantes = NReuniao.ConsultarParticipante(idReuniao);
+            participantes = NReuniaoParticipante.ConsultarByReuniao(idReuniao);
             //List<PESSOA> pessoas = new List<PESSOA>();
             //foreach (var participante in participantes)
             //{
@@ -296,7 +296,7 @@ namespace UI.Web.EC.Reuniao
                             pautas.Remove(pauta);
                             // O item existe no banco, precisa ser deletado
                             if (pauta.ID_PAUTA > 0)
-                                NReuniao.ExcluiPauta(pauta.ID_PAUTA);
+                                NReuniaoPauta.ExcluiPauta(pauta.ID_PAUTA);
 
                             break;
                         }
@@ -332,13 +332,13 @@ namespace UI.Web.EC.Reuniao
                             participantes.Remove(participante);
                             // O item existe no banco, precisa ser deletado
                             if (participante.ID_PESSOA > 0)
-                                NReuniao.ExcluiParticipante(participante.ID_PARTICIPANTE);
+                                NReuniaoParticipante.Exclui(participante.ID_PARTICIPANTE);
 
                             break;
                         }
                     }
 
-                    participantes = NReuniao.ConsultarParticipante(idReuniao);
+                    participantes = NReuniaoParticipante.ConsultarByReuniao(idReuniao);
                     grdParticipante.DataSource = participantes;
                     grdParticipante.DataBind();
 
