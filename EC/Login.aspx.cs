@@ -28,14 +28,14 @@ namespace UI.Web.EC
             if (matricula == 0)
             {
                 btnLogin.Enabled = true;
-                alert.Show("Informe o código de acesso do usuário.");
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('Informe o código de acesso do usuário.'); history.go(-1);</script>");
                 return;
             }
 
             if (coSenha.Length == 0)
             {
                 btnLogin.Enabled = true;
-                alert.Show("Informe a senha de acesso do usuário.");
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('Informe a senha de acesso do usuário.'); history.go(-1);</script>");
                 return;
             }
 
@@ -45,7 +45,7 @@ namespace UI.Web.EC
             if (sessionUsuario == null)
             {
                 btnLogin.Enabled = true;
-                alert.Show("O Usuário ou a senha que você digitou não foi reconhecido(a). ");
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('O Usuário ou a senha que você digitou não foi reconhecido(a).'); history.go(-1);</script>");
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace UI.Web.EC
             else
             {
                 btnLogin.Enabled = true;
-                alert.Show("O Usuário ou a senha que você digitou não foi reconhecido(a). ");
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('O Usuário ou a senha que você digitou não foi reconhecido(a).'); history.go(-1);</script>");
                 return;
             }
         }

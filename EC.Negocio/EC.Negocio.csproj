@@ -47,7 +47,10 @@
     <Compile Include="NAluno.cs" />
     <Compile Include="NAlunoMatricula.cs" />
     <Compile Include="NRepresentanteTurma.cs" />
+    <Compile Include="NReuniaoCompromisso.cs" />
+    <Compile Include="NReuniaoParticipante.cs" />
     <Compile Include="NReuniaoAta.cs" />
+    <Compile Include="NReuniaoAssuntoTratado.cs" />
     <Compile Include="NReuniaoPauta.cs" />
     <Compile Include="NAlunoAmc.cs" />
     <Compile Include="NTurma.cs" />
