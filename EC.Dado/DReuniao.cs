@@ -99,6 +99,18 @@ namespace EC.Dado
             {
                 using (ECEntities db = new ECEntities())
                 {
+
+                    // Verifica se existe reunião anterior do mesmo tipo para configurar sequencial
+                    var sequenciaReuniaoAnteriorMesmoTipo =  
+                        db.REUNIAO.Where(rs => rs.ID_SEMESTRE == r.ID_SEMESTRE && r.ID_TIPOREUNIAO == r.ID_TIPOREUNIAO).Max(o => o.SEQUENCIA) ;
+
+                    if (sequenciaReuniaoAnteriorMesmoTipo == 0)
+                        sequenciaReuniaoAnteriorMesmoTipo = 1;
+                    else
+                        sequenciaReuniaoAnteriorMesmoTipo += 1;
+
+                    r.SEQUENCIA = sequenciaReuniaoAnteriorMesmoTipo;
+
                     //Salva a questão
                     db.REUNIAO.Add(r);
                     db.SaveChanges();
@@ -152,33 +164,33 @@ namespace EC.Dado
                 originalReniao.TITULO           = q.TITULO;
                 originalReniao.ID_SEMESTRE      = q.ID_SEMESTRE;
 
-                ////Pautas dessa questão
-                //foreach (var pauta in q.REUNIAO_PAUTA)
-                //{
-                //    REUNIAO_PAUTA obj = new REUNIAO_PAUTA(); 
-                    
-                //    if (pauta.ID_PAUTA > 0)
-                //        obj = db.REUNIAO_PAUTA.First(rs => rs.ID_PAUTA == pauta.ID_PAUTA);
+                //Pautas dessa questão
+                foreach (var pauta in q.REUNIAO_PAUTA)
+                {
+                    REUNIAO_PAUTA obj = new REUNIAO_PAUTA();
 
-                //    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
-                //    obj.DESCRICAO = pauta.DESCRICAO;
-                //    obj.ITEM = pauta.ITEM;
-                //    originalReniao.REUNIAO_PAUTA.Add(obj);
-                //}
+                    if (pauta.ID_PAUTA > 0)
+                        obj = db.REUNIAO_PAUTA.First(rs => rs.ID_PAUTA == pauta.ID_PAUTA);
+
+                    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
+                    obj.DESCRICAO = pauta.DESCRICAO;
+                    obj.ITEM = pauta.ITEM;
+                    originalReniao.REUNIAO_PAUTA.Add(obj);
+                }
 
                 //Participantes
-                //foreach (var participante in q.REUNIAO_PARTICIPANTE)
-                //{
-                //    REUNIAO_PARTICIPANTE obj = new REUNIAO_PARTICIPANTE();
+                foreach (var participante in q.REUNIAO_PARTICIPANTE)
+                {
+                    REUNIAO_PARTICIPANTE obj = new REUNIAO_PARTICIPANTE();
 
-                //    if (participante.ID_PARTICIPANTE > 0)
-                //        obj = db.REUNIAO_PARTICIPANTE.First(rs => rs.ID_PARTICIPANTE == participante.ID_PARTICIPANTE);
+                    if (participante.ID_PARTICIPANTE > 0)
+                        obj = db.REUNIAO_PARTICIPANTE.First(rs => rs.ID_PARTICIPANTE == participante.ID_PARTICIPANTE);
 
-                //    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
-                //    obj.PRESENCA = participante.PRESENCA;
-                //    obj.ID_PESSOA = participante.PESSOA.ID_PESSOA;
-                //    originalReniao.REUNIAO_PARTICIPANTE.Add(obj);
-                //}
+                    obj.ID_REUNIAO = originalReniao.ID_REUNIAO;
+                    obj.PRESENCA = participante.PRESENCA;
+                    obj.ID_PESSOA = participante.PESSOA.ID_PESSOA;
+                    originalReniao.REUNIAO_PARTICIPANTE.Add(obj);
+                }
 
                 //Assuntos
                 //foreach (var assunto in q.REUNIAO_ASSUNTO_TRATADO)
