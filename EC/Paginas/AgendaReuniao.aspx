@@ -150,6 +150,7 @@
     
     <div class="form-bottombuttons">
         <asp:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" Width="65px" OnClick="btnSalvarReuniao_Click" />
+        <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail" />
         <asp:Button ID="btnVoltar" runat="server" Text="Voltar" Width="65px" OnClick="btnVoltar_Click" />
     </div>
   

@@ -148,6 +148,15 @@ namespace UI.Web.EC.Paginas {
         protected global::EC.UI.WebControls.Button btSalvar;
         
         /// <summary>
+        /// Controle btnEnviaEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::EC.UI.WebControls.Button btnEnviaEmail;
+        
+        /// <summary>
         /// Controle btnVoltar.
         /// </summary>
         /// <remarks>

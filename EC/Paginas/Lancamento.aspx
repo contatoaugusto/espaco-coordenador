@@ -37,6 +37,15 @@
 
         <div class="row">
             <div class="column w100">
+                Disciplina:
+            </div>
+            <div class="column w250">
+                <sgi:DropDownList ID="ddlDisciplina" runat="server"></sgi:DropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column w100">
                 Professor
             </div>
             <div class="column w200">
@@ -44,14 +53,7 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="column w100">
-                Disciplina:
-            </div>
-            <div class="column w250">
-                <sgi:DropDownList ID="ddlDisciplina" runat="server"></sgi:DropDownList>
-            </div>
-        </div>
+      
         <div class="row">
             <div class="column w100">
                 Turma:

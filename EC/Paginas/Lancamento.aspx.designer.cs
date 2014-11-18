@@ -49,15 +49,6 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.Label lblSemestreCorrente;
         
         /// <summary>
-        /// Controle ddlFuncionario.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
-        
-        /// <summary>
         /// Controle ddlDisciplina.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace UI.Web.EC.Paginas {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::EC.UI.WebControls.DropDownList ddlDisciplina;
+        
+        /// <summary>
+        /// Controle ddlFuncionario.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFuncionario;
         
         /// <summary>
         /// Controle ddlTurma.

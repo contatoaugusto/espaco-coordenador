@@ -33,11 +33,7 @@ namespace UI.Web.EC.Paginas
             CarregarDisciplina();
             CarregarTipolancamento();
             CarregarTurma();
-            //CarregarFuncionario();
-           // CarregarLancamento();
-           
-            
-        }
+            }
 
         private void CarregarListaDia()
         {
@@ -123,7 +119,6 @@ namespace UI.Web.EC.Paginas
                 ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
             }
         }
-
         private void CarregarTipolancamento()
         {
             ddlTipolancamento.DataSource = NLancamento.ConsultarTipolancamento();

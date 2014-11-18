@@ -230,9 +230,10 @@ namespace UI.Web.EC.Reuniao
             }
             else {
                 NReuniao.Salvar(reuniao);
+
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
             }
-            Response.Redirect("ConsultarReuniao.aspx", true);
+           // Response.Redirect("AgendaReuniao.aspx", true);
         }
 
         protected void Validacoes()
