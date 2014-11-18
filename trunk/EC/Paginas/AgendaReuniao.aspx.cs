@@ -202,6 +202,7 @@ namespace UI.Web.EC.Reuniao
             reuniao.ID_SEMESTRE = int.Parse(hddSemestreCorrente.Value);
             reuniao.DATAHORA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
 
+            
             //EntityCollection<REUNIAO_PAUTA> reuniao_pautas = new EntityCollection<REUNIAO_PAUTA>();
             //foreach (var obj in pautas)
             //{
