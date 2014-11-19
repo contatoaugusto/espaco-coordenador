@@ -66,22 +66,19 @@ namespace EC.Dado
                     lancamento.ID_TURMA = tipo.ID_TURMA;
                     lancamento.JUSTIFICATIVA = tipo.JUSTIFICATIVA;
                     lancamento.PROVIDENCIA = tipo.PROVIDENCIA;
+                    lancamento.DATA_LANCAMENTO = tipo.DATA_LANCAMENTO;
+                    
+                    lancamento.FUNCIONARIO = new FUNCIONARIO();
+                    lancamento.FUNCIONARIO.PESSOA = new PESSOA();
+                    lancamento.FUNCIONARIO.PESSOA.ID_PESSOA = tipo.FUNCIONARIO.PESSOA.ID_PESSOA;
+                    lancamento.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
+                    lancamento.FUNCIONARIO.PESSOA.TELEFONE = tipo.FUNCIONARIO.PESSOA.TELEFONE;
+                    lancamento.FUNCIONARIO.PESSOA.EMAIL = tipo.FUNCIONARIO.PESSOA.EMAIL;
 
-
-                    lancamento.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.FUNCIONARIO.ID_FUNCIONARIO);
-                    lancamento.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.DISCIPLINA.ID_DISCIPLINA);
-
-                    //questao.FUNCIONARIO = new FUNCIONARIO();
-                    //questao.FUNCIONARIO.PESSOA = new PESSOA();
-                    //questao.FUNCIONARIO.PESSOA.ID_PESSOA = tipo.FUNCIONARIO.PESSOA.ID_PESSOA;
-                    //questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
-                    //questao.FUNCIONARIO.PESSOA.TELEFONE = tipo.FUNCIONARIO.PESSOA.TELEFONE;
-                    //questao.FUNCIONARIO.PESSOA.EMAIL = tipo.FUNCIONARIO.PESSOA.EMAIL;
-
-                    //questao.DISCIPLINA = new DISCIPLINA();
-                    //questao.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
-                    //questao.DISCIPLINA.ID_CURSO = tipo.DISCIPLINA.ID_CURSO;
-                    //questao.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
+                    lancamento.DISCIPLINA = new DISCIPLINA();
+                    lancamento.DISCIPLINA.ID_DISCIPLINA = tipo.DISCIPLINA.ID_DISCIPLINA;
+                    lancamento.DISCIPLINA.ID_CURSO = tipo.DISCIPLINA.ID_CURSO;
+                    lancamento.DISCIPLINA.DESCRICAO = tipo.DISCIPLINA.DESCRICAO;
 
 
                     ltLancamento.Add(lancamento);

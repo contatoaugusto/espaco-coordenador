@@ -29,7 +29,7 @@ namespace UI.Web.EC.Paginas
 
                 CarregarFuncionario();
                 CarregarTipolancamento();
-                CarregarLancamento();
+                
              }
         }
 
@@ -57,6 +57,7 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarLancamento()
         {
+            LANCAMENTO lancamento = new LANCAMENTO();
             grdLancamento.DataSource = NLancamento.ConsultarLancamento();
             grdLancamento.DataBind();
         }
@@ -73,10 +74,11 @@ namespace UI.Web.EC.Paginas
 
         protected void grdLancamento_SelectedIndexChanged(object sender, GridViewPageEventArgs e)
         {
-         
             grdLancamento.PageIndex = e.NewPageIndex;
             CarregarLancamento();
         }
+
+        }
         }
 
-    }
+    

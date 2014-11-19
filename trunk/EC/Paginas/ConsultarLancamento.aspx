@@ -50,23 +50,22 @@
 
         <h3>Lançamentos</h3>
 
-        <sgi:GridView ID="grdLancamento" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="grdLancamento_SelectedIndexChanged">
+        <sgi:GridView ID="grdLancamento" runat="server" AutoGenerateColumns="False">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="ID_TIPOLANCAMENTO" HeaderText="Tipo" />
                 <asp:BoundField DataField="ID_TURMA" HeaderText="Turma" />
                 <asp:BoundField DataField="DATA_LANCAMENTO" HeaderText="Data" />
-                <asp:BoundField DataField="ID_PESSOA" HeaderText="Professor" />
+                <asp:BoundField DataField="ID_FUNCIONARIO" HeaderText="Professor" />
+                <asp:TemplateField HeaderText="Ações">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_LANCAMENTO")%>' CommandName="Editar" Text="Editar" CausesValidation="false"/>
+                        |
+                        <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_LANCAMENTO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
-            <FooterStyle BackColor="#CCCC99" />
-            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-            <RowStyle BackColor="#F7F7DE" />
-            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FBFBF2" />
-            <SortedAscendingHeaderStyle BackColor="#848384" />
-            <SortedDescendingCellStyle BackColor="#EAEAD3" />
-            <SortedDescendingHeaderStyle BackColor="#575357" />
+
         </sgi:GridView>
 
     </div>
