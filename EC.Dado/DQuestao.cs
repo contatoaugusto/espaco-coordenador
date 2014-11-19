@@ -430,20 +430,20 @@ namespace EC.Dado
 
                 //Respostas dessa questão
                 //originalQuestao.RESPOSTA = new EntityCollection<RESPOSTA>();
-                foreach (var r in q.RESPOSTA)
-                {
-                    RESPOSTA obj = db.RESPOSTA.First(rs => rs.ID_RESPOSTA == r.ID_RESPOSTA);
-                    obj.TEXTO = r.TEXTO;
-                    obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
+                //foreach (var r in q.RESPOSTA)
+                //{
+                //    RESPOSTA obj = db.RESPOSTA.First(rs => rs.ID_RESPOSTA == r.ID_RESPOSTA);
+                //    obj.TEXTO = r.TEXTO;
+                //    obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
 
-                    //RESPOSTA obj = new RESPOSTA();
-                    //obj.ID_RESPOSTA = r.ID_RESPOSTA;
-                    //obj.ID_QUESTAO = q.ID_QUESTAO;
-                    //obj.TEXTO = r.TEXTO;
-                    //obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
+                //    //RESPOSTA obj = new RESPOSTA();
+                //    //obj.ID_RESPOSTA = r.ID_RESPOSTA;
+                //    //obj.ID_QUESTAO = q.ID_QUESTAO;
+                //    //obj.TEXTO = r.TEXTO;
+                //    //obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
 
-                    //originalQuestao.RESPOSTA.Attach(obj);
-                }
+                //    //originalQuestao.RESPOSTA.Attach(obj);
+                //}
                 
                 db.SaveChanges();
             }
