@@ -118,6 +118,7 @@
           <Property Name="ID_CURSO" Type="int" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
           <Property Name="ATIVO" Type="bit" />
+          <Property Name="PERIODO_CURSO" Type="int" />
         </EntityType>
         <EntityType Name="DISCIPLINA_PROFESSOR">
           <Key>
@@ -1630,7 +1631,7 @@
           <Property Name="NUMERO_ACERTOS" Type="Int32" />
           <NavigationProperty Name="ALUNO_MATRICULA" Relationship="EC.Model.FK_ALUNO_AMC_ALUNO_MATRICULA" FromRole="ALUNO_AMC" ToRole="ALUNO_MATRICULA" />
           <NavigationProperty Name="AMC" Relationship="EC.Model.FK_ALUNO_AMC_AMC" FromRole="ALUNO_AMC" ToRole="AMC" />
-          <NavigationProperty Name="ALUNO_AMC_QUESTAO" Relationship="EC.Model.FK_ALUNO_AMC_QUESTAO_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_AMC_QUESTAO" />
+           <NavigationProperty Name="ALUNO_AMC_QUESTAO" Relationship="EC.Model.FK_ALUNO_AMC_QUESTAO_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_AMC_QUESTAO" />
         </EntityType>
         <EntityType Name="ALUNO_AMC_QUESTAO">
           <Key>
@@ -1708,6 +1709,7 @@
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="LANCAMENTO" Relationship="EC.Model.FK_LANCAMENTO_DISCIPLINA" FromRole="DISCIPLINA" ToRole="LANCAMENTO" />
           <NavigationProperty Name="QUESTAO" Relationship="EC.Model.FK_QUESTAO_DISCIPLINA" FromRole="DISCIPLINA" ToRole="QUESTAO" />
+          <Property Name="PERIODO_CURSO" Type="Int32" />
         </EntityType>
         <EntityType Name="DISCIPLINA_PROFESSOR">
           <Key>
@@ -2821,6 +2823,7 @@
           <EntitySetMapping Name="DISCIPLINA">
             <EntityTypeMapping TypeName="EC.Model.DISCIPLINA">
               <MappingFragment StoreEntitySet="DISCIPLINA">
+                <ScalarProperty Name="PERIODO_CURSO" ColumnName="PERIODO_CURSO" />
                 <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID_CURSO" ColumnName="ID_CURSO" />
