@@ -28,7 +28,7 @@ namespace UI.Web.EC.Paginas
             {
                 BindDataGrid();
                 CarregarDados();
-                
+
             }
         }
 
@@ -64,10 +64,10 @@ namespace UI.Web.EC.Paginas
         {
 
             var se = new SEMESTRE();
-            se.SEMESTRE1 = Library.ToInteger( lblSemestreCorrente.Text.Equals("1") ? "2" : "1");
+            se.SEMESTRE1 = Library.ToInteger(lblSemestreCorrente.Text.Equals("1") ? "2" : "1");
             se.ANO = Library.ToInteger(lblSemestreCorrente.Text) == 2 ? Library.ToInteger(new DateTime(Convert.ToInt32(lblAnoCorrente.Text), 1, 1).AddYears(1).Year) : Library.ToInteger(lblAnoCorrente.Text);
             se.ATIVO = true;
-
+                        
             if (se.ANO == 0)
                 se.ANO = DateTime.Now.Year;
             
@@ -81,7 +81,7 @@ namespace UI.Web.EC.Paginas
         protected void ATIVO_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox cb = (CheckBox)sender;
-            
+
             // Ativar esse semestre
             if (cb.Checked)
             {
@@ -96,7 +96,7 @@ namespace UI.Web.EC.Paginas
 
                 AddSemestreSessao(semestre.ID_SEMESTRE);
 
-                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('"+Const.MENSAGEM_INCLUSAO_SUCESSO +"');</script>");
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
             }
         }
 
