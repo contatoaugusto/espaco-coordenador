@@ -103,5 +103,20 @@ namespace UI.Web.EC.Paginas
                 CarregarReunioes();
             }            
         }
+
+        protected void grdReuniao_DataBound(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void HyperLink1_DataBinding(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)(sender);
+
+            var ata = NReuniaoAta.ConsultarByReuniao(Eval("ID_REUNIAO").ToInt32());
+            if (ata != null)
+                btn.Enabled = false;
+             //btn.OnClientClick = string.Format("window.open('{0}', 'yourNewWindow'); return false;", Eval("name"));
+        }
     }
 }

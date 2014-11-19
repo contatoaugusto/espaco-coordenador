@@ -110,6 +110,35 @@ namespace EC.Dado
             }
         }
 
+        public void Salvar(List<REUNIAO_PAUTA> objetos, int idReuniao)
+        {
+            try
+            {
+                using (ECEntities db = new ECEntities())
+                {
+                    //Pautas dessa questão
+                    foreach (var pauta in objetos)
+                    {
+                        REUNIAO_PAUTA obj = new REUNIAO_PAUTA();
+
+                        if (pauta.ID_PAUTA > 0)
+                            obj = db.REUNIAO_PAUTA.First(rs => rs.ID_PAUTA == pauta.ID_PAUTA);
+
+                        obj.ID_REUNIAO = idReuniao;
+                        obj.DESCRICAO = pauta.DESCRICAO;
+                        obj.ITEM = pauta.ITEM;
+                        Salvar(obj);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+
         public void ExcluiPauta(int idPauta)
         {
             using (ECEntities db = new ECEntities())

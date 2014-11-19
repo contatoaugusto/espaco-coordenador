@@ -34,6 +34,11 @@ namespace EC.Negocio
             (new DReuniaoPauta()).Salvar(r);
         }
 
+        public static void Salvar(List<REUNIAO_PAUTA> r, int idReuniao)
+        {
+            (new DReuniaoPauta()).Salvar(r, idReuniao);
+        }
+
         public static void ExcluiPauta(int idPauta)
         {
             (new DReuniaoPauta()).ExcluiPauta(idPauta);

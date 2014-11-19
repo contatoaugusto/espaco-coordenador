@@ -16,6 +16,7 @@ namespace EC.Modelo
     {
         public QUESTAO()
         {
+            this.ALUNO_AMC_QUESTAO = new HashSet<ALUNO_AMC_QUESTAO>();
             this.RESPOSTA = new HashSet<RESPOSTA>();
         }
     
@@ -27,6 +28,7 @@ namespace EC.Modelo
         public byte[] IMAGEM { get; set; }
         public Nullable<int> ID_PROVA { get; set; }
     
+        public virtual ICollection<ALUNO_AMC_QUESTAO> ALUNO_AMC_QUESTAO { get; set; }
         public virtual AMC AMC { get; set; }
         public virtual DISCIPLINA DISCIPLINA { get; set; }
         public virtual FUNCIONARIO FUNCIONARIO { get; set; }

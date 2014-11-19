@@ -31,6 +31,7 @@ namespace EC.Modelo
         public DbSet<ACAO_REUNIAO> ACAO_REUNIAO { get; set; }
         public DbSet<ALUNO> ALUNO { get; set; }
         public DbSet<ALUNO_AMC> ALUNO_AMC { get; set; }
+        public DbSet<ALUNO_AMC_QUESTAO> ALUNO_AMC_QUESTAO { get; set; }
         public DbSet<ALUNO_MATRICULA> ALUNO_MATRICULA { get; set; }
         public DbSet<AMC> AMC { get; set; }
         public DbSet<CARGO> CARGO { get; set; }

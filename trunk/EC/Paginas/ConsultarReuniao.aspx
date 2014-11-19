@@ -43,7 +43,7 @@
             AutoGenerateColumns="False"
             AllowPaging="true" PageSize="10"
             OnPageIndexChanging="grdItens_PageIndexChanging"
-            OnRowCommand="grdReuniao_RowCommand">
+            OnRowCommand="grdReuniao_RowCommand" OnDataBound="grdReuniao_DataBound">
             
             <Columns>
                 <asp:BoundField DataField="TITULO" HeaderText="Titulo" />
@@ -51,9 +51,9 @@
                 <asp:BoundField DataField="LOCAL" HeaderText="Local" />
                 <asp:TemplateField HeaderText="Ações">
                     <ItemTemplate>
-                        <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_REUNIAO")%>' CommandName="Editar" Text="Editar" CausesValidation="false" />
+                        <asp:LinkButton ID="HyperLink1" runat="server" CommandArgument='<%# Eval("ID_REUNIAO")%>' CommandName="Editar" Text="Editar" CausesValidation="false" OnDataBinding="HyperLink1_DataBinding"/>
                         |
-                        <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_REUNIAO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" />
+                        <asp:LinkButton ID="HyperLink2" runat="server" CommandArgument='<%# Eval("ID_REUNIAO")%>' CommandName="Excluir" Text="Excluir" CausesValidation="false" OnDataBinding="HyperLink1_DataBinding"/>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

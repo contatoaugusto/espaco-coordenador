@@ -2,8 +2,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <script>
+        function Confirma() {
+            var x;
+            if (confirm("Deseja abrir semestre!") == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
     
-    <sgi:MessageBox ID="messageBox" runat="server" />
     <div class="form-separator"></div>
 
     <h3>Abrir Semestre</h3>
@@ -51,8 +62,14 @@
     
     <div class="cb"></div>    
     <div class="form-bottombuttons">
-        <asp:Button ID="btnAbrirSemestre" runat="server" Text="Abrir semestre" OnClick="BtnAbrirSemestreClick" />
+        <asp:UpdatePanel runat="server">
+            <ContentTemplate>
+                <asp:Button ID="btnAbrirSemestre" runat="server" OnClientClick="return Confirma();" Text="Abrir semestre" OnClick="BtnAbrirSemestreClick" />
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
+ 
+
     <div class="form-separator"></div>
 
      <h3>Semestres Cadastrados</h3>

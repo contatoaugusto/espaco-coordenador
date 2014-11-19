@@ -30,7 +30,6 @@ namespace UI.Web.EC.Paginas
                 CarregarDados();
                 
             }
-            
         }
 
         public void BindDataGrid()
@@ -60,8 +59,10 @@ namespace UI.Web.EC.Paginas
             BindDataGrid();
         }
 
+    
         protected void BtnAbrirSemestreClick(object sender, EventArgs e)
         {
+
             var se = new SEMESTRE();
             se.SEMESTRE1 = Library.ToInteger( lblSemestreCorrente.Text.Equals("1") ? "2" : "1");
             se.ANO = Library.ToInteger(lblSemestreCorrente.Text) == 2 ? Library.ToInteger(new DateTime(Convert.ToInt32(lblAnoCorrente.Text), 1, 1).AddYears(1).Year) : Library.ToInteger(lblAnoCorrente.Text);

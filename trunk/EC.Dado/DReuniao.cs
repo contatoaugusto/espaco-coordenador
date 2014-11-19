@@ -102,9 +102,9 @@ namespace EC.Dado
 
                     // Verifica se existe reunião anterior do mesmo tipo para configurar sequencial
                     var sequenciaReuniaoAnteriorMesmoTipo =  
-                        db.REUNIAO.Where(rs => rs.ID_SEMESTRE == r.ID_SEMESTRE && r.ID_TIPOREUNIAO == r.ID_TIPOREUNIAO).Max(o => o.SEQUENCIA) ;
+                        db.REUNIAO.Where(rs => rs.ID_SEMESTRE == r.ID_SEMESTRE && rs.ID_TIPOREUNIAO == r.ID_TIPOREUNIAO).Max(o => o.SEQUENCIA) ;
 
-                    if (sequenciaReuniaoAnteriorMesmoTipo == 0)
+                    if (sequenciaReuniaoAnteriorMesmoTipo == null || sequenciaReuniaoAnteriorMesmoTipo == 0)
                         sequenciaReuniaoAnteriorMesmoTipo = 1;
                     else
                         sequenciaReuniaoAnteriorMesmoTipo += 1;
