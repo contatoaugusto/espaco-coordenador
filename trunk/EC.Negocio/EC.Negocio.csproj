@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="NAcao.cs" />
     <Compile Include="NAluno.cs" />
+    <Compile Include="NAlunoAmcQuestao.cs" />
     <Compile Include="NAlunoMatricula.cs" />
     <Compile Include="NRepresentanteTurma.cs" />
     <Compile Include="NReuniaoCompromisso.cs" />

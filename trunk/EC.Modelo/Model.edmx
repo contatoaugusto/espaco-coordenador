@@ -68,7 +68,7 @@
           <Property Name="ID_ALUNO_AMC_QUESTAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_QUESTAO" Type="int" Nullable="false" />
           <Property Name="ID_ALUNO_AMC" Type="int" Nullable="false" />
-          <Property Name="NOTA" Type="numeric" Precision="6" Scale="2" />
+          <Property Name="ACERTO" Type="bit" />
         </EntityType>
         <EntityType Name="ALUNO_MATRICULA">
           <Key>
@@ -204,6 +204,7 @@
           <Property Name="DESCRICAO" Type="varchar(max)" />
           <Property Name="IMAGEM" Type="varbinary(max)" />
           <Property Name="ID_PROVA" Type="int" />
+          <Property Name="NU_SEQUENCIA_PROVA" Type="int" />
         </EntityType>
         <EntityType Name="REPRESENTANTE_TURMA">
           <Key>
@@ -1631,7 +1632,7 @@
           <Property Name="NUMERO_ACERTOS" Type="Int32" />
           <NavigationProperty Name="ALUNO_MATRICULA" Relationship="EC.Model.FK_ALUNO_AMC_ALUNO_MATRICULA" FromRole="ALUNO_AMC" ToRole="ALUNO_MATRICULA" />
           <NavigationProperty Name="AMC" Relationship="EC.Model.FK_ALUNO_AMC_AMC" FromRole="ALUNO_AMC" ToRole="AMC" />
-           <NavigationProperty Name="ALUNO_AMC_QUESTAO" Relationship="EC.Model.FK_ALUNO_AMC_QUESTAO_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_AMC_QUESTAO" />
+          <NavigationProperty Name="ALUNO_AMC_QUESTAO" Relationship="EC.Model.FK_ALUNO_AMC_QUESTAO_ALUNO_AMC" FromRole="ALUNO_AMC" ToRole="ALUNO_AMC_QUESTAO" />
         </EntityType>
         <EntityType Name="ALUNO_AMC_QUESTAO">
           <Key>
@@ -1640,7 +1641,7 @@
           <Property Name="ID_ALUNO_AMC_QUESTAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_QUESTAO" Type="Int32" Nullable="false" />
           <Property Name="ID_ALUNO_AMC" Type="Int32" Nullable="false" />
-          <Property Name="NOTA" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="ACERTO" Type="Boolean" />
           <NavigationProperty Name="ALUNO_AMC" Relationship="EC.Model.FK_ALUNO_AMC_QUESTAO_ALUNO_AMC" FromRole="ALUNO_AMC_QUESTAO" ToRole="ALUNO_AMC" />
           <NavigationProperty Name="QUESTAO" Relationship="EC.Model.FK_ALUNO_AMC_QUESTAO_QUESTAO" FromRole="ALUNO_AMC_QUESTAO" ToRole="QUESTAO" />
         </EntityType>
@@ -1705,11 +1706,11 @@
           <Property Name="ID_CURSO" Type="Int32" />
           <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ATIVO" Type="Boolean" />
+          <Property Name="PERIODO_CURSO" Type="Int32" />
           <NavigationProperty Name="CURSO" Relationship="EC.Model.Fk_DISCIPLINA_CURSO" FromRole="DISCIPLINA" ToRole="CURSO" />
           <NavigationProperty Name="DISCIPLINA_PROFESSOR" Relationship="EC.Model.FK_DISCIPLINA_PROFESSOR_DISCIPLINA" FromRole="DISCIPLINA" ToRole="DISCIPLINA_PROFESSOR" />
           <NavigationProperty Name="LANCAMENTO" Relationship="EC.Model.FK_LANCAMENTO_DISCIPLINA" FromRole="DISCIPLINA" ToRole="LANCAMENTO" />
           <NavigationProperty Name="QUESTAO" Relationship="EC.Model.FK_QUESTAO_DISCIPLINA" FromRole="DISCIPLINA" ToRole="QUESTAO" />
-          <Property Name="PERIODO_CURSO" Type="Int32" />
         </EntityType>
         <EntityType Name="DISCIPLINA_PROFESSOR">
           <Key>
@@ -1826,6 +1827,7 @@
           <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IMAGEM" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ID_PROVA" Type="Int32" />
+          <Property Name="NU_SEQUENCIA_PROVA" Type="Int32" />
           <NavigationProperty Name="ALUNO_AMC_QUESTAO" Relationship="EC.Model.FK_ALUNO_AMC_QUESTAO_QUESTAO" FromRole="QUESTAO" ToRole="ALUNO_AMC_QUESTAO" />
           <NavigationProperty Name="AMC" Relationship="EC.Model.FK_QUESTAO_AMC" FromRole="QUESTAO" ToRole="AMC" />
           <NavigationProperty Name="DISCIPLINA" Relationship="EC.Model.FK_QUESTAO_DISCIPLINA" FromRole="QUESTAO" ToRole="DISCIPLINA" />
@@ -2768,7 +2770,7 @@
           <EntitySetMapping Name="ALUNO_AMC_QUESTAO">
             <EntityTypeMapping TypeName="EC.Model.ALUNO_AMC_QUESTAO">
               <MappingFragment StoreEntitySet="ALUNO_AMC_QUESTAO">
-                <ScalarProperty Name="NOTA" ColumnName="NOTA" />
+                <ScalarProperty Name="ACERTO" ColumnName="ACERTO" />
                 <ScalarProperty Name="ID_ALUNO_AMC" ColumnName="ID_ALUNO_AMC" />
                 <ScalarProperty Name="ID_QUESTAO" ColumnName="ID_QUESTAO" />
                 <ScalarProperty Name="ID_ALUNO_AMC_QUESTAO" ColumnName="ID_ALUNO_AMC_QUESTAO" />
@@ -2914,6 +2916,7 @@
           <EntitySetMapping Name="QUESTAO">
             <EntityTypeMapping TypeName="EC.Model.QUESTAO">
               <MappingFragment StoreEntitySet="QUESTAO">
+                <ScalarProperty Name="NU_SEQUENCIA_PROVA" ColumnName="NU_SEQUENCIA_PROVA" />
                 <ScalarProperty Name="ID_PROVA" ColumnName="ID_PROVA" />
                 <ScalarProperty Name="IMAGEM" ColumnName="IMAGEM" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />

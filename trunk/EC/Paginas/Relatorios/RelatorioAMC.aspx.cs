@@ -64,7 +64,7 @@ namespace UI.Web.EC.Paginas
                     pagina = "QuestaoNota.aspx?idAmc=" + idAmc;
                     break;
                 case 3:
-                    pagina = "ProfessorQuestoes.aspx";
+                    pagina = "QuestaoAproveitamento.aspx?idAmc=" + idAmc;
                     break;
             }
 

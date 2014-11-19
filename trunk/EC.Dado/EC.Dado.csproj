@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DAcao.cs" />
     <Compile Include="DAluno.cs" />
+    <Compile Include="DAlunoAmcQuestao.cs" />
     <Compile Include="DAlunoMatricula.cs" />
     <Compile Include="DAlunoAmc.cs" />
     <Compile Include="DRelatorio.cs" />
