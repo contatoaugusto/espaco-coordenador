@@ -205,17 +205,17 @@ namespace UI.Web.EC.Paginas
             listaResposta.Add(resposta4);
             listaResposta.Add(resposta5);
 
-            questao.RESPOSTA = listaResposta;
-
             if (idQuestao > 0)
             {
                 questao.ID_QUESTAO = idQuestao;
                 NQuestao.Atualiza(questao);
+                NResposta.Salvar(listaResposta, questao.ID_QUESTAO);
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "'); history.go(-1);</script>");
             }
             else
             {
                 NQuestao.Salvar(questao);
+                NResposta.Salvar(listaResposta, questao.ID_QUESTAO);
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
             }   
            
