@@ -195,12 +195,19 @@ namespace UI.Web.EC.Reuniao
 
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
+
+            var data = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
+            if (Library.CompareDate(data, DateTime.Now, DateTimeCompare.Minus) ){
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_DATA_INVALIDA + "');</script>");
+                return;
+            }
+
             REUNIAO reuniao = new REUNIAO();
             reuniao.TITULO = txtTitulo.Text;
             reuniao.ID_TIPOREUNIAO = int.Parse(ddlTipoReuniao.SelectedValue);
             reuniao.LOCAL = txtLocal.Text;
             reuniao.ID_SEMESTRE = int.Parse(hddSemestreCorrente.Value);
-            reuniao.DATAHORA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
+            reuniao.DATAHORA = data;
 
             
             //reuniao.REUNIAO_PAUTA = pautas;
