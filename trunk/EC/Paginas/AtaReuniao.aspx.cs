@@ -164,41 +164,28 @@ namespace UI.Web.EC.Paginas
 
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
+            var data = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), 0, 0, 0);
+            if (Library.CompareDate(data, DateTime.Now, DateTimeCompare.Minus))
+            {
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_DATA_INVALIDA + "');</script>");
+                return;
+            }
 
-            //var reuniao = NReuniao.ConsultarById(Library.ToInteger(ddlReuniao.SelectedValue));
 
-            //List<REUNIAO_ASSUNTO_TRATADO> listAssunto = new List<REUNIAO_ASSUNTO_TRATADO>();
-            //foreach (var assunto in assuntos)
-            //{
-            //    REUNIAO_ASSUNTO_TRATADO obj = new REUNIAO_ASSUNTO_TRATADO();
-
-            //    obj.ID_REUNIAO = reuniao.ID_REUNIAO;
-            //    obj.DESCRICAO = assunto.DESCRICAO;
-            //    obj.ITEM = assunto.ITEM;
-            //    obj.ID_TIPOASSTRATADO = assunto.ID_TIPOASSTRATADO;
-            //    listAssunto.Add(obj);
-            //}
-            //reuniao.REUNIAO_ASSUNTO_TRATADO = listAssunto; 
-            
             // Salvar Assunto
             NReuniaoAssuntoTratado.Salvar(assuntos);
 
             // Salvar Compromisso
-            //reuniao.REUNIAO_COMPROMISSO = compromissos;// reuniao_compromissos;
             NReuniaoCompromisso.Salvar(compromissos);
 
-            //NReuniao.Atualiza(reuniao);
-            //{
-                REUNIAO_ATA reuniaoAta = new REUNIAO_ATA();
-                reuniaoAta.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
-                reuniaoAta.ID_FUNCIONARIO_RESPOSAVEL = hddResponsavelAta.Value.ToInt32();
-                reuniaoAta.DATA_FECHAMENTO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), 0, 0, 0);
+            REUNIAO_ATA reuniaoAta = new REUNIAO_ATA();
+            reuniaoAta.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
+            reuniaoAta.ID_FUNCIONARIO_RESPOSAVEL = hddResponsavelAta.Value.ToInt32();
+            reuniaoAta.DATA_FECHAMENTO = data;
 
-                NReuniaoAta.Salvar(reuniaoAta);
+            NReuniaoAta.Salvar(reuniaoAta);
 
-                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
-            //}
-            
+            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
