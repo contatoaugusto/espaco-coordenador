@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EC.Modelo;
+using System.Data.Objects.DataClasses;
 
 namespace EC.Dado
 {
@@ -81,5 +82,50 @@ namespace EC.Dado
             }
         }
 
+        public void Salvar(RESPOSTA r)
+        {
+            try
+            {
+                using (ECEntities db = new ECEntities())
+                {
+                    //Salva a questão
+                    db.RESPOSTA.Add(r);
+                    db.SaveChanges();
+                    db.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        public void Salvar(EntityCollection<RESPOSTA> objetos, int idPergunta)
+        {
+            try
+            {
+                using (ECEntities db = new ECEntities())
+                {
+                    foreach (var tipo in objetos)
+                    {
+                        RESPOSTA obj = new RESPOSTA();
+
+                        if (tipo.ID_RESPOSTA > 0)
+                            obj = db.RESPOSTA.First(rs => rs.ID_RESPOSTA == tipo.ID_RESPOSTA);
+
+                        obj.ID_RESPOSTA = idPergunta;
+                        obj.TEXTO = tipo.TEXTO;
+                        obj.RESPOSTA_CORRETA = tipo.RESPOSTA_CORRETA;
+                        Salvar(obj);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
     }
 }
