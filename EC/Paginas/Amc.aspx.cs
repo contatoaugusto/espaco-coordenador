@@ -118,7 +118,10 @@ namespace UI.Web.EC.Paginas
                 else
                 {
                     if (NAmc.Salvar(amc))
+                    {
                         ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
+                        BindDataGrid();
+                    }
                     else
                     {
                         ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_CADASTRO_REPETIDO + "');</script>");

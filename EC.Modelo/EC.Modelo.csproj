@@ -66,6 +66,9 @@
     <Compile Include="ALUNO_AMC.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ALUNO_AMC_QUESTAO.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ALUNO_MATRICULA.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -115,5 +115,33 @@ namespace EC.Dado
 
             }
         }
+
+        public void Salvar(List<REUNIAO_PARTICIPANTE> objetos, int idReuniao)
+        {
+            try
+            {
+                using (ECEntities db = new ECEntities())
+                {
+                    foreach (var participante in objetos)
+                    {
+                        REUNIAO_PARTICIPANTE obj = new REUNIAO_PARTICIPANTE();
+
+                        if (participante.ID_PARTICIPANTE > 0)
+                            obj = db.REUNIAO_PARTICIPANTE.First(rs => rs.ID_PARTICIPANTE == participante.ID_PARTICIPANTE);
+
+                        obj.ID_REUNIAO = idReuniao;
+                        obj.PRESENCA = participante.PRESENCA;
+                        obj.ID_PESSOA = participante.PESSOA.ID_PESSOA;
+
+                        Salvar(obj);
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
     }
 }

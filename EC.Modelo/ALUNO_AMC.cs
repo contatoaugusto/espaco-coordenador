@@ -14,13 +14,20 @@ namespace EC.Modelo
     
     public partial class ALUNO_AMC
     {
+        public ALUNO_AMC()
+        {
+            this.ALUNO_AMC_QUESTAO = new HashSet<ALUNO_AMC_QUESTAO>();
+        }
+    
         public int ID_ALUNO_AMC { get; set; }
         public int ID_AMC { get; set; }
         public int ID_ALUNO_MATRICULA { get; set; }
         public string NOTA { get; set; }
         public Nullable<int> CLASSIFICACAO { get; set; }
+        public Nullable<int> NUMERO_ACERTOS { get; set; }
     
         public virtual ALUNO_MATRICULA ALUNO_MATRICULA { get; set; }
         public virtual AMC AMC { get; set; }
+        public virtual ICollection<ALUNO_AMC_QUESTAO> ALUNO_AMC_QUESTAO { get; set; }
     }
 }

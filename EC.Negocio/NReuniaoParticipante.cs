@@ -39,6 +39,10 @@ namespace EC.Negocio
             (new DReuniaoParticipante()).Salvar(r);
         }
 
+        public static void Salvar(List<REUNIAO_PARTICIPANTE> r, int idReuniao)
+        {
+            (new DReuniaoParticipante()).Salvar(r, idReuniao);
+        }
     }
 }
  

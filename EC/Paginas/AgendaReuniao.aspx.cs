@@ -203,25 +203,8 @@ namespace UI.Web.EC.Reuniao
             reuniao.DATAHORA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
 
             
-            //EntityCollection<REUNIAO_PAUTA> reuniao_pautas = new EntityCollection<REUNIAO_PAUTA>();
-            //foreach (var obj in pautas)
-            //{
-            //    REUNIAO_PAUTA reuniao_pauta = new REUNIAO_PAUTA();
-            //    reuniao_pauta.DESCRICAO = obj.DESCRICAO;
-            //    reuniao_pauta.ITEM = obj.ITEM;
-
-            //    reuniao_pautas.Add(reuniao_pauta);
-            //}
-            reuniao.REUNIAO_PAUTA = pautas;
-
-            //EntityCollection<REUNIAO_PARTICIPANTE> reuniao_participantes = new EntityCollection<REUNIAO_PARTICIPANTE>();
-            //foreach (var obj in participantes)
-            //{
-            //    REUNIAO_PARTICIPANTE reuniao_part = new REUNIAO_PARTICIPANTE();
-            //    reuniao_part.ID_PESSOA =  obj.ID_PESSOA;
-            //    reuniao_participantes.Add(reuniao_part);
-            //}
-            reuniao.REUNIAO_PARTICIPANTE = participantes;
+            //reuniao.REUNIAO_PAUTA = pautas;
+            //reuniao.REUNIAO_PARTICIPANTE = participantes;
 
             if (idReuniao > 0)
             {
@@ -231,7 +214,8 @@ namespace UI.Web.EC.Reuniao
             }
             else {
                 NReuniao.Salvar(reuniao);
-
+                NReuniaoPauta.Salvar(pautas, reuniao.ID_REUNIAO);
+                NReuniaoParticipante.Salvar(participantes, reuniao.ID_REUNIAO);
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
             }
            // Response.Redirect("AgendaReuniao.aspx", true);
