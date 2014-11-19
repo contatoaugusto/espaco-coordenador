@@ -29,6 +29,14 @@ namespace EC.Dado
             }
         }
 
+        public RESPOSTA ConsultarById(int idResposta)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                return db.RESPOSTA.First(rs => rs.ID_RESPOSTA == idResposta);
+            }
+        }
+
         public List<RESPOSTA> ConsultarRespostaByQuestao(int idQuestao)
         {
             using (ECEntities db = new ECEntities())
@@ -50,5 +58,28 @@ namespace EC.Dado
                 return ltResposta;
             }
         }
+
+        public List<RESPOSTA> ConsultarByProva(int idProva)
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var r = db.RESPOSTA.Where(rs => rs.QUESTAO.PROVA.ID_PROVA == idProva);
+
+                List<RESPOSTA> ltResposta = new List<RESPOSTA>();
+
+                foreach (var tipo in r)
+                {
+                    RESPOSTA resposta = new RESPOSTA();
+                    resposta.ID_RESPOSTA = tipo.ID_RESPOSTA;
+                    resposta.ID_QUESTAO = tipo.ID_QUESTAO;
+                    resposta.TEXTO = tipo.TEXTO;
+                    resposta.RESPOSTA_CORRETA = tipo.RESPOSTA_CORRETA;
+                    ltResposta.Add(resposta);
+                }
+
+                return ltResposta;
+            }
+        }
+
     }
 }

@@ -159,18 +159,55 @@ namespace UI.Web.EC.Paginas
 
             if (e.CommandName == "Gabarito")
             {
+                //var reportViewer = new ReportViewer();
+                //string reportPath = string.Empty;
+                //reportPath = Context.Server.MapPath("") + @"\Relatorios\Gabarito.rdlc";
+                //reportViewer.LocalReport.ReportPath = reportPath;
+                //reportViewer.LocalReport.EnableExternalImages = true;
+
+                //List<QUESTAO> questao = NQuestao.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
+
+                //// Montar questão e respostas em um campo
+                //int i = 0;
+                //char[] letrasResposta = { 'A', 'B', 'C', 'D', 'E' };
+                
+                //DataTable table = new DataTable();
+                //DataColumn column;
+
+                //// Número questão
+                //column = new DataColumn("QUESTAO", typeof(int));
+                //column.AllowDBNull = true;
+                //table.Columns.Add(column);
+
+                //foreach (var item in letrasResposta)
+                //{
+                //    column = new DataColumn("RESPOSTA_" + item, typeof(string));
+                //    column.AllowDBNull = true;
+                //    table.Columns.Add(column);
+                //}
+                
+                //foreach (var item in questao)
+                //{
+                //    table.Rows.Add((i + 1), letrasResposta[0], letrasResposta[1], letrasResposta[2], letrasResposta[3], letrasResposta[4]);
+
+                //    i++;
+                //}
+
+                //reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Gabarito", table));//questao));
+
+                //reportViewer.DocumentMapCollapsed = true;
+
                 var reportViewer = new ReportViewer();
                 string reportPath = string.Empty;
-                reportPath = Context.Server.MapPath("") + @"\Relatorios\Gabarito.rdlc";
+                reportPath = Context.Server.MapPath("") + @"\Relatorios\GabaritoDefinitivo.rdlc";
                 reportViewer.LocalReport.ReportPath = reportPath;
                 reportViewer.LocalReport.EnableExternalImages = true;
 
                 List<QUESTAO> questao = NQuestao.ConsultarQuestaoByProva(e.CommandArgument.ToInt32());
-
-                // Montar questão e respostas em um campo
-                int i = 0;
-                char[] letrasResposta = { 'A', 'B', 'C', 'D', 'E' };
+                List<RESPOSTA> respostas = NResposta.ConsultarByProva(e.CommandArgument.ToInt32());
                 
+                char[] letrasResposta = { 'A', 'B', 'C', 'D', 'E' };
+
                 DataTable table = new DataTable();
                 DataColumn column;
 
@@ -179,16 +216,31 @@ namespace UI.Web.EC.Paginas
                 column.AllowDBNull = true;
                 table.Columns.Add(column);
 
-                foreach (var item in letrasResposta)
-                {
-                    column = new DataColumn("RESPOSTA_" + item, typeof(string));
-                    column.AllowDBNull = true;
-                    table.Columns.Add(column);
-                }
+                column = new DataColumn("RESPOSTA_CORRETA", typeof(string));
+                column.AllowDBNull = true;
+                table.Columns.Add(column);
+
+                column = new DataColumn("DISCIPLINA", typeof(string));
+                column.AllowDBNull = true;
+                table.Columns.Add(column);
+
+                int i = 0;
                 
                 foreach (var item in questao)
                 {
-                    table.Rows.Add((i + 1), letrasResposta[0], letrasResposta[1], letrasResposta[2], letrasResposta[3], letrasResposta[4]);
+                    int x = 0;
+                    foreach (var resposta in respostas){
+                        if (resposta.ID_QUESTAO == item.ID_QUESTAO)
+                        {
+                            if (resposta.RESPOSTA_CORRETA == true)
+                            {
+                                break;
+                            }
+                            x++;
+                        }
+                    }
+
+                    table.Rows.Add((i + 1), letrasResposta[x], item.DISCIPLINA.DESCRICAO);
 
                     i++;
                 }
@@ -197,6 +249,8 @@ namespace UI.Web.EC.Paginas
 
                 reportViewer.DocumentMapCollapsed = true;
                 Utils.RenderReportToPDF(Context, reportViewer, "Gabarito");
+
+
             }
         }
     }

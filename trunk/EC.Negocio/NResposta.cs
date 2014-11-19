@@ -16,14 +16,19 @@ namespace EC.Negocio
             return (new DResposta()).ConsultarResposta();
         }
 
-        //public static List<RESPOSTA> ConsultarByQuestao(int idQuestao)
-        //{
-        //    return (new DResposta()).ConsultarByQuestao();
-        //}
+        public static List<RESPOSTA> ConsultarByQuestao(int idQuestao)
+        {
+            return (new DResposta()).ConsultarRespostaByQuestao(idQuestao);
+        }
 
-        //public static RESPOSTA ConsultarById(int idResposta)
-        //{
-        //    return (new DResposta()).ConsultarById();
-        //}
+        public static RESPOSTA ConsultarById(int idResposta)
+        {
+            return (new DResposta()).ConsultarById(idResposta);
+        }
+
+        public static List<RESPOSTA> ConsultarByProva(int idProva)
+        {
+            return (new DResposta()).ConsultarByProva(idProva);
+        }
     }
 }
