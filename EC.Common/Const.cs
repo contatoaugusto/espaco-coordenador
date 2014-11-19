@@ -561,5 +561,8 @@ namespace EC.Common
         public static readonly string MENSAGEM_EXCLUIR_QUESTAO = "Não foi possível excluir a questão";
         public static readonly string MENSAGEM_EXCLUSAO_ERRO = "Erro ao Excluir Registro!";
         public static readonly string APP_TYPE_PDF = "application/pdf";
+        public static readonly string MENSAGEM_DATA_INVALIDA_MENOR_INICIO = "Data inválida ou com data fim maior do que data início!";
+        public static readonly string MENSAGEM_ATA_FECHADA = "Ata fechada, não é possível realizar nenhuma alteração.";
+        public static readonly string MENSAGEM_DATA_INVALIDA = "Data inválida, não poder menor do que a data atual!";
     }
 }

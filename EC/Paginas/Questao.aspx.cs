@@ -24,7 +24,7 @@ namespace UI.Web.EC.Paginas
         protected void Page_Load(object sender, EventArgs e)
         {
             // Controle Acesso
-            int[] cargoComAcesso = { 1 };
+            int[] cargoComAcesso = { 1, 2 };
             string mensagem = ControleAcesso.verificaAcesso(cargoComAcesso);
             if (!mensagem.IsNullOrEmpty())
             {
