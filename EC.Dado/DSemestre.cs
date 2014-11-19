@@ -14,8 +14,8 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                var c = db.SEMESTRE.ToList();
-                
+                var list = db.SEMESTRE.ToList();
+                /*
                 List<SEMESTRE> list = new List<SEMESTRE>();
                 
                 foreach (var tipo in c)
@@ -28,7 +28,7 @@ namespace EC.Dado
 
                     list.Add(obj);
                 }
-
+                */
                 return list;
             }
         }

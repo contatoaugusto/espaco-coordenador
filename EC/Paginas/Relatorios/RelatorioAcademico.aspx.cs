@@ -29,16 +29,17 @@ namespace UI.Web.EC.Paginas
 
             }
 
-            }
+        }
 
-            private void CarregarSemestre()
+        private void CarregarSemestre()
         {
-            ddlSemestre.DataSource = NSemestre.Consultar();
-            ddlSemestre.DataTextField = "";
-            ddlSemestre.DataValueField = "ID_SEMESTRE";
-            ddlSemestre.DataBind();
-
+            var lista = NSemestre.Consultar();
+            foreach(var semestre in lista)
+            {
+                string descricao = string.Format("{0}º Sem / {1}", semestre.SEMESTRE1, semestre.ANO);
+                ddlSemestre.Items.Add(new ListItem(descricao, semestre.ID_SEMESTRE.ToString()));
+            }
             ddlSemestre.Items.Insert(0, new ListItem("Selecione", ""));
         }
-        }
     }
+}

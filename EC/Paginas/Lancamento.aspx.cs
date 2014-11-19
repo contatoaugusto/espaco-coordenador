@@ -15,7 +15,6 @@ namespace UI.Web.EC.Paginas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        
             // Controle Acesso
             int[] cargoComAcesso = { 2 };
             string mensagem = ControleAcesso.verificaAcesso(cargoComAcesso);
@@ -23,9 +22,11 @@ namespace UI.Web.EC.Paginas
             {
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + mensagem + "');location.replace('../default.aspx')</script>");
             }
-            
+
             if (IsPostBack)
                 return;
+
+            lblSemestreCorrente.Text = DateTime.Now.ToString();
 
             CarregarListaAno();
             CarregarListaMes();
@@ -33,7 +34,8 @@ namespace UI.Web.EC.Paginas
             CarregarDisciplina();
             CarregarTipolancamento();
             CarregarTurma();
-            }
+            CarregarSemestre();
+        }
 
         private void CarregarListaDia()
         {
@@ -74,19 +76,17 @@ namespace UI.Web.EC.Paginas
             ddlAno.Items.Insert(0, new ListItem("", ""));
         }
 
-       
+
 
         private void CarregarTurma()
         {
-            var turmas = NLancamento.ConsultarTurma();
-
-            ddlTurma.Items.Add(new ListItem("Selecione", "0"));
+            var turmas = NLancamento.ConsultarTurma();//.OrderBy(rs => rs.TIPO_TURMA.DESCRICAO).OrderBy(rs => rs.PERIODO_CURSO);
             foreach (var turma in turmas)
             {
-               // ddlTurma.Items.Add(new ListItem(turma.SEMESTRE.SEMESTRE1 + "º sem/" + turma.SEMESTRE.ANO, turma.ID_TURMA.ToString()));
-                ddlTurma.Items.Insert(0, new ListItem("Selecione", ""));
+                ddlTurma.Items.Add(new ListItem(string.Format("{0} / {1}", turma.TIPO_TURMA.DESCRICAO, turma.PERIODO_CURSO)));
             }
-          
+            ddlTurma.Items.Insert(0, new ListItem("Selecione", ""));
+
         }
 
         private void CarregarDisciplina()
@@ -119,6 +119,7 @@ namespace UI.Web.EC.Paginas
                 ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
             }
         }
+
         private void CarregarTipolancamento()
         {
             ddlTipolancamento.DataSource = NLancamento.ConsultarTipolancamento();
@@ -128,12 +129,14 @@ namespace UI.Web.EC.Paginas
             ddlTipolancamento.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
-       // private void CarregarLancamento()
-        //{
-         //   grdLancamento.DataSource = NLancamento.ConsultarLancamento();
-          //  grdLancamento.DataBind();
-      //  }
+        private void CarregarSemestre()
+        {
+            var semestre = NSemestre.ConsultarAtivo();
+            lblSemestreCorrente.Text = semestre.SEMESTRE1 + "º sem/" + semestre.ANO;
+            hddSemestreCorrente.Value = semestre.ID_SEMESTRE.ToString();
+        }
 
+       
         protected void Button1_Click(object sender, EventArgs e)
         {
             LANCAMENTO lancamento = new LANCAMENTO();
@@ -149,9 +152,22 @@ namespace UI.Web.EC.Paginas
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
-        { 
+        {
             Response.Redirect("ConsultarLancamento.aspx", true);
         }
+
+        protected void ddlDisciplina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlDisciplina.SelectedIndex != -1)
+            {
+                var id = Convert.ToInt32(ddlDisciplina.SelectedValue);
+                var lista = NDisciplina.ConsultarProfessorByDisciplina(id).OrderBy(rs => rs.PESSOA.NOME);
+                foreach (var func in lista)
+                {
+                    ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
+                }
+            }
         }
     }
+}
 

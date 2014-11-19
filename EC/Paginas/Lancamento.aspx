@@ -40,7 +40,7 @@
                 Disciplina:
             </div>
             <div class="column w250">
-                <sgi:DropDownList ID="ddlDisciplina" runat="server"></sgi:DropDownList>
+                <sgi:DropDownList ID="ddlDisciplina" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDisciplina_SelectedIndexChanged"></sgi:DropDownList>
             </div>
         </div>
 

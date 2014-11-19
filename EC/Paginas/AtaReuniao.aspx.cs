@@ -58,9 +58,10 @@ namespace UI.Web.EC.Paginas
 
             ddlDia.DataSource = ListaDia;
             ddlDia.DataBind();
-
             ddlDiaFechamento.DataSource = ListaDia;
             ddlDiaFechamento.DataBind();
+            ddlDia.Items.Insert(0, new ListItem("", ""));
+            ddlDiaFechamento.Items.Insert(0, new ListItem("", ""));
         }
 
 
@@ -76,6 +77,8 @@ namespace UI.Web.EC.Paginas
             ddlMes.DataBind();
             ddlMesFechamento.DataSource = ListaMes;
             ddlMesFechamento.DataBind();
+            ddlMes.Items.Insert(0, new ListItem("", ""));
+            ddlMesFechamento.Items.Insert(0, new ListItem("", ""));
         }
         private void CarregarListaAno()
         {
@@ -89,6 +92,8 @@ namespace UI.Web.EC.Paginas
             ddlAno.DataBind();
             ddlAnoFechamento.DataSource = ListaAno;
             ddlAnoFechamento.DataBind();
+            ddlAno.Items.Insert(0, new ListItem("", ""));
+            ddlAnoFechamento.Items.Insert(0, new ListItem("", ""));
         }
         private void CarregarTipoAssunto()
         {
@@ -110,6 +115,8 @@ namespace UI.Web.EC.Paginas
             r.Text = "";
             r.Value = "";
             ddlPessoa.Items.Insert(0, r);
+
+            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         private void CarregarReuniao()

@@ -1200,6 +1200,7 @@
     <Content Include="Paginas\AgendaReuniao.aspx" />
     <Content Include="Paginas\QuestaoNotaAluno.aspx" />
     <Content Include="Paginas\ConsultarRepresentanteTurma.aspx" />
+    <Content Include="Paginas\Relatorios\QuantidadeVagas.aspx" />
     <Content Include="Paginas\Relatorios\QuestaoNota.aspx" />
     <Content Include="Paginas\Relatorios\RelatorioAcademico.aspx" />
     <Content Include="Paginas\Relatorios\RelatorioAcao.aspx" />
@@ -1377,6 +1378,14 @@
     </Compile>
     <Compile Include="Paginas\ConsultarRepresentanteTurma.aspx.designer.cs">
       <DependentUpon>ConsultarRepresentanteTurma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\Class1.cs" />
+    <Compile Include="Paginas\Relatorios\QuantidadeVagas.aspx.cs">
+      <DependentUpon>QuantidadeVagas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Relatorios\QuantidadeVagas.aspx.designer.cs">
+      <DependentUpon>QuantidadeVagas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Relatorios\QuestaoNota.aspx.cs">
       <DependentUpon>QuestaoNota.aspx</DependentUpon>

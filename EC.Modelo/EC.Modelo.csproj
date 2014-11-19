@@ -127,6 +127,7 @@
     <Compile Include="QUESTAO.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="RelatorioVagas.cs" />
     <Compile Include="REPRESENTANTE_TURMA.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

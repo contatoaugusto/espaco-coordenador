@@ -19,7 +19,7 @@
                 </AxisX>
                 <Area3DStyle Enable3D="True" />
             </asp:ChartArea>
-        </ChartAreas>
+        </ChartAreas> 
     </asp:Chart>
 
     <asp:Chart ID="chartProfessorQuestao2" runat="server" Width="924px" Height="351px" style="margin-top: 25px" OnDataBound="chartProfessorQuestao2_DataBound">

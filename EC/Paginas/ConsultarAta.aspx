@@ -5,6 +5,15 @@
 
     <%--<script src="../Includes/ea.modal.js" type="text/javascript"></script>--%>
   <br />
+    <script src="../Includes/ea.modal.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#closeModalpopup").click(function () {
+                document.location = "../default.aspx";
+            });
+        });
+    </script>
+
     <h3>Consultar Ata de Reunião</h3>
     
     <div class="form-in">

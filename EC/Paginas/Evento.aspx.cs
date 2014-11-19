@@ -36,7 +36,7 @@ namespace UI.Web.EC.Paginas
             CarregarListaMinuto();
             CarregarTipoEvento();
             CarregarPessoa();
-         
+
 
         }
 
@@ -122,7 +122,7 @@ namespace UI.Web.EC.Paginas
         {
             List<string> ListaMinuto = new List<string>();
             List<string> ListaMinuto1 = new List<string>();
-            
+
             for (int i = 0; i <= 60; i++)
             {
                 ListaMinuto.Add(i.ToString());
@@ -138,7 +138,7 @@ namespace UI.Web.EC.Paginas
             ddlMinuto1.DataSource = ListaMinuto1;
             ddlMinuto1.DataBind();
             ddlMinuto1.Items.Insert(0, new ListItem("", ""));
-            
+
         }
 
         //private void CarregarListaDia1()
@@ -193,7 +193,7 @@ namespace UI.Web.EC.Paginas
             ddlPessoa.DataValueField = "ID_PESSOA";
             ddlPessoa.DataBind();
             ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
-        
+
         }
 
         private void CarregarSemestre()
@@ -205,18 +205,26 @@ namespace UI.Web.EC.Paginas
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            EVENTO evento = new EVENTO();
-            evento.NOME = TxtNome.Text;
-            evento.ID_TIPOEVENTO = int.Parse(ddlTipoEvento.SelectedValue);
-            evento.DESCRICAO = TxtDescricao.TemplateSourceDirectory;
-            evento.LOCAL = TxtLocal.Text;
-            evento.INICIO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text),int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text),0);
-            evento.CONCLUSAO = new DateTime(int.Parse(ddlAno1.Text), int.Parse(ddlMes1.Text), int.Parse(ddlDia1.Text), int.Parse(ddlHora1.Text), int.Parse(ddlMinuto1.Text),0);
-           // grdEvento.DataSource = NQuestão.ConsultarAmc(); ;
-           // grdEvento.DataBind();
-            
-            NEvento.Salvar(evento);
-    
+            {
+                if (ddlTipoEvento.SelectedIndex == 0)
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
+                    return;
+
+                    EVENTO evento = new EVENTO();
+                    evento.NOME = TxtNome.Text;
+                    evento.ID_TIPOEVENTO = int.Parse(ddlTipoEvento.SelectedValue);
+                    evento.DESCRICAO = TxtDescricao.TemplateSourceDirectory;
+                    evento.LOCAL = TxtLocal.Text;
+                    evento.INICIO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
+                    evento.CONCLUSAO = new DateTime(int.Parse(ddlAno1.Text), int.Parse(ddlMes1.Text), int.Parse(ddlDia1.Text), int.Parse(ddlHora1.Text), int.Parse(ddlMinuto1.Text), 0);
+                    // grdEvento.DataSource = NQuestão.ConsultarAmc(); ;
+                    // grdEvento.DataBind();
+
+                    NEvento.Salvar(evento);
+
+                }
+            }
         }
     }
 }
