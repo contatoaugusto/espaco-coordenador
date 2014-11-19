@@ -548,6 +548,7 @@ namespace EC.Common
         public static readonly int FILTRO_AVANÇADO = 4;
 
         // Mensagems
+        public static readonly string MENSAGEM_ABRIR_SEMESTRE = "Confirma abertura do semestre?";
         public static readonly string MENSAGEM_CADASTRO_REPETIDO = "Cadastro já existe no sistema!";
         public static readonly string MENSAGEM_PREENCHER_CAMPOS = "Todos os campos da tela devem ser preenchidos!";
         public static readonly string MENSAGEM_EXCLUSAO_CONFIRMA = "Deseja excluir registro? ";

@@ -27,20 +27,22 @@ namespace UI.Web.EC.Paginas
                 if (IsPostBack)
                     return;
 
-                CarregarPessoa();
+                CarregarFuncionario();
                 CarregarTipolancamento();
-               
-
-            }
+                CarregarLancamento();
+             }
         }
 
-        private void CarregarPessoa()
+        private void CarregarFuncionario()
         {
-            ddlPessoa.DataSource = NAcao.ConsultarPessoa();
-            ddlPessoa.DataTextField = "NOME";
-            ddlPessoa.DataValueField = "ID_PESSOA";
-            ddlPessoa.DataBind();
-            ddlPessoa.Items.Insert(0, new ListItem("Selecione", ""));
+            var lista = NFuncionario.ConsultarFuncionario();
+
+            foreach (FUNCIONARIO func in lista)
+            {
+                ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
+            }
+
+            ddlFuncionario.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
       
@@ -53,7 +55,11 @@ namespace UI.Web.EC.Paginas
             ddlTipolancamento.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
-
+        private void CarregarLancamento()
+        {
+            grdLancamento.DataSource = NLancamento.ConsultarLancamento();
+            grdLancamento.DataBind();
+        }
 
         protected void btnovo_Click(object sender, EventArgs e)
         {
@@ -64,5 +70,13 @@ namespace UI.Web.EC.Paginas
         {
 
         }
+
+        protected void grdLancamento_SelectedIndexChanged(object sender, GridViewPageEventArgs e)
+        {
+         
+            grdLancamento.PageIndex = e.NewPageIndex;
+            CarregarLancamento();
+        }
+        }
+
     }
-}

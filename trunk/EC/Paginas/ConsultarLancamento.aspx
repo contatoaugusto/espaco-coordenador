@@ -34,7 +34,7 @@
                 Professor
             </div>
             <div class="column w250">
-                <asp:DropDownList ID="ddlPessoa" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlFuncionario" runat="server"></asp:DropDownList>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
 
         <h3>Lançamentos</h3>
 
-        <sgi:GridView ID="grdLancamento" runat="server" AutoGenerateColumns="False">
+        <sgi:GridView ID="grdLancamento" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="grdLancamento_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="ID_TIPOLANCAMENTO" HeaderText="Tipo" />

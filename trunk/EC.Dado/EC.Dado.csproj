@@ -48,6 +48,7 @@
     <Compile Include="DAluno.cs" />
     <Compile Include="DAlunoMatricula.cs" />
     <Compile Include="DAlunoAmc.cs" />
+    <Compile Include="DRelatorio.cs" />
     <Compile Include="DRepresentanteTurma.cs" />
     <Compile Include="DReuniaoCompromissos.cs" />
     <Compile Include="DReuniaoParticipante.cs" />

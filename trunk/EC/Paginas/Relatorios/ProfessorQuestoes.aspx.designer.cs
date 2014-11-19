@@ -22,11 +22,11 @@ namespace UI.Web.EC.Paginas.Relatorios {
         protected global::System.Web.UI.DataVisualization.Charting.Chart chartProfessorQuestao;
         
         /// <summary>
-        /// chartProfessorQuestao2 control.
+        /// Controle chartProfessorQuestao2.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.DataVisualization.Charting.Chart chartProfessorQuestao2;
     }

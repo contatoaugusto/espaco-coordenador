@@ -160,7 +160,7 @@
 
             <br />
             <div class="form-subtitle">
-                Ações Futuras
+                Compromissos
             </div>
             
             <div class="row">
@@ -237,6 +237,7 @@
             <div class="form-bottombuttons">
                 <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" OnClick="btnSalvarReuniao_Click" />
                 <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail" OnClick="btnSalvarReuniao_Click" />
+                <sgi:Button ID="btnImprimir" runat="server" Text="Imprimir" />
                 <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
             </div>
         </asp:Panel>

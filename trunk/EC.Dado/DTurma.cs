@@ -12,7 +12,9 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                var l = db.TURMA.ToList();
+                var ltTurma = db.TURMA.Include("TIPO_TURMA").ToList();
+
+                /*
                 List<TURMA> ltTurma = new List<TURMA>();
 
                 foreach (var tipo in l)
@@ -21,12 +23,14 @@ namespace EC.Dado
                     turma.ID_TURMA = tipo.ID_TURMA;
                     turma.ID_TIPOTURMA = tipo.ID_TIPOTURMA;
                     turma.ID_SEMESTRE = tipo.ID_SEMESTRE;
-
+                    turma.TIPO_TURMA = tipo.TIPO_TURMA;
+                    
                     turma.SEMESTRE = db.SEMESTRE.First(rs => rs.ID_SEMESTRE == tipo.ID_SEMESTRE);
 
 
                     ltTurma.Add(turma);
                 }
+                */
 
                 return ltTurma;
             }
