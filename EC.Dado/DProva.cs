@@ -51,8 +51,8 @@ namespace EC.Dado
                 {
                     var q = db.QUESTAO.First(rs => rs.ID_QUESTAO == questao.ID_QUESTAO);
                     q.ID_PROVA = prova.ID_PROVA;
-                    //db.QUESTAO.Attach(questao);
-                    //db.Entry(questao).State = System.Data.EntityState.Modified;
+                    q.NU_SEQUENCIA_PROVA = i;
+
                     db.SaveChanges();
 
                     questoesControle[i] = questao.ID_QUESTAO;

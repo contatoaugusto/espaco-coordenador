@@ -17,7 +17,7 @@ namespace EC.Modelo
         public int ID_ALUNO_AMC_QUESTAO { get; set; }
         public int ID_QUESTAO { get; set; }
         public int ID_ALUNO_AMC { get; set; }
-        public Nullable<decimal> NOTA { get; set; }
+        public Nullable<bool> ACERTO { get; set; }
     
         public virtual ALUNO_AMC ALUNO_AMC { get; set; }
         public virtual QUESTAO QUESTAO { get; set; }
