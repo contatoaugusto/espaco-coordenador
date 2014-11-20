@@ -76,6 +76,8 @@ namespace UI.Web.EC.Paginas
             AddSemestreSessao(se.ID_SEMESTRE);
 
             CarregarDados();
+
+            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
         }
 
         protected void ATIVO_CheckedChanged(object sender, EventArgs e)
@@ -95,6 +97,8 @@ namespace UI.Web.EC.Paginas
                 NSemestre.Atualizar(semestre);
 
                 AddSemestreSessao(semestre.ID_SEMESTRE);
+
+                CarregarDados();
 
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');</script>");
             }
