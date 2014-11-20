@@ -48,6 +48,12 @@
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="Período">
+                    <ItemTemplate>
+                        <asp:Label ID="lblTurmaDescricao" runat="server" Text='<%# Bind("TURMA.PERIODO_CURSO") %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Titular">
                     <ItemTemplate>
                         <asp:Label ID="lblTitular" runat="server" Text='<%#  Library.ToInteger(Eval("ID_TIPOREPRESENTANTE")) == 1 ? Eval("ALUNO_MATRICULA.ALUNO.PESSOA.NOME") :"" %>'></asp:Label>

@@ -30,7 +30,7 @@
 
             <div class="row">
                 <div class="column w80">
-                    Pauta nº:
+                    Reuniao nº:
                 </div>
                 <div class="column w250">
                     <asp:Label ID="lblNumeroReunião" runat="server"/>
@@ -133,7 +133,7 @@
                 </div>
                 <div class="column w150">
                     <asp:DropDownList ID="ddlTipoAssunto" runat="server"></asp:DropDownList>
-                     <asp:RequiredFieldValidator ID="rfv0" runat="server" ControlToValidate="ddlTipoAssunto" Font-Bold="true" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="rfv0" runat="server" ControlToValidate="ddlTipoAssunto" Font-Bold="true"></asp:RequiredFieldValidator>
                     <asp:ImageButton ID="btnIncluirAssunto" runat="server" ImageUrl="~/Imagens/adicionar.jpg" Width="23px" OnClick="btnIncluirAssunto_Click" ToolTip="Adiciona novo assunto tratado" CausesValidation="true"/>
                 </div>
             </div>

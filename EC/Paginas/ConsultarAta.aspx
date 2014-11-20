@@ -10,7 +10,7 @@
     <div class="form-in">
         <div class="row">
             <div class="column w100">
-                Reuniao: 
+                Reunião: 
             </div>
             <div class="column w250">
                 <asp:DropDownList ID="ddlReuniao" runat="server" OnSelectedIndexChanged="ddlReuniao_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
@@ -19,12 +19,12 @@
     
         <asp:Panel ID="pnlAta" runat="server" Visible="false">
             <div class="form-subtitle">
-                Ata Reuniao: 
+                Identificação da Ata de Reunião: 
             </div>
         
             <div class="row">
                 <div class="column w100">
-                    Reuniao: 
+                    Data da Reunião: 
                 </div>
                 <div class="column w250">
                     <asp:Label ID="lblReuniao" runat="server"></asp:Label>
@@ -32,7 +32,7 @@
             </div>
             <div class="row">
                 <div class="column w100">
-                    Responsável: 
+                    Ata elaborada por: 
                 </div>
                 <div class="column w250">
                     <asp:Label ID="lblResponsavel" runat="server"></asp:Label>
