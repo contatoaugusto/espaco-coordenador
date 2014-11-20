@@ -62,11 +62,7 @@
     
     <div class="cb"></div>    
     <div class="form-bottombuttons">
-        <asp:UpdatePanel runat="server">
-            <ContentTemplate>
                 <asp:Button ID="btnAbrirSemestre" runat="server" OnClientClick="return Confirma();" Text="Abrir semestre" OnClick="BtnAbrirSemestreClick" />
-            </ContentTemplate>
-        </asp:UpdatePanel>
     </div>
  
 

@@ -29,12 +29,12 @@
             <asp:Title Text="Percentual de Questões Criadas por Professor na AMC" Font="Arial, 12pt, style=Bold" />
         </Titles>--%>
         <Series>
-            <asp:Series Name="QuestaoAproveitamento" XValueMember="Questão" YValueMembers="Qtde. Acertos" Url="" ></asp:Series>
+            <asp:Series Name="QuestaoAproveitamento" XValueMember="Questão" YValueMembers="Qtde. Erros" Url="" ></asp:Series>
             <%--<asp:Series Name="QuestaoAproveitamentoErros" XValueMember="Questão" YValueMembers="Qtde. Acertos" ChartType="Column" Url="" ></asp:Series>--%>
         </Series>
         <ChartAreas>
             <asp:ChartArea Name="ChartArea1" BackColor="#ff9966">
-                <AxisY Title="Nº Acertos"></AxisY>
+                <AxisY Title="Nº Erros"></AxisY>
                 <AxisX Title="Questão" IsLabelAutoFit="True">
                     <LabelStyle Interval="1" />  
                 </AxisX>

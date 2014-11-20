@@ -103,13 +103,20 @@ namespace UI.Web.EC.Paginas
             }
             else
             {
+
+                var data = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
+                if (Library.CompareDate(data, DateTime.Now, DateTimeCompare.Minus))
+                {
+                    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_DATA_INVALIDA + "');</script>");
+                    return;
+                }
+                
                 AMC amc = new AMC();
 
                 string horaMinuto = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":00";
 
                 amc.ID_SEMESTRE = ((SessionUsuario)Session[Const.USUARIO]).IdSemestre;
-                amc.DATA_APLICACAO = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), int.Parse(ddlHora.Text), int.Parse(ddlMinuto.Text), 0);
-
+                amc.DATA_APLICACAO = data;
                 if (idAmc > 0)
                 {
                     amc.ID_AMC = idAmc;
