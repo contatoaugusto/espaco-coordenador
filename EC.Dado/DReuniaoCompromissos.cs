@@ -101,14 +101,22 @@ namespace EC.Dado
 
                         if (tipo.ID_COMPROMISSO > 0)
                             obj = db.REUNIAO_COMPROMISSO.First(rs => rs.ID_COMPROMISSO == tipo.ID_COMPROMISSO);
-
-                        obj.ID_REUNIAO = tipo.ID_REUNIAO;
+                        else
+                            obj.ID_REUNIAO = tipo.ID_REUNIAO;
+                        
                         obj.ID_PESSOA = tipo.ID_PESSOA;
                         obj.DESCRICAO = tipo.DESCRICAO;
                         obj.ITEM = tipo.ITEM;
                         obj.DATA = tipo.DATA;
-                        
-                        Salvar(obj);
+
+                        if (tipo.ID_COMPROMISSO > 0)
+                            db.SaveChanges();
+                        else
+                        {
+                            db.REUNIAO_COMPROMISSO.Add(obj);
+                            db.SaveChanges();
+                            db.Dispose();
+                        }
                     }
                 }
 

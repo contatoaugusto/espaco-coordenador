@@ -217,6 +217,8 @@ namespace UI.Web.EC.Reuniao
             {
                 reuniao.ID_REUNIAO = idReuniao;
                 NReuniao.Atualiza(reuniao);
+                NReuniaoPauta.Salvar(pautas, reuniao.ID_REUNIAO);
+                NReuniaoParticipante.Salvar(participantes, reuniao.ID_REUNIAO);
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "');</script>");
             }
             else {

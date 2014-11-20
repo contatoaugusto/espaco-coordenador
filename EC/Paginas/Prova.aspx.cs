@@ -134,7 +134,7 @@ namespace UI.Web.EC.Paginas
                     StringBuilder strQuestao = new StringBuilder();
                     StringBuilder strResposta = new StringBuilder();
 
-                    strQuestao.Append("Questão " + (i + 1) + " - " + item.DESCRICAO);
+                    strQuestao.Append("\n\nQuestão " + (i + 1) + " - " + item.DESCRICAO);
 
                     countResposta = 0; 
                     foreach (var itemResposta in item.RESPOSTA)

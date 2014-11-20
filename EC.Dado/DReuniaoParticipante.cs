@@ -128,12 +128,20 @@ namespace EC.Dado
 
                         if (participante.ID_PARTICIPANTE > 0)
                             obj = db.REUNIAO_PARTICIPANTE.First(rs => rs.ID_PARTICIPANTE == participante.ID_PARTICIPANTE);
-
-                        obj.ID_REUNIAO = idReuniao;
+                        else
+                            obj.ID_REUNIAO = idReuniao;
+                        
                         obj.PRESENCA = participante.PRESENCA;
                         obj.ID_PESSOA = participante.PESSOA.ID_PESSOA;
 
-                        Salvar(obj);
+                        if (participante.ID_PARTICIPANTE > 0)
+                            db.SaveChanges();
+                        else
+                        {
+                            db.REUNIAO_PARTICIPANTE.Add(obj);
+                            db.SaveChanges();
+                            db.Dispose();
+                        }
                     }
                 }
 

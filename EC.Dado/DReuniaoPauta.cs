@@ -123,11 +123,20 @@ namespace EC.Dado
 
                         if (pauta.ID_PAUTA > 0)
                             obj = db.REUNIAO_PAUTA.First(rs => rs.ID_PAUTA == pauta.ID_PAUTA);
-
-                        obj.ID_REUNIAO = idReuniao;
+                        else
+                            obj.ID_REUNIAO = idReuniao;
+                        
                         obj.DESCRICAO = pauta.DESCRICAO;
                         obj.ITEM = pauta.ITEM;
-                        Salvar(obj);
+                        
+                        if (pauta.ID_PAUTA > 0)
+                            db.SaveChanges();
+                        else
+                        {
+                            db.REUNIAO_PAUTA.Add(obj);
+                            db.SaveChanges();
+                            db.Dispose();
+                        }
                     }
                 }
 
