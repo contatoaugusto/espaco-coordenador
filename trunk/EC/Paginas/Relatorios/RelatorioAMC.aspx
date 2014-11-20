@@ -26,8 +26,8 @@
                 <asp:DropDownList ID="ddlTipoRelatorio" runat="server" OnSelectedIndexChanged="ddlTipoRelatorio_SelectedIndexChanged">
                     <asp:ListItem Value="0">Selecione</asp:ListItem>
                     <asp:ListItem Value="1">Participação de professores na AMC</asp:ListItem>
-                    <asp:ListItem Value="2">Desempenho de Alunos por questão</asp:ListItem>
-                    <asp:ListItem Value="3">Aproveitamento por Questão</asp:ListItem>
+                    <asp:ListItem Value="2">Relatório de Menções na AMC</asp:ListItem>
+                    <asp:ListItem Value="3">Desempenho de aluno por questão</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlTipoRelatorio" InitialValue="0" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
                 

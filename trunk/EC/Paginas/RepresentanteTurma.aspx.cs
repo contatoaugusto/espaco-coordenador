@@ -95,6 +95,8 @@ namespace UI.Web.EC.Paginas
             }
         }
 
+
+
         protected void CarregaTurma()
         {
             var turmas = NTurma.ConsultarTurmaByAlunoSemestre(hddAluno.Value.ToInt32(), hddSemestre.Value.ToInt32());
@@ -107,7 +109,7 @@ namespace UI.Web.EC.Paginas
             {
                 foreach (var turma in turmas)
                 {
-                    ddlTurma.Items.Add(new ListItem(turma.TIPO_TURMA.DESCRICAO, turma.ID_TURMA.ToString()));
+                    ddlTurma.Items.Add(new ListItem(string.Format("{0} / {1}", turma.TIPO_TURMA.DESCRICAO, turma.PERIODO_CURSO)));
                 }
             }
             else {
