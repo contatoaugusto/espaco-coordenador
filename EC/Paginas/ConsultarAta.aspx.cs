@@ -51,14 +51,14 @@ namespace UI.Web.EC.Paginas
                 lblReuniao.Text = reuniaoAta.REUNIAO.TITULO;
                 lblResponsavel.Text = reuniaoAta.FUNCIONARIO.PESSOA.NOME;
                 lblReuniao.Text = reuniaoAta.DATA_FECHAMENTO.ToDate().Day.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Month.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Year.ToString();
-                hddIdAta.Value = reuniaoAta.ID_ATA.ToString();
+                hddIdAta.Value = reuniaoAta.ID_REUNIAO.ToString();
                 pnlAta.Visible = true;
             }
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            Context.Response.Redirect("~/Paginas/AtaReuniao.aspx?idReuniaoAta=" + hddIdAta.Value);
+            Response.Redirect("~/Paginas/AtaReuniao.aspx?idReuniao=" + hddIdAta.Value);
         }
     }
 }
