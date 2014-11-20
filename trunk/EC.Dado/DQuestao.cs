@@ -104,16 +104,15 @@ namespace EC.Dado
                     questao.ID_QUESTAO = tipo.ID_QUESTAO;
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
-
-                    //DDisciplina disciplina = new DDisciplina();
-                    questao.DISCIPLINA = tipo.DISCIPLINA; //disciplina.ConsultarById(tipo.DISCIPLINA.ID_DISCIPLINA);
-
-                    //DFuncionario funcionario = new DFuncionario();
-                    questao.FUNCIONARIO = tipo.FUNCIONARIO; //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
+                    questao.ID_AMC = tipo.ID_AMC;
+                    questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
+                    questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
+                    
+                    questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.ID_DISCIPLINA);
+                    questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.ID_FUNCIONARIO); //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
 
                     //Respostas dessa questão
-                    DResposta resposta = new DResposta();
-                    var resp = resposta.ConsultarRespostaByQuestao(tipo.ID_QUESTAO);
+                    var resp = db.RESPOSTA.Where(rs => rs.ID_QUESTAO == idQuestao);
 
                     foreach (var r in resp)
                     {
@@ -195,12 +194,12 @@ namespace EC.Dado
                     questao.ID_QUESTAO = tipo.ID_QUESTAO;
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
+                    questao.ID_AMC = tipo.ID_AMC;
+                    questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
+                    questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
-                    //DDisciplina disciplina = new DDisciplina();
-                    questao.DISCIPLINA = tipo.DISCIPLINA; //disciplina.ConsultarById(tipo.DISCIPLINA.ID_DISCIPLINA);
-
-                    //DFuncionario funcionario = new DFuncionario();
-                    questao.FUNCIONARIO = tipo.FUNCIONARIO; //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
+                    questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.ID_DISCIPLINA);
+                    questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.ID_FUNCIONARIO); //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
 
                     //Respostas dessa questão
                     DResposta resposta = new DResposta();
@@ -237,9 +236,12 @@ namespace EC.Dado
                     questao.ID_QUESTAO = tipo.ID_QUESTAO;
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
+                    questao.ID_AMC = tipo.ID_AMC;
+                    questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
+                    questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
-                    questao.DISCIPLINA = tipo.DISCIPLINA; 
-                    questao.FUNCIONARIO = tipo.FUNCIONARIO; 
+                    questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.ID_DISCIPLINA);
+                    questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.ID_FUNCIONARIO); //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
 
                     //Respostas dessa questão
                     DResposta resposta = new DResposta();
@@ -276,9 +278,13 @@ namespace EC.Dado
                     questao.ID_QUESTAO = tipo.ID_QUESTAO;
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
+                    questao.ID_AMC = tipo.ID_AMC;
+                    questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
+                    questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
-                    questao.DISCIPLINA = tipo.DISCIPLINA;
-                    questao.FUNCIONARIO = tipo.FUNCIONARIO;
+                    questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.ID_DISCIPLINA);
+                    questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.ID_FUNCIONARIO); //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
+
 
                     //Respostas dessa questão
                     DResposta resposta = new DResposta();
@@ -315,8 +321,9 @@ namespace EC.Dado
                          questao.ID_QUESTAO,
                          questao.DESCRICAO,
                          questao.IMAGEM,
-                         questao.DISCIPLINA,
-                         questao.FUNCIONARIO 
+                         questao.ID_DISCIPLINA,
+                         questao.ID_FUNCIONARIO,
+                         questao.ID_AMC 
                      });
 
                 List<QUESTAO> ltQuestao = new List<QUESTAO>();
@@ -327,9 +334,12 @@ namespace EC.Dado
                     questao.ID_QUESTAO = tipo.ID_QUESTAO;
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
+                    questao.ID_AMC = tipo.ID_AMC;
+                    questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
+                    questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
-                    questao.DISCIPLINA = tipo.DISCIPLINA;
-                    questao.FUNCIONARIO = tipo.FUNCIONARIO;
+                    questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.ID_DISCIPLINA);
+                    questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.ID_FUNCIONARIO); //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
 
                     //Respostas dessa questão
                     DResposta resposta = new DResposta();
@@ -366,9 +376,13 @@ namespace EC.Dado
                     questao.ID_QUESTAO = tipo.ID_QUESTAO;
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
+                    questao.ID_AMC = tipo.ID_AMC;
+                    questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
+                    questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
-                    questao.DISCIPLINA = tipo.DISCIPLINA;
-                    questao.FUNCIONARIO = tipo.FUNCIONARIO;
+                    questao.DISCIPLINA = db.DISCIPLINA.First(rs => rs.ID_DISCIPLINA == tipo.ID_DISCIPLINA);
+                    questao.FUNCIONARIO = db.FUNCIONARIO.First(rs => rs.ID_FUNCIONARIO == tipo.ID_FUNCIONARIO); //funcionario.ConsultarById(tipo.FUNCIONARIO.ID_FUNCIONARIO);
+
 
                     //Respostas dessa questão
                     DResposta resposta = new DResposta();

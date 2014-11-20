@@ -137,13 +137,21 @@ namespace EC.Dado
 
                         if (assunto.ID_ASSTRAT > 0)
                             obj = db.REUNIAO_ASSUNTO_TRATADO.First(rs => rs.ID_ASSTRAT == assunto.ID_ASSTRAT);
-
-                        obj.ID_REUNIAO = assunto.ID_REUNIAO;
+                        else
+                            obj.ID_REUNIAO = assunto.ID_REUNIAO;
+                        
                         obj.DESCRICAO = assunto.DESCRICAO;
                         obj.ITEM = assunto.ITEM;
                         obj.ID_TIPOASSTRATADO = assunto.ID_TIPOASSTRATADO;
-                        
-                        Salvar(obj);
+
+                        if (assunto.ID_ASSTRAT > 0)
+                            db.SaveChanges();
+                        else
+                        {
+                            db.REUNIAO_ASSUNTO_TRATADO.Add(obj);
+                            db.SaveChanges();
+                            db.Dispose();
+                        }
                     }
                 }
 

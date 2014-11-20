@@ -101,6 +101,25 @@ namespace EC.Dado
             }
         }
 
+        public void Atualiza(RESPOSTA r)
+        {
+            try
+            {
+                using (ECEntities db = new ECEntities())
+                {
+                    //Salva a questão
+                    db.RESPOSTA.Add(r);
+                    db.SaveChanges();
+                    db.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
         public void Salvar(EntityCollection<RESPOSTA> objetos, int idPergunta)
         {
             try
@@ -113,11 +132,20 @@ namespace EC.Dado
 
                         if (tipo.ID_RESPOSTA > 0)
                             obj = db.RESPOSTA.First(rs => rs.ID_RESPOSTA == tipo.ID_RESPOSTA);
-
-                        obj.ID_RESPOSTA = idPergunta;
+                        else
+                            obj.ID_RESPOSTA = idPergunta;
+                        
                         obj.TEXTO = tipo.TEXTO;
                         obj.RESPOSTA_CORRETA = tipo.RESPOSTA_CORRETA;
-                        Salvar(obj);
+
+                        if (tipo.ID_RESPOSTA > 0)
+                            db.SaveChanges();
+                        else
+                        {
+                            db.RESPOSTA.Add(obj);
+                            db.SaveChanges();
+                            db.Dispose();
+                        }
                     }
                 }
 
