@@ -16,10 +16,10 @@ namespace UI.Web.EC.Paginas
         public static List<REUNIAO_ASSUNTO_TRATADO> assuntos;
         public static List<REUNIAO_COMPROMISSO> compromissos;
 
-        private int idAta
+        private int idReuniao
         {
-            get { return Library.ToInteger(ViewState["idAta"]); }
-            set { ViewState["idAta"] = value; }
+            get { return Library.ToInteger(ViewState["idReuniao"]); }
+            set { ViewState["idReuniao"] = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -33,7 +33,6 @@ namespace UI.Web.EC.Paginas
             }
 
             {
-                {
                     if (IsPostBack)
                         return;
                     CarregarListaAno();
@@ -44,7 +43,13 @@ namespace UI.Web.EC.Paginas
                     CarregarPessoa();
                     assuntos = new List<REUNIAO_ASSUNTO_TRATADO>();
                     compromissos = new List<REUNIAO_COMPROMISSO>();
-                }
+
+                    if (Request.QueryString["idReuniao"] != null)
+                    {
+                        idReuniao = Request.QueryString["idReuniao"].ToInt32();
+                        ddlReuniao.SelectedValue = idReuniao.ToString();
+                        ddlReuniao_SelectedIndexChanged(null,null);
+                    }
             }
         }
 
