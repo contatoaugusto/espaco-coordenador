@@ -62,7 +62,11 @@
             <asp:BoundField DataField="ID_ACAO" HeaderText="Nº"></asp:BoundField>
             <asp:BoundField DataField="TITULO" HeaderText="Titulo"></asp:BoundField>
             <asp:BoundField DataField="INICIO" HeaderText="Data" />
-            <asp:BoundField DataField="ID_PESSOA" HeaderText="Responsável" />
+            <asp:TemplateField HeaderText="Responsável">
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("PESSOA.NOME") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Ações">
                 <ItemTemplate>
@@ -73,6 +77,12 @@
             </asp:TemplateField>
 
         </Columns>
+
+<HeaderStyle CssClass="gridviewrowheader"></HeaderStyle>
+
+<PagerStyle CssClass="gridviewpaging"></PagerStyle>
+
+<RowStyle CssClass="gridviewrow"></RowStyle>
 
     </sgi:GridView>
 

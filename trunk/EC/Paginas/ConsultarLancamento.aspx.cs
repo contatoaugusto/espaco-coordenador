@@ -69,16 +69,23 @@ namespace UI.Web.EC.Paginas
 
         protected void btConsultar_Click(object sender, EventArgs e)
         {
+            
+                 LANCAMENTO lancamento = new LANCAMENTO();
+                    if (ddlTipolancamento.SelectedValue != "")
+                       lancamento.ID_FUNCIONARIO = Convert.ToInt32(ddlTipolancamento.SelectedValue);
+                   
+                    if (!string.IsNullOrEmpty(ddlFuncionario.SelectedValue))
+                       lancamento.ID_FUNCIONARIO = Convert.ToInt32(ddlFuncionario.SelectedValue);
 
-        }
 
-        protected void grdLancamento_SelectedIndexChanged(object sender, GridViewPageEventArgs e)
-        {
-            grdLancamento.PageIndex = e.NewPageIndex;
-            CarregarLancamento();
-        }
+                  //  var lista = NLancamento.ConsultarLancamento(lancamento);
 
+                   // grdLancamento.DataSource = lista;
+                   // grdLancamento.DataBind();
+                }
+            }
         }
-        }
+       
 
+      
     
