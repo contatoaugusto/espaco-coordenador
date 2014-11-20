@@ -25,6 +25,7 @@ namespace EC.Dado
                     alunoAmc.ID_ALUNO_AMC = tipo.ID_ALUNO_AMC;
                     alunoAmc.NOTA = tipo.NOTA;
                     alunoAmc.CLASSIFICACAO = tipo.CLASSIFICACAO;
+                    alunoAmc.NUMERO_ACERTOS = tipo.NUMERO_ACERTOS;
 
                     alunoAmc.AMC = tipo.AMC;
                     alunoAmc.ALUNO_MATRICULA = tipo.ALUNO_MATRICULA;
@@ -50,6 +51,7 @@ namespace EC.Dado
                     alunoAmc.ID_ALUNO_AMC = tipo.ID_ALUNO_AMC;
                     alunoAmc.NOTA = tipo.NOTA;
                     alunoAmc.CLASSIFICACAO = tipo.CLASSIFICACAO;
+                    alunoAmc.NUMERO_ACERTOS = tipo.NUMERO_ACERTOS;
 
                     alunoAmc.AMC = tipo.AMC;
                     alunoAmc.ALUNO_MATRICULA = tipo.ALUNO_MATRICULA;
@@ -79,6 +81,7 @@ namespace EC.Dado
                     alunoAmc.CLASSIFICACAO = tipo.CLASSIFICACAO;
                     alunoAmc.ID_AMC = tipo.ID_AMC;
                     alunoAmc.ID_ALUNO_MATRICULA = tipo.ID_ALUNO_MATRICULA;
+                    alunoAmc.NUMERO_ACERTOS = tipo.NUMERO_ACERTOS;
 
                     alunoAmc.AMC = tipo.AMC;
                     alunoAmc.ALUNO_MATRICULA = tipo.ALUNO_MATRICULA;
@@ -111,6 +114,7 @@ namespace EC.Dado
                     alunoAmc.CLASSIFICACAO = tipo.CLASSIFICACAO;
                     alunoAmc.ID_AMC = tipo.ID_AMC;
                     alunoAmc.ID_ALUNO_MATRICULA = tipo.ID_ALUNO_MATRICULA;
+                    alunoAmc.NUMERO_ACERTOS = tipo.NUMERO_ACERTOS;
 
                     alunoAmc.AMC = tipo.AMC;
                     alunoAmc.ALUNO_MATRICULA = tipo.ALUNO_MATRICULA;

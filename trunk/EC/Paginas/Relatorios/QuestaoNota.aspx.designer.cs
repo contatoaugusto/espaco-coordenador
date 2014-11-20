@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace UI.Web.EC.Paginas.Relatorios {
-
-
-    public partial class QuestaoNota
-    {
+    
+    
+    public partial class QuestaoNota {
         
         /// <summary>
         /// chart1 control.
@@ -21,5 +20,23 @@ namespace UI.Web.EC.Paginas.Relatorios {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.DataVisualization.Charting.Chart chart1;
+        
+        /// <summary>
+        /// chart2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.DataVisualization.Charting.Chart chart2;
+        
+        /// <summary>
+        /// btnExcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcel;
     }
 }

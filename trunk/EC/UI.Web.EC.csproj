@@ -1198,6 +1198,7 @@
     <Content Include="Includes\WebControls.css" />
     <Content Include="Paginas\Acao.aspx" />
     <Content Include="Paginas\AgendaReuniao.aspx" />
+    <Content Include="Paginas\AtaReuniaoImprimir.aspx" />
     <Content Include="Paginas\QuestaoNotaAluno.aspx" />
     <Content Include="Paginas\ConsultarRepresentanteTurma.aspx" />
     <Content Include="Paginas\Relatorios\QuestaoAproveitamento.aspx" />
@@ -1365,6 +1366,13 @@
     </Compile>
     <Compile Include="Paginas\Acao.aspx.designer.cs">
       <DependentUpon>Acao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\AtaReuniaoImprimir.aspx.cs">
+      <DependentUpon>AtaReuniaoImprimir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\AtaReuniaoImprimir.aspx.designer.cs">
+      <DependentUpon>AtaReuniaoImprimir.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\QuestaoNotaAluno.aspx.cs">
       <DependentUpon>QuestaoNotaAluno.aspx</DependentUpon>
