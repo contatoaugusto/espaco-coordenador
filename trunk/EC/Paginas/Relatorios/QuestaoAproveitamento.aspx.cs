@@ -49,7 +49,7 @@ namespace UI.Web.EC.Paginas.Relatorios
             int idCursoCoordenadorSessao = ((SessionUsuario)Session[Const.USUARIO]).IdCurso;
 
             var questoesProva = NQuestao.ConsultarQuestaoProvaByAmcCurso(idAmc, idCursoCoordenadorSessao);
-            var alunoAMCQuestao = NAlunoAmcQuestao.ConsultarByAmc(idAmc);
+            var alunoAMCQuestao = NAlunoAmcQuestao.ConsultarByAmc(idAmc).OrderBy(rs => rs.QUESTAO.NU_SEQUENCIA_PROVA);
 
             int btdeQuestoes = questoesProva.Count;
             int[] yValues = new int[btdeQuestoes];

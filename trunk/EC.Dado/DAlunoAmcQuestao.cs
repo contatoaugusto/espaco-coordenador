@@ -50,7 +50,7 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                var q = db.ALUNO_AMC_QUESTAO.Where(rs => rs.QUESTAO.ID_AMC == idAmc);
+                var q = db.ALUNO_AMC_QUESTAO.Where(rs => rs.QUESTAO.ID_AMC == idAmc).OrderBy(rs => rs.QUESTAO.NU_SEQUENCIA_PROVA).ToList();
 
                 List<ALUNO_AMC_QUESTAO> ltAlunoAmcQuestao = new List<ALUNO_AMC_QUESTAO>();
 
@@ -62,7 +62,7 @@ namespace EC.Dado
                     alunoAmcQuestao.ID_QUESTAO = tipo.ID_QUESTAO;
                     alunoAmcQuestao.ID_ALUNO_AMC = tipo.ID_ALUNO_AMC;
                     alunoAmcQuestao.ACERTO = tipo.ACERTO;
-
+                    alunoAmcQuestao.QUESTAO = db.QUESTAO.First(rs => rs.ID_QUESTAO == tipo.ID_QUESTAO);
                     ltAlunoAmcQuestao.Add(alunoAmcQuestao);
                 }
 

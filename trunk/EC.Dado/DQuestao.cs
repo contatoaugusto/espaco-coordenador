@@ -167,6 +167,7 @@ namespace EC.Dado
                     QUESTAO questao = new QUESTAO();
                     questao.ID_QUESTAO = tipo.ID_QUESTAO;
                     questao.DESCRICAO = tipo.DESCRICAO;
+                    questao.NU_SEQUENCIA_PROVA = tipo.NU_SEQUENCIA_PROVA;
                     questao.FUNCIONARIO = new FUNCIONARIO();
                     questao.FUNCIONARIO.PESSOA = new PESSOA();
                     questao.FUNCIONARIO.PESSOA.NOME = tipo.FUNCIONARIO.PESSOA.NOME;
@@ -195,6 +196,7 @@ namespace EC.Dado
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
                     questao.ID_AMC = tipo.ID_AMC;
+                    questao.NU_SEQUENCIA_PROVA = tipo.NU_SEQUENCIA_PROVA;
                     questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
                     questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
@@ -237,6 +239,7 @@ namespace EC.Dado
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
                     questao.ID_AMC = tipo.ID_AMC;
+                    questao.NU_SEQUENCIA_PROVA = tipo.NU_SEQUENCIA_PROVA;
                     questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
                     questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
@@ -268,7 +271,7 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                var q = db.QUESTAO.Where(rs => rs.ID_AMC == idAmc && rs.DISCIPLINA.CURSO.ID_CURSO == idCurso && rs.ID_PROVA != null);
+                var q = db.QUESTAO.Where(rs => rs.ID_AMC == idAmc && rs.DISCIPLINA.CURSO.ID_CURSO == idCurso && rs.ID_PROVA != null).OrderBy(rs => rs.NU_SEQUENCIA_PROVA);
 
                 List<QUESTAO> ltQuestao = new List<QUESTAO>();
 
@@ -279,6 +282,7 @@ namespace EC.Dado
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
                     questao.ID_AMC = tipo.ID_AMC;
+                    questao.NU_SEQUENCIA_PROVA = tipo.NU_SEQUENCIA_PROVA;
                     questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
                     questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
@@ -323,7 +327,8 @@ namespace EC.Dado
                          questao.IMAGEM,
                          questao.ID_DISCIPLINA,
                          questao.ID_FUNCIONARIO,
-                         questao.ID_AMC 
+                         questao.ID_AMC,
+                         questao.NU_SEQUENCIA_PROVA
                      });
 
                 List<QUESTAO> ltQuestao = new List<QUESTAO>();
@@ -335,6 +340,7 @@ namespace EC.Dado
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
                     questao.ID_AMC = tipo.ID_AMC;
+                    questao.NU_SEQUENCIA_PROVA = tipo.NU_SEQUENCIA_PROVA;
                     questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
                     questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
@@ -377,6 +383,7 @@ namespace EC.Dado
                     questao.DESCRICAO = tipo.DESCRICAO;
                     questao.IMAGEM = tipo.IMAGEM;
                     questao.ID_AMC = tipo.ID_AMC;
+                    questao.NU_SEQUENCIA_PROVA = tipo.NU_SEQUENCIA_PROVA;
                     questao.ID_DISCIPLINA = tipo.ID_DISCIPLINA;
                     questao.ID_FUNCIONARIO = tipo.ID_FUNCIONARIO;
 
