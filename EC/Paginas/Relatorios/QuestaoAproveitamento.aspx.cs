@@ -21,7 +21,7 @@ namespace UI.Web.EC.Paginas.Relatorios
         }
 
         private int[] idQuestaoArray;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             // Controle Acesso

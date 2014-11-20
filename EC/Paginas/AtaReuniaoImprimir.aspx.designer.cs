@@ -10,16 +10,7 @@
 namespace UI.Web.EC.Paginas {
     
     
-    public partial class AtaReunião {
-        
-        /// <summary>
-        /// messageBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::EC.UI.WebControls.MessageBox messageBox;
+    public partial class AtaReuniaoImprimir {
         
         /// <summary>
         /// ddlReuniao control.

@@ -14,7 +14,7 @@
         <ChartAreas>
             <asp:ChartArea Name="ChartArea1">
                 <AxisY Title="Notas"></AxisY>
-                <AxisX Title="Questões" IsLabelAutoFit="True">
+                <AxisX Title="Menções" IsLabelAutoFit="True">
                     <LabelStyle Angle="30" Interval="1" />
                 </AxisX>
                 <Area3DStyle Enable3D="True" />
@@ -22,8 +22,27 @@
         </ChartAreas>
     </asp:Chart>
 
-
-
+    
+    <asp:Chart ID="chart2" runat="server" Width="950px" Height="921px">
+        <Titles>
+            <asp:Title Text="Quantidade Acertos" Font="Arial, 12pt, style=Bold" />
+        </Titles>
+        <Series>
+            <asp:Series Name="serie2" XValueMember="Alunos" YValueMembers="Quantidade" ChartType="Bar" ></asp:Series>
+        </Series>
+        <ChartAreas>
+            <asp:ChartArea Name="ChartArea1">
+                <AxisY Title="Notas"></AxisY>
+                <AxisX Title="Alunos" IsLabelAutoFit="True">
+                    <LabelStyle Angle="30" Interval="1" />
+                </AxisX>
+                <Area3DStyle Enable3D="True" />
+            </asp:ChartArea>
+        </ChartAreas>
+    </asp:Chart>
+    <div class="form-bottombuttons">
+       <asp:Button ID="btnExcel" runat="server" Text="Eportar para Excel" OnClick="btnExcel_Click" />     
+    </div>
 
 
 </asp:Content>
