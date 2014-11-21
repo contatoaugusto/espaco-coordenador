@@ -180,12 +180,15 @@ namespace UI.Web.EC.Paginas
 
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
-            var data = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text), 0, 0, 0);
-            if (Library.CompareDate(data, DateTime.Now, DateTimeCompare.Minus))
-            {
-                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_DATA_INVALIDA + "');</script>");
-                return;
-            }
+            //var data = new DateTime(
+            //    Library.ToInteger(ddlAno.Text == string.Empty ? "1900" : ddlAno.Text),
+            //    Library.ToInteger(ddlMes.Text == string.Empty ? "1" : ddlMes.Text), 
+            //    Library.ToInteger(ddlDia.Text == string.Empty ? "1" : ddlDia.Text), 0, 0, 0);
+            //if (Library.CompareDate(data, DateTime.Now, DateTimeCompare.Minus))
+            //{
+            //    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_DATA_INVALIDA + "');</script>");
+            //    return;
+            //}
 
 
             // Salvar Assunto
@@ -201,7 +204,8 @@ namespace UI.Web.EC.Paginas
 
             NReuniaoAta.Salvar(reuniaoAta);
 
-            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
+            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "');location.replace('/Paginas/ConsultarAta.aspx?idReuniao=" + idReuniao + "')</script>");
+
         }
 
         protected void btnVoltar_Click(object sender, EventArgs e)
