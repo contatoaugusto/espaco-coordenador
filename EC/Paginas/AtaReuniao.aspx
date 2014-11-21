@@ -29,7 +29,7 @@
             </div>
 
             <div class="row">
-                <<div class="column w250">
+                <div class="column w250">
                     <asp:Label ID="lblNumeroReunião" runat="server"/>
                 </div>
             </div>
