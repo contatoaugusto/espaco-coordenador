@@ -135,8 +135,9 @@ namespace UI.Web.EC.Reuniao
         }
         private void CarregarListaAno()
         {
+            int anoFinal = NSemestre.ConsultarAtivo().ANO;
             List<string> ListaAno = new List<string>();
-            for (int i = 2014; i <= DateTime.Now.Year; i++)
+            for (int i = 2014; i <= anoFinal; i++)
             {
                 ListaAno.Add(i.ToString());
             }
