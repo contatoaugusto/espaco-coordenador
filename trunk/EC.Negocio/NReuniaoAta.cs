@@ -29,6 +29,11 @@ namespace EC.Negocio
         {
             (new DReuniaoAta()).Salvar(r);
         }
+
+        public static void Atualiza(REUNIAO_ATA r)
+        {
+            (new DReuniaoAta()).Atualiza(r);
+        }
     }
 }
  

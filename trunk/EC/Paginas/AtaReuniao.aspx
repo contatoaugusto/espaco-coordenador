@@ -226,9 +226,10 @@
                     Data do fechamento
                 </div>
                 <div class="column w200">
-                    <asp:DropDownList ID="ddlDiaFechamento" runat="server"></asp:DropDownList>
+                    <asp:Label ID="lblDataFechamento" runat="server"></asp:Label>
+                    <%--<asp:DropDownList ID="ddlDiaFechamento" runat="server"></asp:DropDownList>
                     <asp:DropDownList ID="ddlMesFechamento" runat="server"></asp:DropDownList>
-                    <asp:DropDownList ID="ddlAnoFechamento" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlAnoFechamento" runat="server"></asp:DropDownList>--%>
                 </div>
             </div>
 
@@ -238,6 +239,7 @@
                 <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" OnClick="btnSalvarReuniao_Click" CausesValidation="false"/>
                 <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail" OnClick="btnEnviaEmail_Click" CausesValidation="false"/>
                 <sgi:Button ID="btnImprimir" runat="server" Text="Imprimir" OnClick="btnImprimir_Click" CausesValidation="false" OnClientClick="aspnetForm.target ='_blank';"/>
+                <sgi:Button ID="btnFecharAta" runat="server" Text="Fechar Ata" OnClick="btnFecharAta_Click" CausesValidation="false"/>
                 <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" CausesValidation="false"/>
             </div>
         </asp:Panel>

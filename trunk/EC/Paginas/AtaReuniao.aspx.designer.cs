@@ -238,31 +238,13 @@ namespace UI.Web.EC.Paginas {
         protected global::System.Web.UI.WebControls.HiddenField hddResponsavelAta;
         
         /// <summary>
-        /// ddlDiaFechamento control.
+        /// lblDataFechamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDiaFechamento;
-        
-        /// <summary>
-        /// ddlMesFechamento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMesFechamento;
-        
-        /// <summary>
-        /// ddlAnoFechamento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAnoFechamento;
+        protected global::System.Web.UI.WebControls.Label lblDataFechamento;
         
         /// <summary>
         /// btnSalvarReuniao control.
@@ -290,6 +272,15 @@ namespace UI.Web.EC.Paginas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::EC.UI.WebControls.Button btnImprimir;
+        
+        /// <summary>
+        /// btnFecharAta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::EC.UI.WebControls.Button btnFecharAta;
         
         /// <summary>
         /// btnVoltar control.

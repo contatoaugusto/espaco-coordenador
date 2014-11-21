@@ -63,10 +63,10 @@ namespace UI.Web.EC.Paginas
 
             ddlDia.DataSource = ListaDia;
             ddlDia.DataBind();
-            ddlDiaFechamento.DataSource = ListaDia;
-            ddlDiaFechamento.DataBind();
+            //ddlDiaFechamento.DataSource = ListaDia;
+            //ddlDiaFechamento.DataBind();
             ddlDia.Items.Insert(0, new ListItem("", ""));
-            ddlDiaFechamento.Items.Insert(0, new ListItem("", ""));
+            //ddlDiaFechamento.Items.Insert(0, new ListItem("", ""));
         }
 
 
@@ -80,10 +80,10 @@ namespace UI.Web.EC.Paginas
 
             ddlMes.DataSource = ListaMes;
             ddlMes.DataBind();
-            ddlMesFechamento.DataSource = ListaMes;
-            ddlMesFechamento.DataBind();
+            //ddlMesFechamento.DataSource = ListaMes;
+            //ddlMesFechamento.DataBind();
             ddlMes.Items.Insert(0, new ListItem("", ""));
-            ddlMesFechamento.Items.Insert(0, new ListItem("", ""));
+            //ddlMesFechamento.Items.Insert(0, new ListItem("", ""));
         }
         private void CarregarListaAno()
         {
@@ -95,10 +95,10 @@ namespace UI.Web.EC.Paginas
 
             ddlAno.DataSource = ListaAno;
             ddlAno.DataBind();
-            ddlAnoFechamento.DataSource = ListaAno;
-            ddlAnoFechamento.DataBind();
+            //ddlAnoFechamento.DataSource = ListaAno;
+            //ddlAnoFechamento.DataBind();
             ddlAno.Items.Insert(0, new ListItem("", ""));
-            ddlAnoFechamento.Items.Insert(0, new ListItem("", ""));
+            //ddlAnoFechamento.Items.Insert(0, new ListItem("", ""));
         }
         private void CarregarTipoAssunto()
         {
@@ -205,7 +205,9 @@ namespace UI.Web.EC.Paginas
 
         protected void CarregarDadosReuniao()
         {
-            var reuniao = NReuniao.ConsultarById(Library.ToInteger(ddlReuniao.SelectedValue));
+            int idReuniao = Library.ToInteger(ddlReuniao.SelectedValue);
+            
+            var reuniao = NReuniao.ConsultarById(idReuniao);
             lblNumeroReunião.Text = reuniao.ID_REUNIAO.ToString();
             lblDataTeuniao.Text = reuniao.DATAHORA.ToDate().Day.ToString() + "/" + reuniao.DATAHORA.ToDate().Month.ToString() + "/" + reuniao.DATAHORA.ToDate().Year.ToString();
             lblHoraReuniao.Text = reuniao.DATAHORA.ToDate().Hour.ToString() + ":" + reuniao.DATAHORA.ToDate().Minute.ToString();
@@ -231,8 +233,33 @@ namespace UI.Web.EC.Paginas
 
             lblResponsavelAta.Text = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.PESSOA.NOME;
             hddResponsavelAta.Value = ((SessionUsuario)Session[Const.USUARIO]).USUARIO.FUNCIONARIO.ID_FUNCIONARIO.ToString();
-                        
+
+            var ata = NReuniaoAta.ConsultarByReuniao(idReuniao);
+            if (ata != null)
+            {
+                if (ata.DATA_FECHAMENTO != null)
+                {
+                    lblDataFechamento.Text = ata.DATA_FECHAMENTO.ToDate().Day.ToString() + "/" + ata.DATA_FECHAMENTO.ToDate().Month.ToString() + "/" + ata.DATA_FECHAMENTO.ToDate().Year.ToString();
+                    DisableComponentes();
+                }
+            }
+            else
+            {
+                btnEnviaEmail.Enabled = false;
+            }
             pnlAta.Visible = true;
+        }
+
+        private void DisableComponentes()
+        {
+            btnSalvarReuniao.Enabled = false;
+            btnFecharAta.Enabled = false;
+            TxtAssunto.Enabled = false;
+            ddlTipoAssunto.Enabled = false;
+            btnIncluirAssunto.Enabled = false;
+            TxtCompromisso.Enabled = false;
+            ddlPessoa.Enabled = false;
+            btnIncluircompromisso.Enabled = false;
         }
 
         protected void grdAssunto_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -340,6 +367,13 @@ namespace UI.Web.EC.Paginas
             mailer.Body = ddlReuniao.SelectedValue;
             mailer.IsHtml = true;
             mailer.Send();
+        }
+
+        protected void btnFecharAta_Click(object sender, EventArgs e)
+        {
+            var ata = NReuniaoAta.ConsultarById(Library.ToInteger(ddlReuniao.SelectedValue));
+            ata.DATA_FECHAMENTO = DateTime.Now;
+            NReuniaoAta.Atualiza(ata);
         }
       
     }
