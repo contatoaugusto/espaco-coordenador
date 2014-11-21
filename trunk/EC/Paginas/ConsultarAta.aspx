@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="form-bottombuttons">
-                <asp:Button ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
+                <asp:Button ID="btnEditar" runat="server" Text="Consultar" OnClick="btnEditar_Click" />
                 <asp:HiddenField ID="hddIdAta" runat="server" />
             </div>    
         </asp:Panel>
