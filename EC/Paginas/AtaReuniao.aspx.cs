@@ -32,24 +32,25 @@ namespace UI.Web.EC.Paginas
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + mensagem + "');location.replace('../default.aspx')</script>");
             }
 
-            {
-                    if (IsPostBack)
-                        return;
-                    CarregarListaAno();
-                    CarregarListaMes();
-                    CarregarListaDia();
-                    CarregarTipoAssunto();
-                    CarregarReuniao();
-                    CarregarPessoa();
-                    assuntos = new List<REUNIAO_ASSUNTO_TRATADO>();
-                    compromissos = new List<REUNIAO_COMPROMISSO>();
+            if (Request.QueryString["idReuniao"] != null)
+                idReuniao = Request.QueryString["idReuniao"].ToInt32();
 
-                    if (Request.QueryString["idReuniao"] != null)
-                    {
-                        idReuniao = Request.QueryString["idReuniao"].ToInt32();
-                        ddlReuniao.SelectedValue = idReuniao.ToString();
-                        ddlReuniao_SelectedIndexChanged(null,null);
-                    }
+            if (IsPostBack)
+                return;
+            CarregarListaAno();
+            CarregarListaMes();
+            CarregarListaDia();
+            CarregarTipoAssunto();
+            CarregarReuniao();
+            CarregarPessoa();
+            assuntos = new List<REUNIAO_ASSUNTO_TRATADO>();
+            compromissos = new List<REUNIAO_COMPROMISSO>();
+
+            if (idReuniao > 0)
+            {
+                ddlReuniao.SelectedValue = idReuniao.ToString();
+                ddlReuniao_SelectedIndexChanged(null, null);
+                ddlReuniao.Enabled = false;
             }
         }
 
@@ -127,14 +128,14 @@ namespace UI.Web.EC.Paginas
         private void CarregarReuniao()
         {
             var reunioes = NAcao.ConsultarReuniao();
-
+            
             ddlReuniao.Items.Clear();
             ddlReuniao.Items.Add(new ListItem("Selecione", "0"));
 
             foreach (var reuniao in reunioes)
             {
                 var ata = NReuniaoAta.ConsultarByReuniao(reuniao.ID_REUNIAO);
-                if (ata == null)
+                if (ata == null || (ata != null && ata.DATA_FECHAMENTO == null) || idReuniao > 0)
                     ddlReuniao.Items.Add(new ListItem(reuniao.TITULO, reuniao.ID_REUNIAO.ToString()));
             }
 
@@ -210,13 +211,15 @@ namespace UI.Web.EC.Paginas
 
         protected void ddlReuniao_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarregarDadosReuniao();
+            if (ddlReuniao.SelectedValue.ToInt32() > 0)
+                CarregarDadosReuniao();
         }
 
         protected void CarregarDadosReuniao()
         {
             int idReuniao = Library.ToInteger(ddlReuniao.SelectedValue);
-            
+
+            if (idReuniao > 0) { }
             var reuniao = NReuniao.ConsultarById(idReuniao);
             lblNumeroReunião.Text = reuniao.SEQUENCIA.ToString() + " - " + reuniao.TIPO_REUNIAO.DESCRICAO.ToString() + " - " + reuniao.SEMESTRE.SEMESTRE1.ToString() + "º sem/" + reuniao.SEMESTRE.ANO.ToString();
             lblDataTeuniao.Text = reuniao.DATAHORA.ToDate().Day.ToString() + "/" + reuniao.DATAHORA.ToDate().Month.ToString() + "/" + reuniao.DATAHORA.ToDate().Year.ToString();
