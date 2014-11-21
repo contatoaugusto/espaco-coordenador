@@ -248,6 +248,7 @@ namespace UI.Web.EC.Paginas
             else
             {
                 btnEnviaEmail.Enabled = false;
+                btnFecharAta.Enabled = false;
             }
             pnlAta.Visible = true;
         }
