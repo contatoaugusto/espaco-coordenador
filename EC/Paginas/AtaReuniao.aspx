@@ -235,10 +235,10 @@
             <div class="form-separator"></div>
             
             <div class="form-bottombuttons">
-                <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" OnClick="btnSalvarReuniao_Click" />
-                <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail" OnClick="btnSalvarReuniao_Click" />
-                <sgi:Button ID="btnImprimir" runat="server" Text="Imprimir" />
-                <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+                <sgi:Button ID="btnSalvarReuniao" runat="server" Text="Salvar" OnClick="btnSalvarReuniao_Click" CausesValidation="false"/>
+                <sgi:Button ID="btnEnviaEmail" runat="server" Text="Enviar E-mail" OnClick="btnEnviaEmail_Click" CausesValidation="false"/>
+                <sgi:Button ID="btnImprimir" runat="server" Text="Imprimir" OnClick="btnImprimir_Click" CausesValidation="false" OnClientClick="aspnetForm.target ='_blank';"/>
+                <sgi:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" CausesValidation="false"/>
             </div>
         </asp:Panel>
     </div>

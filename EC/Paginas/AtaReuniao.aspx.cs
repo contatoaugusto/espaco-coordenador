@@ -314,6 +314,33 @@ namespace UI.Web.EC.Paginas
                 }
             }
         }
+
+        protected void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AtaReuniaoImprimir.aspx?idReuniao=" + idReuniao, true);
+        }
+
+        protected void btnEnviaEmail_Click(object sender, EventArgs e)
+        {
+            string toMail = "";
+            foreach (var participante in NReuniaoParticipante.ConsultarByReuniao(idReuniao))
+            {
+                if (!string.IsNullOrEmpty(participante.PESSOA.EMAIL))
+                    toMail += participante.PESSOA.EMAIL +";";
+            }
+
+            Gmailer.GmailUsername = "contato@gmail.com";
+            Gmailer.GmailPassword = "12345";
+
+            Gmailer mailer = new Gmailer();
+
+
+            mailer.ToEmail = toMail;
+            mailer.Subject = ddlReuniao.SelectedValue;
+            mailer.Body = ddlReuniao.SelectedValue;
+            mailer.IsHtml = true;
+            mailer.Send();
+        }
       
     }
 }

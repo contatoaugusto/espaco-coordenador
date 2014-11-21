@@ -39,8 +39,8 @@ namespace UI.Web.EC.Paginas
 
             foreach (AMC obj in lista)
             {
-                if (obj.SEMESTRE.ATIVO)
-                    ddlAmc.Items.Add(new ListItem(obj.SEMESTRE.SEMESTRE1 + "º sem/" + obj.SEMESTRE.ANO, obj.ID_AMC.ToString()));
+                //if (obj.SEMESTRE.ATIVO)
+                ddlAmc.Items.Add(new ListItem(obj.SEMESTRE.SEMESTRE1 + "º sem/" + obj.SEMESTRE.ANO, obj.ID_AMC.ToString()));
             }
         }
 

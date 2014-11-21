@@ -26,7 +26,8 @@
                     AMC:
                 </div>
                 <div class="column w250">
-                    <sgi:DropDownList ID="ddlAmc" runat="server" equiredField="true"></sgi:DropDownList>
+                    <sgi:DropDownList ID="ddlAmc" runat="server" ></sgi:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfv0" runat="server" ControlToValidate="ddlAmc" Font-Bold="true" ErrorMessage="<br />Campo obrigatório"></asp:RequiredFieldValidator>
                     <%--<asp:Label ID="lblSemestreCorrente" runat="server"></asp:Label>--%>
                 </div>
             </div>
