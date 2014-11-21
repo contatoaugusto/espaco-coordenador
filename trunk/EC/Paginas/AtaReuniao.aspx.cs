@@ -186,7 +186,7 @@ namespace UI.Web.EC.Paginas
             REUNIAO_ATA reuniaoAta = new REUNIAO_ATA();
             reuniaoAta.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
             reuniaoAta.ID_FUNCIONARIO_RESPOSAVEL = hddResponsavelAta.Value.ToInt32();
-            reuniaoAta.DATA_FECHAMENTO = data;
+            //reuniaoAta.DATA_FECHAMENTO = data;
 
             NReuniaoAta.Salvar(reuniaoAta);
 
