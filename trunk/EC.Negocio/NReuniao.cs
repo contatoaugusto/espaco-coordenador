@@ -17,6 +17,11 @@ namespace EC.Negocio
             return (new DReuniao()).ConsultarTipoReuniao();
         }
 
+        public static List<REUNIAO> Consultar()
+        {
+            return (new DReuniao()).Consultar();
+        }
+
         public static List<REUNIAO> ConsultarReuniao(REUNIAO reuniao)
         {
             return (new DReuniao()).ConsultarReuniao(reuniao);

@@ -208,7 +208,7 @@ namespace UI.Web.EC.Paginas
             int idReuniao = Library.ToInteger(ddlReuniao.SelectedValue);
             
             var reuniao = NReuniao.ConsultarById(idReuniao);
-            lblNumeroReunião.Text = reuniao.ID_REUNIAO.ToString();
+            lblNumeroReunião.Text = reuniao.SEQUENCIA.ToString() + " - " + reuniao.TIPO_REUNIAO.DESCRICAO.ToString() + " - " + reuniao.SEMESTRE.SEMESTRE1.ToString() + "º sem/" + reuniao.SEMESTRE.ANO.ToString();
             lblDataTeuniao.Text = reuniao.DATAHORA.ToDate().Day.ToString() + "/" + reuniao.DATAHORA.ToDate().Month.ToString() + "/" + reuniao.DATAHORA.ToDate().Year.ToString();
             lblHoraReuniao.Text = reuniao.DATAHORA.ToDate().Hour.ToString() + ":" + reuniao.DATAHORA.ToDate().Minute.ToString();
             lblLocalReuniao.Text = reuniao.LOCAL;
@@ -242,6 +242,8 @@ namespace UI.Web.EC.Paginas
                     lblDataFechamento.Text = ata.DATA_FECHAMENTO.ToDate().Day.ToString() + "/" + ata.DATA_FECHAMENTO.ToDate().Month.ToString() + "/" + ata.DATA_FECHAMENTO.ToDate().Year.ToString();
                     DisableComponentes();
                 }
+                else
+                    lblDataFechamento.Text = "Sem fechamento";
             }
             else
             {
@@ -371,9 +373,13 @@ namespace UI.Web.EC.Paginas
 
         protected void btnFecharAta_Click(object sender, EventArgs e)
         {
-            var ata = NReuniaoAta.ConsultarById(Library.ToInteger(ddlReuniao.SelectedValue));
+            var ata = NReuniaoAta.ConsultarByReuniao(Library.ToInteger(ddlReuniao.SelectedValue));
             ata.DATA_FECHAMENTO = DateTime.Now;
             NReuniaoAta.Atualiza(ata);
+
+            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "');</script>");
+
+            Response.Redirect("~/Paginas/AtaReuniao.aspx?idReuniao=" + idReuniao);
         }
       
     }
