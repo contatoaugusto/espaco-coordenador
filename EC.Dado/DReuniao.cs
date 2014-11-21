@@ -28,6 +28,33 @@ namespace EC.Dado
             }
         }
 
+        public List<REUNIAO> Consultar()
+        {
+            using (ECEntities db = new ECEntities())
+            {
+                var r = db.REUNIAO.ToList();
+
+                List<REUNIAO> ltReuniao = new List<REUNIAO>();
+
+                foreach (var tipo in r)
+                {
+                    REUNIAO reuniao = new REUNIAO();
+                    reuniao.ID_REUNIAO = tipo.ID_REUNIAO;
+                    reuniao.ID_TIPOREUNIAO = tipo.ID_TIPOREUNIAO;
+                    reuniao.LOCAL = tipo.LOCAL;
+                    reuniao.DATAHORA = tipo.DATAHORA;
+                    reuniao.TITULO = tipo.TITULO;
+                    reuniao.ID_SEMESTRE = tipo.ID_SEMESTRE;
+
+                    reuniao.SEMESTRE = db.SEMESTRE.First(rs => rs.ID_SEMESTRE == tipo.ID_SEMESTRE);
+                    reuniao.TIPO_REUNIAO = db.TIPO_REUNIAO.First(rs => rs.ID_TIPOREUNIAO == tipo.ID_TIPOREUNIAO);
+
+                    ltReuniao.Add(reuniao);
+                }
+
+                return ltReuniao;
+            }
+        }
        
         public List<REUNIAO> ConsultarReuniao(REUNIAO objreuniao)
         {

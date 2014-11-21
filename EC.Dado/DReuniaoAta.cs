@@ -35,7 +35,7 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                return db.REUNIAO_ATA.First(rs => rs.ID_ATA == idAta);
+                return db.REUNIAO_ATA.FirstOrDefault(rs => rs.ID_ATA == idAta);
             }
         }
 

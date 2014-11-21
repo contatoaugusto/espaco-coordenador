@@ -35,12 +35,21 @@ namespace UI.Web.EC.Paginas
         
         private void CarregarReuniao()
         {
-            ddlReuniao.DataSource = NAcao.ConsultarReuniao();
-            ddlReuniao.DataTextField = "TITULO";
-            ddlReuniao.DataValueField = "ID_REUNIAO";
-            ddlReuniao.DataBind();
+            //ddlReuniao.DataSource = NAcao.ConsultarReuniao();
 
-            ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
+            var reunioes = NReuniao.Consultar();
+            
+            ddlReuniao.Items.Clear();
+            ddlReuniao.Items.Add(new ListItem("Selecione", "0"));
+
+            foreach (var reuniao in reunioes)
+            {
+                var ata = NReuniaoAta.ConsultarByReuniao(reuniao.ID_REUNIAO);
+                if (ata != null)
+                    ddlReuniao.Items.Add(new ListItem(reuniao.TITULO, reuniao.ID_REUNIAO.ToString()));
+            }
+
+            // ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         protected void ddlReuniao_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,8 +59,11 @@ namespace UI.Web.EC.Paginas
             {
                 lblReuniao.Text = reuniaoAta.REUNIAO.TITULO;
                 lblResponsavel.Text = reuniaoAta.FUNCIONARIO.PESSOA.NOME;
-                lblReuniao.Text = reuniaoAta.DATA_FECHAMENTO.ToDate().Day.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Month.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Year.ToString();
+                lblReuniao.Text = reuniaoAta.REUNIAO.DATAHORA.ToDate().Day.ToString() + "/" + reuniaoAta.REUNIAO.DATAHORA.ToDate().Month.ToString() + "/" + reuniaoAta.REUNIAO.DATAHORA.ToDate().Year.ToString();
                 hddIdAta.Value = reuniaoAta.ID_REUNIAO.ToString();
+                
+                lblFechamento.Text = reuniaoAta.DATA_FECHAMENTO.ToDate().Year == 1900 ? "Sem fechamento" : reuniaoAta.DATA_FECHAMENTO.ToDate().Day.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Month.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Year.ToString();
+                
                 pnlAta.Visible = true;
             }
         }
