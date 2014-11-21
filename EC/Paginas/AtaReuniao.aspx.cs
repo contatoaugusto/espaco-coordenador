@@ -378,9 +378,8 @@ namespace UI.Web.EC.Paginas
             ata.DATA_FECHAMENTO = DateTime.Now;
             NReuniaoAta.Atualiza(ata);
 
-            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "');</script>");
+            ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "');location.replace('/Paginas/AtaReuniao.aspx?idReuniao=" + idReuniao + "')</script>");
 
-            Response.Redirect("~/Paginas/AtaReuniao.aspx?idReuniao=" + idReuniao);
         }
       
     }
