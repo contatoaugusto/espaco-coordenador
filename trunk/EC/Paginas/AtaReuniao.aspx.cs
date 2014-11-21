@@ -126,12 +126,22 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarReuniao()
         {
-            ddlReuniao.DataSource = NAcao.ConsultarReuniao();
-            ddlReuniao.DataTextField = "TITULO";
-            ddlReuniao.DataValueField = "ID_REUNIAO";
-            ddlReuniao.DataBind();
+            var reunioes = NAcao.ConsultarReuniao();
 
-            ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
+            ddlReuniao.Items.Clear();
+            ddlReuniao.Items.Add(new ListItem("Selecione", "0"));
+
+            foreach (var reuniao in reunioes)
+            {
+                var ata = NReuniaoAta.ConsultarByReuniao(reuniao.ID_REUNIAO);
+                if (ata == null)
+                    ddlReuniao.Items.Add(new ListItem(reuniao.TITULO, reuniao.ID_REUNIAO.ToString()));
+            }
+
+            //ddlReuniao.DataTextField = "TITULO";
+            //ddlReuniao.DataValueField = "ID_REUNIAO";
+            //ddlReuniao.DataBind();
+            //ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         protected void btnIncluirAssunto_Click(object sender, ImageClickEventArgs e)
