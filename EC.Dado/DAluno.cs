@@ -36,9 +36,16 @@ namespace EC.Dado
         {
             using (ECEntities db = new ECEntities())
             {
-                var aluno = db.ALUNO.First(rs => rs.RA == nuRA);
-                aluno.PESSOA = db.PESSOA.First(rs => rs.ID_PESSOA == aluno.ID_PESSOA);
-                return aluno;
+                try
+                {
+                    var aluno = db.ALUNO.FirstOrDefault(rs => rs.RA == nuRA);
+                    aluno.PESSOA = db.PESSOA.First(rs => rs.ID_PESSOA == aluno.ID_PESSOA);
+                    return aluno;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
             }
         }
 
