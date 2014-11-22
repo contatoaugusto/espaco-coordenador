@@ -25,8 +25,8 @@ namespace EC.Common
         {
             HttpSessionState sessaoServidor = HttpContext.Current.Session;
             SessionUsuario sessionUsuario = ((SessionUsuario)sessaoServidor[Const.USUARIO]);
-            
-            string retorno = "Sem acesso ao recurso selecionado!";
+
+            string retorno = Const.MENSAGEM_SEM_ACESSO;
 
             foreach (var i in idCargoComAcesso)
             {

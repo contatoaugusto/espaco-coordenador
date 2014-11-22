@@ -144,9 +144,10 @@ namespace EC.Dado
                         {
                             db.RESPOSTA.Add(obj);
                             db.SaveChanges();
-                            db.Dispose();
+                            
                         }
                     }
+                    db.Dispose();
                 }
 
             }

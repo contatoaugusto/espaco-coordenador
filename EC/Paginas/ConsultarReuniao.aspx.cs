@@ -116,7 +116,6 @@ namespace UI.Web.EC.Paginas
             var ata = NReuniaoAta.ConsultarByReuniao(Eval("ID_REUNIAO").ToInt32());
             if (ata != null)
                 btn.Enabled = false;
-             //btn.OnClientClick = string.Format("window.open('{0}', 'yourNewWindow'); return false;", Eval("name"));
         }
     }
 }

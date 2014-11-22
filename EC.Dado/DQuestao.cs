@@ -487,6 +487,7 @@ namespace EC.Dado
                 originalQuestao.ID_FUNCIONARIO = q.ID_FUNCIONARIO;
                 originalQuestao.DESCRICAO = q.DESCRICAO;
                 originalQuestao.IMAGEM = q.IMAGEM;
+                originalQuestao.RESPOSTA = q.RESPOSTA;
 
                 //Respostas dessa questão
                 //originalQuestao.RESPOSTA = new EntityCollection<RESPOSTA>();
@@ -496,13 +497,7 @@ namespace EC.Dado
                 //    obj.TEXTO = r.TEXTO;
                 //    obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
 
-                //    //RESPOSTA obj = new RESPOSTA();
-                //    //obj.ID_RESPOSTA = r.ID_RESPOSTA;
-                //    //obj.ID_QUESTAO = q.ID_QUESTAO;
-                //    //obj.TEXTO = r.TEXTO;
-                //    //obj.RESPOSTA_CORRETA = r.RESPOSTA_CORRETA;
-
-                //    //originalQuestao.RESPOSTA.Attach(obj);
+                //    db.QUESTAO.RESPOSTA.mer(obj);
                 //}
                 
                 db.SaveChanges();

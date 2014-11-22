@@ -35,8 +35,7 @@ namespace UI.Web.EC.Paginas
         
         private void CarregarReuniao()
         {
-            //ddlReuniao.DataSource = NAcao.ConsultarReuniao();
-
+ 
             var reunioes = NReuniao.Consultar();
             
             ddlReuniao.Items.Clear();
@@ -49,10 +48,14 @@ namespace UI.Web.EC.Paginas
                     ddlReuniao.Items.Add(new ListItem(reuniao.TITULO, reuniao.ID_REUNIAO.ToString()));
             }
 
-            // ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         protected void ddlReuniao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarDadosReuniao();
+        }
+
+        private void CarregarDadosReuniao()
         {
             var reuniaoAta = NReuniaoAta.ConsultarByReuniao(Library.ToInteger(ddlReuniao.SelectedValue));
             if (reuniaoAta != null)
@@ -61,9 +64,9 @@ namespace UI.Web.EC.Paginas
                 lblResponsavel.Text = reuniaoAta.FUNCIONARIO.PESSOA.NOME;
                 lblReuniao.Text = reuniaoAta.REUNIAO.DATAHORA.ToDate().Day.ToString() + "/" + reuniaoAta.REUNIAO.DATAHORA.ToDate().Month.ToString() + "/" + reuniaoAta.REUNIAO.DATAHORA.ToDate().Year.ToString();
                 hddIdAta.Value = reuniaoAta.ID_REUNIAO.ToString();
-                
+
                 lblFechamento.Text = reuniaoAta.DATA_FECHAMENTO.ToDate().Year == 1900 ? "Sem fechamento" : reuniaoAta.DATA_FECHAMENTO.ToDate().Day.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Month.ToString() + "/" + reuniaoAta.DATA_FECHAMENTO.ToDate().Year.ToString();
-                
+
                 pnlAta.Visible = true;
             }
         }

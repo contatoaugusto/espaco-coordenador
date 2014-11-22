@@ -60,8 +60,9 @@ namespace UI.Web.EC.Paginas
 
 
             int i = 0;
-            foreach (var resposta in questao.RESPOSTA) {
-            
+            foreach (var resposta in questao.RESPOSTA)
+            {
+
                 switch (i)
                 {
                     case 0:
@@ -94,7 +95,7 @@ namespace UI.Web.EC.Paginas
                 i++;
             }
         }
-        
+
         private void CarregarAmc()
         {
             var lista = NAmc.ConsultarAmc();
@@ -110,7 +111,7 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarDisciplina()
         {
-  
+
             var disciplina = NDisciplina.ConsultarByCurso(Utils.GetUsuarioLogado().IdCurso);
             ddlDisciplina.Items.Clear();
 
@@ -124,7 +125,7 @@ namespace UI.Web.EC.Paginas
             CarregarFuncionario(ddlDisciplina.SelectedValue.ToInt32());
         }
 
-               
+
         private void CarregarFuncionario(int idDisciplina)
         {
             var lista = NDisciplina.ConsultarProfessorByDisciplina(idDisciplina); //NQuestão.ConsultarFuncionario();
@@ -132,7 +133,7 @@ namespace UI.Web.EC.Paginas
             ddlFuncionario.Items.Clear();
 
             ddlFuncionario.Items.Add(new ListItem("Selecione", "0"));
-            
+
             foreach (FUNCIONARIO func in lista)
             {
                 ddlFuncionario.Items.Add(new ListItem(func.PESSOA.NOME, func.ID_FUNCIONARIO.ToString()));
@@ -142,23 +143,12 @@ namespace UI.Web.EC.Paginas
 
         protected void Button1_Click1(object sender, EventArgs e)
         {
-            if (ddlAmc.SelectedIndex == 0)
-            {
-                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
-                return;
-            }
-            if (ddlDisciplina.SelectedIndex == 0)
-            {
-                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
-                return;
-            }
-            if (ddlFuncionario.SelectedIndex == 0)
+            if (ddlAmc.SelectedIndex == 0 || ddlDisciplina.SelectedIndex == 0 || ddlFuncionario.SelectedIndex == 0)
             {
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_PREENCHER_CAMPOS + "'); history.go(-1);</script>");
                 return;
             }
 
-            
             System.IO.Stream file = upLoad.PostedFile.InputStream;
             Byte[] buffer = new byte[file.Length];
             file.Read(buffer, 0, (int)file.Length);
@@ -205,20 +195,21 @@ namespace UI.Web.EC.Paginas
             listaResposta.Add(resposta4);
             listaResposta.Add(resposta5);
 
+            questao.RESPOSTA = listaResposta;
+
             if (idQuestao > 0)
             {
                 questao.ID_QUESTAO = idQuestao;
                 NQuestao.Atualiza(questao);
-                NResposta.Salvar(listaResposta, questao.ID_QUESTAO);
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_ALTERACAO_SUCESSO + "'); history.go(-1);</script>");
             }
             else
             {
                 NQuestao.Salvar(questao);
-                NResposta.Salvar(listaResposta, questao.ID_QUESTAO);
+                idQuestao = questao.ID_QUESTAO;
                 ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_INCLUSAO_SUCESSO + "'); history.go(-2);</script>");
-            }   
-           
+            }
+
             //Response.Redirect("Questao.aspx", true);
         }
 
@@ -232,5 +223,5 @@ namespace UI.Web.EC.Paginas
             CarregarFuncionario(Library.ToInteger(ddlDisciplina.SelectedValue));
         }
 
-        }
     }
+}
