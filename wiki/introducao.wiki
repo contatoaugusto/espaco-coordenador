@@ -26,4 +26,4 @@ Para possibilitar o gerenciamento e controle deste projeto é necessário fragme
 
 = Imagens =
 
-https://code.google.com/p/espaco-coordenador/source/browse/trunk/docs/Mapeamento%20do%20processo%20proposto%20AMC.png
+<img sr="https://code.google.com/p/espaco-coordenador/source/browse/trunk/docs/Mapeamento%20do%20processo%20proposto%20AMC.png" />
