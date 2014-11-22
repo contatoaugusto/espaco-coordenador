@@ -138,11 +138,6 @@ namespace UI.Web.EC.Paginas
                 if (ata == null || (ata != null && ata.DATA_FECHAMENTO == null) || idReuniao > 0)
                     ddlReuniao.Items.Add(new ListItem(reuniao.TITULO, reuniao.ID_REUNIAO.ToString()));
             }
-
-            //ddlReuniao.DataTextField = "TITULO";
-            //ddlReuniao.DataValueField = "ID_REUNIAO";
-            //ddlReuniao.DataBind();
-            //ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
         }
 
         protected void btnIncluirAssunto_Click(object sender, ImageClickEventArgs e)
@@ -161,35 +156,23 @@ namespace UI.Web.EC.Paginas
             }
         }
 
-      
+
         protected void btnIncluircompromisso_Click1(object sender, ImageClickEventArgs e)
         {
-            {
-                REUNIAO_COMPROMISSO compromisso = new REUNIAO_COMPROMISSO();
-                compromisso.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
-                compromisso.DESCRICAO = TxtCompromisso.Text;
-                compromisso.DATA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text));
-                compromisso.ID_PESSOA = Library.ToInteger(ddlPessoa.SelectedValue);
-                compromisso.PESSOA = NPessoa.ConsultarById( Library.ToInteger(ddlPessoa.SelectedValue));
-                compromisso.ITEM = compromissos.Count + 1;
-                compromissos.Add(compromisso);
-                grdCompromisso.DataSource = compromissos;
-                grdCompromisso.DataBind();
-            }
+            REUNIAO_COMPROMISSO compromisso = new REUNIAO_COMPROMISSO();
+            compromisso.ID_REUNIAO = Library.ToInteger(ddlReuniao.SelectedValue);
+            compromisso.DESCRICAO = TxtCompromisso.Text;
+            compromisso.DATA = new DateTime(int.Parse(ddlAno.Text), int.Parse(ddlMes.Text), int.Parse(ddlDia.Text));
+            compromisso.ID_PESSOA = Library.ToInteger(ddlPessoa.SelectedValue);
+            compromisso.PESSOA = NPessoa.ConsultarById(Library.ToInteger(ddlPessoa.SelectedValue));
+            compromisso.ITEM = compromissos.Count + 1;
+            compromissos.Add(compromisso);
+            grdCompromisso.DataSource = compromissos;
+            grdCompromisso.DataBind();
         }
 
         protected void btnSalvarReuniao_Click(object sender, EventArgs e)
         {
-            //var data = new DateTime(
-            //    Library.ToInteger(ddlAno.Text == string.Empty ? "1900" : ddlAno.Text),
-            //    Library.ToInteger(ddlMes.Text == string.Empty ? "1" : ddlMes.Text), 
-            //    Library.ToInteger(ddlDia.Text == string.Empty ? "1" : ddlDia.Text), 0, 0, 0);
-            //if (Library.CompareDate(data, DateTime.Now, DateTimeCompare.Minus))
-            //{
-            //    ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_DATA_INVALIDA + "');</script>");
-            //    return;
-            //}
-
 
             // Salvar Assunto
             NReuniaoAssuntoTratado.Salvar(assuntos);
