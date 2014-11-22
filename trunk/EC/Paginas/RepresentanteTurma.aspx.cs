@@ -70,19 +70,22 @@ namespace UI.Web.EC.Paginas
         {
             var aluno = NAluno.ConsultarByRA(txtRA.Text.ToInt32());
 
-            pnlRepresentante.Visible = true;
-            lblRA.Text = aluno.RA.ToString();
-            lblNome.Text = aluno.PESSOA.NOME;
-            hddAluno.Value = aluno.ID_ALUNO.ToString();
+            if (aluno != null)
+            {
+                pnlRepresentante.Visible = true;
+                lblRA.Text = aluno.RA.ToString();
+                lblNome.Text = aluno.PESSOA.NOME;
+                hddAluno.Value = aluno.ID_ALUNO.ToString();
 
-            CarregaSemestreCorrente();
-            CarregaTurma();
+                CarregaSemestreCorrente();
+                CarregaTurma();
 
-            lblEmail.Text = aluno.PESSOA.EMAIL;
-            lblTelefone.Text = aluno.PESSOA.TELEFONE;
-            hddAluno.Value = aluno.ID_ALUNO.ToString();
+                lblEmail.Text = aluno.PESSOA.EMAIL;
+                lblTelefone.Text = aluno.PESSOA.TELEFONE;
+                hddAluno.Value = aluno.ID_ALUNO.ToString();
+            }else
+                ClientScript.RegisterClientScriptBlock(GetType(), "Alert", "<script>alert('" + Const.MENSAGEM_CADASTRO_NAO_LOCALIZADO + "');</script>");
         }
-
 
         protected void CarregaSemestreCorrente()
         {
@@ -109,7 +112,7 @@ namespace UI.Web.EC.Paginas
             {
                 foreach (var turma in turmas)
                 {
-                    ddlTurma.Items.Add(new ListItem(string.Format("{0} / {1}", turma.TIPO_TURMA.DESCRICAO, turma.PERIODO_CURSO)));
+                    ddlTurma.Items.Add(new ListItem(string.Format("{0} / {1}", turma.TIPO_TURMA.DESCRICAO, turma.PERIODO_CURSO),turma.ID_TURMA.ToString()));
                 }
             }
             else {
