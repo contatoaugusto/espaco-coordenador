@@ -23,3 +23,7 @@ Para possibilitar o gerenciamento e controle deste projeto é necessário fragme
 4.	Realizar o monitoramento e o controle sobre os eventos e as atividades realizadas no Curso, em cada semestre letivo.
 
 5.	Controlar e monitorar os lançamentos de atrasos, faltas, entrega de diários e pautas e obter Relatórios com  infromações sobre a avaliação de desempenho dos Professores, do Curso, das Disciplinas e dos Alunos.
+
+= Imagens =
+
+https://code.google.com/p/espaco-coordenador/source/browse/trunk/docs/Mapeamento%20do%20processo%20proposto%20AMC.png
