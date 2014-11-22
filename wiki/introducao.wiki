@@ -1,5 +1,5 @@
 #labels Sistemadeinformação,CursosdeGraduação
-Trabalho de Conclusão de Curso apresentado como requisito parcial para obtenção do título de Analista de Sistemas, do Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas, da Faculdade de Tecnologia e Ciências Sociais Aplicadas (FATECS), do Centro Universitário de Brasília (UniCEUB).
+Trabalho de Conclusão de Curso desenvolvido por Alice Gome Guedes apresentado como requisito parcial para obtenção do título de Analista de Sistemas, do Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas, da Faculdade de Tecnologia e Ciências Sociais Aplicadas (FATECS), do Centro Universitário de Brasília (UniCEUB).
 
 = Introduction =
 
