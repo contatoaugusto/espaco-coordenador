@@ -44,9 +44,9 @@ namespace UI.Web.EC.Paginas
 
         private void CarregarReuniao()
         {
-            ddlReuniao.DataSource = NAcao.ConsultarReuniao();
-            ddlReuniao.DataTextField = "TITULO";
-            ddlReuniao.DataValueField = "ID_REUNIAO";
+            ddlReuniao.DataSource = NReuniao.ConsultarTipoReuniao();
+            ddlReuniao.DataTextField = "ID_TIPOREUNIAO";
+            ddlReuniao.DataValueField = "DESCRICAO";
             ddlReuniao.DataBind();
 
             ddlReuniao.Items.Insert(0, new ListItem("Selecione", ""));
