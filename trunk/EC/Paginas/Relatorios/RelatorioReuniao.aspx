@@ -17,7 +17,7 @@
         </div>
             <div class="row">
                 <div class="column w100">
-                    Reuniao:
+                    Tipo Reunião:
                 </div>
                 <div class="column w250">
                     <asp:DropDownList ID="ddlReuniao" runat="server"></asp:DropDownList>

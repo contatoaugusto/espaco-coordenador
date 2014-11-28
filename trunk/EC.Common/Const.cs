@@ -122,7 +122,7 @@ namespace EC.Common
         public static readonly string APP_TYPE_PDF = "application/pdf";
         public static readonly string MENSAGEM_DATA_INVALIDA_MENOR_INICIO = "Data inválida ou com data fim maior do que data início!";
         public static readonly string MENSAGEM_ATA_FECHADA = "Ata fechada, não é possível realizar nenhuma alteração.";
-        public static readonly string MENSAGEM_DATA_INVALIDA = "Data inválida, deve ser maior do que a data e hora atual!";
+        public static readonly string MENSAGEM_DATA_INVALIDA = "Data inválida!";
         public static readonly string MENSAGEM_SEM_ACESSO = "Sem acesso ao recurso selecionado!";
     }
 }
