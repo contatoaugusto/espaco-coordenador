@@ -1,0 +1,1 @@
+Trabalho de Conclusão de Curso de autoria de Alice Gomes Guedes e Maria Perciliana Guitierri intitulado como Espaço Coordenador, apresentado como requisito parcial para obtenção do Título Superior de Tecnologia em Análise e Desenvolvimento de Sistemas da FATECS, do UniCEUB, defendida e aprovada pela banca examinadora abaixo assinada.
